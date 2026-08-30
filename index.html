@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estúdio de Design — Sua Marca</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark">✦</span>
+      <div>
+        <h1>Estúdio de Design</h1>
+        <p>Paletas, estampas e coleções da sua marca</p>
+      </div>
+    </div>
+    <nav class="tabs">
+      <button class="tab-btn active" data-tab="paletas">Paletas</button>
+      <button class="tab-btn" data-tab="estampas">Estampas</button>
+      <button class="tab-btn" data-tab="tecidos">Tecidos</button>
+      <button class="tab-btn" data-tab="rendimento">Rendimento</button>
+      <button class="tab-btn" data-tab="colecoes">Coleções</button>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- PALETAS -->
+    <section id="paletas" class="tab-panel active">
+      <div class="panel-grid">
+        <div class="controls-card">
+          <h2>Montar paleta com suas cores</h2>
+          <p class="hint">Cadastre as cores/tecidos que você já tem disponíveis.</p>
+          <button id="useBasicsBtn" class="btn ghost small" style="width:100%;margin-bottom:12px;">+ Começar com Preto e Branco</button>
+          <label class="field">
+            <span>Cor</span>
+            <input type="color" id="manualColor" value="#000000">
+          </label>
+          <label class="field">
+            <span>Nome da cor / tecido</span>
+            <input type="text" id="manualColorLabel" placeholder="Ex: Preto, Cru, Areia...">
+          </label>
+          <button id="addManualColorBtn" class="btn secondary">+ Adicionar cor à paleta</button>
+
+          <div class="field" style="margin-top:16px;">
+            <span>Nome da paleta</span>
+            <input type="text" id="paletteName" placeholder="Ex: Básicas da marca">
+          </div>
+          <button id="savePaletteBtn" class="btn primary">Salvar paleta</button>
+        </div>
+
+        <div class="preview-card">
+          <h2>Cores adicionadas</h2>
+          <div id="manualSwatches" class="manual-swatches"></div>
+          <p id="manualEmptyHint" class="empty-hint">Nenhuma cor adicionada ainda.</p>
+        </div>
+      </div>
+
+      <h2 class="section-title">Paletas salvas</h2>
+      <div id="savedPalettes" class="cards-grid"></div>
+    </section>
+
+    <!-- ESTAMPAS -->
+    <section id="estampas" class="tab-panel">
+      <div class="panel-grid">
+        <div class="controls-card">
+          <h2>Gerar estampa</h2>
+          <label class="field">
+            <span>Paleta</span>
+            <select id="patternPalette"></select>
+          </label>
+          <label class="field">
+            <span>Tipo de estampa</span>
+            <select id="patternType">
+              <option value="listras">Listras</option>
+              <option value="poa">Poá</option>
+              <option value="geometrico">Geométrico</option>
+              <option value="organico">Orgânico</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>Escala <output id="scaleOut">40</output>px</span>
+            <input type="range" id="patternScale" min="12" max="100" value="40">
+          </label>
+          <label class="field">
+            <span>Rotação <output id="rotationOut">0</output>°</span>
+            <input type="range" id="patternRotation" min="0" max="90" value="0">
+          </label>
+          <button id="generatePatternBtn" class="btn primary">Atualizar estampa</button>
+
+          <h3 class="sub-title">Aplicar na peça</h3>
+          <label class="field">
+            <span>Peça</span>
+            <select id="garmentType">
+              <option value="camiseta">Camiseta</option>
+              <option value="vestido">Vestido</option>
+              <option value="moletom">Moletom</option>
+              <option value="calca">Calça</option>
+              <option value="jaqueta">Jaqueta</option>
+              <option value="saia">Saia</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>Nome da peça / referência</span>
+            <input type="text" id="pieceName" placeholder="Ex: Camiseta Estampa Terra 01">
+          </label>
+
+          <h3 class="sub-title">Catálogo da peça</h3>
+          <label class="field">
+            <span>Rendimento (ex: 0,65m tecido/peça)</span>
+            <input type="text" id="pieceYield" placeholder="Ex: 0,65m/peça ou 3 peças/m">
+          </label>
+          <label class="field">
+            <span>Custo de produção (R$)</span>
+            <input type="number" id="pieceCost" min="0" step="0.01" placeholder="Ex: 32.50">
+          </label>
+          <label class="field">
+            <span>Preço de venda (R$)</span>
+            <input type="number" id="piecePrice" min="0" step="0.01" placeholder="Ex: 89.90">
+          </label>
+          <button id="addToCollectionBtn" class="btn secondary">Adicionar a uma coleção</button>
+        </div>
+
+        <div class="preview-card">
+          <h2>Tecido</h2>
+          <div class="svg-wrap" id="fabricPreviewWrap"></div>
+          <button id="downloadPatternBtn" class="btn ghost small">Baixar estampa (PNG)</button>
+        </div>
+
+        <div class="preview-card">
+          <h2>Na peça</h2>
+          <div class="svg-wrap" id="garmentPreviewWrap"></div>
+          <button id="downloadGarmentBtn" class="btn ghost small">Baixar mockup (PNG)</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- TECIDOS -->
+    <section id="tecidos" class="tab-panel">
+      <div class="panel-grid two">
+        <div class="controls-card">
+          <h2>Novo tecido</h2>
+          <label class="field">
+            <span>Nome do tecido</span>
+            <input type="text" id="fabricName" placeholder="Ex: Starlink Light">
+          </label>
+          <label class="field">
+            <span>Composição</span>
+            <input type="text" id="fabricComposition" placeholder="Ex: 95% modal + 5% elastano">
+          </label>
+          <label class="field">
+            <span>Gramatura (g/m²)</span>
+            <input type="number" id="fabricWeight" min="0" step="1" placeholder="Ex: 190">
+          </label>
+          <label class="field">
+            <span>Largura útil (cm)</span>
+            <input type="number" id="fabricWidth" min="0" step="1" placeholder="Ex: 180">
+          </label>
+          <label class="field">
+            <span>Rendimento (m/kg)</span>
+            <input type="number" id="fabricYield" min="0" step="0.01" placeholder="Ex: 2.92">
+          </label>
+          <label class="field">
+            <span>Custo por kg (R$)</span>
+            <input type="number" id="fabricCostPerKg" min="0" step="0.01" placeholder="Ex: 45.00">
+          </label>
+          <button id="createFabricBtn" class="btn primary">Criar tecido</button>
+        </div>
+      </div>
+
+      <h2 class="section-title">Seu catálogo de tecidos</h2>
+      <div id="fabricsTotalValue" class="result-highlight"></div>
+      <div id="fabricsList" class="collections-list"></div>
+    </section>
+
+    <!-- RENDIMENTO -->
+    <section id="rendimento" class="tab-panel">
+      <div class="panel-grid three-even">
+        <div class="controls-card">
+          <h2>Tecido disponível</h2>
+          <label class="field">
+            <span>Usar do catálogo</span>
+            <select id="yieldFabricPick">
+              <option value="">— preencher manualmente —</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>Rendimento do tecido (m/kg)</span>
+            <input type="number" id="yieldMPerKg" min="0" step="0.01" placeholder="Ex: 2.92">
+          </label>
+          <label class="field">
+            <span>Peso disponível (kg)</span>
+            <input type="number" id="yieldWeightKg" min="0" step="0.01" placeholder="Ex: 10">
+          </label>
+          <label class="field">
+            <span>— ou comprimento direto (m)</span>
+            <input type="number" id="yieldLengthM" min="0" step="0.01" placeholder="deixe vazio se usar peso">
+          </label>
+          <label class="field">
+            <span>Largura útil do rolo (cm)</span>
+            <input type="number" id="yieldFabricWidth" min="0" step="1" value="150">
+          </label>
+          <label class="field">
+            <span>Custo total do tecido (R$) — opcional</span>
+            <input type="number" id="yieldFabricCost" min="0" step="0.01" placeholder="Ex: 180.00">
+          </label>
+        </div>
+
+        <div class="controls-card">
+          <h2>Molde da peça</h2>
+          <label class="field">
+            <span>Rendimento de corte (do modelista)</span>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <input type="number" id="yieldPiecesCount" min="0" step="1" placeholder="peças" style="width:100%;">
+              <span style="color:var(--ink-soft); font-size:13px; white-space:nowrap;">a cada</span>
+              <input type="number" id="yieldPiecesMeters" min="0" step="0.01" placeholder="metros" style="width:100%;">
+            </div>
+          </label>
+          <p class="hint" id="piecesPerMeterHint" style="margin:-8px 0 12px;">Ex: 3 peças a cada 2,1m. Se preenchido, usamos esse número direto — é mais preciso que a estimativa por grade abaixo.</p>
+          <label class="field">
+            <span>Largura do molde (cm)</span>
+            <input type="number" id="yieldMoldeW" min="0" step="1" placeholder="Ex: 60">
+          </label>
+          <label class="field">
+            <span>Comprimento do molde (cm)</span>
+            <input type="number" id="yieldMoldeH" min="0" step="1" placeholder="Ex: 80">
+          </label>
+          <label class="field">
+            <span>Margem entre moldes (cm)</span>
+            <input type="number" id="yieldMargin" min="0" step="0.5" value="2">
+          </label>
+          <button id="calcYieldBtn" class="btn primary">Calcular aproveitamento</button>
+          <button id="calcYieldAllColorsBtn" class="btn ghost small" style="width:100%;">Ver aproveitamento em todas as cores deste tecido</button>
+          <p class="hint">Sem "peças por metro": estimativa por grade retangular (não considera encaixe irregular de moldes nem sentido do fio — bom para uma primeira conta de custo/quantidade).</p>
+        </div>
+
+        <div class="preview-card" id="yieldResultCard">
+          <h2>Resultado</h2>
+          <p class="empty-hint">Preencha os dados e clique em "Calcular aproveitamento".</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- COLEÇÕES -->
+    <section id="colecoes" class="tab-panel">
+      <div class="panel-grid two">
+        <div class="controls-card">
+          <h2>Nova coleção</h2>
+          <label class="field">
+            <span>Nome</span>
+            <input type="text" id="collectionName" placeholder="Ex: Coleção Raízes">
+          </label>
+          <label class="field">
+            <span>Estação / momento</span>
+            <input type="text" id="collectionSeason" placeholder="Ex: Verão 2027">
+          </label>
+          <label class="field">
+            <span>Descrição / conceito</span>
+            <textarea id="collectionDesc" rows="3" placeholder="Conceito da coleção, público, inspiração..."></textarea>
+          </label>
+          <button id="createCollectionBtn" class="btn primary">Criar coleção</button>
+        </div>
+      </div>
+
+      <h2 class="section-title">Suas coleções</h2>
+      <div id="collectionsList" class="collections-list"></div>
+    </section>
+
+  </main>
+
+  <div id="modalRoot"></div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
