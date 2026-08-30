@@ -533,7 +533,7 @@ function renderCollections() {
       </div>
       ${col.description ? `<p class="collection-desc">${escapeHtml(col.description)}</p>` : ''}
       <div class="pieces-row">
-        ${col.pieces.map(pc => piecechipHtml(pc)).join('') || '<span class="empty-hint">Nenhuma peça ainda — vá até a aba Estampas para adicionar.</span>'}
+        ${col.pieces.map(pc => pieceChipHtml(pc)).join('') || '<span class="empty-hint">Nenhuma peça ainda — vá até a aba Estampas para adicionar.</span>'}
       </div>
     </div>
   `).join('');
@@ -548,7 +548,7 @@ function renderCollections() {
   });
 }
 
-function piecechipHtml(piece) {
+function pieceChipHtml(piece) {
   const patId = 'pat_chip_' + piece.id.slice(0, 8);
   const defs = buildPatternDefs(patId, piece.patternType, piece.colors, Math.max(piece.scale / 2.5, 10), piece.rotation);
   const svg = `<svg viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg"><defs>${defs}</defs><rect width="34" height="34" rx="6" fill="url(#${patId})"/></svg>`;
