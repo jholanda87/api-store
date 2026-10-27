@@ -1,5 +1,11 @@
 {
-  "avoid": ["Insider", "Reserva", "Hering", "Basico.com", "Shein"],
+  "avoid": [
+    "Insider",
+    "Reserva",
+    "Hering",
+    "Basico.com",
+    "Shein"
+  ],
   "anuncios": [
     {
       "canal": "loja",
@@ -31,10 +37,10 @@
     {
       "canal": "loja",
       "sku": "MOD-KIT-ESS",
-      "titulo": "Kit Essencial Modestino: uma de cada cor",
-      "seo_titulo": "Kit Essencial: 3 camisetas lisas, uma de cada cor | MODESTINO",
-      "seo_descricao": "Uma camiseta preta, uma mapple brown e uma off white, com ecobag, por R$ 225. Você escolhe o tamanho de cada peça.",
-      "descricao": "As três cores da Modestino juntas: uma Preto, uma Mapple Brown e uma Off White, com ecobag. Um básico para cada ocasião.\n\nAs cores já vêm definidas; você escolhe o tamanho de cada peça (P ao GG), que pode ser diferente em cada uma.\n\nLisas, sem logo. Só o nome MODESTINO pequeno na nuca, por dentro.\n\nLargura (axila a axila): P 51 · M 54 · G 57 · GG 60 cm\nTórax: P 102 · M 108 · G 114 · GG 120 cm\nMeça deitada uma camiseta sua que veste bem e compare.\n\nComposição: vem na etiqueta de cada peça.\n\nTroca: 7 dias para desistir da compra; 30 dias para trocar o tamanho ou por defeito, peça por peça. Em Fortaleza, a troca é em mãos.",
+      "titulo": "Kit Essencial Modestino",
+      "seo_titulo": "Kit Essencial: 3 camisetas lisas com ecobag | MODESTINO",
+      "seo_descricao": "Três camisetas lisas, sem logo, com ecobag, por R$ 225. A sugestão é uma de cada cor, mas você escolhe a cor e o tamanho de cada peça.",
+      "descricao": "Três camisetas básicas e uma ecobag. A nossa sugestão: uma Preto, uma Mapple Brown e uma Off White, para ter um básico para cada ocasião.\n\nMas a escolha é sua: troque as cores como quiser e escolha o tamanho de cada peça (P ao GG).\n\nLisas, sem logo. Só o nome MODESTINO pequeno na nuca, por dentro.\n\nLargura (axila a axila): P 51 · M 54 · G 57 · GG 60 cm\nTórax: P 102 · M 108 · G 114 · GG 120 cm\nMeça deitada uma camiseta sua que veste bem e compare.\n\nComposição: vem na etiqueta de cada peça.\n\nTroca: 7 dias para desistir da compra; 30 dias para trocar o tamanho ou por defeito, peça por peça. Em Fortaleza, a troca é em mãos.",
       "preco": 225
     }
   ]
