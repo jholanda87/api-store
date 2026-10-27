@@ -15,9 +15,9 @@
           </div>
           <p>{{ block.settings.texto }}</p>
           <div class="m-kit-card__preco">
-            <strong>{{ preco | money }}</strong>
-            <span>{{ por_peca | money }} por peça · com ecobag</span>
-            <span class="m-kit-card__ir">Escolher as peças</span>
+            <strong>{{ preco | money_without_trailing_zeros }}</strong>
+            <span>{{ por_peca | money_without_trailing_zeros }} a peça</span>
+            <span class="m-kit-card__ir">Montar meu kit</span>
           </div>
         </a>
       {%- endfor -%}
@@ -29,8 +29,8 @@
 {
   "name": "Kits",
   "settings": [
-    { "type": "text", "id": "titulo", "label": "Título", "default": "Leve mais de uma" },
-    { "type": "textarea", "id": "texto", "label": "Texto", "default": "Você escolhe a cor e o tamanho de cada peça. Todos os kits vêm com ecobag." }
+    { "type": "text", "id": "titulo", "label": "Título", "default": "Kit com 3, na ecobag." },
+    { "type": "textarea", "id": "texto", "label": "Texto", "default": "Escolha a cor e o tamanho de cada peça." }
   ],
   "blocks": [
     { "type": "kit", "name": "Kit", "settings": [

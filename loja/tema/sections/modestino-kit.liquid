@@ -30,8 +30,8 @@
 
   <div class="m-info">
     <h1>{{ product.title }}</h1>
-    <p class="m-info__lead">{{ pecas }} camisetas lisas, sem logo, e uma ecobag. {% if sugestao %}Sugestão: uma de cada cor. Troque como quiser.{% else %}Você escolhe a cor e o tamanho de cada uma.{% endif %}</p>
-    <p class="m-preco">{{ variante.price | money }}<small>{{ por_peca | money }} por peça</small></p>
+    <p class="m-info__lead">{% if sugestao %}Uma de cada cor, na ecobag. Troque se quiser.{% else %}{{ pecas }} camisetas, na ecobag. Cores livres.{% endif %}</p>
+    <p class="m-preco">{{ variante.price | money_without_trailing_zeros }}<small>{{ por_peca | money_without_trailing_zeros }} a peça</small></p>
 
     <form method="post" action="{{ routes.cart_add_url }}" data-kit-form novalidate>
       <input type="hidden" name="form_type" value="product">
@@ -41,7 +41,7 @@
 
       <fieldset class="m-pecas">
         <legend>Escolha cada peça</legend>
-        <p class="m-pecas__dica">{% if sugestao %}Já deixamos uma de cada cor. Escolha o tamanho de cada peça.{% else %}Pode repetir a cor.{% endif %} Medida de axila a axila: {% for t in tamanhos %}{{ t }} {{ larguras[forloop.index0] }}{% unless forloop.last %} · {% endunless %}{% endfor %} cm.</p>
+        <p class="m-pecas__dica">Largura de axila a axila: {% for t in tamanhos %}{{ t }} {{ larguras[forloop.index0] }}{% unless forloop.last %} · {% endunless %}{% endfor %} cm.</p>
         {%- for i in (1..pecas) -%}
           {%- assign idx = forloop.index0 -%}
           <div class="m-peca" data-peca>
@@ -71,14 +71,14 @@
       {%- render 'modestino-servico' -%}
 
       <div class="m-comprar">
-        <p class="m-cupom-kit">O cupom de embaixador vale na peça avulsa. No kit você já paga menos por peça.</p>
-        <button type="submit" class="m-btn m-btn--primario m-btn--largo" data-comprar>Adicionar o kit ao carrinho · {{ variante.price | money }}</button>
-        <a class="m-btn m-btn--secundario m-btn--largo" href="{{ section.settings.whatsapp }}" target="_blank" rel="noopener">{% render 'modestino-icone', nome: 'whatsapp' %}Tirar dúvida no WhatsApp</a>
+        <p class="m-cupom-kit">Cupom de embaixador vale só na avulsa.</p>
+        <button type="submit" class="m-btn m-btn--primario m-btn--largo" data-comprar>Adicionar o kit · {{ variante.price | money_without_trailing_zeros }}</button>
+        <a class="m-btn m-btn--secundario m-btn--largo" href="{{ section.settings.whatsapp }}" target="_blank" rel="noopener">{% render 'modestino-icone', nome: 'whatsapp' %}Dúvida? WhatsApp</a>
       </div>
     </form>
 
     <div class="m-desc">
-      <h2>Sobre o kit</h2>
+      <h2>Detalhes</h2>
       {{ product.description }}
     </div>
   </div>
@@ -119,7 +119,7 @@
         usados[chave] = (usados[chave] || 0) + 1;
         if (usados[chave] > (estoque[chave] || 0)) {
           msg = (estoque[chave] || 0) === 0
-            ? cor.value + ' ' + tam.value + ' acabou. Escolha outra cor ou outro tamanho para a peça ' + (n + 1) + '.'
+            ? cor.value + ' ' + tam.value + ' esgotado. Troque a peça ' + (n + 1) + '.'
             : 'Só temos ' + estoque[chave] + ' de ' + cor.value + ' ' + tam.value + '. Troque a peça ' + (n + 1) + '.';
           tam.setAttribute('aria-invalid', 'true');
         }
@@ -137,7 +137,7 @@
       if (vazia || !validar()) {
         ev.preventDefault();
         if (vazia) {
-          erro.textContent = 'Escolha a cor e o tamanho de todas as peças.';
+          erro.textContent = 'Escolha cor e tamanho de todas as peças.';
           erro.hidden = false;
           const alvo = [...vazia.querySelectorAll('select')].find((s) => !s.value);
           if (alvo) alvo.focus();

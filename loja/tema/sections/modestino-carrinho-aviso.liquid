@@ -22,17 +22,17 @@
 -%}
 {%- if cart.item_count == 0 -%}
   <section class="m-wrap m-vazio">
-    <h1>Seu carrinho está vazio. Comece pela cor.</h1>
-    <a class="m-btn m-btn--primario" href="/products/camiseta-basica-modestino">Ver a Camiseta Básica</a>
+    <h1>Seu carrinho está vazio.</h1>
+    <a class="m-btn m-btn--primario" href="/products/camiseta-basica-modestino">Escolher a cor</a>
   </section>
 {%- else -%}
   <div class="m-wrap m-carrinho-aviso" aria-live="polite">
     {%- if cupom_recusado != '' and tem_kit -%}
-      <p data-tipo="erro">O cupom {{ cupom_recusado }} é de embaixador e vale só na camiseta avulsa. No kit você já paga menos por peça{% if tem_avulsa %}; o desconto entra só nas avulsas{% endif %}.</p>
+      <p data-tipo="erro">{{ cupom_recusado }} vale só na camiseta avulsa. No kit, a peça já sai por menos.</p>
     {%- elsif cupom_recusado != '' -%}
-      <p data-tipo="erro">O cupom {{ cupom_recusado }} não vale para este carrinho. Confira o código ou chame a gente no WhatsApp.</p>
+      <p data-tipo="erro">{{ cupom_recusado }} não vale para este carrinho.</p>
     {%- elsif tem_kit -%}
-      <p>Cupom de embaixador vale só na camiseta avulsa. No kit você já paga menos por peça.</p>
+      <p>Cupom de embaixador vale só na avulsa.</p>
     {%- endif -%}
   </div>
 {%- endif -%}

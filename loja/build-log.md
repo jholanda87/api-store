@@ -1,5 +1,15 @@
 # Construção da loja — registro
 
+## 27/10/2026 (noite, 2ª rodada) — textos no tom do mockup aprovado
+
+Pedido do Jorge: textos minimalistas, só o necessário, na voz do mockup aprovado ("Modestino — Landing page", 21/10) e do Instagram, calibrados pelas lojas grandes.
+- Estudo rápido (estrutura, sem copiar texto): nas grandes, título de produto com 2 palavras, faixa de 3 a 4 benefícios curtos, botões de 2 a 3 palavras, rodapé com links de 1 a 3 palavras e detalhes guardados em blocos.
+- Início: título "O básico que os próprios donos conferem e entregam em Fortaleza." (frase A encurtada) + "Sem pedido errado, sem troca presa. Não serviu? A gente troca em mãos."; botão "Escolher a cor"; "Olhe de perto." com 4 linhas curtas; "Kit com 3, na ecobag."; fechamento "Básico com postura." (do mockup).
+- Produto e kit: frases de uma linha, preço sem centavos (R$ 80, como no mockup), calculadora "Meça a que você já ama", "Adicionar · R$ 80", frete/troca/pagamento em uma linha cada, "Detalhes".
+- Descrições dos 4 produtos encurtadas em `catalogo/textos.json` e gravadas na Shopify (`vitrine.py` 0 erros).
+- Perguntas: 10, uma ou duas linhas cada. Rodapé: Loja · Ajuda · Contato, com @lojamodestino. Página de trocas: só o início e o contato encurtados (o resto é texto legal).
+- 13 arquivos reenviados ao tema de construção, checksums conferidos; tema segue não publicado.
+
 ## 27/10/2026 (noite) — etapa 6: casca, telas e fotos provisórias
 
 Tema "Modestino (construção)" (`167188168752`, **não publicado**), editado pelo conector (`themeFilesUpsert`); os 36 arquivos conferidos por checksum com `loja/tema/`. Tema no ar (Horizon `166315229232`) não foi tocado; loja continua com senha.

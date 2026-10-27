@@ -42,6 +42,7 @@ def money(c):
 
 
 env.add_filter('money', money)
+env.add_filter('money_without_trailing_zeros', lambda c: money(c)[:-3] if int(c or 0) % 100 == 0 else money(c))
 env.add_filter('asset_url', lambda n: 'assets/' + n)
 env.add_filter('stylesheet_tag', lambda u: f'<link rel="stylesheet" href="{u}">')
 env.add_filter('json', lambda v: json.dumps(v, ensure_ascii=False))

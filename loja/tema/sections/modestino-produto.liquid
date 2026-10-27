@@ -36,7 +36,7 @@
   <div class="m-info">
     <h1>{{ product.title }}</h1>
     <p class="m-info__lead">{{ section.settings.lead }}</p>
-    <p class="m-preco"><span data-preco>{{ inicial.price | money }}</span><small>no Pix ou no cartão</small></p>
+    <p class="m-preco"><span data-preco>{{ inicial.price | money_without_trailing_zeros }}</span><small>Pix ou cartão</small></p>
 
     <form method="post" action="{{ routes.cart_add_url }}" class="m-form" data-form novalidate>
       <input type="hidden" name="form_type" value="product">
@@ -78,14 +78,14 @@
       </fieldset>
 
       <details class="m-calc">
-        <summary>Não sabe o tamanho? Meça uma camiseta sua</summary>
+        <summary>Meça a que você já ama</summary>
         <div class="m-calc__corpo">
-          <p>Pegue uma camiseta que veste bem em você, deite numa mesa e meça de axila a axila, em centímetros.</p>
+          <p>Estenda na mesa a camiseta que você mais usa, sem esticar, e meça de axila a axila.</p>
           <div class="m-calc__linha">
-            <label for="calc-{{ section.id }}">Largura da sua camiseta (cm)
+            <label for="calc-{{ section.id }}">Largura (cm)
               <input class="m-input" id="calc-{{ section.id }}" type="number" inputmode="decimal" min="40" max="70" step="0.5" placeholder="ex.: 54" data-calc aria-describedby="calc-res-{{ section.id }}">
             </label>
-            <button type="button" class="m-btn m-btn--secundario" data-calc-ok>Ver meu tamanho</button>
+            <button type="button" class="m-btn m-btn--secundario" data-calc-ok>Ver tamanho</button>
           </div>
           <p class="m-calc__res" id="calc-res-{{ section.id }}" data-calc-res aria-live="polite"></p>
           <div class="m-tabela-caixa">
@@ -115,22 +115,22 @@
 
       <div class="m-comprar">
         <button type="submit" class="m-btn m-btn--primario m-btn--largo" data-comprar {% unless selecionada and selecionada.available %}aria-disabled="true"{% endunless %}>
-          {%- if selecionada and selecionada.available -%}Adicionar ao carrinho · {{ selecionada.price | money }}{%- else -%}Escolha o tamanho{%- endif -%}
+          {%- if selecionada and selecionada.available -%}Adicionar · {{ selecionada.price | money_without_trailing_zeros }}{%- else -%}Escolha o tamanho{%- endif -%}
         </button>
         <p class="m-form-erro" data-erro role="alert" hidden></p>
-        <a class="m-btn m-btn--secundario m-btn--largo" href="{{ wa }}" target="_blank" rel="noopener">{% render 'modestino-icone', nome: 'whatsapp' %}Tirar dúvida no WhatsApp</a>
+        <a class="m-btn m-btn--secundario m-btn--largo" href="{{ wa }}" target="_blank" rel="noopener">{% render 'modestino-icone', nome: 'whatsapp' %}Dúvida? WhatsApp</a>
       </div>
     </form>
 
     <div class="m-desc">
-      <h2>Sobre a peça</h2>
+      <h2>Detalhes</h2>
       {{ product.description }}
     </div>
   </div>
 </div>
 
 <script type="application/json" data-variantes>
-  [{%- for v in product.variants -%}{"id":{{ v.id }},"cor":{{ v.option1 | json }},"tam":{{ v.option2 | json }},"ok":{{ v.available }},"qtd":{% if v.inventory_management %}{{ v.inventory_quantity }}{% else %}99{% endif %},"preco":{{ v.price | money | json }}}{% unless forloop.last %},{% endunless %}{%- endfor -%}]
+  [{%- for v in product.variants -%}{"id":{{ v.id }},"cor":{{ v.option1 | json }},"tam":{{ v.option2 | json }},"ok":{{ v.available }},"qtd":{% if v.inventory_management %}{{ v.inventory_quantity }}{% else %}99{% endif %},"preco":{{ v.price | money_without_trailing_zeros | json }}}{% unless forloop.last %},{% endunless %}{%- endfor -%}]
 </script>
 <script>
   (() => {
@@ -178,8 +178,8 @@
       if (v && v.ok) {
         select.value = String(v.id);
         botao.removeAttribute('aria-disabled');
-        botao.textContent = 'Adicionar ao carrinho · ' + v.preco;
-        if (v.qtd > 0 && v.qtd <= BAIXO) aviso.textContent = v.qtd === 1 ? 'Última peça nesse tamanho.' : 'Últimas ' + v.qtd + ' peças nesse tamanho.';
+        botao.textContent = 'Adicionar · ' + v.preco;
+        if (v.qtd > 0 && v.qtd <= BAIXO) aviso.textContent = v.qtd === 1 ? 'Última peça.' : 'Últimas ' + v.qtd + ' peças.';
         const u = new URL(location.href); u.searchParams.set('variant', v.id); history.replaceState(null, '', u);
       } else {
         botao.setAttribute('aria-disabled', 'true');
@@ -189,7 +189,7 @@
         const a = document.createElement('a');
         a.href = avise(c, esgotados.join(', ')); a.target = '_blank'; a.rel = 'noopener';
         a.textContent = 'Avise-me quando voltar';
-        aviso.append(c + ' ' + esgotados.join(', ') + ' esgotado. ', a);
+        aviso.append(esgotados.join(', ') + ' esgotado. ', a);
       }
       erro.hidden = true;
     }
@@ -198,7 +198,7 @@
     form.addEventListener('submit', (ev) => {
       if (botao.getAttribute('aria-disabled') === 'true') {
         ev.preventDefault();
-        erro.textContent = 'Escolha o tamanho antes de adicionar.';
+        erro.textContent = 'Escolha o tamanho.';
         erro.hidden = false;
         const primeiro = form.querySelector('input[name="m-tam"]:not(:disabled)');
         if (primeiro) primeiro.focus();
@@ -216,16 +216,16 @@
       if (isNaN(n) || n < 45 || n > 66) {
         res.dataset.erro = '';
         calc.setAttribute('aria-invalid', 'true');
-        res.textContent = 'Meça deitada, de axila a axila. A tabela vai de ' + larguras[0] + ' a ' + larguras[larguras.length - 1] + ' cm.';
+        res.textContent = 'Meça de axila a axila, com a peça estendida. A tabela vai de ' + larguras[0] + ' a ' + larguras[larguras.length - 1] + ' cm.';
         return;
       }
       let i = 0;
       larguras.forEach((l, k) => { if (Math.abs(l - n) < Math.abs(larguras[i] - n)) i = k; });
       const t = tamanhos[i];
       const r = form.querySelector('input[name="m-tam"][value="' + t + '"]');
-      let msg = 'Sua camiseta tem ' + n.toString().replace('.', ',') + ' cm: o seu tamanho é ' + t + ' (' + larguras[i] + ' cm).';
-      if (r && !r.disabled) { r.checked = true; atualizar(); msg += ' Já deixamos marcado.'; }
-      else msg += ' Ele está esgotado em ' + cor() + '; veja outra cor.';
+      let msg = 'Seu tamanho: ' + t + ' (' + larguras[i] + ' cm).';
+      if (r && !r.disabled) { r.checked = true; atualizar(); msg += ' Já marcado.'; }
+      else msg += ' Esgotado em ' + cor() + '.';
       res.textContent = msg;
     }
     raiz.querySelector('[data-calc-ok]').addEventListener('click', calcular);
@@ -239,7 +239,7 @@
 {
   "name": "Produto Modestino",
   "settings": [
-    { "type": "textarea", "id": "lead", "label": "Frase abaixo do título", "default": "Lisa, sem logo. Só o nome MODESTINO pequeno na nuca, por dentro." },
+    { "type": "textarea", "id": "lead", "label": "Frase abaixo do título", "default": "Lisa, sem logo na frente. O nome fica por dentro." },
     { "type": "text", "id": "larguras", "label": "Larguras P,M,G,GG (cm)", "default": "51,54,57,60" },
     { "type": "text", "id": "torax", "label": "Tórax P,M,G,GG (cm)", "default": "102,108,114,120" },
     { "type": "number", "id": "ultimas", "label": "Avisar \"últimas peças\" a partir de", "default": 2 },

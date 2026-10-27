@@ -21,7 +21,7 @@
       {%- for block in section.blocks -%}
         <li {{ block.shopify_attributes }}>
           <h3>{{ block.settings.titulo }}</h3>
-          <p>{{ block.settings.texto }}</p>
+          {%- if block.settings.texto != blank -%}<p>{{ block.settings.texto }}</p>{%- endif -%}
         </li>
       {%- endfor -%}
     </ul>
@@ -32,7 +32,7 @@
 {
   "name": "Início: como o pedido sai",
   "settings": [
-    { "type": "text", "id": "titulo", "label": "Título", "default": "Quem vende é quem confere, entrega e troca." },
+    { "type": "text", "id": "titulo", "label": "Título", "default": "Olhe de perto." },
     { "type": "text", "id": "produto", "label": "Handle do produto (foto)", "default": "camiseta-basica-modestino" },
     { "type": "image_picker", "id": "foto", "label": "Foto (vazio = gola de perto)" }
   ],

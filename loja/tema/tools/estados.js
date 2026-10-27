@@ -9,7 +9,7 @@ const U = 'http://localhost:8765/';
   const erros = []; p.on('pageerror', (e) => erros.push(String(e)));
   // Produto: Preto GG esgotado, Preto G com 2 peças; calculadora com 57 cm (G) e com 80 cm (erro)
   await p.goto(U + 'produto-esgotado.html');
-  await p.click('summary:has-text("Não sabe o tamanho")');
+  await p.click('.m-calc summary');
   await p.fill('[data-calc]', '80'); await p.click('[data-calc-ok]');
   await p.locator('.m-calc').screenshot({ path: path.join(out, 'S04-calculadora-erro-390.png') });
   await p.fill('[data-calc]', '57'); await p.click('[data-calc-ok]');

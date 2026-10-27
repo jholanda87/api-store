@@ -13,7 +13,7 @@
       <p class="m-hero__sub">{{ section.settings.subtitulo }}</p>
       <div class="m-hero__acao">
         <a class="m-btn m-btn--primario" href="{{ camiseta.url | default: '/products/camiseta-basica-modestino' }}">{{ section.settings.botao }}</a>
-        <span class="m-hero__preco">{{ camiseta.price | default: 8000 | money }} · P ao GG · 3 cores</span>
+        <span class="m-hero__preco">{{ camiseta.price | default: 8000 | money_without_trailing_zeros }} · P ao GG</span>
       </div>
     </div>
     {%- if foto != blank -%}
@@ -28,9 +28,9 @@
 {
   "name": "Início: primeira tela",
   "settings": [
-    { "type": "textarea", "id": "titulo", "label": "Título", "default": "O básico que os próprios donos separam, conferem e entregam em Fortaleza." },
-    { "type": "textarea", "id": "subtitulo", "label": "Subtítulo", "default": "Para quem já recebeu camiseta errada, pedido pela metade ou ficou preso numa troca: na Modestino, os donos também trocam em mãos." },
-    { "type": "text", "id": "botao", "label": "Botão", "default": "Escolher minha camiseta" },
+    { "type": "textarea", "id": "titulo", "label": "Título", "default": "O básico que os próprios donos conferem e entregam em Fortaleza." },
+    { "type": "textarea", "id": "subtitulo", "label": "Subtítulo", "default": "Sem pedido errado, sem troca presa. Não serviu? A gente troca em mãos." },
+    { "type": "text", "id": "botao", "label": "Botão", "default": "Escolher a cor" },
     { "type": "text", "id": "produto", "label": "Handle do produto", "default": "camiseta-basica-modestino" },
     { "type": "image_picker", "id": "foto", "label": "Foto (vazio = primeira foto da camiseta)" }
   ],
