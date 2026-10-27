@@ -1,0 +1,160 @@
+{%- comment -%}
+  S05 — Kit 2 / Kit 3 / Kit Essencial. Cor e tamanho de cada peça vão para o pedido como propriedade da linha
+  ("Peça 1: Preto · M"). O estoque é lido da Camiseta Básica: combinação esgotada (ou repetida além do estoque)
+  bloqueia o botão com aviso. Substitui o bloco modestino-kit-pecas (27/10), agora com formulário próprio.
+{%- endcomment -%}
+{%- liquid
+  assign kit_sku = product.selected_or_first_available_variant.sku
+  assign pecas = 3
+  assign sugestao = false
+  if kit_sku == 'MOD-KIT2'
+    assign pecas = 2
+  elsif kit_sku == 'MOD-KIT-ESS'
+    assign sugestao = true
+  endif
+  assign camiseta = all_products[section.settings.camiseta]
+  assign variante = product.selected_or_first_available_variant
+  assign por_peca = variante.price | divided_by: pecas
+  assign cores = 'Preto,Mapple Brown,Off White' | split: ','
+  assign tamanhos = 'P,M,G,GG' | split: ','
+  assign larguras = section.settings.larguras | split: ','
+-%}
+<div class="m-wrap m-prod" id="kit-{{ section.id }}">
+  <div class="m-galeria" data-cor="Off White">
+    <ul class="m-galeria__lista">
+      {%- for media in product.media -%}
+        <li>{{ media.preview_image | image_url: width: 1080 | image_tag: loading: 'eager', sizes: '(max-width: 859px) 82vw, 55vw', widths: '540, 720, 1080', alt: media.alt }}</li>
+      {%- endfor -%}
+    </ul>
+  </div>
+
+  <div class="m-info">
+    <h1>{{ product.title }}</h1>
+    <p class="m-info__lead">{{ pecas }} camisetas lisas, sem logo, e uma ecobag. {% if sugestao %}Sugestão: uma de cada cor. Troque como quiser.{% else %}Você escolhe a cor e o tamanho de cada uma.{% endif %}</p>
+    <p class="m-preco">{{ variante.price | money }}<small>{{ por_peca | money }} por peça</small></p>
+
+    <form method="post" action="{{ routes.cart_add_url }}" data-kit-form novalidate>
+      <input type="hidden" name="form_type" value="product">
+      <input type="hidden" name="utf8" value="✓">
+      <input type="hidden" name="id" value="{{ variante.id }}">
+      <input type="hidden" name="quantity" value="1">
+
+      <fieldset class="m-pecas">
+        <legend>Escolha cada peça</legend>
+        <p class="m-pecas__dica">{% if sugestao %}Já deixamos uma de cada cor. Escolha o tamanho de cada peça.{% else %}Pode repetir a cor.{% endif %} Medida de axila a axila: {% for t in tamanhos %}{{ t }} {{ larguras[forloop.index0] }}{% unless forloop.last %} · {% endunless %}{% endfor %} cm.</p>
+        {%- for i in (1..pecas) -%}
+          {%- assign idx = forloop.index0 -%}
+          <div class="m-peca" data-peca>
+            <span class="m-peca__n" aria-hidden="true">{{ i }}</span>
+            <label for="kc-{{ section.id }}-{{ i }}">Peça {{ i }}: cor
+              <select class="m-select" id="kc-{{ section.id }}-{{ i }}" data-cor required>
+                <option value="" {% unless sugestao %}selected{% endunless %} disabled>Cor</option>
+                {%- for cor in cores -%}
+                  <option value="{{ cor }}" {% if sugestao and forloop.index0 == idx %}selected{% endif %}>{{ cor }}</option>
+                {%- endfor -%}
+              </select>
+            </label>
+            <label for="kt-{{ section.id }}-{{ i }}">Peça {{ i }}: tamanho
+              <select class="m-select" id="kt-{{ section.id }}-{{ i }}" data-tam required>
+                <option value="" selected disabled>Tamanho</option>
+                {%- for t in tamanhos -%}
+                  <option value="{{ t }}">{{ t }} · {{ larguras[forloop.index0] }} cm</option>
+                {%- endfor -%}
+              </select>
+            </label>
+            <input type="hidden" name="properties[Peça {{ i }}]" value="" data-valor>
+          </div>
+        {%- endfor -%}
+        <p class="m-form-erro" data-erro role="alert" aria-live="polite" hidden></p>
+      </fieldset>
+
+      {%- render 'modestino-servico' -%}
+
+      <div class="m-comprar">
+        <p class="m-cupom-kit">O cupom de embaixador vale na peça avulsa. No kit você já paga menos por peça.</p>
+        <button type="submit" class="m-btn m-btn--primario m-btn--largo" data-comprar>Adicionar o kit ao carrinho · {{ variante.price | money }}</button>
+        <a class="m-btn m-btn--secundario m-btn--largo" href="{{ section.settings.whatsapp }}" target="_blank" rel="noopener">{% render 'modestino-icone', nome: 'whatsapp' %}Tirar dúvida no WhatsApp</a>
+      </div>
+    </form>
+
+    <div class="m-desc">
+      <h2>Sobre o kit</h2>
+      {{ product.description }}
+    </div>
+  </div>
+</div>
+
+<script type="application/json" data-estoque>
+  {
+  {%- if camiseta != blank -%}
+    {%- for v in camiseta.variants -%}
+      {{ v.option1 | append: '|' | append: v.option2 | json }}: {% if v.available %}{% if v.inventory_management %}{{ v.inventory_quantity | at_least: 0 }}{% else %}99{% endif %}{% else %}0{% endif %}{% unless forloop.last %},{% endunless %}
+    {%- endfor -%}
+  {%- endif -%}
+  }
+</script>
+<script>
+  (() => {
+    const raiz = document.getElementById('kit-{{ section.id }}');
+    let estoque = {};
+    try { estoque = JSON.parse(raiz.parentElement.querySelector('[data-estoque]').textContent); } catch (e) {}
+    const temEstoque = Object.keys(estoque).length > 0;
+    const form = raiz.querySelector('[data-kit-form]');
+    const pecas = [...form.querySelectorAll('[data-peca]')];
+    const erro = form.querySelector('[data-erro]');
+    const botao = form.querySelector('[data-comprar]');
+    const textoBotao = botao.textContent;
+
+    function validar() {
+      const usados = {};
+      let msg = '';
+      pecas.forEach((p, n) => {
+        const cor = p.querySelector('[data-cor]');
+        const tam = p.querySelector('[data-tam]');
+        const valor = p.querySelector('[data-valor]');
+        tam.removeAttribute('aria-invalid');
+        valor.value = cor.value && tam.value ? cor.value + ' · ' + tam.value : '';
+        if (!cor.value || !tam.value || !temEstoque) return;
+        const chave = cor.value + '|' + tam.value;
+        usados[chave] = (usados[chave] || 0) + 1;
+        if (usados[chave] > (estoque[chave] || 0)) {
+          msg = (estoque[chave] || 0) === 0
+            ? cor.value + ' ' + tam.value + ' acabou. Escolha outra cor ou outro tamanho para a peça ' + (n + 1) + '.'
+            : 'Só temos ' + estoque[chave] + ' de ' + cor.value + ' ' + tam.value + '. Troque a peça ' + (n + 1) + '.';
+          tam.setAttribute('aria-invalid', 'true');
+        }
+      });
+      erro.textContent = msg;
+      erro.hidden = !msg;
+      botao.setAttribute('aria-disabled', msg ? 'true' : 'false');
+      botao.textContent = msg ? 'Troque a peça esgotada' : textoBotao;
+      return !msg;
+    }
+
+    form.addEventListener('change', validar);
+    form.addEventListener('submit', (ev) => {
+      const vazia = pecas.find((p) => !p.querySelector('[data-valor]').value);
+      if (vazia || !validar()) {
+        ev.preventDefault();
+        if (vazia) {
+          erro.textContent = 'Escolha a cor e o tamanho de todas as peças.';
+          erro.hidden = false;
+          const alvo = [...vazia.querySelectorAll('select')].find((s) => !s.value);
+          if (alvo) alvo.focus();
+        }
+      }
+    });
+    validar();
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Kit Modestino",
+  "settings": [
+    { "type": "text", "id": "camiseta", "label": "Handle da camiseta (de onde vem o estoque)", "default": "camiseta-basica-modestino" },
+    { "type": "text", "id": "larguras", "label": "Larguras P,M,G,GG (cm)", "default": "51,54,57,60" },
+    { "type": "text", "id": "whatsapp", "label": "Link do WhatsApp", "default": "https://wa.me/5585981559590?text=Oi%21%20Vim%20pela%20loja%20da%20MODESTINO%20e%20tenho%20uma%20d%C3%BAvida." }
+  ]
+}
+{% endschema %}

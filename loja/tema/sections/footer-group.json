@@ -1,0 +1,13 @@
+{
+  "type": "footer",
+  "name": "t:names.footer",
+  "sections": {
+    "rodape": {
+      "type": "modestino-rodape",
+      "settings": {}
+    }
+  },
+  "order": [
+    "rodape"
+  ]
+}

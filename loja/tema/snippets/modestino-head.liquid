@@ -1,0 +1,15 @@
+{%- comment -%} Fontes, tokens, componentes e favicon da Modestino. Renderizado no <head> de layout/theme.liquid. {%- endcomment -%}
+<style>
+  @font-face { font-family: 'Instrument Serif'; src: url('{{ 'instrument-serif-latin-400-normal.woff2' | asset_url }}') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Instrument Serif'; src: url('{{ 'instrument-serif-latin-400-italic.woff2' | asset_url }}') format('woff2'); font-weight: 400; font-style: italic; font-display: swap; }
+  @font-face { font-family: 'Instrument Sans'; src: url('{{ 'instrument-sans-latin-400-normal.woff2' | asset_url }}') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Instrument Sans'; src: url('{{ 'instrument-sans-latin-600-normal.woff2' | asset_url }}') format('woff2'); font-weight: 600; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Geist Mono'; src: url('{{ 'geist-mono-latin-400-normal.woff2' | asset_url }}') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+</style>
+<link rel="preload" href="{{ 'instrument-serif-latin-400-normal.woff2' | asset_url }}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ 'instrument-sans-latin-400-normal.woff2' | asset_url }}" as="font" type="font/woff2" crossorigin>
+{{ 'modestino-tokens.css' | asset_url | stylesheet_tag }}
+{{ 'modestino.css' | asset_url | stylesheet_tag }}
+<link rel="icon" type="image/png" sizes="32x32" href="{{ 'favicon-32.png' | asset_url }}">
+<link rel="apple-touch-icon" href="{{ 'favicon-180.png' | asset_url }}">
+<meta name="theme-color" content="#ECE7DE">

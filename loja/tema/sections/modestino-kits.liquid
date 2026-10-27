@@ -1,0 +1,47 @@
+<section class="m-kits" id="kits" aria-labelledby="kits-{{ section.id }}">
+  <div class="m-wrap">
+    <div class="m-kits__cab">
+      <h2 id="kits-{{ section.id }}">{{ section.settings.titulo }}</h2>
+      <p>{{ section.settings.texto }}</p>
+    </div>
+    <div class="m-kits__grid">
+      {%- for block in section.blocks -%}
+        {%- assign kit = all_products[block.settings.produto] -%}
+        {%- assign preco = kit.price | default: block.settings.preco_padrao -%}
+        {%- assign por_peca = preco | divided_by: block.settings.pecas -%}
+        <a class="m-kit-card{% if block.settings.destaque %} m-kit-card--destaque{% endif %}" href="{{ kit.url | default: '#' }}" {{ block.shopify_attributes }}>
+          <div>
+            <h3>{{ block.settings.nome }}</h3>
+          </div>
+          <p>{{ block.settings.texto }}</p>
+          <div class="m-kit-card__preco">
+            <strong>{{ preco | money }}</strong>
+            <span>{{ por_peca | money }} por peça · com ecobag</span>
+            <span class="m-kit-card__ir">Escolher as peças</span>
+          </div>
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Kits",
+  "settings": [
+    { "type": "text", "id": "titulo", "label": "Título", "default": "Leve mais de uma" },
+    { "type": "textarea", "id": "texto", "label": "Texto", "default": "Você escolhe a cor e o tamanho de cada peça. Todos os kits vêm com ecobag." }
+  ],
+  "blocks": [
+    { "type": "kit", "name": "Kit", "settings": [
+      { "type": "text", "id": "nome", "label": "Nome" },
+      { "type": "text", "id": "produto", "label": "Handle do produto" },
+      { "type": "number", "id": "pecas", "label": "Peças", "default": 3 },
+      { "type": "number", "id": "preco_padrao", "label": "Preço em centavos (se o produto não carregar)", "default": 22500 },
+      { "type": "textarea", "id": "texto", "label": "Texto" },
+      { "type": "checkbox", "id": "destaque", "label": "Destaque (carvão)", "default": false }
+    ] }
+  ],
+  "presets": [{ "name": "Kits" }]
+}
+{% endschema %}

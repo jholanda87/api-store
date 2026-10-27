@@ -1,0 +1,32 @@
+<article class="m-wrap m-pagina">
+  <h1>{{ page.title | default: 'Perguntas frequentes' }}</h1>
+  {%- if page.content != blank -%}<div class="m-texto">{{ page.content }}</div>{%- endif -%}
+  <div class="m-faq">
+    {%- for block in section.blocks -%}
+      <details {{ block.shopify_attributes }}>
+        <summary>{{ block.settings.pergunta }}{% render 'modestino-icone', nome: 'mais' %}</summary>
+        <div class="m-faq__resp">{{ block.settings.resposta }}</div>
+      </details>
+    {%- endfor -%}
+  </div>
+  <div class="m-ajuda">
+    <p class="m-muted">Não achou sua dúvida?</p>
+    <a class="m-btn m-btn--primario" href="{{ section.settings.whatsapp }}" target="_blank" rel="noopener">{% render 'modestino-icone', nome: 'whatsapp' %}Perguntar no WhatsApp</a>
+  </div>
+</article>
+
+{% schema %}
+{
+  "name": "Perguntas frequentes",
+  "settings": [
+    { "type": "text", "id": "whatsapp", "label": "Link do WhatsApp", "default": "https://wa.me/5585981559590?text=Oi%21%20Vim%20pela%20loja%20da%20MODESTINO%20e%20tenho%20uma%20d%C3%BAvida." }
+  ],
+  "blocks": [
+    { "type": "pergunta", "name": "Pergunta", "settings": [
+      { "type": "text", "id": "pergunta", "label": "Pergunta" },
+      { "type": "richtext", "id": "resposta", "label": "Resposta" }
+    ] }
+  ],
+  "presets": [{ "name": "Perguntas frequentes" }]
+}
+{% endschema %}

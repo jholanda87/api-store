@@ -1,0 +1,52 @@
+{%- liquid
+  assign links = section.settings.menu.links
+-%}
+<header class="m-cab">
+  <div class="m-wrap m-cab__in">
+    <a class="m-marca" href="{{ routes.root_url }}" aria-label="MODESTINO, página inicial">
+      <img src="{{ 'cavalheiro-busto-carvao.png' | asset_url }}" alt="" width="34" height="40">
+      <span>MODESTINO</span>
+    </a>
+
+    <nav class="m-nav" aria-label="Principal">
+      {%- for link in links -%}
+        <a href="{{ link.url }}" {% if link.current %}aria-current="page"{% endif %}>{{ link.title }}</a>
+      {%- else -%}
+        <a href="/products/camiseta-basica-modestino">Camiseta</a>
+        <a href="/#kits">Kits</a>
+        <a href="/pages/trocas">Trocas</a>
+        <a href="/pages/perguntas-frequentes">Dúvidas</a>
+      {%- endfor -%}
+    </nav>
+
+    <div class="m-cab__acoes">
+      <a class="m-sacola" href="{{ routes.cart_url }}" aria-label="Carrinho, {{ cart.item_count }} {% if cart.item_count == 1 %}peça{% else %}peças{% endif %}">
+        {% render 'modestino-icone', nome: 'sacola' %}
+        {%- if cart.item_count > 0 -%}<span class="m-sacola__n" aria-hidden="true">{{ cart.item_count }}</span>{%- endif -%}
+      </a>
+      <details class="m-gaveta">
+        <summary aria-label="Abrir menu">{% render 'modestino-icone', nome: 'menu' %}</summary>
+        <nav class="m-gaveta__painel" aria-label="Menu">
+          {%- for link in links -%}
+            <a href="{{ link.url }}">{{ link.title }}</a>
+          {%- else -%}
+            <a href="/products/camiseta-basica-modestino">Camiseta</a>
+            <a href="/#kits">Kits</a>
+            <a href="/pages/trocas">Trocas</a>
+            <a href="/pages/perguntas-frequentes">Dúvidas</a>
+          {%- endfor -%}
+        </nav>
+      </details>
+    </div>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Cabeçalho Modestino",
+  "tag": "div",
+  "settings": [
+    { "type": "link_list", "id": "menu", "label": "Menu (vazio = Camiseta, Kits, Trocas, Dúvidas)" }
+  ]
+}
+{% endschema %}

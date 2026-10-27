@@ -1,0 +1,42 @@
+{%- comment -%}
+  Avisos do carrinho (S06): carrinho vazio na voz da marca e cupom de embaixador recusado no kit.
+  A Shopify só aplica KEANU6/PAULOVITOR6 na Camiseta Básica avulsa; num carrinho só de kits o código fica
+  "não aplicável" e aqui explicamos o porquê.
+{%- endcomment -%}
+{%- liquid
+  assign tem_kit = false
+  assign tem_avulsa = false
+  for item in cart.items
+    if item.sku contains 'MOD-KIT'
+      assign tem_kit = true
+    elsif item.sku contains 'MOD-CAM'
+      assign tem_avulsa = true
+    endif
+  endfor
+  assign cupom_recusado = ''
+  for d in cart.discount_codes
+    unless d.applicable
+      assign cupom_recusado = d.code
+    endunless
+  endfor
+-%}
+{%- if cart.item_count == 0 -%}
+  <section class="m-wrap m-vazio">
+    <h1>Seu carrinho está vazio. Comece pela cor.</h1>
+    <a class="m-btn m-btn--primario" href="/products/camiseta-basica-modestino">Ver a Camiseta Básica</a>
+  </section>
+{%- else -%}
+  <div class="m-wrap m-carrinho-aviso" aria-live="polite">
+    {%- if cupom_recusado != '' and tem_kit -%}
+      <p data-tipo="erro">O cupom {{ cupom_recusado }} é de embaixador e vale só na camiseta avulsa. No kit você já paga menos por peça{% if tem_avulsa %}; o desconto entra só nas avulsas{% endif %}.</p>
+    {%- elsif cupom_recusado != '' -%}
+      <p data-tipo="erro">O cupom {{ cupom_recusado }} não vale para este carrinho. Confira o código ou chame a gente no WhatsApp.</p>
+    {%- elsif tem_kit -%}
+      <p>Cupom de embaixador vale só na camiseta avulsa. No kit você já paga menos por peça.</p>
+    {%- endif -%}
+  </div>
+{%- endif -%}
+
+{% schema %}
+{ "name": "Avisos do carrinho", "settings": [] }
+{% endschema %}

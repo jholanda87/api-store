@@ -1,0 +1,20 @@
+<section class="m-fecho">
+  <div class="m-wrap">
+    <img src="{{ 'cavalheiro-busto-linho.png' | asset_url }}" alt="" width="68" height="80" loading="lazy">
+    <span class="m-marca-nome">MODESTINO</span>
+    <h2>{{ section.settings.titulo }}</h2>
+    <a class="m-btn m-btn--claro" href="{{ section.settings.link }}">{{ section.settings.botao }}</a>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Fechamento",
+  "settings": [
+    { "type": "text", "id": "titulo", "label": "Título", "default": "Um básico para cada ocasião." },
+    { "type": "text", "id": "botao", "label": "Botão", "default": "Escolher a cor" },
+    { "type": "text", "id": "link", "label": "Link", "default": "/products/camiseta-basica-modestino" }
+  ],
+  "presets": [{ "name": "Fechamento" }]
+}
+{% endschema %}

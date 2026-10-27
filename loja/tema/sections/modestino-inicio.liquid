@@ -1,0 +1,39 @@
+{%- comment -%}
+  S01, primeira tela. Frase A aprovada (Central, 28/10): título curto + resto no subtítulo, mesmo sentido.
+  A foto vem da própria Camiseta Básica (frame provisório do vídeo do Keanu).
+{%- endcomment -%}
+{%- liquid
+  assign camiseta = all_products[section.settings.produto]
+  assign foto = section.settings.foto | default: camiseta.featured_media.preview_image
+-%}
+<section class="m-hero">
+  <div class="m-wrap m-hero__grid">
+    <div>
+      <h1>{{ section.settings.titulo }}</h1>
+      <p class="m-hero__sub">{{ section.settings.subtitulo }}</p>
+      <div class="m-hero__acao">
+        <a class="m-btn m-btn--primario" href="{{ camiseta.url | default: '/products/camiseta-basica-modestino' }}">{{ section.settings.botao }}</a>
+        <span class="m-hero__preco">{{ camiseta.price | default: 8000 | money }} · P ao GG · 3 cores</span>
+      </div>
+    </div>
+    {%- if foto != blank -%}
+      <figure class="m-hero__foto">
+        {{ foto | image_url: width: 1080 | image_tag: loading: 'eager', fetchpriority: 'high', sizes: '(max-width: 859px) 100vw, 45vw', widths: '540, 720, 1080', alt: 'Camiseta básica Modestino preta, lisa, vestida' }}
+      </figure>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Início: primeira tela",
+  "settings": [
+    { "type": "textarea", "id": "titulo", "label": "Título", "default": "O básico que os próprios donos separam, conferem e entregam em Fortaleza." },
+    { "type": "textarea", "id": "subtitulo", "label": "Subtítulo", "default": "Para quem já recebeu camiseta errada, pedido pela metade ou ficou preso numa troca: na Modestino, os donos também trocam em mãos." },
+    { "type": "text", "id": "botao", "label": "Botão", "default": "Escolher minha camiseta" },
+    { "type": "text", "id": "produto", "label": "Handle do produto", "default": "camiseta-basica-modestino" },
+    { "type": "image_picker", "id": "foto", "label": "Foto (vazio = primeira foto da camiseta)" }
+  ],
+  "presets": [{ "name": "Início: primeira tela" }]
+}
+{% endschema %}

@@ -1,0 +1,102 @@
+{
+  "sections": {
+    "inicio": {
+      "type": "modestino-inicio",
+      "settings": {}
+    },
+    "prova": {
+      "type": "modestino-prova",
+      "settings": {},
+      "blocks": {
+        "a": {
+          "type": "item",
+          "settings": {
+            "titulo": "Separado e conferido por um dos donos",
+            "texto": "Cada pedido é separado por um de nós, que confere cor, tamanho e quantidade antes de sair. Comprou três, chegam três."
+          }
+        },
+        "b": {
+          "type": "item",
+          "settings": {
+            "titulo": "Entregue em Fortaleza por R$ 10",
+            "texto": "Em Fortaleza, um de nós leva o pedido. Para fora, o frete aparece no fechamento, pelo CEP."
+          }
+        },
+        "c": {
+          "type": "item",
+          "settings": {
+            "titulo": "Troca em mãos, sem vale-troca",
+            "texto": "30 dias para trocar o tamanho ou por defeito. Em Fortaleza, a troca é em mãos. Se for estorno, o dinheiro volta pelo mesmo meio do pagamento."
+          }
+        },
+        "d": {
+          "type": "item",
+          "settings": {
+            "titulo": "Quem responde é quem vende",
+            "texto": "WhatsApp todos os dias, sem robô. Quem atende é um dos donos."
+          }
+        }
+      },
+      "block_order": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ]
+    },
+    "kits": {
+      "type": "modestino-kits",
+      "settings": {},
+      "blocks": {
+        "k3": {
+          "type": "kit",
+          "settings": {
+            "nome": "Kit 3",
+            "produto": "kit-3-camisetas-basicas-modestino",
+            "pecas": 3,
+            "preco_padrao": 22500,
+            "texto": "Três camisetas, as cores que você quiser.",
+            "destaque": true
+          }
+        },
+        "ke": {
+          "type": "kit",
+          "settings": {
+            "nome": "Kit Essencial",
+            "produto": "kit-essencial-modestino",
+            "pecas": 3,
+            "preco_padrao": 22500,
+            "texto": "Uma de cada cor: Preto, Mapple Brown e Off White. Dá para trocar.",
+            "destaque": false
+          }
+        },
+        "k2": {
+          "type": "kit",
+          "settings": {
+            "nome": "Kit 2",
+            "produto": "kit-2-camisetas-basicas-modestino",
+            "pecas": 2,
+            "preco_padrao": 16000,
+            "texto": "Duas camisetas, iguais ou diferentes.",
+            "destaque": false
+          }
+        }
+      },
+      "block_order": [
+        "k3",
+        "ke",
+        "k2"
+      ]
+    },
+    "fecho": {
+      "type": "modestino-fechamento",
+      "settings": {}
+    }
+  },
+  "order": [
+    "inicio",
+    "prova",
+    "kits",
+    "fecho"
+  ]
+}

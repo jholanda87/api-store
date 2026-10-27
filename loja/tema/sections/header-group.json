@@ -1,0 +1,46 @@
+{
+  "type": "header",
+  "name": "t:names.header",
+  "sections": {
+    "faixa": {
+      "type": "modestino-faixa",
+      "settings": {},
+      "blocks": {
+        "a": {
+          "type": "item",
+          "settings": {
+            "texto": "Entrega em Fortaleza R$ 10",
+            "icone": "entrega"
+          }
+        },
+        "b": {
+          "type": "item",
+          "settings": {
+            "texto": "Troca em mãos",
+            "icone": "troca"
+          }
+        },
+        "c": {
+          "type": "item",
+          "settings": {
+            "texto": "Pix ou cartão",
+            "icone": "pagamento"
+          }
+        }
+      },
+      "block_order": [
+        "a",
+        "b",
+        "c"
+      ]
+    },
+    "cabecalho": {
+      "type": "modestino-cabecalho",
+      "settings": {}
+    }
+  },
+  "order": [
+    "faixa",
+    "cabecalho"
+  ]
+}

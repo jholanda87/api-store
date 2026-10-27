@@ -1,0 +1,19 @@
+<article class="m-wrap m-pagina">
+  <h1>{{ page.title }}</h1>
+  <div class="m-texto">{{ page.content }}</div>
+  {%- if section.settings.mostrar_whatsapp -%}
+    <div class="m-ajuda">
+      <a class="m-btn m-btn--primario" href="{{ section.settings.whatsapp }}" target="_blank" rel="noopener">{% render 'modestino-icone', nome: 'whatsapp' %}Falar no WhatsApp</a>
+    </div>
+  {%- endif -%}
+</article>
+
+{% schema %}
+{
+  "name": "Página Modestino",
+  "settings": [
+    { "type": "checkbox", "id": "mostrar_whatsapp", "label": "Botão do WhatsApp no fim", "default": true },
+    { "type": "text", "id": "whatsapp", "label": "Link do WhatsApp", "default": "https://wa.me/5585981559590?text=Oi%21%20Vim%20pela%20loja%20da%20MODESTINO%20e%20tenho%20uma%20d%C3%BAvida." }
+  ]
+}
+{% endschema %}

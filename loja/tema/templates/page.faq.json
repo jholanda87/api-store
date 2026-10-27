@@ -1,0 +1,111 @@
+{
+  "sections": {
+    "main": {
+      "type": "modestino-faq",
+      "settings": {},
+      "blocks": {
+        "q0": {
+          "type": "pergunta",
+          "settings": {
+            "pergunta": "Como acho o meu tamanho?",
+            "resposta": "<p>Pegue uma camiseta sua que veste bem, deite numa mesa e meça de axila a axila. Compare com a nossa largura: P 51 · M 54 · G 57 · GG 60 cm. Na página da camiseta tem uma calculadora que faz a conta e já marca o tamanho.</p>"
+          }
+        },
+        "q1": {
+          "type": "pergunta",
+          "settings": {
+            "pergunta": "Quem confere o meu pedido?",
+            "resposta": "<p>Um dos donos separa e confere cor, tamanho e quantidade de cada peça antes de sair. Se algo chegar errado ou faltando por erro nosso, a gente resolve sem você precisar devolver nada.</p>"
+          }
+        },
+        "q2": {
+          "type": "pergunta",
+          "settings": {
+            "pergunta": "Quanto custa a entrega em Fortaleza?",
+            "resposta": "<p>R$ 10. Em Fortaleza, quem leva o pedido é um de nós.</p>"
+          }
+        },
+        "q3": {
+          "type": "pergunta",
+          "settings": {
+            "pergunta": "E fora de Fortaleza?",
+            "resposta": "<p>O frete aparece no fechamento do pedido, calculado pelo CEP.</p>"
+          }
+        },
+        "q4": {
+          "type": "pergunta",
+          "settings": {
+            "pergunta": "Como funciona a troca?",
+            "resposta": "<p>Você tem 30 dias para trocar o tamanho ou por defeito, e 7 dias para desistir da compra. Em Fortaleza, a troca é em mãos. Chame a gente no WhatsApp com o número do pedido. A peça precisa estar sem uso e com a etiqueta.</p>"
+          }
+        },
+        "q5": {
+          "type": "pergunta",
+          "settings": {
+            "pergunta": "Quando o dinheiro volta?",
+            "resposta": "<p>Sempre pelo mesmo meio do pagamento. Na desistência, até 2 dias úteis depois que a peça chega e é conferida. Item faltando por erro nosso: até 2 dias úteis depois da confirmação. No cartão, a data na fatura depende da administradora. Nunca obrigamos a aceitar vale-troca.</p>"
+          }
+        },
+        "q6": {
+          "type": "pergunta",
+          "settings": {
+            "pergunta": "Posso usar cupom de embaixador no kit?",
+            "resposta": "<p>Não. O cupom de embaixador vale na camiseta avulsa. No kit você já paga menos por peça: R$ 75 no Kit 3 e no Kit Essencial.</p>"
+          }
+        },
+        "q7": {
+          "type": "pergunta",
+          "settings": {
+            "pergunta": "Posso escolher as cores do kit?",
+            "resposta": "<p>Pode. Em todos os kits você escolhe a cor e o tamanho de cada peça. O Kit Essencial já vem sugerido com uma de cada cor, mas dá para trocar.</p>"
+          }
+        },
+        "q8": {
+          "type": "pergunta",
+          "settings": {
+            "pergunta": "A camiseta tem logo?",
+            "resposta": "<p>Não. Ela é lisa. Só o nome MODESTINO pequeno na nuca, por dentro.</p>"
+          }
+        },
+        "q9": {
+          "type": "pergunta",
+          "settings": {
+            "pergunta": "Qual é o tecido?",
+            "resposta": "<p>A composição vem na etiqueta de cada peça. Se quiser saber antes de comprar, pergunte no WhatsApp que a gente confere a peça para você.</p>"
+          }
+        },
+        "q10": {
+          "type": "pergunta",
+          "settings": {
+            "pergunta": "Como posso pagar?",
+            "resposta": "<p>Pix ou cartão, pelo Mercado Pago.</p>"
+          }
+        },
+        "q11": {
+          "type": "pergunta",
+          "settings": {
+            "pergunta": "Quem responde no WhatsApp?",
+            "resposta": "<p>Um dos donos, todos os dias, sem robô. Número: (85) 98155-9590.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q0",
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6",
+        "q7",
+        "q8",
+        "q9",
+        "q10",
+        "q11"
+      ]
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

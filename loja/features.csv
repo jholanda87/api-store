@@ -1,32 +1,32 @@
 feature,area,priority,original,clone,notes
-Página inicial com a oferta e a ação principal na primeira tela,vitrine,must,yes,no,herdar a landing aprovada em 21/10 (site-impecavel-modestino)
-Página de produto com seletor de cor que troca foto e fundo,produto,must,yes,no,Preto · Mapple Brown · Off White
-Seletor de tamanho P a GG com esgotado marcado,produto,must,yes,no,estoque vem do Painel (estoque.py)
-Tabela de medidas real (largura axila a axila e tórax),produto,must,yes,no,P 51 · M 54 · G 57 · GG 60 cm; tórax 102 · 108 · 114 · 120
-Fotos reais de perto (gola ombro costas) e vestido,produto,must,yes,no,nunca banco de imagem nem IA vendendo a peça
-Kit 2 e Kit 3 com ecobag como produto próprio,produto,must,yes,no,kit 2 R$ 160 · kit 3 R$ 225 (Central 19/10)
-Carrinho com edição de quantidade cor e tamanho,carrinho,must,yes,no,
-Frete calculado pelo CEP com entrega local em Fortaleza,checkout,must,yes,no,entrega própria ou Uber Flash em Fortaleza; Correios fora
-Checkout com Pix,checkout,must,yes,no,
-Checkout com cartão em até 3x,checkout,must,yes,no,juros repassados ao cliente (Central seção 8)
-Compra sem criar conta,checkout,must,yes,no,
-Cupom de embaixador (10% só na avulsa e sem acumular com kit),checkout,must,yes,no,margem cai abaixo de 50% se acumular
+Página inicial com a oferta e a ação principal na primeira tela,vitrine,must,yes,yes,"27/10: frase A no título/subtítulo, um botão, foto real (tema de construção)"
+Página de produto com seletor de cor que troca foto e fundo,produto,must,yes,yes,27/10: troca fotos e fundo da galeria (carvão/mapple/linho)
+Seletor de tamanho P a GG com esgotado marcado,produto,must,yes,yes,"27/10: medida embaixo, esgotado riscado e desabilitado, últimas peças ≤2; estoque da Shopify (Painel → estoque.py)"
+Tabela de medidas real (largura axila a axila e tórax),produto,must,yes,yes,27/10: tabela dentro da calculadora
+Fotos reais de perto (gola ombro costas) e vestido,produto,must,yes,partial,"27/10: frames provisórios dos vídeos do Keanu (frente, gola/ombro, costas off white, lado marrom); falta costas da preta e da marrom; fotos definitivas do Jorge"
+Kit 2 e Kit 3 com ecobag como produto próprio,produto,must,yes,yes,27/10: página de kit com preço por peça e escolha de cor e tamanho por peça
+Carrinho com edição de quantidade cor e tamanho,carrinho,must,yes,partial,carrinho do Horizon (quantidade e remover); cor/tamanho se troca voltando ao produto
+Frete calculado pelo CEP com entrega local em Fortaleza,checkout,must,yes,partial,texto na loja pronto; tarifa local de R$ 10 por CEP ainda não ligada na Shopify (estado.md etapa 7)
+Checkout com Pix,checkout,must,yes,partial,Mercado Pago ligado em modo teste
+Checkout com cartão em até 3x,checkout,must,yes,partial,Mercado Pago ligado em modo teste
+Compra sem criar conta,checkout,must,yes,yes,checkout padrão da Shopify
+Cupom de embaixador (10% só na avulsa e sem acumular com kit),checkout,must,yes,yes,"KEANU6/PAULOVITOR6 (6%, só avulsa); aviso no kit e no carrinho quando recusado"
 E-mail ou WhatsApp de confirmação do pedido,pos-venda,must,yes,no,
 Código de rastreio enviado ao cliente,pos-venda,must,yes,no,
-Política de troca e devolução publicada,confianca,must,yes,no,7 dias arrependimento · 30 dias troca de tamanho e defeito
-Páginas de privacidade e termos (LGPD),confianca,must,yes,no,listar cada processador (plataforma pagamento frete e-mail)
-CNPJ e razão social no rodapé,confianca,must,yes,no,depende do MEI (administrativo-modestino)
-Botão de WhatsApp para tirar dúvida,atendimento,must,yes,no,WhatsApp Business (85) 98155-9590 · todos os dias · sem robô · https://wa.me/5585981559590?text=Oi%21%20Vim%20pela%20loja%20da%20MODESTINO%20e%20tenho%20uma%20d%C3%BAvida.
+Política de troca e devolução publicada,confianca,must,yes,partial,página /pages/trocas criada (27/10); política de reembolso da Shopify (checkout) precisa ser colada pelo Jorge no admin
+Páginas de privacidade e termos (LGPD),confianca,must,yes,partial,página /pages/privacidade criada; política automática da Shopify ainda mostra endereço e e-mail pessoal: trocar no admin; termos de uso faltam
+CNPJ e razão social no rodapé,confianca,must,yes,yes,69.828.190 JORGE HOLANDA SOUSA · CNPJ 69.828.190/0001-36 · Fortaleza/CE (sem endereço)
+Botão de WhatsApp para tirar dúvida,atendimento,must,yes,yes,"produto, kit, páginas, perguntas e rodapé"
 Pixel da Meta e Google Analytics com eventos de compra,dados,must,yes,no,trafego-pago-modestino
 Estoque da loja igual ao do Painel,dados,must,yes,no,Painel é a fonte única dos números
-Funciona no celular (390 px) com botões de 44 px,vitrine,must,yes,no,
+Funciona no celular (390 px) com botões de 44 px,vitrine,must,yes,yes,prévia local em 390 px sem rolagem lateral; conferir na prévia da Shopify
 Recuperação de carrinho abandonado,pos-venda,should,yes,no,e-mail ou WhatsApp em 1h e 24h; sem desconto de cara
 Pedido de avaliação com foto 7 dias depois da entrega,pos-venda,should,yes,no,
 Avaliações reais na página de produto,confianca,should,yes,no,nunca inventar avaliação
 Catálogo do Instagram e WhatsApp ligado à loja,canais,should,yes,no,compra pelo post e pelo catálogo do WhatsApp
 Lembrete de recompra 30 a 45 dias,pos-venda,should,yes,no,outra cor ou kit; sem pressão
-Avise-me quando chegar (tamanho esgotado),produto,should,yes,no,
-Kit Essencial fixo (uma de cada cor),produto,should,no,no,gira o off-white (Central seção 3)
+Avise-me quando chegar (tamanho esgotado),produto,should,yes,partial,link do WhatsApp com cor e tamanho; sem aviso automático
+Kit Essencial fixo (uma de cada cor),produto,should,no,yes,"sugestão pré-marcada, cores livres"
 Kit presente com embalagem para Black Friday e Natal,produto,should,yes,no,Black Friday 27/11
 Preço por volume para empresas (10+ kits),b2b,should,no,no,R$ 210 de 10 a 29 · R$ 195 a partir de 30
 Busca e coleções,vitrine,could,yes,no,só faz sentido com mais de 1 produto
@@ -34,21 +34,21 @@ Conta do cliente com histórico de pedidos,conta,could,yes,no,
 Programa de indicação (1 camiseta a cada 3 amigos),pos-venda,could,no,no,em decisão na Central
 Mercado Livre e Shopee,canais,could,yes,no,exigem CNPJ e nota; taxa de 12% a 20%
 TikTok Shop,canais,could,yes,no,Central etapa 2
-Calculadora de tamanho pela camiseta que o cliente já tem,produto,must,no,no,diferencial: prova em vez de afirmar
-Troca de tamanho em mãos em Fortaleza,pos-venda,must,no,no,diferencial: proximidade que as grandes não têm
+Calculadora de tamanho pela camiseta que o cliente já tem,produto,must,no,yes,"27/10: aria-live, erro fora de 45–66 cm, marca o tamanho sozinha"
+Troca de tamanho em mãos em Fortaleza,pos-venda,must,no,partial,comunicado na loja; operação é com os sócios
 Dono e embaixadores vestindo nas fotos e vídeos,confianca,should,no,no,diferencial: gente real
 Marketplace de outras marcas,canais,could,yes,skip,a Modestino vende só o que produz
 Programa de fidelidade com pontos,conta,could,yes,skip,cedo demais para 1 produto
-Faixa de confiança (frete troca pagamento) no topo e abaixo da primeira tela,vitrine,must,yes,no,padrão das 4 referências (recon 27/10)
-Atalho no menu para kits,vitrine,should,yes,no,Insider Kits · Básico Combos
+Faixa de confiança (frete troca pagamento) no topo e abaixo da primeira tela,vitrine,must,yes,partial,no topo de todas as páginas; abaixo da primeira tela vira a seção 'Quem vende é quem confere'
+Atalho no menu para kits,vitrine,should,yes,yes,menu: Camiseta · Kits · Trocas · Dúvidas
 Nota e número de avaliações no card de produto,confianca,should,yes,no,só com avaliações reais
 Frete grátis acima de um valor,checkout,should,yes,no,calcular margem antes (Hering 349 · Básico 299); candidato: kit 3 em Fortaleza
-Rodapé com central de atendimento horário e WhatsApp,atendimento,must,yes,no,
+Rodapé com central de atendimento horário e WhatsApp,atendimento,must,yes,yes,"todos os dias, um dos donos"
 Desconto na primeira compra e contador de urgência,checkout,could,yes,skip,Central: desconto só por volume; educar antes de vender
 Garantia contra desbotamento,confianca,could,yes,skip,só depois do teste de 10 lavagens (só prometer o testado)
 Pedido conferido por um sócio com foto das peças no WhatsApp antes de sair,pos-venda,must,no,no,correção 1 · 53 reclamações de pedido errado ou incompleto
 Aviso de quem entrega e quando em Fortaleza; rastreio no mesmo dia fora,pos-venda,must,no,no,correção 2
-Estorno por Pix em até 2 dias úteis e sem vale-troca obrigatório,pos-venda,must,no,no,correção 3 · 37 reclamações de troca e estorno
+Estorno por Pix em até 2 dias úteis e sem vale-troca obrigatório,pos-venda,must,no,partial,na página de trocas e nas perguntas; operação com os sócios
 Cupom e preço de kit testados antes de divulgar; pedido pago nunca cancelado por erro nosso,checkout,must,no,no,correção 4
 Teste de 10 lavagens por cor,confianca,should,no,skip,teste feito em 28/10 (mantém o padrão); decisão do Jorge: não divulgar para não criar expectativa
-Composição de cada peça na página igual à etiqueta,produto,must,no,no,correção 8
+Composição de cada peça na página igual à etiqueta,produto,must,no,partial,página diz 'vem na etiqueta de cada peça'; falta a composição real por peça

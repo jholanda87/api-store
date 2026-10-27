@@ -1,0 +1,11 @@
+{
+  "sections": {
+    "main": {
+      "type": "modestino-pagina",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

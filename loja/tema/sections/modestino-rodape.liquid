@@ -1,0 +1,48 @@
+<footer class="m-rodape">
+  <div class="m-wrap">
+    <div class="m-rodape__grid">
+      <div class="m-rodape__marca">
+        <img class="m-rodape__fig" src="{{ 'cavalheiro-completo-linho.png' | asset_url }}" alt="O Cavalheiro, símbolo da MODESTINO" width="61" height="200" loading="lazy">
+      </div>
+      <div>
+        <h2>Loja</h2>
+        <ul>
+          <li><a href="/products/camiseta-basica-modestino">Camiseta Básica</a></li>
+          <li><a href="/products/kit-3-camisetas-basicas-modestino">Kit 3</a></li>
+          <li><a href="/products/kit-2-camisetas-basicas-modestino">Kit 2</a></li>
+          <li><a href="/products/kit-essencial-modestino">Kit Essencial</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Ajuda</h2>
+        <ul>
+          <li><a href="/pages/trocas">Trocas e devoluções</a></li>
+          <li><a href="/pages/perguntas-frequentes">Perguntas frequentes</a></li>
+          <li><a href="/pages/privacidade">Privacidade</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Fale com a gente</h2>
+        <ul>
+          <li><a href="{{ section.settings.whatsapp }}" rel="noopener" target="_blank">{% render 'modestino-icone', nome: 'whatsapp' %}WhatsApp (85) 98155-9590</a></li>
+        </ul>
+        <p>Todos os dias. Quem responde é um dos donos.</p>
+      </div>
+    </div>
+    <div class="m-rodape__base">
+      <p><span class="m-rodape__nome">MODESTINO</span> · {{ section.settings.razao_social }} · CNPJ <span class="m-mono">{{ section.settings.cnpj }}</span> · Fortaleza/CE</p>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Rodapé Modestino",
+  "tag": "div",
+  "settings": [
+    { "type": "text", "id": "razao_social", "label": "Razão social", "default": "69.828.190 JORGE HOLANDA SOUSA" },
+    { "type": "text", "id": "cnpj", "label": "CNPJ", "default": "69.828.190/0001-36" },
+    { "type": "text", "id": "whatsapp", "label": "Link do WhatsApp", "default": "https://wa.me/5585981559590?text=Oi%21%20Vim%20pela%20loja%20da%20MODESTINO%20e%20tenho%20uma%20d%C3%BAvida." }
+  ]
+}
+{% endschema %}

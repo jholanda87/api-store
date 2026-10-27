@@ -1,0 +1,32 @@
+<section class="m-faixa" aria-label="Vantagens">
+  <ul>
+    {%- for block in section.blocks -%}
+      <li {{ block.shopify_attributes }}>{% render 'modestino-icone', nome: block.settings.icone %}{{ block.settings.texto }}</li>
+    {%- endfor -%}
+  </ul>
+</section>
+
+{% schema %}
+{
+  "name": "Faixa de confiança",
+  "tag": "div",
+  "max_blocks": 4,
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        { "type": "text", "id": "texto", "label": "Texto", "default": "Troca em mãos" },
+        { "type": "select", "id": "icone", "label": "Ícone", "default": "troca",
+          "options": [
+            { "value": "entrega", "label": "Entrega" },
+            { "value": "troca", "label": "Troca" },
+            { "value": "pagamento", "label": "Pagamento" },
+            { "value": "conferido", "label": "Conferido" }
+          ] }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Faixa de confiança" }]
+}
+{% endschema %}

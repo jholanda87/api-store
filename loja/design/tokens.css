@@ -1,4 +1,4 @@
-/* Gerado de tokens.json. Não editar à mão: mude o tokens.json e gere de novo. */
+/* Gerado de tokens.json por loja/tema/tools/gerar_tokens.py. Não editar à mão. */
 @font-face { font-family: 'Instrument Serif'; src: url('fonts/instrument-serif-latin-400-normal.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
 @font-face { font-family: 'Instrument Serif'; src: url('fonts/instrument-serif-latin-400-italic.woff2') format('woff2'); font-weight: 400; font-style: italic; font-display: swap; }
 @font-face { font-family: 'Instrument Sans'; src: url('fonts/instrument-sans-latin-400-normal.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
@@ -45,6 +45,19 @@
   --radius-md: 4px;
   --radius-lg: 8px;
   --radius-pill: 999px;
+  --size-hairline: 1px;
+  --size-focus: 2px;
+  --size-tap: 44px;
+  --size-button: 48px;
+  --size-swatch: 44px;
+  --size-chip: 56px;
+  --size-header: 64px;
+  --size-mark: 40px;
+  --size-mark-footer: 200px;
+  --size-thumb: 72px;
+  --size-content: 720px;
+  --size-container: 1200px;
+  --measure: 68ch;
   --shadow-card: 0 2px 12px rgba(34,32,29,.08);
   --shadow-pop: 0 16px 40px rgba(34,32,29,.18);
   --motion-fast: 140ms;

@@ -1,0 +1,47 @@
+{%- liquid
+  assign camiseta = all_products[section.settings.produto]
+  assign foto = section.settings.foto
+  if foto == blank
+    for m in camiseta.media
+      if m.alt contains 'Gola careca'
+        assign foto = m.preview_image
+      endif
+    endfor
+  endif
+-%}
+<section class="m-prova" aria-labelledby="prova-{{ section.id }}">
+  <div class="m-wrap m-prova__grid">
+    <div>
+      <h2 id="prova-{{ section.id }}">{{ section.settings.titulo }}</h2>
+      {%- if foto != blank -%}
+        {{ foto | image_url: width: 900 | image_tag: loading: 'lazy', sizes: '(max-width: 859px) 100vw, 40vw', widths: '450, 900', alt: 'Gola da camiseta mapple brown Modestino de perto' }}
+      {%- endif -%}
+    </div>
+    <ul class="m-prova__lista">
+      {%- for block in section.blocks -%}
+        <li {{ block.shopify_attributes }}>
+          <h3>{{ block.settings.titulo }}</h3>
+          <p>{{ block.settings.texto }}</p>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Início: como o pedido sai",
+  "settings": [
+    { "type": "text", "id": "titulo", "label": "Título", "default": "Quem vende é quem confere, entrega e troca." },
+    { "type": "text", "id": "produto", "label": "Handle do produto (foto)", "default": "camiseta-basica-modestino" },
+    { "type": "image_picker", "id": "foto", "label": "Foto (vazio = gola de perto)" }
+  ],
+  "blocks": [
+    { "type": "item", "name": "Item", "settings": [
+      { "type": "text", "id": "titulo", "label": "Título" },
+      { "type": "textarea", "id": "texto", "label": "Texto" }
+    ] }
+  ],
+  "presets": [{ "name": "Início: como o pedido sai" }]
+}
+{% endschema %}
