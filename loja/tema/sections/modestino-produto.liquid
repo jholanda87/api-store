@@ -78,14 +78,14 @@
       </fieldset>
 
       <details class="m-calc">
-        <summary>Meça a que você já ama</summary>
+        <summary>Guia de medidas</summary>
         <div class="m-calc__corpo">
-          <p>Estenda na mesa a camiseta que você mais usa, sem esticar, e meça de axila a axila.</p>
+          <p>Meça, de axila a axila, uma camiseta sua estendida sobre uma superfície plana.</p>
           <div class="m-calc__linha">
             <label for="calc-{{ section.id }}">Largura (cm)
               <input class="m-input" id="calc-{{ section.id }}" type="number" inputmode="decimal" min="40" max="70" step="0.5" placeholder="ex.: 54" data-calc aria-describedby="calc-res-{{ section.id }}">
             </label>
-            <button type="button" class="m-btn m-btn--secundario" data-calc-ok>Ver tamanho</button>
+            <button type="button" class="m-btn m-btn--secundario" data-calc-ok>Calcular</button>
           </div>
           <p class="m-calc__res" id="calc-res-{{ section.id }}" data-calc-res aria-live="polite"></p>
           <div class="m-tabela-caixa">
@@ -115,10 +115,10 @@
 
       <div class="m-comprar">
         <button type="submit" class="m-btn m-btn--primario m-btn--largo" data-comprar {% unless selecionada and selecionada.available %}aria-disabled="true"{% endunless %}>
-          {%- if selecionada and selecionada.available -%}Adicionar · {{ selecionada.price | money_without_trailing_zeros }}{%- else -%}Escolha o tamanho{%- endif -%}
+          {%- if selecionada and selecionada.available -%}Adicionar · {{ selecionada.price | money_without_trailing_zeros }}{%- else -%}Selecione o tamanho{%- endif -%}
         </button>
         <p class="m-form-erro" data-erro role="alert" hidden></p>
-        <a class="m-btn m-btn--secundario m-btn--largo" href="{{ wa }}" target="_blank" rel="noopener">{% render 'modestino-icone', nome: 'whatsapp' %}Dúvida? WhatsApp</a>
+        <a class="m-btn m-btn--secundario m-btn--largo" href="{{ wa }}" target="_blank" rel="noopener">{% render 'modestino-icone', nome: 'whatsapp' %}Atendimento via WhatsApp</a>
       </div>
     </form>
 
@@ -183,13 +183,13 @@
         const u = new URL(location.href); u.searchParams.set('variant', v.id); history.replaceState(null, '', u);
       } else {
         botao.setAttribute('aria-disabled', 'true');
-        botao.textContent = 'Escolha o tamanho';
+        botao.textContent = 'Selecione o tamanho';
       }
       if (esgotados.length && !(v && v.ok)) {
         const a = document.createElement('a');
         a.href = avise(c, esgotados.join(', ')); a.target = '_blank'; a.rel = 'noopener';
-        a.textContent = 'Avise-me quando voltar';
-        aviso.append(esgotados.join(', ') + ' esgotado. ', a);
+        a.textContent = 'Avise-me';
+        aviso.append('Indisponível: ' + esgotados.join(', ') + '. ', a);
       }
       erro.hidden = true;
     }
@@ -198,7 +198,7 @@
     form.addEventListener('submit', (ev) => {
       if (botao.getAttribute('aria-disabled') === 'true') {
         ev.preventDefault();
-        erro.textContent = 'Escolha o tamanho.';
+        erro.textContent = 'Selecione um tamanho.';
         erro.hidden = false;
         const primeiro = form.querySelector('input[name="m-tam"]:not(:disabled)');
         if (primeiro) primeiro.focus();
@@ -223,9 +223,9 @@
       larguras.forEach((l, k) => { if (Math.abs(l - n) < Math.abs(larguras[i] - n)) i = k; });
       const t = tamanhos[i];
       const r = form.querySelector('input[name="m-tam"][value="' + t + '"]');
-      let msg = 'Seu tamanho: ' + t + ' (' + larguras[i] + ' cm).';
-      if (r && !r.disabled) { r.checked = true; atualizar(); msg += ' Já marcado.'; }
-      else msg += ' Esgotado em ' + cor() + '.';
+      let msg = 'Tamanho recomendado: ' + t + ' (' + larguras[i] + ' cm).';
+      if (r && !r.disabled) { r.checked = true; atualizar(); msg += ' Selecionado.'; }
+      else msg += ' Indisponível em ' + cor() + '.';
       res.textContent = msg;
     }
     raiz.querySelector('[data-calc-ok]').addEventListener('click', calcular);
@@ -239,7 +239,7 @@
 {
   "name": "Produto Modestino",
   "settings": [
-    { "type": "textarea", "id": "lead", "label": "Frase abaixo do título", "default": "Lisa, sem logo na frente. O nome fica por dentro." },
+    { "type": "textarea", "id": "lead", "label": "Frase abaixo do título", "default": "Lisa, sem logo aparente. Assinatura MODESTINO na nuca, pelo lado de dentro." },
     { "type": "text", "id": "larguras", "label": "Larguras P,M,G,GG (cm)", "default": "51,54,57,60" },
     { "type": "text", "id": "torax", "label": "Tórax P,M,G,GG (cm)", "default": "102,108,114,120" },
     { "type": "number", "id": "ultimas", "label": "Avisar \"últimas peças\" a partir de", "default": 2 },

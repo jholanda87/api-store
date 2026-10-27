@@ -30,7 +30,7 @@
 
   <div class="m-info">
     <h1>{{ product.title }}</h1>
-    <p class="m-info__lead">{% if sugestao %}Uma de cada cor, na ecobag. Troque se quiser.{% else %}{{ pecas }} camisetas, na ecobag. Cores livres.{% endif %}</p>
+    <p class="m-info__lead">{% if sugestao %}Uma peça de cada cor, com ecobag. Cores ajustáveis.{% else %}{{ pecas }} camisetas com ecobag. Cores à escolha.{% endif %}</p>
     <p class="m-preco">{{ variante.price | money_without_trailing_zeros }}<small>{{ por_peca | money_without_trailing_zeros }} a peça</small></p>
 
     <form method="post" action="{{ routes.cart_add_url }}" data-kit-form novalidate>
@@ -71,9 +71,9 @@
       {%- render 'modestino-servico' -%}
 
       <div class="m-comprar">
-        <p class="m-cupom-kit">Cupom de embaixador vale só na avulsa.</p>
+        <p class="m-cupom-kit">Cupons de embaixador não se aplicam aos kits.</p>
         <button type="submit" class="m-btn m-btn--primario m-btn--largo" data-comprar>Adicionar o kit · {{ variante.price | money_without_trailing_zeros }}</button>
-        <a class="m-btn m-btn--secundario m-btn--largo" href="{{ section.settings.whatsapp }}" target="_blank" rel="noopener">{% render 'modestino-icone', nome: 'whatsapp' %}Dúvida? WhatsApp</a>
+        <a class="m-btn m-btn--secundario m-btn--largo" href="{{ section.settings.whatsapp }}" target="_blank" rel="noopener">{% render 'modestino-icone', nome: 'whatsapp' %}Atendimento via WhatsApp</a>
       </div>
     </form>
 
@@ -119,15 +119,15 @@
         usados[chave] = (usados[chave] || 0) + 1;
         if (usados[chave] > (estoque[chave] || 0)) {
           msg = (estoque[chave] || 0) === 0
-            ? cor.value + ' ' + tam.value + ' esgotado. Troque a peça ' + (n + 1) + '.'
-            : 'Só temos ' + estoque[chave] + ' de ' + cor.value + ' ' + tam.value + '. Troque a peça ' + (n + 1) + '.';
+            ? cor.value + ' ' + tam.value + ' indisponível. Ajuste a peça ' + (n + 1) + '.'
+            : 'Disponível: ' + estoque[chave] + ' un. de ' + cor.value + ' ' + tam.value + '. Ajuste a peça ' + (n + 1) + '.';
           tam.setAttribute('aria-invalid', 'true');
         }
       });
       erro.textContent = msg;
       erro.hidden = !msg;
       botao.setAttribute('aria-disabled', msg ? 'true' : 'false');
-      botao.textContent = msg ? 'Troque a peça esgotada' : textoBotao;
+      botao.textContent = msg ? 'Peça indisponível' : textoBotao;
       return !msg;
     }
 
@@ -137,7 +137,7 @@
       if (vazia || !validar()) {
         ev.preventDefault();
         if (vazia) {
-          erro.textContent = 'Escolha cor e tamanho de todas as peças.';
+          erro.textContent = 'Selecione cor e tamanho de todas as peças.';
           erro.hidden = false;
           const alvo = [...vazia.querySelectorAll('select')].find((s) => !s.value);
           if (alvo) alvo.focus();

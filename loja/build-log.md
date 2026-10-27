@@ -1,5 +1,9 @@
 # Construção da loja — registro
 
+## 27/10/2026 (noite, 4ª rodada) — tom profissional
+
+Pedido do Jorge: nada de linguagem informal nem menção aos donos. Reescritos: subtítulo da primeira tela ("Camiseta básica masculina, produzida em Fortaleza. Lisa, sem logo aparente. Troca de tamanho em até 30 dias."), botões ("Atendimento via WhatsApp", "Selecione o tamanho", "Guia de medidas", "Calcular"), mensagens de estoque e de cupom, cards dos kits, perguntas frequentes (9), rodapé ("Atendimento todos os dias"), páginas de trocas e privacidade (linguagem formal, mesmas regras) e descrições dos 4 produtos (`vitrine.py` 0 erros). 9 arquivos do tema reenviados e conferidos; páginas e produtos atualizados na Shopify.
+
 ## 27/10/2026 (noite, 3ª rodada) — título pela identidade, promessa é a troca
 
 Decisão do Jorge: o título fala da identidade (não dos donos) e a loja não promete "sem erro", só a troca.

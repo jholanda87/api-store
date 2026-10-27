@@ -1,6 +1,6 @@
 {%- comment -%} Frete, troca e pagamento, visíveis antes do botão de compra (produto e kit). {%- endcomment -%}
 <ul class="m-servico" aria-label="Entrega, troca e pagamento">
-  <li>{% render 'modestino-icone', nome: 'entrega' %}<span><strong>Fortaleza: R$ 10</strong>Outras cidades: frete no fechamento.</span></li>
+  <li>{% render 'modestino-icone', nome: 'entrega' %}<span><strong>Fortaleza: R$ 10</strong>Demais cidades: calculado no checkout.</span></li>
   <li>{% render 'modestino-icone', nome: 'troca' %}<span><strong>Troca em mãos</strong>30 dias para tamanho ou defeito. <a class="m-link" href="{{ routes.root_url | append: 'pages/trocas' | replace: '//', '/' }}">Trocas</a></span></li>
   <li>{% render 'modestino-icone', nome: 'pagamento' %}<span><strong>Pix ou cartão</strong></span></li>
 </ul>

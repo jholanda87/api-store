@@ -28,11 +28,11 @@
 {%- else -%}
   <div class="m-wrap m-carrinho-aviso" aria-live="polite">
     {%- if cupom_recusado != '' and tem_kit -%}
-      <p data-tipo="erro">{{ cupom_recusado }} vale só na camiseta avulsa. No kit, a peça já sai por menos.</p>
+      <p data-tipo="erro">O cupom {{ cupom_recusado }} é válido apenas para a camiseta avulsa. Os kits já têm preço reduzido por peça.</p>
     {%- elsif cupom_recusado != '' -%}
-      <p data-tipo="erro">{{ cupom_recusado }} não vale para este carrinho.</p>
+      <p data-tipo="erro">O cupom {{ cupom_recusado }} não é válido para este carrinho.</p>
     {%- elsif tem_kit -%}
-      <p>Cupom de embaixador vale só na avulsa.</p>
+      <p>Cupons de embaixador não se aplicam aos kits.</p>
     {%- endif -%}
   </div>
 {%- endif -%}

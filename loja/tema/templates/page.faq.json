@@ -7,77 +7,77 @@
         "q0": {
           "type": "pergunta",
           "settings": {
-            "pergunta": "Como acho meu tamanho?",
-            "resposta": "<p>Meça de axila a axila uma camiseta sua, estendida na mesa. P 51 · M 54 · G 57 · GG 60 cm. A calculadora da página faz a conta.</p>"
+            "pergunta": "Como escolher o tamanho?",
+            "resposta": "<p>Meça de axila a axila uma camiseta sua estendida sobre uma superfície plana e compare: P 51 · M 54 · G 57 · GG 60 cm. A página do produto tem um guia de medidas.</p>"
+          }
+        },
+        "q1": {
+          "type": "pergunta",
+          "settings": {
+            "pergunta": "Qual é o valor do frete?",
+            "resposta": "<p>Fortaleza: R$ 10. Demais cidades: calculado no checkout pelo CEP.</p>"
           }
         },
         "q2": {
           "type": "pergunta",
           "settings": {
-            "pergunta": "Quanto custa a entrega?",
-            "resposta": "<p>Em Fortaleza, R$ 10, entregue por nós. Outras cidades: frete calculado no fechamento, pelo CEP.</p>"
+            "pergunta": "Como solicitar uma troca?",
+            "resposta": "<p>Prazo de 30 dias para troca de tamanho ou defeito e de 7 dias para desistência. Em Fortaleza, a troca é presencial. Solicite pelo WhatsApp, informando o número do pedido.</p>"
           }
         },
         "q3": {
           "type": "pergunta",
           "settings": {
-            "pergunta": "Como troco?",
-            "resposta": "<p>30 dias para tamanho ou defeito; 7 dias para desistir. Em Fortaleza, em mãos. Chame no WhatsApp com o número do pedido.</p>"
+            "pergunta": "Qual é o prazo de reembolso?",
+            "resposta": "<p>Até 2 dias úteis após a conferência, pelo mesmo meio de pagamento. Não há vale-troca obrigatório.</p>"
           }
         },
         "q4": {
           "type": "pergunta",
           "settings": {
-            "pergunta": "Quando o dinheiro volta?",
-            "resposta": "<p>Até 2 dias úteis depois da conferência, pelo mesmo meio do pagamento. Sem vale-troca.</p>"
+            "pergunta": "Cupons de embaixador valem para os kits?",
+            "resposta": "<p>Não. São válidos apenas para a camiseta avulsa. Nos kits, o preço por peça já é reduzido: R$ 75 no Kit 3 e no Kit Essencial.</p>"
           }
         },
         "q5": {
           "type": "pergunta",
           "settings": {
-            "pergunta": "Cupom de embaixador vale no kit?",
-            "resposta": "<p>Não. Vale só na camiseta avulsa. No kit, a peça já sai por R$ 75.</p>"
+            "pergunta": "É possível escolher as cores do kit?",
+            "resposta": "<p>Sim. Cor e tamanho são definidos peça a peça.</p>"
           }
         },
         "q6": {
           "type": "pergunta",
           "settings": {
-            "pergunta": "Posso escolher as cores do kit?",
-            "resposta": "<p>Sim. Cor e tamanho de cada peça.</p>"
+            "pergunta": "A camiseta tem logo?",
+            "resposta": "<p>Não. Apenas a assinatura MODESTINO na nuca, pelo lado de dentro.</p>"
           }
         },
         "q7": {
           "type": "pergunta",
           "settings": {
-            "pergunta": "Tem logo?",
-            "resposta": "<p>Não. MODESTINO pequeno na nuca, por dentro.</p>"
+            "pergunta": "Qual é a composição?",
+            "resposta": "<p>Informada na etiqueta de cada peça. Para consultar antes da compra, fale com o atendimento pelo WhatsApp.</p>"
           }
         },
         "q8": {
           "type": "pergunta",
           "settings": {
-            "pergunta": "Qual é o tecido?",
-            "resposta": "<p>Vem na etiqueta de cada peça. Quer saber antes? Pergunte no WhatsApp.</p>"
-          }
-        },
-        "q9": {
-          "type": "pergunta",
-          "settings": {
-            "pergunta": "Como pago?",
+            "pergunta": "Quais são as formas de pagamento?",
             "resposta": "<p>Pix ou cartão.</p>"
           }
         }
       },
       "block_order": [
         "q0",
+        "q1",
         "q2",
         "q3",
         "q4",
         "q5",
         "q6",
         "q7",
-        "q8",
-        "q9"
+        "q8"
       ]
     }
   },
