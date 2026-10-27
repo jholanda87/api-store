@@ -1,41 +1,217 @@
 {
-  "_about": "Temas para o reviews.py da Replica, em português, para lojas de roupa básica masculina. Uso: python3 ../replica-entrepreneur/reviews.py loja/reviews.csv --themes temas.json --out loja/feedback.md. Padrões são expressões regulares Python, sem diferenciar maiúsculas. kind: complaint (o que o cliente odeia) ou request (o que ele pede e falta).",
-  "request_patterns": [
-    "\\bpoderia(m)? ter\\b",
-    "\\bqueria que\\b",
-    "\\bseria (bom|ótimo|legal|melhor)\\b",
-    "\\bfalta(m|va)?\\b",
-    "\\bnão tem (opção|tamanho|cor|tabela)\\b",
-    "\\bdeveria(m)?\\b",
-    "\\bsugiro\\b",
-    "\\bsugestão\\b",
-    "\\bse tivesse\\b",
-    "\\bgostaria\\b"
-  ],
-  "themes": [
-    {"id": "tamanho", "label": "Tamanho e caimento errados", "kind": "complaint",
-     "patterns": ["\\btamanho\\b", "\\bveio (grande|pequen[ao]|apertad[ao]|larg[ao])\\b", "\\bcaimento\\b", "\\bforma (grande|pequena)\\b", "\\btabela de medidas\\b", "\\bmanga (curta|longa|grande)\\b", "\\bcomprimento\\b", "\\bnão serviu\\b"]},
-    {"id": "tecido", "label": "Tecido fino, quente ou transparente", "kind": "complaint",
-     "patterns": ["\\btecido (fino|ruim|grosso|quente|transparente)\\b", "\\btransparente\\b", "\\bfininh[ao]\\b", "\\besquenta\\b", "\\bcalor\\b", "\\bpinica\\b", "\\báspero\\b", "\\bmalha\\b"]},
-    {"id": "durabilidade", "label": "Deforma, desbota ou faz bolinha", "kind": "complaint",
-     "patterns": ["\\bdesbot", "\\bdeform", "\\bbolinha", "\\bencolh", "\\blarg(ou|a) depois\\b", "\\bgola (lass|deform|abriu)", "\\bperdeu a (cor|forma)\\b", "\\b(primeira|segunda|terceira) lavagem\\b", "\\bfurou\\b", "\\bdescosturou\\b"]},
-    {"id": "entrega", "label": "Atraso e problema na entrega", "kind": "complaint",
-     "patterns": ["\\batras", "\\bnão (chegou|recebi|entregaram)\\b", "\\bentrega\\b", "\\bprazo\\b", "\\brastreio\\b", "\\bextravi", "\\bcorreios\\b", "\\btransportadora\\b"]},
-    {"id": "troca", "label": "Troca e devolução difíceis", "kind": "complaint",
-     "patterns": ["\\btroca\\b", "\\btrocar\\b", "\\bdevolu", "\\bestorno\\b", "\\breembolso\\b", "\\bcancel", "\\bdinheiro de volta\\b", "\\barrependimento\\b"]},
-    {"id": "atendimento", "label": "Atendimento que não responde", "kind": "complaint",
-     "patterns": ["\\batendimento\\b", "\\bsac\\b", "\\bnão (respondem|responde|retornam|retornou)\\b", "\\bsem resposta\\b", "\\bdescaso\\b", "\\bpéssimo atendimento\\b", "\\brobô\\b", "\\bchat\\b"]},
-    {"id": "foto", "label": "Diferente da foto ou da cor", "kind": "complaint",
-     "patterns": ["\\bdiferente da (foto|imagem)\\b", "\\bnão é (igual|como) (a|na) foto\\b", "\\bcor diferente\\b", "\\benganos", "\\bpropaganda enganosa\\b", "\\bveio errad"]},
-    {"id": "preco", "label": "Preço, frete e custo-benefício", "kind": "complaint",
-     "patterns": ["\\bcar[oa]\\b", "\\bpreço\\b", "\\bfrete\\b", "\\bnão vale\\b", "\\bcusto.?benefício\\b", "\\bpromoção\\b", "\\bcupom\\b", "\\bdesconto\\b"]},
-    {"id": "site", "label": "Site, pagamento e checkout", "kind": "complaint",
-     "patterns": ["\\bsite\\b", "\\bapp\\b", "\\bcheckout\\b", "\\bpagamento\\b", "\\bpix\\b", "\\bboleto\\b", "\\bcartão\\b", "\\bcobrad", "\\bcobrança\\b", "\\berro\\b", "\\bcadastro\\b"]},
-    {"id": "logo", "label": "Logo grande, estampa demais", "kind": "complaint",
-     "patterns": ["\\blogo (grande|enorme|na frente)\\b", "\\bmarca (gritando|aparecendo)\\b", "\\bestampa\\b", "\\betiqueta (pinica|incomoda|coça)\\b"]},
-    {"id": "embalagem", "label": "Embalagem e apresentação", "kind": "request",
-     "patterns": ["\\bembalagem\\b", "\\bcaixa\\b", "\\bsacola\\b", "\\bpresente\\b", "\\bamassad"]},
-    {"id": "grade", "label": "Cores e tamanhos que faltam", "kind": "request",
-     "patterns": ["\\b(xg|xgg|g1|g2|plus size)\\b", "\\btamanho (maior|menor)\\b", "\\bmais cores\\b", "\\besgota", "\\bsem estoque\\b", "\\bnão tinha meu tamanho\\b"]}
-  ]
+ "_about": "Temas para o reviews.py da Replica, em português, para lojas de roupa básica masculina. Uso: python3 ../replica-entrepreneur/reviews.py loja/reviews.csv --themes temas.json --out loja/feedback.md. Padrões são expressões regulares Python, sem diferenciar maiúsculas. kind: complaint (o que o cliente odeia) ou request (o que ele pede e falta).",
+ "request_patterns": [
+  "\\bpoderia(m)? ter\\b",
+  "\\bqueria que\\b",
+  "\\bseria (bom|ótimo|legal|melhor)\\b",
+  "\\bfalta(m|va)?\\b",
+  "\\bnão tem (opção|tamanho|cor|tabela)\\b",
+  "\\bdeveria(m)?\\b",
+  "\\bsugiro\\b",
+  "\\bsugestão\\b",
+  "\\bse tivesse\\b",
+  "\\bgostaria\\b"
+ ],
+ "themes": [
+  {
+   "id": "tamanho",
+   "label": "Tamanho e caimento errados",
+   "kind": "complaint",
+   "patterns": [
+    "\\btamanho\\b",
+    "\\bveio (grande|pequen[ao]|apertad[ao]|larg[ao])\\b",
+    "\\bcaimento\\b",
+    "\\bforma (grande|pequena)\\b",
+    "\\btabela de medidas\\b",
+    "\\bmanga (curta|longa|grande)\\b",
+    "\\bcomprimento\\b",
+    "\\bnão serviu\\b"
+   ]
+  },
+  {
+   "id": "tecido",
+   "label": "Tecido fino, quente ou transparente",
+   "kind": "complaint",
+   "patterns": [
+    "\\btecido (fino|ruim|grosso|quente|transparente)\\b",
+    "\\btransparente\\b",
+    "\\bfininh[ao]\\b",
+    "\\besquenta\\b",
+    "\\bcalor\\b",
+    "\\bpinica\\b",
+    "\\báspero\\b",
+    "\\bmalha\\b",
+    "\\bodor\\b",
+    "\\bcheiro\\b",
+    "\\bsuor\\b"
+   ]
+  },
+  {
+   "id": "durabilidade",
+   "label": "Deforma, desbota ou faz bolinha",
+   "kind": "complaint",
+   "patterns": [
+    "\\bdesbot",
+    "\\bdeform",
+    "\\bbolinha",
+    "\\bencolh",
+    "\\blarg(ou|a) depois\\b",
+    "\\bgola (lass|deform|abriu)",
+    "\\bperdeu a (cor|forma)\\b",
+    "\\b(primeira|segunda|terceira) lavagem\\b",
+    "\\bfurou\\b",
+    "\\bdescosturou\\b",
+    "\\balarg",
+    "\\brasg",
+    "\\bfuro\\b",
+    "\\bestrag",
+    "\\bdefeito (no tecido|na costura|na gola)\\b",
+    "\\bcostura\\b",
+    "\\bgola\\b"
+   ]
+  },
+  {
+   "id": "entrega",
+   "label": "Atraso e problema na entrega",
+   "kind": "complaint",
+   "patterns": [
+    "\\batras",
+    "\\bnão (chegou|recebi|entregaram)\\b",
+    "\\bentrega\\b",
+    "\\bprazo\\b",
+    "\\brastreio\\b",
+    "\\bextravi",
+    "\\bcorreios\\b",
+    "\\btransportadora\\b"
+   ]
+  },
+  {
+   "id": "troca",
+   "label": "Troca e devolução difíceis",
+   "kind": "complaint",
+   "patterns": [
+    "\\btroca\\b",
+    "\\btrocar\\b",
+    "\\bdevolu",
+    "\\bestorno\\b",
+    "\\breembolso\\b",
+    "\\bcancel",
+    "\\bdinheiro de volta\\b",
+    "\\barrependimento\\b"
+   ]
+  },
+  {
+   "id": "atendimento",
+   "label": "Atendimento que não responde",
+   "kind": "complaint",
+   "patterns": [
+    "\\batendimento\\b",
+    "\\bsac\\b",
+    "\\bnão (respondem|responde|retornam|retornou)\\b",
+    "\\bsem resposta\\b",
+    "\\bdescaso\\b",
+    "\\bpéssimo atendimento\\b",
+    "\\brobô\\b",
+    "\\bchat\\b"
+   ]
+  },
+  {
+   "id": "foto",
+   "label": "Diferente da foto ou da cor",
+   "kind": "complaint",
+   "patterns": [
+    "\\bdiferente da (foto|imagem)\\b",
+    "\\bnão é (igual|como) (a|na) foto\\b",
+    "\\bcor diferente\\b",
+    "\\benganos",
+    "\\bpropaganda enganosa\\b",
+    "\\bveio errad",
+    "\\bmanch",
+    "\\bpigmento\\b",
+    "\\bmarcad[ao]\\b"
+   ]
+  },
+  {
+   "id": "preco",
+   "label": "Preço, frete e custo-benefício",
+   "kind": "complaint",
+   "patterns": [
+    "\\bcar[oa]\\b",
+    "\\bpreço\\b",
+    "\\bfrete\\b",
+    "\\bnão vale\\b",
+    "\\bcusto.?benefício\\b",
+    "\\bpromoção\\b",
+    "\\bcupom\\b",
+    "\\bdesconto\\b"
+   ]
+  },
+  {
+   "id": "site",
+   "label": "Site, pagamento e checkout",
+   "kind": "complaint",
+   "patterns": [
+    "\\bsite\\b",
+    "\\bapp\\b",
+    "\\bcheckout\\b",
+    "\\bpagamento\\b",
+    "\\bpix\\b",
+    "\\bboleto\\b",
+    "\\bcartão\\b",
+    "\\bcobrad",
+    "\\bcobrança\\b",
+    "\\berro\\b",
+    "\\bcadastro\\b"
+   ]
+  },
+  {
+   "id": "logo",
+   "label": "Logo grande, estampa demais",
+   "kind": "complaint",
+   "patterns": [
+    "\\blogo (grande|enorme|na frente)\\b",
+    "\\bmarca (gritando|aparecendo)\\b",
+    "\\bestampa\\b",
+    "\\betiqueta (pinica|incomoda|coça)\\b"
+   ]
+  },
+  {
+   "id": "embalagem",
+   "label": "Embalagem e apresentação",
+   "kind": "request",
+   "patterns": [
+    "\\bembalagem\\b",
+    "\\bcaixa\\b",
+    "\\bsacola\\b",
+    "\\bpresente\\b",
+    "\\bamassad"
+   ]
+  },
+  {
+   "id": "grade",
+   "label": "Cores e tamanhos que faltam",
+   "kind": "request",
+   "patterns": [
+    "\\b(xg|xgg|g1|g2|plus size)\\b",
+    "\\btamanho (maior|menor)\\b",
+    "\\bmais cores\\b",
+    "\\besgota",
+    "\\bsem estoque\\b",
+    "\\bnão tinha meu tamanho\\b"
+   ]
+  },
+  {
+   "id": "pedido",
+   "label": "Pedido cancelado, incompleto ou promessa não cumprida",
+   "kind": "complaint",
+   "patterns": [
+    "\\bcancel(ou|aram|ado|ada)\\b",
+    "\\bnão honrou\\b",
+    "\\bvoltou atrás\\b",
+    "\\brecebeu uma\\b",
+    "\\bem vez de\\b",
+    "\\bprometeu\\b"
+   ]
+  }
+ ]
 }
