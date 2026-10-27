@@ -36,7 +36,7 @@
           "type": "pergunta",
           "settings": {
             "pergunta": "Cupons de embaixador valem para os kits?",
-            "resposta": "<p>Não. São válidos apenas para a camiseta avulsa. Nos kits, o preço por peça já é reduzido: R$ 75 no Kit 3 e no Kit Essencial.</p>"
+            "resposta": "<p>Sim. Os cupons de embaixador valem para qualquer compra, avulsa ou kit, enquanto houver estoque. Não são cumulativos com outros descontos.</p>"
           }
         },
         "q5": {

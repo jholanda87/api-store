@@ -1,5 +1,12 @@
 # Construção da loja — registro
 
+## 27/10/2026 (23h) — loja aberta e cupons em toda a loja
+
+- Às 23:11 o tema "Modestino (construção)" (`167188168752`) passou a ser o publicado (MAIN) e a senha da loja foi desligada, pelo admin (não por esta sessão). O Horizon antigo (`166315229232`) virou não publicado. A partir daqui o conector **não escreve mais nesse tema** (bloqueio de tema publicado): mudanças vão numa cópia duplicada pelo Jorge e publicada por ele.
+- Cupons `KEANU6` e `PAULOVITOR6` (decisão do Jorge): 6% em qualquer compra, avulsa ou kit; sem limite de usos (limite é o estoque); continuam sem acumular com outro desconto. Atualizados e conferidos na Shopify.
+- Textos do tema ajustados no repositório (aviso de "cupom não vale no kit" removido do kit e do carrinho; pergunta frequente reescrita), **mas não enviados**: o tema agora está publicado. Ficam para a cópia.
+- Políticas de privacidade e reembolso com o endereço do CNPJ, conferidas pela API.
+
 ## 27/10/2026 (noite) — entrega local conferida no checkout
 
 Print do Jorge no checkout (CEP de Fortaleza, depois de refazer a configuração): "Entrega local R$ 10,00 — Entrega própria em Fortaleza. Combinamos o horário pelo WhatsApp." com campo de celular obrigatório, e "Padrão R$ 22,00 — 3 a 5 dias úteis" como segunda opção. Falta só conferir um CEP de fora (61600-000, Caucaia: deve aparecer só o Padrão).

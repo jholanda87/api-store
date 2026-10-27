@@ -71,7 +71,6 @@
       {%- render 'modestino-servico' -%}
 
       <div class="m-comprar">
-        <p class="m-cupom-kit">Cupons de embaixador não se aplicam aos kits.</p>
         <button type="submit" class="m-btn m-btn--primario m-btn--largo" data-comprar>Adicionar o kit · {{ variante.price | money_without_trailing_zeros }}</button>
         <a class="m-btn m-btn--secundario m-btn--largo" href="{{ section.settings.whatsapp }}" target="_blank" rel="noopener">{% render 'modestino-icone', nome: 'whatsapp' %}Atendimento via WhatsApp</a>
       </div>

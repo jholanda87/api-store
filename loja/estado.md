@@ -9,7 +9,7 @@ continuam no Painel da Modestino; estratégia e decisões na Central Modestino.
 | 0. Pré-requisitos | administrativo-modestino | loja/administrativo.md, politicas/ | 🟡 MEI aberto em 27/10 (CNPJ 69.828.190/0001-36) · políticas em rascunho · endereço do rodapé e teto proporcional do MEI a ver com o contador |
 | 1. Mapa das referências | loja-recon-modestino | loja/recon.md, features.csv | 🟡 recon público feito (27/10); falta página de produto completa e checkout pelo navegador do Jorge |
 | 2. O que o cliente odeia | loja-empreendedor-modestino | loja/reviews.csv, feedback.md, correcoes.md | ✅ 114 reclamações de 4 marcas (28/10); correcoes.md com 8 correções; frase A aprovada e 10 lavagens confirmadas (28/10) |
-| 3. Arquitetura | loja-arquitetura-modestino | loja/arquitetura.md | ✅ Shopify + Mercado Pago; cupons de 6% (`KEANU6`, `PAULOVITOR6`, criados na Shopify) só na avulsa; frete R$ 10 em Fortaleza saindo do Ponto J; pesos estimados para Correios (28/10) |
+| 3. Arquitetura | loja-arquitetura-modestino | loja/arquitetura.md | ✅ Shopify + Mercado Pago; cupons de 6% (`KEANU6`, `PAULOVITOR6`) em toda a loja, avulsa e kit (decisão de 27/10, noite); frete R$ 10 em Fortaleza saindo do Ponto J; pesos estimados para Correios (28/10) |
 | 4. Design | loja-design-modestino | loja/design/ | ✅ tokens, componentes, amostra e logo do Drive aplicado (PNG transparente + favicon); SVG opcional |
 | 5. Catálogo e estoque | catalogo-modestino | loja/catalogo.csv, estoque.csv, catalogo/ | 🟡 4 rascunhos na Shopify `nnwyy4-vp` (27/10): camiseta com 12 variantes e 212 peças no Ponto J; SEO gravado; fotos **provisórias** (frames dos vídeos do Keanu, 27/10); faltam fotos de estúdio e seleção por peça nos kits |
 | 6. Construção | loja-build-modestino | loja/build-log.md, loja/tema/ | 🟡 tema de construção montado (27/10, não publicado, loja com senha): casca + S01, S03/S04, S05, S11–S13 com todos os estados; fotos **provisórias** dos vídeos do Keanu; falta S02, S14, prints da prévia real e ligar a entrega local |
@@ -74,3 +74,7 @@ Ativos desde 27/10 00:00 (Fortaleza), para todos os clientes. Comissão do embai
 ## Fotos provisórias (27/10/2026)
 
 **As fotos da loja são provisórias:** 8 quadros dos vídeos do Keanu (preta: frente e ombro; mapple brown: frente, gola e lado; off white: frente, costas e gola), em `loja/fotos-provisorias/`. Estão na Camiseta Básica (cada cor ligada às suas variantes) e nos 3 kits (as 3 frentes). **O Jorge vai mandar fotos novas**; quando chegarem, trocar todas, incluindo costas da preta e da mapple brown, que não existem nos vídeos.
+
+## Loja aberta (27/10/2026, 23h)
+
+Tema "Modestino (construção)" publicado e senha desligada pelo admin. Conferir com o Jorge se foi intencional e se o Mercado Pago saiu do modo teste. Cupons de embaixador valem em toda a loja (avulsa e kit), sem limite de usos, sem acumular.

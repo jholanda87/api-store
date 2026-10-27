@@ -1,18 +1,8 @@
 {%- comment -%}
-  Avisos do carrinho (S06): carrinho vazio na voz da marca e cupom de embaixador recusado no kit.
-  A Shopify só aplica KEANU6/PAULOVITOR6 na Camiseta Básica avulsa; num carrinho só de kits o código fica
-  "não aplicável" e aqui explicamos o porquê.
+  Avisos do carrinho (S06): carrinho vazio e cupom recusado.
+  Cupons de embaixador (KEANU6, PAULOVITOR6) valem em toda a loja desde 27/10; não acumulam com outro desconto.
 {%- endcomment -%}
 {%- liquid
-  assign tem_kit = false
-  assign tem_avulsa = false
-  for item in cart.items
-    if item.sku contains 'MOD-KIT'
-      assign tem_kit = true
-    elsif item.sku contains 'MOD-CAM'
-      assign tem_avulsa = true
-    endif
-  endfor
   assign cupom_recusado = ''
   for d in cart.discount_codes
     unless d.applicable
@@ -27,12 +17,8 @@
   </section>
 {%- else -%}
   <div class="m-wrap m-carrinho-aviso" aria-live="polite">
-    {%- if cupom_recusado != '' and tem_kit -%}
-      <p data-tipo="erro">O cupom {{ cupom_recusado }} é válido apenas para a camiseta avulsa. Os kits já têm preço reduzido por peça.</p>
-    {%- elsif cupom_recusado != '' -%}
-      <p data-tipo="erro">O cupom {{ cupom_recusado }} não é válido para este carrinho.</p>
-    {%- elsif tem_kit -%}
-      <p>Cupons de embaixador não se aplicam aos kits.</p>
+    {%- if cupom_recusado != '' -%}
+      <p data-tipo="erro">O cupom {{ cupom_recusado }} não é válido para este carrinho. Cupons não são cumulativos com outros descontos.</p>
     {%- endif -%}
   </div>
 {%- endif -%}
