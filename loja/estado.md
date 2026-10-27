@@ -11,7 +11,7 @@ continuam no Painel da Modestino; estratégia e decisões na Central Modestino.
 | 2. O que o cliente odeia | loja-empreendedor-modestino | loja/reviews.csv, feedback.md, correcoes.md | 🟡 Insider 24 + Reserva 30 = 54 reclamações (28/10); faltam Hering e Básico |
 | 3. Arquitetura | loja-arquitetura-modestino | loja/arquitetura.md | 🟡 Shopify; cupom 10% mantido; frete por distância do ponto mais perto (frete.md); falta bairro do Ponto L |
 | 4. Design | loja-design-modestino | loja/design/ | ✅ tokens, componentes, amostra e logo do Drive aplicado (PNG transparente + favicon); SVG opcional |
-| 5. Catálogo e estoque | catalogo-modestino | loja/catalogo.csv, estoque.csv, catalogo/ | 🟡 4 rascunhos na Shopify `nnwyy4-vp` (27/10): camiseta com 12 variantes e 212 peças no local padrão; textos com `vitrine.py` 0 erro; faltam fotos, locais J/L, SEO e seleção por peça nos kits |
+| 5. Catálogo e estoque | catalogo-modestino | loja/catalogo.csv, estoque.csv, catalogo/ | 🟡 4 rascunhos na Shopify `nnwyy4-vp` (27/10): camiseta com 12 variantes e 212 peças no Ponto J; SEO gravado; foto provisória (preta vestida); faltam fotos de estúdio e seleção por peça nos kits |
 | 6. Construção | loja-build-modestino | loja/build-log.md | ⚪ |
 | 7. Pagamento, frete, integrações | loja-backend-modestino | loja/backend.md | ⚪ |
 | 8. Testes | loja-teste-modestino | loja/test-plan.md, bugs.md | ⚪ |
@@ -34,6 +34,10 @@ Gravado como **rascunho** (nada publicado) na loja `nnwyy4-vp` (Minha loja 2; BR
 
 Arquivos: `catalogo/textos.json` (títulos, descrições e SEO, revisados com `vitrine.py`), `catalogo.csv`, `estoque.csv` e `catalogo/shopify-import.csv` (cópia de segurança para importação manual; não importar de novo, duplicaria).
 
-Estoque está no local padrão "Local da loja": os locais Ponto J e Ponto L ainda não existem (endereços só no cadastro da Shopify, nunca aqui). Quando existirem, mover as peças com o estoque por ponto do Painel.
+Atualizado em 27/10 (tarde), por decisão do Jorge:
+- **Só um ponto de despacho por enquanto:** o local padrão virou "Ponto J" (endereço só no cadastro da Shopify, nunca aqui) e guarda as 212 peças. O Ponto L fica para depois.
+- **SEO** (título e descrição de `textos.json`) gravado nos 4 produtos.
+- **Foto provisória:** um quadro do vídeo `IMG_3268.mov` do Drive (camiseta preta vestida, recorte 4:5, 1080×1350) nos 4 produtos e nas variantes Preto. Não há foto real de Mapple Brown nem de Off White que preste no Drive (só folhas de quadros de vídeo em baixa resolução; os MP4 do Keanu passam de 10 MB e o conector do Drive não baixa). Trocar tudo quando o estúdio ficar pronto.
+- **Kits:** qualquer cor que o cliente quiser (Kit 2 e Kit 3). A escolha por peça entra na construção, por campos no carrinho ou app de kits.
 
-Falta: fotos reais; título e descrição de SEO (em `textos.json`, ainda não gravados); seleção de cor e tamanho por peça nos kits e baixa no estoque da camiseta (app de kits ou campos do carrinho, na construção); gateway de pagamento; plano pago da Shopify antes de vender.
+Falta: fotos de estúdio; seleção de cor e tamanho por peça nos kits e baixa no estoque da camiseta (app de kits ou campos do carrinho, na construção); gateway de pagamento; plano pago da Shopify antes de vender.

@@ -4,6 +4,9 @@ Decidido pelo Jorge em 27/10/2026. **Os endereços de partida dos sócios não a
 
 ## Regra
 
+**Atualização de 27/10 (tarde):** por enquanto só o **Ponto J** despacha. Ele já está cadastrado como local na Shopify (endereço só lá) e todo o estoque está nele. O Ponto L entra depois.
+
+
 - **Fortaleza:** entrega própria ou Uber Flash, saindo do ponto (J ou L) **mais perto do cliente** que tenha a peça. O frete só cobre o custo (gasolina ou Uber Flash), sem lucro e sem prejuízo.
 - **Quem despacha:** o dono do ponto escolhido. Se só um tem a cor/tamanho, sai dele.
 - **Troca de tamanho em mãos:** mesma tabela, ou grátis quando junto com uma nova compra.
