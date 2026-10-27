@@ -1,0 +1,41 @@
+feature,area,priority,original,clone,notes
+Página inicial com a oferta e a ação principal na primeira tela,vitrine,must,yes,no,herdar a landing aprovada em 21/10 (site-impecavel-modestino)
+Página de produto com seletor de cor que troca foto e fundo,produto,must,yes,no,Preto · Mapple Brown · Off White
+Seletor de tamanho P a GG com esgotado marcado,produto,must,yes,no,estoque vem do Painel (estoque.py)
+Tabela de medidas real (largura axila a axila e tórax),produto,must,yes,no,P 51 · M 54 · G 57 · GG 60 cm; tórax 102 · 108 · 114 · 120
+Fotos reais de perto (gola ombro costas) e vestido,produto,must,yes,no,nunca banco de imagem nem IA vendendo a peça
+Kit 2 e Kit 3 com ecobag como produto próprio,produto,must,yes,no,kit 2 R$ 160 · kit 3 R$ 225 (Central 19/10)
+Carrinho com edição de quantidade cor e tamanho,carrinho,must,yes,no,
+Frete calculado pelo CEP com entrega local em Fortaleza,checkout,must,yes,no,entrega própria ou Uber Flash em Fortaleza; Correios fora
+Checkout com Pix,checkout,must,yes,no,
+Checkout com cartão em até 3x,checkout,must,yes,no,juros repassados ao cliente (Central seção 8)
+Compra sem criar conta,checkout,must,yes,no,
+Cupom de embaixador (10% só na avulsa e sem acumular com kit),checkout,must,yes,no,margem cai abaixo de 50% se acumular
+E-mail ou WhatsApp de confirmação do pedido,pos-venda,must,yes,no,
+Código de rastreio enviado ao cliente,pos-venda,must,yes,no,
+Política de troca e devolução publicada,confianca,must,yes,no,7 dias arrependimento · 30 dias troca de tamanho e defeito
+Páginas de privacidade e termos (LGPD),confianca,must,yes,no,listar cada processador (plataforma pagamento frete e-mail)
+CNPJ e razão social no rodapé,confianca,must,yes,no,depende do MEI (administrativo-modestino)
+Botão de WhatsApp para tirar dúvida,atendimento,must,yes,no,resposta em até 10 min
+Pixel da Meta e Google Analytics com eventos de compra,dados,must,yes,no,trafego-pago-modestino
+Estoque da loja igual ao do Painel,dados,must,yes,no,Painel é a fonte única dos números
+Funciona no celular (390 px) com botões de 44 px,vitrine,must,yes,no,
+Recuperação de carrinho abandonado,pos-venda,should,yes,no,e-mail ou WhatsApp em 1h e 24h; sem desconto de cara
+Pedido de avaliação com foto 7 dias depois da entrega,pos-venda,should,yes,no,
+Avaliações reais na página de produto,confianca,should,yes,no,nunca inventar avaliação
+Catálogo do Instagram e WhatsApp ligado à loja,canais,should,yes,no,compra pelo post e pelo catálogo do WhatsApp
+Lembrete de recompra 30 a 45 dias,pos-venda,should,yes,no,outra cor ou kit; sem pressão
+Avise-me quando chegar (tamanho esgotado),produto,should,yes,no,
+Kit Essencial fixo (uma de cada cor),produto,should,no,no,gira o off-white (Central seção 3)
+Kit presente com embalagem para Black Friday e Natal,produto,should,yes,no,Black Friday 27/11
+Preço por volume para empresas (10+ kits),b2b,should,no,no,R$ 210 de 10 a 29 · R$ 195 a partir de 30
+Busca e coleções,vitrine,could,yes,no,só faz sentido com mais de 1 produto
+Conta do cliente com histórico de pedidos,conta,could,yes,no,
+Programa de indicação (1 camiseta a cada 3 amigos),pos-venda,could,no,no,em decisão na Central
+Mercado Livre e Shopee,canais,could,yes,no,exigem CNPJ e nota; taxa de 12% a 20%
+TikTok Shop,canais,could,yes,no,Central etapa 2
+Calculadora de tamanho pela camiseta que o cliente já tem,produto,must,no,no,diferencial: prova em vez de afirmar
+Troca de tamanho em mãos em Fortaleza,pos-venda,must,no,no,diferencial: proximidade que as grandes não têm
+Dono e embaixadores vestindo nas fotos e vídeos,confianca,should,no,no,diferencial: gente real
+Marketplace de outras marcas,canais,could,yes,skip,a Modestino vende só o que produz
+Programa de fidelidade com pontos,conta,could,yes,skip,cedo demais para 1 produto

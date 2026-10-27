@@ -1,0 +1,21 @@
+{
+  "avoid": ["Insider", "Reserva", "Hering", "Basico.com", "Shein"],
+  "anuncios": [
+    {
+      "canal": "loja",
+      "sku": "MOD-CAM",
+      "titulo": "Camiseta Básica Masculina Lisa",
+      "seo_titulo": "Camiseta básica masculina lisa | MODESTINO Fortaleza",
+      "seo_descricao": "Camiseta lisa, sem logo, em preto, mapple brown e off-white. P ao GG, tabela pela largura da sua camiseta. Entrega rápida em Fortaleza.",
+      "descricao": "Lisa, sem logo na frente, só o nome MODESTINO pequeno na nuca por dentro.\n\nCores: Preto, Mapple Brown e Off White. Tamanhos P ao GG.\n\nNão sabe o tamanho? Meça de axila a axila uma camiseta que você já gosta: P 51 · M 54 · G 57 · GG 60 cm.\n\nA composição de cada peça vem na etiqueta.\n\nAvulsa R$ 80. Kit 3 com ecobag R$ 225.",
+      "preco": 80
+    },
+    {
+      "canal": "mercado_livre",
+      "sku": "MOD-CAM",
+      "titulo": "Camiseta Básica Masculina Lisa Sem Logo P ao GG",
+      "descricao": "Camiseta lisa, sem logo. Cores preto, mapple brown e off-white. Tabela de medidas na foto.",
+      "preco": 80
+    }
+  ]
+}
