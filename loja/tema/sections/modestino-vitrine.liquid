@@ -1,0 +1,66 @@
+{%- comment -%} Grade de produtos logo abaixo da primeira tela: foto, nome, preço e cores. {%- endcomment -%}
+<section class="m-vitrine" id="kits" aria-labelledby="vitrine-{{ section.id }}">
+  <div class="m-wrap">
+    <div class="m-vitrine__cab">
+      <h2 id="vitrine-{{ section.id }}">{{ section.settings.titulo }}</h2>
+    </div>
+    <ul class="m-vitrine__grade">
+      {%- for block in section.blocks -%}
+        {%- assign p = all_products[block.settings.produto] -%}
+        {%- if p != blank -%}
+          {%- liquid
+            assign pecas = block.settings.pecas | default: 1
+            assign por_peca = p.price | divided_by: pecas
+            assign i1 = block.settings.foto | default: 0
+            assign img1 = p.media[i1].preview_image
+            assign alt1 = p.media[i1].alt
+            assign img2 = p.media[1].preview_image
+            if block.settings.foto_hover > 0
+              assign img2 = p.media[block.settings.foto_hover].preview_image
+            endif
+          -%}
+          <li class="m-card" {{ block.shopify_attributes }}>
+            <a href="{{ p.url }}" class="m-card__link">
+              <div class="m-card__foto">
+                {{ img1 | image_url: width: 720 | image_tag: loading: 'lazy', sizes: '(max-width: 859px) 50vw, 25vw', widths: '360, 540, 720', alt: alt1 }}
+                {%- if img2 != blank -%}{{ img2 | image_url: width: 720 | image_tag: loading: 'lazy', class: 'm-card__alt', sizes: '(max-width: 859px) 50vw, 25vw', widths: '360, 540, 720', alt: '' }}{%- endif -%}
+                {%- if block.settings.selo != blank -%}<span class="m-card__selo">{{ block.settings.selo }}</span>{%- endif -%}
+              </div>
+              <h3>{{ block.settings.nome | default: p.title }}</h3>
+              <p class="m-card__preco">{{ p.price | money_without_trailing_zeros }}{% if pecas > 1 %}<small>{{ por_peca | money_without_trailing_zeros }} por peça</small>{% endif %}</p>
+            </a>
+            {%- if block.settings.cores -%}
+              <ul class="m-card__cores" aria-label="Cores">
+                {%- for cor in p.options_with_values[0].values -%}<li data-cor="{{ cor }}" title="{{ cor }}"><span class="m-sr">{{ cor }}</span></li>{%- endfor -%}
+              </ul>
+            {%- else -%}
+              <p class="m-card__nota">{{ block.settings.nota }}</p>
+            {%- endif -%}
+          </li>
+        {%- endif -%}
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Vitrine",
+  "settings": [
+    { "type": "text", "id": "titulo", "label": "Título", "default": "Essenciais" }
+  ],
+  "blocks": [
+    { "type": "produto", "name": "Produto", "settings": [
+      { "type": "text", "id": "produto", "label": "Handle do produto" },
+      { "type": "text", "id": "nome", "label": "Nome no card (vazio = nome do produto)" },
+      { "type": "number", "id": "pecas", "label": "Peças (para o preço por peça)", "default": 1 },
+      { "type": "number", "id": "foto", "label": "Foto principal (posição na galeria; 0 = primeira)", "default": 0 },
+      { "type": "number", "id": "foto_hover", "label": "Foto ao passar o mouse (posição na galeria; 0 = segunda foto)", "default": 0 },
+      { "type": "checkbox", "id": "cores", "label": "Mostrar cores", "default": false },
+      { "type": "text", "id": "nota", "label": "Linha abaixo do preço (sem cores)" },
+      { "type": "text", "id": "selo", "label": "Selo (ex.: Mais vendido)" }
+    ] }
+  ],
+  "presets": [{ "name": "Vitrine" }]
+}
+{% endschema %}

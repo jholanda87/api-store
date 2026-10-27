@@ -1,26 +1,27 @@
 {%- comment -%}
-  S01, primeira tela. Título do mockup aprovado (21/10); a promessa é a troca, não "sem erro" (Jorge, 27/10).
-  A foto vem da própria Camiseta Básica (frame provisório do vídeo do Keanu).
+  S01, primeira tela. Foto em tela cheia (as três cores lado a lado no computador, uma no celular),
+  título do mockup aprovado, uma linha e um botão. Fotos: frentes da Camiseta Básica (provisórias).
 {%- endcomment -%}
 {%- liquid
   assign camiseta = all_products[section.settings.produto]
-  assign foto = section.settings.foto | default: camiseta.featured_media.preview_image
+  assign fotos = ''
 -%}
-<section class="m-hero">
-  <div class="m-wrap m-hero__grid">
-    <div>
-      <h1>{{ section.settings.titulo }}</h1>
+<section class="m-hero" aria-labelledby="hero-{{ section.id }}">
+  <div class="m-hero__fotos">
+    {%- for m in camiseta.media -%}
+      {%- if m.alt contains 'de frente' -%}
+        <div class="m-hero__foto">
+          {{ m.preview_image | image_url: width: 1080 | image_tag: loading: 'eager', fetchpriority: 'high', sizes: '(max-width: 859px) 100vw, 34vw', widths: '540, 720, 1080', alt: m.alt }}
+        </div>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+  <div class="m-hero__texto">
+    <div class="m-wrap">
+      <h1 id="hero-{{ section.id }}">{{ section.settings.titulo }}</h1>
       <p class="m-hero__sub">{{ section.settings.subtitulo }}</p>
-      <div class="m-hero__acao">
-        <a class="m-btn m-btn--primario" href="{{ camiseta.url | default: '/products/camiseta-basica-modestino' }}">{{ section.settings.botao }}</a>
-        <span class="m-hero__preco">{{ camiseta.price | default: 8000 | money_without_trailing_zeros }} · P ao GG</span>
-      </div>
+      <a class="m-btn m-btn--claro" href="{{ camiseta.url | default: '/products/camiseta-basica-modestino' }}">{{ section.settings.botao }}</a>
     </div>
-    {%- if foto != blank -%}
-      <figure class="m-hero__foto">
-        {{ foto | image_url: width: 1080 | image_tag: loading: 'eager', fetchpriority: 'high', sizes: '(max-width: 859px) 100vw, 45vw', widths: '540, 720, 1080', alt: 'Camiseta básica Modestino preta, lisa, vestida' }}
-      </figure>
-    {%- endif -%}
   </div>
 </section>
 
@@ -29,10 +30,9 @@
   "name": "Início: primeira tela",
   "settings": [
     { "type": "textarea", "id": "titulo", "label": "Título", "default": "Três cores. Um caimento." },
-    { "type": "textarea", "id": "subtitulo", "label": "Subtítulo", "default": "Camiseta básica masculina, produzida em Fortaleza. Lisa, sem logo aparente. Troca de tamanho em até 30 dias." },
-    { "type": "text", "id": "botao", "label": "Botão", "default": "Escolher a cor" },
-    { "type": "text", "id": "produto", "label": "Handle do produto", "default": "camiseta-basica-modestino" },
-    { "type": "image_picker", "id": "foto", "label": "Foto (vazio = primeira foto da camiseta)" }
+    { "type": "textarea", "id": "subtitulo", "label": "Subtítulo", "default": "Camiseta básica masculina, produzida em Fortaleza." },
+    { "type": "text", "id": "botao", "label": "Botão", "default": "Conhecer" },
+    { "type": "text", "id": "produto", "label": "Handle do produto", "default": "camiseta-basica-modestino" }
   ],
   "presets": [{ "name": "Início: primeira tela" }]
 }

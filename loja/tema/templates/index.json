@@ -4,6 +4,70 @@
       "type": "modestino-inicio",
       "settings": {}
     },
+    "vitrine": {
+      "type": "modestino-vitrine",
+      "settings": {},
+      "blocks": {
+        "cam": {
+          "type": "produto",
+          "settings": {
+            "produto": "camiseta-basica-modestino",
+            "nome": "Camiseta Básica",
+            "pecas": 1,
+            "foto_hover": 2,
+            "cores": true,
+            "nota": "",
+            "selo": "",
+            "foto": 0
+          }
+        },
+        "k3": {
+          "type": "produto",
+          "settings": {
+            "produto": "kit-3-camisetas-basicas-modestino",
+            "nome": "Kit 3",
+            "pecas": 3,
+            "foto_hover": 2,
+            "cores": false,
+            "nota": "3 peças · com ecobag",
+            "selo": "",
+            "foto": 1
+          }
+        },
+        "ke": {
+          "type": "produto",
+          "settings": {
+            "produto": "kit-essencial-modestino",
+            "nome": "Kit Essencial",
+            "pecas": 3,
+            "foto_hover": 0,
+            "cores": false,
+            "nota": "Uma de cada cor · com ecobag",
+            "selo": "",
+            "foto": 2
+          }
+        },
+        "k2": {
+          "type": "produto",
+          "settings": {
+            "produto": "kit-2-camisetas-basicas-modestino",
+            "nome": "Kit 2",
+            "pecas": 2,
+            "foto_hover": 1,
+            "cores": false,
+            "nota": "2 peças · com ecobag",
+            "selo": "",
+            "foto": 0
+          }
+        }
+      },
+      "block_order": [
+        "cam",
+        "k3",
+        "ke",
+        "k2"
+      ]
+    },
     "prova": {
       "type": "modestino-prova",
       "settings": {},
@@ -44,48 +108,44 @@
         "d"
       ]
     },
-    "kits": {
-      "type": "modestino-kits",
+    "duvidas": {
+      "type": "modestino-duvidas",
       "settings": {},
       "blocks": {
-        "k3": {
-          "type": "kit",
+        "q0": {
+          "type": "pergunta",
           "settings": {
-            "nome": "Kit 3",
-            "produto": "kit-3-camisetas-basicas-modestino",
-            "pecas": 3,
-            "preco_padrao": 22500,
-            "texto": "3 peças, cores à escolha.",
-            "destaque": true
+            "pergunta": "Como escolher o tamanho?",
+            "resposta": "<p>Meça de axila a axila uma camiseta sua estendida sobre uma superfície plana e compare: P 51 · M 54 · G 57 · GG 60 cm. A página do produto tem um guia de medidas.</p>"
           }
         },
-        "ke": {
-          "type": "kit",
+        "q1": {
+          "type": "pergunta",
           "settings": {
-            "nome": "Kit Essencial",
-            "produto": "kit-essencial-modestino",
-            "pecas": 3,
-            "preco_padrao": 22500,
-            "texto": "Uma peça de cada cor.",
-            "destaque": false
+            "pergunta": "Qual é o valor do frete?",
+            "resposta": "<p>Fortaleza: R$ 10. Demais cidades: calculado no checkout pelo CEP.</p>"
           }
         },
-        "k2": {
-          "type": "kit",
+        "q2": {
+          "type": "pergunta",
           "settings": {
-            "nome": "Kit 2",
-            "produto": "kit-2-camisetas-basicas-modestino",
-            "pecas": 2,
-            "preco_padrao": 16000,
-            "texto": "2 peças, cores à escolha.",
-            "destaque": false
+            "pergunta": "Como solicitar uma troca?",
+            "resposta": "<p>Prazo de 30 dias para troca de tamanho ou defeito e de 7 dias para desistência. Em Fortaleza, a troca é presencial. Solicite pelo WhatsApp, informando o número do pedido.</p>"
+          }
+        },
+        "q4": {
+          "type": "pergunta",
+          "settings": {
+            "pergunta": "Cupons de embaixador valem para os kits?",
+            "resposta": "<p>Não. São válidos apenas para a camiseta avulsa. Nos kits, o preço por peça já é reduzido: R$ 75 no Kit 3 e no Kit Essencial.</p>"
           }
         }
       },
       "block_order": [
-        "k3",
-        "ke",
-        "k2"
+        "q0",
+        "q1",
+        "q2",
+        "q4"
       ]
     },
     "fecho": {
@@ -95,8 +155,9 @@
   },
   "order": [
     "inicio",
+    "vitrine",
     "prova",
-    "kits",
+    "duvidas",
     "fecho"
   ]
 }

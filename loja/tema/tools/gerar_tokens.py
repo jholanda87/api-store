@@ -23,6 +23,7 @@ linhas += [f"  --size-{k}: {v}px;" for k, v in t.get('size', {}).items()]
 if 'measure' in t:
     linhas.append(f"  --measure: {t['measure']};")
 linhas += [f"  --shadow-{k}: {v};" for k, v in t['shadow'].items()]
+linhas += [f"  --overlay-{k}: {v};" for k, v in t.get('overlay', {}).items()]
 linhas += [f"  --motion-{k}: {v};" for k, v in t['motion'].items()]
 linhas.append('}')
 corpo = '\n'.join(linhas) + '\n'

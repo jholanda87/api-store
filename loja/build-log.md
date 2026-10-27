@@ -1,5 +1,13 @@
 # Construção da loja — registro
 
+## 27/10/2026 (noite, 5ª rodada) — linha visual da Parla e da Fusion
+
+Referências indicadas pelo Jorge: [Parla](https://parlabr.com/) (@parlabr) e [Fusion](https://usefusion.com.br/) (@usefusion_). Estudo só de estrutura (nenhum texto, foto ou código copiado): foto em tela cheia com pouco texto por cima, grade de produtos logo depois (foto, nome, preço, cores), botões arredondados, fundo claro, dúvidas em lista abrir/fechar com o atendimento ao lado, rodapé com central de atendimento.
+- Início: primeira tela agora é foto em tela cheia (as três cores lado a lado no computador, uma no celular), com título, uma linha e "Conhecer". Nova seção "Essenciais" (Camiseta + 3 kits, com cores, preço por peça e segunda foto ao passar o mouse). "Olhe de perto" em fundo claro. Nova seção "Dúvidas" com 4 perguntas e WhatsApp. Botões arredondados em toda a loja.
+- Tokens: `overlay.hero` e `size.hero` novos em `tokens.json` (contraste 13/13 AA). Novas seções `modestino-vitrine` e `modestino-duvidas`; `modestino-kits` fica sem uso.
+- Sem avaliações de cliente ainda (as referências usam; só entram quando houver avaliações reais).
+- 6 arquivos enviados ao tema de construção e conferidos por checksum; tema segue não publicado.
+
 ## 27/10/2026 (noite, 4ª rodada) — tom profissional
 
 Pedido do Jorge: nada de linguagem informal nem menção aos donos. Reescritos: subtítulo da primeira tela ("Camiseta básica masculina, produzida em Fortaleza. Lisa, sem logo aparente. Troca de tamanho em até 30 dias."), botões ("Atendimento via WhatsApp", "Selecione o tamanho", "Guia de medidas", "Calcular"), mensagens de estoque e de cupom, cards dos kits, perguntas frequentes (9), rodapé ("Atendimento todos os dias"), páginas de trocas e privacidade (linguagem formal, mesmas regras) e descrições dos 4 produtos (`vitrine.py` 0 erros). 9 arquivos do tema reenviados e conferidos; páginas e produtos atualizados na Shopify.
