@@ -9,7 +9,7 @@ continuam no Painel da Modestino; estratégia e decisões na Central Modestino.
 | 0. Pré-requisitos | administrativo-modestino | loja/administrativo.md, politicas/ | 🟡 MEI aberto em 27/10 (CNPJ 69.828.190/0001-36) · políticas em rascunho · endereço do rodapé e teto proporcional do MEI a ver com o contador |
 | 1. Mapa das referências | loja-recon-modestino | loja/recon.md, features.csv | 🟡 recon público feito (27/10); falta página de produto completa e checkout pelo navegador do Jorge |
 | 2. O que o cliente odeia | loja-empreendedor-modestino | loja/reviews.csv, feedback.md, correcoes.md | ✅ 114 reclamações de 4 marcas (28/10); correcoes.md com 8 correções; frase A aprovada e 10 lavagens confirmadas (28/10) |
-| 3. Arquitetura | loja-arquitetura-modestino | loja/arquitetura.md | 🟡 Shopify; cupom 10% mantido; frete por distância do ponto mais perto (frete.md); falta bairro do Ponto L |
+| 3. Arquitetura | loja-arquitetura-modestino | loja/arquitetura.md | ✅ Shopify + Mercado Pago; cupons de 6% (KEANU6, PAULOVITOR6) só na avulsa; frete R$ 10 em Fortaleza saindo do Ponto J; pesos estimados para Correios (28/10) |
 | 4. Design | loja-design-modestino | loja/design/ | ✅ tokens, componentes, amostra e logo do Drive aplicado (PNG transparente + favicon); SVG opcional |
 | 5. Catálogo e estoque | catalogo-modestino | loja/catalogo.csv, estoque.csv, catalogo/ | 🟡 4 rascunhos na Shopify `nnwyy4-vp` (27/10): camiseta com 12 variantes e 212 peças no Ponto J; SEO gravado; foto provisória (preta vestida); faltam fotos de estúdio e seleção por peça nos kits |
 | 6. Construção | loja-build-modestino | loja/build-log.md | ⚪ |
