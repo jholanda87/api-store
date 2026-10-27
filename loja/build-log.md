@@ -1,5 +1,9 @@
 # Construção da loja — registro
 
+## 27/10/2026 (noite) — políticas da Shopify
+
+Jorge trocou no admin a política de privacidade automática (que mostrava rua e e-mail pessoal) pelo texto de `tema/paginas/privacidade.html` e preencheu a política de reembolso com `trocas.html`. Conferido pela API e na página pública da política: sem endereço nem e-mail pessoal.
+
 ## 27/10/2026 (noite, 5ª rodada) — linha visual da Parla e da Fusion
 
 Referências indicadas pelo Jorge: [Parla](https://parlabr.com/) (@parlabr) e [Fusion](https://usefusion.com.br/) (@usefusion_). Estudo só de estrutura (nenhum texto, foto ou código copiado): foto em tela cheia com pouco texto por cima, grade de produtos logo depois (foto, nome, preço, cores), botões arredondados, fundo claro, dúvidas em lista abrir/fechar com o atendimento ao lado, rodapé com central de atendimento.
