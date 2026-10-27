@@ -7,6 +7,7 @@ Referências indicadas pelo Jorge: [Parla](https://parlabr.com/) (@parlabr) e [F
 - Tokens: `overlay.hero` e `size.hero` novos em `tokens.json` (contraste 13/13 AA). Novas seções `modestino-vitrine` e `modestino-duvidas`; `modestino-kits` fica sem uso.
 - Sem avaliações de cliente ainda (as referências usam; só entram quando houver avaliações reais).
 - 6 arquivos enviados ao tema de construção e conferidos por checksum; tema segue não publicado.
+- Título trocado pelo Jorge para "Três cores, várias combinações." (o caimento é o mesmo nas três; o que muda é a cor).
 
 ## 27/10/2026 (noite, 4ª rodada) — tom profissional
 

@@ -1,6 +1,6 @@
 {%- comment -%}
   S01, primeira tela. Foto em tela cheia (as três cores lado a lado no computador, uma no celular),
-  título do mockup aprovado, uma linha e um botão. Fotos: frentes da Camiseta Básica (provisórias).
+  título definido pelo Jorge (27/10), uma linha e um botão. Fotos: frentes da Camiseta Básica (provisórias).
 {%- endcomment -%}
 {%- liquid
   assign camiseta = all_products[section.settings.produto]
@@ -29,7 +29,7 @@
 {
   "name": "Início: primeira tela",
   "settings": [
-    { "type": "textarea", "id": "titulo", "label": "Título", "default": "Três cores. Um caimento." },
+    { "type": "textarea", "id": "titulo", "label": "Título", "default": "Três cores, várias combinações." },
     { "type": "textarea", "id": "subtitulo", "label": "Subtítulo", "default": "Camiseta básica masculina, produzida em Fortaleza." },
     { "type": "text", "id": "botao", "label": "Botão", "default": "Conhecer" },
     { "type": "text", "id": "produto", "label": "Handle do produto", "default": "camiseta-basica-modestino" }
