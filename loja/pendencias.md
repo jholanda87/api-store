@@ -23,7 +23,7 @@ Atualizado em 28/10/2026. Responder na conversa (endereços e dados pessoais **s
 
 ## Atendimento e políticas
 
-11. ~~WhatsApp~~ WhatsApp Business do Jorge, todos os dias, responde assim que vê (28/10). Falta o link wa.me para o botão da loja.
+11. ~~WhatsApp~~ WhatsApp Business do Jorge, todos os dias, responde assim que vê (28/10). Número (85) 98155-9590; botão: https://wa.me/5585981559590?text=Oi%21%20Vim%20pela%20loja%20da%20MODESTINO%20e%20tenho%20uma%20d%C3%BAvida.
 12. ~~Estorno~~ por caso, com regras antifraude (politicas/trocas.md e antifraude.md, 28/10).
 
 ## Empresa

@@ -12,7 +12,7 @@ Comprou e não ficou como esperava? A gente resolve.
 
 **Condições:** peça sem uso, com a etiqueta e sem danos.
 
-**Como pedir:** chame a MODESTINO no WhatsApp com o número do pedido. Atendemos todos os dias e respondemos assim que vemos a mensagem. Quem responde é um dos donos.
+**Como pedir:** chame a MODESTINO no WhatsApp, (85) 98155-9590, com o número do pedido. Atendemos todos os dias e respondemos assim que vemos a mensagem. Quem responde é um dos donos.
 
 **Estorno:** sempre pelo mesmo meio do pagamento e para quem pagou. O prazo depende do caso:
 

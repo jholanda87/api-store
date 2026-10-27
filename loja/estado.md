@@ -41,3 +41,8 @@ Atualizado em 27/10 (tarde), por decisão do Jorge:
 - **Kits:** qualquer cor que o cliente quiser, nos três. O Kit Essencial fica como sugestão pronta (uma de cada cor), mas o cliente pode trocar as cores. A escolha por peça entra na construção, por campos no carrinho ou app de kits.
 
 Falta: fotos de estúdio; seleção de cor e tamanho por peça nos kits e baixa no estoque da camiseta (app de kits ou campos do carrinho, na construção); gateway de pagamento. Plano Basic da Shopify assinado (27/10); nome da loja já é MODESTINO; loja com senha.
+
+
+## Atendimento (28/10/2026)
+
+WhatsApp Business da loja: (85) 98155-9590, todos os dias, sem robô. Link do botão da loja e do rodapé: https://wa.me/5585981559590?text=Oi%21%20Vim%20pela%20loja%20da%20MODESTINO%20e%20tenho%20uma%20d%C3%BAvida.
