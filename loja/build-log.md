@@ -1,5 +1,9 @@
 # Construção da loja — registro
 
+## 27/10/2026 (23h30) — correção dos cupons na cópia
+
+Jorge duplicou o tema publicado: "Cópia de Modestino (construção)" (`167202390064`, não publicado). Enviados para a cópia, conferidos por checksum: `modestino-carrinho-aviso`, `modestino-kit`, `templates/page.faq.json`, `templates/index.json` (cupom vale em toda a loja). O rodapé da cópia mantém o endereço do CNPJ. Falta o Jorge publicar a cópia. Daqui em diante, mudanças sempre em cópia não publicada.
+
 ## 27/10/2026 (23h) — loja aberta e cupons em toda a loja
 
 - Às 23:11 o tema "Modestino (construção)" (`167188168752`) passou a ser o publicado (MAIN) e a senha da loja foi desligada, pelo admin (não por esta sessão). O Horizon antigo (`166315229232`) virou não publicado. A partir daqui o conector **não escreve mais nesse tema** (bloqueio de tema publicado): mudanças vão numa cópia duplicada pelo Jorge e publicada por ele.
