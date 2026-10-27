@@ -20,6 +20,8 @@ Decidido pelo Jorge em 27/10/2026. **Os endereços de partida dos sócios não a
 
 Conta de referência: carro a 10 km/L e gasolina a R$ 7/L = **R$ 0,70 por km rodado**. Os R$ 10 cobrem até ~14 km rodados (ida e volta), ou seja, clientes a até **~7 km** do Ponto J. Mais longe que isso, a entrega custa mais do que cobra (ex.: 12 km de distância = 24 km rodados = R$ 16,80). Acompanhar no Painel: se muitos pedidos forem longe, rever (faixa extra ou mínimo para frete).
 
+**Decisão do Jorge (27/10, noite):** R$ 10 para Fortaleza inteira, de propósito abaixo do custo nas entregas longe do Ponto J: valor acessível para gerar fluxo. A diferença nas entregas longas entra como custo de aquisição. Configurado pelo Jorge no admin como Entrega local por CEP (60, 610–615); a API não mostra a entrega local, conferir no checkout com um CEP de Fortaleza e um de fora.
+
 ## Como fica na Shopify (plano original por distância)
 
 1. Configurações → Locais: criar "Ponto J" e "Ponto L" com o endereço de cada um (só o administrador vê).

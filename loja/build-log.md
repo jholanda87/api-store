@@ -1,5 +1,9 @@
 # Construção da loja — registro
 
+## 27/10/2026 (noite) — entrega local
+
+Jorge configurou no admin a Entrega local de R$ 10 por CEP de Fortaleza (decisão: valor acessível para gerar fluxo, mesmo abaixo do custo nas entregas longas). A Admin API não expõe a entrega local e a simulação de pedido (`draftOrderCalculate`) só lista as tarifas de frete ("Padrão" R$ 22 em 60150-160, 60871-000 e 61600-000): a conferência final é um teste no checkout.
+
 ## 27/10/2026 (noite) — políticas da Shopify
 
 Jorge trocou no admin a política de privacidade automática (que mostrava rua e e-mail pessoal) pelo texto de `tema/paginas/privacidade.html` e preencheu a política de reembolso com `trocas.html`. Conferido pela API e na página pública da política: sem endereço nem e-mail pessoal.
