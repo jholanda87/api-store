@@ -17,7 +17,7 @@ Atualizado em 28/10/2026. Responder na conversa (endereços e dados pessoais **s
 
 ## Pagamento e preço
 
-8. Gateway: qual conta já existe ou é preferida (Mercado Pago, Pagar.me, PagBank) e as taxas reais de Pix e cartão em 3x.
+8. ~~Gateway~~ Mercado Pago ativado (27/10). Falta: as taxas reais de Pix e de cartão em 3x que aparecem na conta do Mercado Pago.
 9. Kit 2 continua R$ 160 (R$ 150 sem embalagem)?
 10. Códigos de cupom dos embaixadores (ex.: PAULOVITOR10, KEANU10).
 
