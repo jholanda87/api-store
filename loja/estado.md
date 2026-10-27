@@ -40,4 +40,4 @@ Atualizado em 27/10 (tarde), por decisão do Jorge:
 - **Foto provisória:** um quadro do vídeo `IMG_3268.mov` do Drive (camiseta preta vestida, recorte 4:5, 1080×1350) nos 4 produtos e nas variantes Preto. Não há foto real de Mapple Brown nem de Off White que preste no Drive (só folhas de quadros de vídeo em baixa resolução; os MP4 do Keanu passam de 10 MB e o conector do Drive não baixa). Trocar tudo quando o estúdio ficar pronto.
 - **Kits:** qualquer cor que o cliente quiser (Kit 2 e Kit 3). A escolha por peça entra na construção, por campos no carrinho ou app de kits.
 
-Falta: fotos de estúdio; seleção de cor e tamanho por peça nos kits e baixa no estoque da camiseta (app de kits ou campos do carrinho, na construção); gateway de pagamento; plano pago da Shopify antes de vender.
+Falta: fotos de estúdio; seleção de cor e tamanho por peça nos kits e baixa no estoque da camiseta (app de kits ou campos do carrinho, na construção); gateway de pagamento. Plano Basic da Shopify assinado (27/10); nome da loja ainda "Minha loja 2".

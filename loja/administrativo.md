@@ -14,4 +14,4 @@ Atualizado em 27/10/2026 a partir da Central (seções 4, 5, 6, 8 e 10). Rascunh
 | Política de troca | rascunho em `politicas/trocas.md` | validar | os dois |
 | Privacidade e termos | rascunho em `politicas/privacidade.md` | validar quando a plataforma e o gateway forem escolhidos | — |
 
-**O que trava a loja hoje:** o gateway de pagamento no CNPJ (aberto em 27/10) e o plano pago da Shopify. O endereço do rodapé precisa de decisão com o contador.
+**O que trava a loja hoje:** o gateway de pagamento no CNPJ (aberto em 27/10). Plano Basic da Shopify assinado em 27/10. O endereço do rodapé precisa de decisão com o contador.
