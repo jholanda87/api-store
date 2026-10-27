@@ -18,7 +18,7 @@ python3 .claude/skills/replica-design/contrast.py loja/design/tokens.json
 - **Herdar, não reinventar.** Linho #ECE7DE / #E4DDD0, carvão #22201D / #1E1D1C, mapple #5B3F30, areia #CBBFAE, grafite #6E675F (texto secundário sobre linho: #5F5850). Instrument Serif nos títulos (itálico na ênfase), Instrument Sans no texto e no nome MODESTINO espaçado, Geist Mono só em preço, medida e dado.
 - **O Cavalheiro** só em cabeçalho/rodapé, favicon, e-mail e embalagem. Nunca na roupa nem estampado em foto de produto.
 - **Nada das referências:** nem cor, nem ícone, nem foto, nem texto. Ícone de traço único de um pacote aberto (Lucide, Phosphor, Tabler).
-- **Identidade antiga (terracota + Poppins) não entra na loja.**
+- **Só a paleta aprovada** (a do mockup, dos posts e do logo: bege, nude, algodão cru, neutra e minimalista). A identidade antiga (terracota + Poppins) e qualquer cor viva não entram na loja.
 - **Fotos reais,** nunca banco de imagem nem IA vendendo a peça.
 
 ## Passo 1: medir as referências (estrutura, não pixel)

@@ -13,7 +13,7 @@ Ferramenta da Replica, com a lista da Modestino:
 python3 .claude/skills/replica-brand/sweep.py <pasta do código da loja> --config loja/marca.json
 ```
 
-`loja/marca.json` lista as referências (Insider, Reserva, Hering, Básico.com, Shein, Ricardo Almeida, Mirante), a Wolf (loja antiga do Jorge), a fonte antiga (Poppins) e os domínios. **Falta o hex da terracota antiga** em `colors`: peça ao Jorge (ou tire do arquivo das tags do lote 1) e acrescente. Rode só na pasta do código/tema da loja, nunca na raiz do repositório (as habilidades citam as referências de propósito). Saída 1 = sobrou algo; corrija até dar limpo.
+`loja/marca.json` lista as referências (Insider, Reserva, Hering, Básico.com, Shein, Ricardo Almeida, Mirante), a Wolf (loja antiga do Jorge), a fonte antiga (Poppins) e os domínios. A paleta aprovada é a do mockup, dos posts e do logo atual: neutra e minimalista, puxada para o bege, nude e algodão cru (linho, areia, mapple, carvão, grafite). Qualquer cor viva ou fora dos tokens é sobra: além do sweep, liste os hex do código da loja (`grep -rhoiE '#[0-9a-f]{6}\b' <pasta>`) e compare com `loja/design/tokens.json`; o que não estiver lá sai. Rode só na pasta do código/tema da loja, nunca na raiz do repositório (as habilidades citam as referências de propósito). Saída 1 = sobrou algo; corrija até dar limpo.
 
 ## Passo 1: nome e registro (conferir, não presumir)
 

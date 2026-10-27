@@ -39,3 +39,10 @@ Troca de tamanho em mãos em Fortaleza,pos-venda,must,no,no,diferencial: proximi
 Dono e embaixadores vestindo nas fotos e vídeos,confianca,should,no,no,diferencial: gente real
 Marketplace de outras marcas,canais,could,yes,skip,a Modestino vende só o que produz
 Programa de fidelidade com pontos,conta,could,yes,skip,cedo demais para 1 produto
+Faixa de confiança (frete troca pagamento) no topo e abaixo da primeira tela,vitrine,must,yes,no,padrão das 4 referências (recon 27/10)
+Atalho no menu para kits,vitrine,should,yes,no,Insider Kits · Básico Combos
+Nota e número de avaliações no card de produto,confianca,should,yes,no,só com avaliações reais
+Frete grátis acima de um valor,checkout,should,yes,no,calcular margem antes (Hering 349 · Básico 299); candidato: kit 3 em Fortaleza
+Rodapé com central de atendimento horário e WhatsApp,atendimento,must,yes,no,
+Desconto na primeira compra e contador de urgência,checkout,could,yes,skip,Central: desconto só por volume; educar antes de vender
+Garantia contra desbotamento,confianca,could,yes,skip,só depois do teste de 10 lavagens (só prometer o testado)

@@ -38,7 +38,7 @@ Confere limite de caracteres de cada canal (loja/SEO, Mercado Livre, Shopee, Goo
 - O que as avaliações dizem de preço e frete, com contagem.
 - A tabela da Central é a lei: avulsa R$ 80; R$ 75/70 só sem embalagem; kit 2 R$ 160 (R$ 150 sem embalagem); kit 3 R$ 225; empresa R$ 210 (10–29) e R$ 195 (30+). Margem mínima 50% depois de cupom, comissão e taxa do gateway. Promoção usa o kit 3, nunca avulsa mais barata.
 - Frete grátis só se a margem aguentar: calcule e mostre antes (ex.: frete grátis em Fortaleza no kit 3).
-- **Atenção:** `atendimento-modestino` e `financeiro-modestino` ainda citam kit 2 a R$ 150 e kit 3 a R$ 210 (tabela antiga). A Central (19/10) vale; peça ao Jorge para confirmar e corrija aquelas habilidades.
+- Kit 3 a R$ 225 confirmado pelo Jorge em 27/10/2026. R$ 210 e R$ 195 existem só no preço por volume para empresas.
 
 ## Passo 3: anúncios (`anuncios.json`)
 
