@@ -70,7 +70,10 @@
     "\\bgola\\b",
     "\\bdescosturando\\b",
     "\\bperdeu a qualidade\\b",
-    "\\bqualidade inferior\\b"
+    "\\bqualidade inferior\\b",
+    "\\bmudou de cor\\b",
+    "\\bdanificad[ao]\\b",
+    "\\bqualidade ruim\\b"
    ]
   },
   {
@@ -100,7 +103,8 @@
     "\\breembolso\\b",
     "\\bcancel",
     "\\bdinheiro de volta\\b",
-    "\\barrependimento\\b"
+    "\\barrependimento\\b",
+    "\\bvale.?(troca|crédito)\\b"
    ]
   },
   {
@@ -118,7 +122,9 @@
     "\\bchat\\b",
     "\\bnão (resolve|dá retorno)\\b",
     "\\bninguém resolve\\b",
-    "\\batendente humano\\b"
+    "\\batendente humano\\b",
+    "\\bninguém respondeu\\b",
+    "\\bnão resolveu\\b"
    ]
   },
   {
@@ -149,7 +155,9 @@
     "\\bcusto.?benefício\\b",
     "\\bpromoção\\b",
     "\\bcupom\\b",
-    "\\bdesconto\\b"
+    "\\bdesconto\\b",
+    "\\bpreço promocional\\b",
+    "\\babatido\\b"
    ]
   },
   {
@@ -225,7 +233,15 @@
     "\\bincompleto\\b",
     "\\berrad[ao]\\b",
     "\\boutro produto\\b",
-    "\\bnão foi (entregue|recebida)\\b"
+    "\\bnão foi (entregue|recebida)\\b",
+    "\\bnão chegou\\b",
+    "\\bnão foram entregues\\b",
+    "\\bfaltando\\b",
+    "\\bremovida\\b",
+    "\\balterad[ao]\\b",
+    "\\bproduto diferente\\b",
+    "\\bpeça diferente\\b",
+    "\\bnão recebeu\\b"
    ]
   }
  ]
