@@ -13,7 +13,7 @@ continuam no Painel da Modestino; estratégia e decisões na Central Modestino.
 | 4. Design | loja-design-modestino | loja/design/ | ✅ tokens, componentes, amostra e logo do Drive aplicado (PNG transparente + favicon); SVG opcional |
 | 5. Catálogo e estoque | catalogo-modestino | loja/catalogo.csv, estoque.csv, catalogo/ | 🟡 4 rascunhos na Shopify `nnwyy4-vp` (27/10): camiseta com 12 variantes e 212 peças no Ponto J; SEO gravado; foto provisória (preta vestida); faltam fotos de estúdio e seleção por peça nos kits |
 | 6. Construção | loja-build-modestino | loja/build-log.md | ⚪ |
-| 7. Pagamento, frete, integrações | loja-backend-modestino | loja/backend.md | ⚪ |
+| 7. Pagamento, frete, integrações | loja-backend-modestino | loja/backend.md | 🟡 pagamento pelo Mercado Pago (27/10); falta a conta no CNPJ e ligar na Shopify |
 | 8. Testes | loja-teste-modestino | loja/test-plan.md, bugs.md | ⚪ |
 | 9. Paridade | loja-paridade-modestino | loja/paridade.md | ⚪ 0 de 23 obrigatórios |
 | 10. Varredura da marca | loja-marca-modestino | loja/marca.json | 🟡 lista de nomes pronta; paleta neutra confirmada (27/10) |

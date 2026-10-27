@@ -12,7 +12,7 @@ Feita em 27/10/2026 com `loja-arquitetura-modestino`, a partir de `recon.md` e d
 
 Preços em fontes secundárias de 2026 divergem (Basic entre US$ 19 e US$ 39/mês; taxa de 2% por venda no Basic com gateway externo; teste com US$ 1/mês por 3 meses). **Confira em [shopify.com/pt/precos](https://shopify.com/pt/precos) antes de assinar.** Fontes: [Base](https://base.com/pt-BR/blog/shopify-guia-completo/), [Sellfy](https://sellfy.com/pt/blog/precos-do-shopify/), [GoSmarter](https://gosmarter.com.br/shopify-brasil-vale-a-pena/), [EasySell](https://easysellapp.com/blogs/wiki/brazil-ecommerce-shopify-market-entry-2026).
 
-Gateway (Pix + cartão até 3x): Mercado Pago, Pagar.me ou PagBank. Escolher pela menor taxa de Pix e pela antecipação; Jorge cria a conta no CNPJ.
+Gateway (Pix + cartão até 3x): **Mercado Pago** (decidido pelo Jorge em 27/10), conta no CNPJ do MEI. Taxas reais de Pix e cartão a confirmar na conta para refazer a tabela de margem abaixo.
 
 ## 2. ⚠️ Achado: a taxa online quebra o piso de margem do cupom
 
@@ -41,7 +41,7 @@ Fora da loja (Pix direto, sem plataforma) o cupom fica em 53%.
 
 | frente | escolha | observação |
 | --- | --- | --- |
-| pagamento | gateway externo com Pix + cartão até 3x | juros repassados (Central seção 8) |
+| pagamento | Mercado Pago (app na Shopify): Pix + cartão até 3x | juros repassados (Central seção 8) |
 | frete Fortaleza | entrega local por distância, saindo do ponto do Jorge ou do Lucas (o mais perto) | só cobre gasolina/Uber Flash; ver `frete.md` |
 | frete fora | app de cotação (Melhor Envio ou Frenet) | peso da ecobag com 3 peças a medir |
 | estoque | Painel → Shopify (`estoque.py` + conector `set-inventory`) | no mesmo dia de cada venda no Direct |
