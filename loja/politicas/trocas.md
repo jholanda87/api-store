@@ -14,4 +14,4 @@ Comprou e não ficou como esperava? A gente resolve rápido.
 
 **Estorno:** no mesmo meio de pagamento — Pix em até [PLACEHOLDER] dias úteis; cartão conforme a administradora.
 
-MODESTINO · [PLACEHOLDER razão social] · CNPJ [PLACEHOLDER] · Fortaleza/CE
+MODESTINO · 69.828.190 JORGE HOLANDA SOUSA · CNPJ 69.828.190/0001-36 · Fortaleza/CE

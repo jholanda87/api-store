@@ -6,7 +6,7 @@ continuam no Painel da Modestino; estratégia e decisões na Central Modestino.
 
 | etapa | habilidade | arquivo | situação |
 | --- | --- | --- | --- |
-| 0. Pré-requisitos | administrativo-modestino | loja/administrativo.md, politicas/ | 🔴 CNPJ não aberto · políticas em rascunho (27/10) |
+| 0. Pré-requisitos | administrativo-modestino | loja/administrativo.md, politicas/ | 🟡 MEI aberto em 27/10 (CNPJ 69.828.190/0001-36) · políticas em rascunho · endereço do rodapé e teto proporcional do MEI a ver com o contador |
 | 1. Mapa das referências | loja-recon-modestino | loja/recon.md, features.csv | 🟡 recon público feito (27/10); falta página de produto completa e checkout pelo navegador do Jorge |
 | 2. O que o cliente odeia | loja-empreendedor-modestino | loja/reviews.csv, feedback.md, correcoes.md | 🟡 Insider: 24 reclamações (28/10); faltam Reserva, Hering e Básico |
 | 3. Arquitetura | loja-arquitetura-modestino | loja/arquitetura.md | 🟡 Shopify; cupom 10% mantido; frete por distância do ponto mais perto (frete.md); falta bairro do Ponto L |
