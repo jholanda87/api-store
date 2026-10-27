@@ -1,0 +1,16 @@
+produto,cor,tamanho,sku,preco,estoque,controle_estoque
+Camiseta Básica Modestino,Preto,P,MOD-CAM-PRETA-P,80,13,sim
+Camiseta Básica Modestino,Preto,M,MOD-CAM-PRETA-M,80,27,sim
+Camiseta Básica Modestino,Preto,G,MOD-CAM-PRETA-G,80,24,sim
+Camiseta Básica Modestino,Preto,GG,MOD-CAM-PRETA-GG,80,9,sim
+Camiseta Básica Modestino,Mapple Brown,P,MOD-CAM-MARROM-P,80,12,sim
+Camiseta Básica Modestino,Mapple Brown,M,MOD-CAM-MARROM-M,80,23,sim
+Camiseta Básica Modestino,Mapple Brown,G,MOD-CAM-MARROM-G,80,23,sim
+Camiseta Básica Modestino,Mapple Brown,GG,MOD-CAM-MARROM-GG,80,11,sim
+Camiseta Básica Modestino,Off White,P,MOD-CAM-OFF-P,80,11,sim
+Camiseta Básica Modestino,Off White,M,MOD-CAM-OFF-M,80,24,sim
+Camiseta Básica Modestino,Off White,G,MOD-CAM-OFF-G,80,24,sim
+Camiseta Básica Modestino,Off White,GG,MOD-CAM-OFF-GG,80,11,sim
+Kit 2 Camisetas Básicas Modestino,à escolha,à escolha,MOD-KIT2,160,baixa nas variantes da camiseta,não (estoque é o da camiseta)
+Kit 3 Camisetas Básicas Modestino,à escolha,à escolha,MOD-KIT3,225,baixa nas variantes da camiseta,não (estoque é o da camiseta)
+Kit Essencial Modestino: uma de cada cor,Preto + Mapple Brown + Off White,à escolha,MOD-KIT-ESS,225,baixa nas variantes da camiseta,não (estoque é o da camiseta)

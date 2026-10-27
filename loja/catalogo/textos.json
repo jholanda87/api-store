@@ -1,0 +1,41 @@
+{
+  "avoid": ["Insider", "Reserva", "Hering", "Basico.com", "Shein"],
+  "anuncios": [
+    {
+      "canal": "loja",
+      "sku": "MOD-CAM",
+      "titulo": "Camiseta Básica Modestino",
+      "seo_titulo": "Camiseta básica masculina lisa | MODESTINO Fortaleza",
+      "seo_descricao": "Camiseta lisa, sem logo, em preto, mapple brown e off white. P ao GG, com tabela pela largura da camiseta que você já tem. Marca de Fortaleza.",
+      "descricao": "A camiseta que você veste sem pensar duas vezes, e que cai bem.\n\nLisa, sem logo. Só o nome MODESTINO pequeno na nuca, por dentro.\n\nTrês cores para ter um básico para cada ocasião: Preto, Mapple Brown e Off White. Tamanhos P ao GG.\n\nComo achar o seu tamanho: pegue uma camiseta sua que veste bem, deite numa mesa e meça de axila a axila. Compare com a tabela.\n\nLargura (axila a axila): P 51 · M 54 · G 57 · GG 60 cm\nTórax: P 102 · M 108 · G 114 · GG 120 cm\n\nComposição: vem na etiqueta de cada peça.\n\nTroca: 7 dias para desistir da compra; 30 dias para trocar o tamanho ou por defeito. Em Fortaleza, a troca é em mãos.",
+      "preco": 80
+    },
+    {
+      "canal": "loja",
+      "sku": "MOD-KIT2",
+      "titulo": "Kit 2 Camisetas Básicas Modestino",
+      "seo_titulo": "Kit 2 camisetas básicas lisas com ecobag | MODESTINO",
+      "seo_descricao": "Duas camisetas lisas, sem logo, com ecobag. Você escolhe a cor e o tamanho de cada peça. Preto, mapple brown e off white, P ao GG.",
+      "descricao": "Duas camisetas básicas e uma ecobag para levar.\n\nVocê escolhe a cor e o tamanho de cada peça: pode ser duas iguais ou duas diferentes. Cores Preto, Mapple Brown e Off White; tamanhos P ao GG.\n\nLisas, sem logo. Só o nome MODESTINO pequeno na nuca, por dentro.\n\nLargura (axila a axila): P 51 · M 54 · G 57 · GG 60 cm\nTórax: P 102 · M 108 · G 114 · GG 120 cm\nMeça deitada uma camiseta sua que veste bem e compare.\n\nComposição: vem na etiqueta de cada peça.\n\nTroca: 7 dias para desistir da compra; 30 dias para trocar o tamanho ou por defeito, peça por peça. Em Fortaleza, a troca é em mãos.",
+      "preco": 160
+    },
+    {
+      "canal": "loja",
+      "sku": "MOD-KIT3",
+      "titulo": "Kit 3 Camisetas Básicas Modestino",
+      "seo_titulo": "Kit 3 camisetas básicas lisas com ecobag | MODESTINO",
+      "seo_descricao": "Três camisetas lisas, sem logo, com ecobag, por R$ 75 cada. Você escolhe a cor e o tamanho de cada peça. P ao GG.",
+      "descricao": "Três camisetas básicas e uma ecobag. Sai a R$ 75 por peça.\n\nVocê escolhe a cor e o tamanho de cada uma. Cores Preto, Mapple Brown e Off White; tamanhos P ao GG.\n\nLisas, sem logo. Só o nome MODESTINO pequeno na nuca, por dentro.\n\nLargura (axila a axila): P 51 · M 54 · G 57 · GG 60 cm\nTórax: P 102 · M 108 · G 114 · GG 120 cm\nMeça deitada uma camiseta sua que veste bem e compare.\n\nComposição: vem na etiqueta de cada peça.\n\nTroca: 7 dias para desistir da compra; 30 dias para trocar o tamanho ou por defeito, peça por peça. Em Fortaleza, a troca é em mãos.",
+      "preco": 225
+    },
+    {
+      "canal": "loja",
+      "sku": "MOD-KIT-ESS",
+      "titulo": "Kit Essencial Modestino: uma de cada cor",
+      "seo_titulo": "Kit Essencial: 3 camisetas lisas, uma de cada cor | MODESTINO",
+      "seo_descricao": "Uma camiseta preta, uma mapple brown e uma off white, com ecobag, por R$ 225. Você escolhe o tamanho de cada peça.",
+      "descricao": "As três cores da Modestino juntas: uma Preto, uma Mapple Brown e uma Off White, com ecobag. Um básico para cada ocasião.\n\nAs cores já vêm definidas; você escolhe o tamanho de cada peça (P ao GG), que pode ser diferente em cada uma.\n\nLisas, sem logo. Só o nome MODESTINO pequeno na nuca, por dentro.\n\nLargura (axila a axila): P 51 · M 54 · G 57 · GG 60 cm\nTórax: P 102 · M 108 · G 114 · GG 120 cm\nMeça deitada uma camiseta sua que veste bem e compare.\n\nComposição: vem na etiqueta de cada peça.\n\nTroca: 7 dias para desistir da compra; 30 dias para trocar o tamanho ou por defeito, peça por peça. Em Fortaleza, a troca é em mãos.",
+      "preco": 225
+    }
+  ]
+}
