@@ -46,3 +46,9 @@ Frete grátis acima de um valor,checkout,should,yes,no,calcular margem antes (He
 Rodapé com central de atendimento horário e WhatsApp,atendimento,must,yes,no,
 Desconto na primeira compra e contador de urgência,checkout,could,yes,skip,Central: desconto só por volume; educar antes de vender
 Garantia contra desbotamento,confianca,could,yes,skip,só depois do teste de 10 lavagens (só prometer o testado)
+Pedido conferido por um sócio com foto das peças no WhatsApp antes de sair,pos-venda,must,no,no,correção 1 · 53 reclamações de pedido errado ou incompleto
+Aviso de quem entrega e quando em Fortaleza; rastreio no mesmo dia fora,pos-venda,must,no,no,correção 2
+Estorno por Pix em até 2 dias úteis e sem vale-troca obrigatório,pos-venda,must,no,no,correção 3 · 37 reclamações de troca e estorno
+Cupom e preço de kit testados antes de divulgar; pedido pago nunca cancelado por erro nosso,checkout,must,no,no,correção 4
+Teste público de 10 lavagens por cor,confianca,should,no,no,correção 6 · só então prometer durabilidade
+Composição de cada peça na página igual à etiqueta,produto,must,no,no,correção 8

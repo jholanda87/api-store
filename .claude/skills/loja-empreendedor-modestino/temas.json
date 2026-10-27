@@ -25,7 +25,9 @@
     "\\btabela de medidas\\b",
     "\\bmanga (curta|longa|grande)\\b",
     "\\bcomprimento\\b",
-    "\\bnão serviu\\b"
+    "\\bnão serviu\\b",
+    "\\btamanho (errado|diferente)\\b",
+    "\\bmaiores que o esperado\\b"
    ]
   },
   {
@@ -43,7 +45,10 @@
     "\\bmalha\\b",
     "\\bodor\\b",
     "\\bcheiro\\b",
-    "\\bsuor\\b"
+    "\\bsuor\\b",
+    "\\bcomposição\\b",
+    "\\bpima\\b",
+    "\\balgodão comum\\b"
    ]
   },
   {
@@ -73,7 +78,9 @@
     "\\bqualidade inferior\\b",
     "\\bmudou de cor\\b",
     "\\bdanificad[ao]\\b",
-    "\\bqualidade ruim\\b"
+    "\\bqualidade ruim\\b",
+    "\\bpano de chão\\b",
+    "\\bdefeito de fabricação\\b"
    ]
   },
   {
@@ -124,7 +131,11 @@
     "\\bninguém resolve\\b",
     "\\batendente humano\\b",
     "\\bninguém respondeu\\b",
-    "\\bnão resolveu\\b"
+    "\\bnão resolveu\\b",
+    "\\bsuporte ruim\\b",
+    "\\bpós-venda\\b",
+    "\\bnão consegue contato\\b",
+    "\\bsem retorno\\b"
    ]
   },
   {
@@ -241,7 +252,11 @@
     "\\balterad[ao]\\b",
     "\\bproduto diferente\\b",
     "\\bpeça diferente\\b",
-    "\\bnão recebeu\\b"
+    "\\bnão recebeu\\b",
+    "\\bnão (foi|foram) (entregue|recebid)",
+    "\\bnunca foi enviada\\b",
+    "\\bsó a .{0,20} chegou\\b",
+    "\\bconsta como entregue\\b"
    ]
   }
  ]

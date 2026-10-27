@@ -8,7 +8,7 @@ continuam no Painel da Modestino; estratégia e decisões na Central Modestino.
 | --- | --- | --- | --- |
 | 0. Pré-requisitos | administrativo-modestino | loja/administrativo.md, politicas/ | 🔴 CNPJ não aberto · políticas em rascunho (27/10) |
 | 1. Mapa das referências | loja-recon-modestino | loja/recon.md, features.csv | 🟡 recon público feito (27/10); falta página de produto completa e checkout pelo navegador do Jorge |
-| 2. O que o cliente odeia | loja-empreendedor-modestino | loja/reviews.csv, feedback.md, correcoes.md | 🟡 Insider 24 + Reserva 30 + Hering 30 = 84 reclamações (28/10); falta Básico |
+| 2. O que o cliente odeia | loja-empreendedor-modestino | loja/reviews.csv, feedback.md, correcoes.md | ✅ 114 reclamações de 4 marcas (28/10); correcoes.md com 8 correções e ângulo A recomendado (falta o ok do Jorge) |
 | 3. Arquitetura | loja-arquitetura-modestino | loja/arquitetura.md | 🟡 Shopify; cupom 10% mantido; frete por distância do ponto mais perto (frete.md); falta bairro do Ponto L |
 | 4. Design | loja-design-modestino | loja/design/ | ✅ tokens, componentes, amostra e logo do Drive aplicado (PNG transparente + favicon); SVG opcional |
 | 5. Catálogo e estoque | catalogo-modestino | loja/catalogo.csv, estoque.csv, catalogo/ | 🟡 4 rascunhos na Shopify `nnwyy4-vp` (27/10): camiseta com 12 variantes e 212 peças no Ponto J; SEO gravado; foto provisória (preta vestida); faltam fotos de estúdio e seleção por peça nos kits |
