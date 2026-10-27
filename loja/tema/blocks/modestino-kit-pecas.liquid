@@ -1,0 +1,219 @@
+{%- comment -%}
+  Escolha de cor e tamanho de cada peça do kit (Modestino).
+  Lê o kit pelo SKU: MOD-KIT2 = 2 peças, MOD-KIT3 = 3, MOD-KIT-ESS = 3 com a sugestão de uma de cada cor.
+  Cada escolha vai para o pedido como propriedade da linha ("Peça 1: Preto · M").
+  O estoque vem da Camiseta Básica; combinação esgotada fica bloqueada.
+{%- endcomment -%}
+{%- liquid
+  assign kit_product = closest.product
+  assign kit_sku = kit_product.selected_or_first_available_variant.sku
+  assign pecas = 3
+  assign sugestao = false
+  if kit_sku == 'MOD-KIT2'
+    assign pecas = 2
+  elsif kit_sku == 'MOD-KIT-ESS'
+    assign sugestao = true
+  endif
+  assign camiseta = all_products[block.settings.camiseta_handle]
+  assign product_form_id = 'BuyButtons-ProductForm-section.id' | replace: 'section.id', section.id
+  assign cores = 'Preto,Mapple Brown,Off White' | split: ','
+  assign tamanhos = 'P,M,G,GG' | split: ','
+  assign medidas = '51,54,57,60' | split: ','
+-%}
+
+<fieldset class="mkp" data-mkp {{ block.shopify_attributes }}>
+  <legend class="mkp__legend">Escolha cada peça</legend>
+  <p class="mkp__hint">
+    {%- if sugestao -%}
+      Já deixamos uma de cada cor. Troque as cores se quiser e escolha o tamanho de cada peça.
+    {%- else -%}
+      Escolha a cor e o tamanho de cada camiseta. Pode repetir a cor.
+    {%- endif -%}
+  </p>
+
+  {%- for i in (1..pecas) -%}
+    {%- assign idx = forloop.index0 -%}
+    <div class="mkp__peca" data-mkp-peca>
+      <span class="mkp__num" aria-hidden="true">{{ i }}</span>
+      <div class="mkp__campo">
+        <label for="mkp-cor-{{ block.id }}-{{ i }}">Peça {{ i }}: cor</label>
+        <select id="mkp-cor-{{ block.id }}-{{ i }}" data-mkp-cor required aria-required="true">
+          <option value="" {% unless sugestao %}selected{% endunless %} disabled>Escolha a cor</option>
+          {%- for cor in cores -%}
+            <option value="{{ cor }}" {% if sugestao and forloop.index0 == idx %}selected{% endif %}>{{ cor }}</option>
+          {%- endfor -%}
+        </select>
+      </div>
+      <div class="mkp__campo">
+        <label for="mkp-tam-{{ block.id }}-{{ i }}">Peça {{ i }}: tamanho</label>
+        <select id="mkp-tam-{{ block.id }}-{{ i }}" data-mkp-tam required aria-required="true">
+          <option value="" selected disabled>Escolha o tamanho</option>
+          {%- for t in tamanhos -%}
+            <option value="{{ t }}">{{ t }} · {{ medidas[forloop.index0] }} cm</option>
+          {%- endfor -%}
+        </select>
+      </div>
+      <input type="hidden" name="properties[Peça {{ i }}]" value="" form="{{ product_form_id }}" data-mkp-valor>
+    </div>
+  {%- endfor -%}
+
+  <p class="mkp__medida">Medida de axila a axila. Meça deitada uma camiseta sua que veste bem e compare.</p>
+  <p class="mkp__erro" data-mkp-erro role="alert" aria-live="polite" hidden></p>
+</fieldset>
+
+<script type="application/json" data-mkp-estoque>
+  {
+  {%- if camiseta != blank -%}
+    {%- for v in camiseta.variants -%}
+      {{ v.option1 | append: '|' | append: v.option2 | json }}: {% if v.available %}{{ v.inventory_quantity | at_least: 0 }}{% else %}0{% endif %}{% unless forloop.last %},{% endunless %}
+    {%- endfor -%}
+  {%- endif -%}
+  }
+</script>
+
+<script>
+  (() => {
+    const root = document.currentScript.previousElementSibling.previousElementSibling;
+    if (!root || root.dataset.mkpReady) return;
+    root.dataset.mkpReady = '1';
+    let estoque = {};
+    try { estoque = JSON.parse(document.currentScript.previousElementSibling.textContent); } catch (e) {}
+    const temEstoque = Object.keys(estoque).length > 0;
+    const pecas = [...root.querySelectorAll('[data-mkp-peca]')];
+    const erro = root.querySelector('[data-mkp-erro]');
+    const form = document.getElementById('{{ product_form_id }}');
+
+    function validar() {
+      const usados = {};
+      let msg = '';
+      pecas.forEach((p, n) => {
+        const cor = p.querySelector('[data-mkp-cor]');
+        const tam = p.querySelector('[data-mkp-tam]');
+        const valor = p.querySelector('[data-mkp-valor]');
+        cor.setCustomValidity('');
+        tam.setCustomValidity('');
+        tam.removeAttribute('aria-invalid');
+        valor.value = cor.value && tam.value ? cor.value + ' · ' + tam.value : '';
+        if (!cor.value || !tam.value || !temEstoque) return;
+        const chave = cor.value + '|' + tam.value;
+        usados[chave] = (usados[chave] || 0) + 1;
+        if (usados[chave] > (estoque[chave] || 0)) {
+          msg = (estoque[chave] || 0) === 0
+            ? cor.value + ' ' + tam.value + ' acabou. Escolha outra cor ou outro tamanho para a peça ' + (n + 1) + '.'
+            : 'Só temos ' + estoque[chave] + ' de ' + cor.value + ' ' + tam.value + '. Troque a peça ' + (n + 1) + '.';
+          tam.setCustomValidity(msg);
+          tam.setAttribute('aria-invalid', 'true');
+        }
+      });
+      erro.textContent = msg;
+      erro.hidden = !msg;
+      return !msg;
+    }
+
+    root.addEventListener('change', validar);
+    validar();
+
+    if (form) {
+      form.addEventListener('submit', (ev) => {
+        const vazia = pecas.find((p) => !p.querySelector('[data-mkp-valor]').value);
+        if (vazia || !validar()) {
+          ev.preventDefault();
+          ev.stopImmediatePropagation();
+          if (vazia) {
+            erro.textContent = 'Escolha a cor e o tamanho de todas as peças.';
+            erro.hidden = false;
+            const alvo = [...vazia.querySelectorAll('select')].find((s) => !s.value);
+            if (alvo) alvo.focus();
+          }
+        }
+      }, true);
+    }
+  })();
+</script>
+
+{% stylesheet %}
+  .mkp {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--padding-sm, 12px);
+    width: 100%;
+  }
+  .mkp__legend {
+    font-weight: 600;
+    padding: 0;
+    margin-block-end: var(--padding-2xs, 4px);
+  }
+  .mkp__hint,
+  .mkp__medida {
+    margin: 0;
+    font-size: 0.9em;
+    color: rgb(var(--color-foreground-rgb) / var(--opacity-subdued-text, 0.7));
+  }
+  .mkp__peca {
+    display: grid;
+    grid-template-columns: auto 1fr 1fr;
+    gap: var(--padding-xs, 8px);
+    align-items: end;
+  }
+  .mkp__num {
+    width: 28px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    font-weight: 600;
+  }
+  .mkp__campo {
+    display: grid;
+    gap: var(--padding-2xs, 4px);
+  }
+  .mkp__campo label {
+    font-size: 0.85em;
+  }
+  .mkp__campo select {
+    min-height: 44px;
+    width: 100%;
+    padding-inline: var(--padding-sm, 12px);
+    border: var(--style-border-width-inputs, 1px) solid var(--color-input-border, currentColor);
+    border-radius: var(--style-border-radius-inputs, 0);
+    background: var(--color-input-background, transparent);
+    color: var(--color-input-text, inherit);
+    font: inherit;
+  }
+  .mkp__campo select:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+  }
+  .mkp__campo select[aria-invalid='true'] {
+    border-color: var(--color-danger, #9B2C22);
+  }
+  .mkp__erro {
+    margin: 0;
+    font-weight: 600;
+    color: var(--color-danger, #9B2C22);
+  }
+  /* Compra expressa pularia a escolha das peças: some só na página de kit. */
+  body:has([data-mkp]) shopify-accelerated-checkout,
+  body:has([data-mkp]) shopify-accelerated-checkout-cart {
+    display: none;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Kit: escolha das peças",
+  "tag": null,
+  "settings": [
+    {
+      "type": "text",
+      "id": "camiseta_handle",
+      "label": "Handle da camiseta (de onde vem o estoque)",
+      "default": "camiseta-basica-modestino"
+    }
+  ],
+  "presets": [
+    { "name": "Kit: escolha das peças", "category": "Product" }
+  ]
+}
+{% endschema %}

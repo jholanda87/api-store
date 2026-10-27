@@ -1,0 +1,48 @@
+{
+  "sections": {
+    "main": {
+      "type": "product-information",
+      "blocks": {
+        "media-gallery": {
+          "type": "_product-media-gallery",
+          "static": true,
+          "settings": { "media_presentation": "grid", "media_columns": "two", "hide_variants": true, "zoom": true },
+          "blocks": {}
+        },
+        "product-details": {
+          "type": "_product-details",
+          "static": true,
+          "settings": { "gap": 28, "sticky_details_desktop": true, "padding-block-start": 24, "padding-block-end": 24 },
+          "blocks": {
+            "cabecalho": {
+              "type": "group",
+              "settings": { "content_direction": "column", "gap": 12 },
+              "blocks": {
+                "titulo": { "type": "text", "settings": { "text": "<h1>{{ closest.product.title }}</h1>", "type_preset": "h3" }, "blocks": {} },
+                "preco": { "type": "price", "settings": { "show_installments": false, "show_tax_info": false }, "blocks": {} }
+              },
+              "block_order": ["titulo", "preco"]
+            },
+            "divisor": { "type": "_divider", "settings": {}, "blocks": {} },
+            "pecas": { "type": "modestino-kit-pecas", "settings": { "camiseta_handle": "camiseta-basica-modestino" }, "blocks": {} },
+            "comprar": {
+              "type": "buy-buttons",
+              "settings": { "stacking": true, "show_pickup_availability": false },
+              "blocks": {
+                "quantity": { "type": "quantity", "static": true, "settings": {}, "blocks": {} },
+                "add-to-cart": { "type": "add-to-cart", "static": true, "settings": { "style_class": "button" }, "blocks": {} },
+                "accelerated-checkout": { "type": "accelerated-checkout", "static": true, "settings": {}, "blocks": {} }
+              },
+              "block_order": []
+            },
+            "descricao": { "type": "text", "settings": { "text": "{{ closest.product.description }}", "type_preset": "rte" }, "blocks": {} }
+          },
+          "block_order": ["cabecalho", "divisor", "pecas", "comprar", "descricao"]
+        }
+      },
+      "block_order": [],
+      "settings": { "content_width": "content-center-aligned", "desktop_media_position": "left", "gap": 48, "enable_sticky_add_to_cart": false }
+    }
+  },
+  "order": ["main"]
+}
