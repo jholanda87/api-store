@@ -45,4 +45,4 @@ Falta: fotos de estúdio; seleção de cor e tamanho por peça nos kits e baixa 
 
 ## Atendimento (28/10/2026)
 
-WhatsApp Business da loja: (85) 98155-9590, todos os dias, sem robô. Link do botão da loja e do rodapé: https://wa.me/5585981559590?text=Oi%21%20Vim%20pela%20loja%20da%20MODESTINO%20e%20tenho%20uma%20d%C3%BAvida.
+WhatsApp Business da loja: (85) 98155-9590, todos os dias, sem robô. Link testado pelo Jorge em 28/10. Link do botão da loja e do rodapé: https://wa.me/5585981559590?text=Oi%21%20Vim%20pela%20loja%20da%20MODESTINO%20e%20tenho%20uma%20d%C3%BAvida.
