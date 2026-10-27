@@ -67,7 +67,13 @@
     "\\bestrag",
     "\\bdefeito (no tecido|na costura|na gola)\\b",
     "\\bcostura\\b",
-    "\\bgola\\b"
+    "\\bgola\\b",
+    "\\bdescosturando\\b",
+    "\\bperdeu a qualidade\\b",
+    "\\bqualidade inferior\\b",
+    "\\bmudou de cor\\b",
+    "\\bdanificad[ao]\\b",
+    "\\bqualidade ruim\\b"
    ]
   },
   {
@@ -97,7 +103,8 @@
     "\\breembolso\\b",
     "\\bcancel",
     "\\bdinheiro de volta\\b",
-    "\\barrependimento\\b"
+    "\\barrependimento\\b",
+    "\\bvale.?(troca|crédito)\\b"
    ]
   },
   {
@@ -112,7 +119,12 @@
     "\\bdescaso\\b",
     "\\bpéssimo atendimento\\b",
     "\\brobô\\b",
-    "\\bchat\\b"
+    "\\bchat\\b",
+    "\\bnão (resolve|dá retorno)\\b",
+    "\\bninguém resolve\\b",
+    "\\batendente humano\\b",
+    "\\bninguém respondeu\\b",
+    "\\bnão resolveu\\b"
    ]
   },
   {
@@ -143,7 +155,9 @@
     "\\bcusto.?benefício\\b",
     "\\bpromoção\\b",
     "\\bcupom\\b",
-    "\\bdesconto\\b"
+    "\\bdesconto\\b",
+    "\\bpreço promocional\\b",
+    "\\babatido\\b"
    ]
   },
   {
@@ -210,7 +224,24 @@
     "\\bvoltou atrás\\b",
     "\\brecebeu uma\\b",
     "\\bem vez de\\b",
-    "\\bprometeu\\b"
+    "\\bprometeu\\b",
+    "\\brecebeu (só|apenas) uma\\b",
+    "\\bchegou só uma\\b",
+    "\\bapenas uma de\\b",
+    "\\bfaltou\\b",
+    "\\bchegou sem\\b",
+    "\\bincompleto\\b",
+    "\\berrad[ao]\\b",
+    "\\boutro produto\\b",
+    "\\bnão foi (entregue|recebida)\\b",
+    "\\bnão chegou\\b",
+    "\\bnão foram entregues\\b",
+    "\\bfaltando\\b",
+    "\\bremovida\\b",
+    "\\balterad[ao]\\b",
+    "\\bproduto diferente\\b",
+    "\\bpeça diferente\\b",
+    "\\bnão recebeu\\b"
    ]
   }
  ]
