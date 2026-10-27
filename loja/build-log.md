@@ -1,5 +1,12 @@
 # Construção da loja — registro
 
+## 27/10/2026 (noite, 3ª rodada) — título pela identidade, promessa é a troca
+
+Decisão do Jorge: o título fala da identidade (não dos donos) e a loja não promete "sem erro", só a troca.
+- Título: "Três cores. Um caimento." (mockup aprovado). Subtítulo: "Camiseta básica masculina feita em Fortaleza. Lisa, sem logo na frente. Não serviu? A gente troca."
+- Saíram "Conferida pelos donos" (vira "Costura no osso do ombro", do mockup), "Conferido e entregue pelos donos" na caixa de frete e a pergunta "Quem confere o pedido?".
+- 4 arquivos reenviados ao tema de construção, checksums conferidos; tema segue não publicado.
+
 ## 27/10/2026 (noite, 2ª rodada) — textos no tom do mockup aprovado
 
 Pedido do Jorge: textos minimalistas, só o necessário, na voz do mockup aprovado ("Modestino — Landing page", 21/10) e do Instagram, calibrados pelas lojas grandes.

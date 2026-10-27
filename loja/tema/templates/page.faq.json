@@ -11,13 +11,6 @@
             "resposta": "<p>Meça de axila a axila uma camiseta sua, estendida na mesa. P 51 · M 54 · G 57 · GG 60 cm. A calculadora da página faz a conta.</p>"
           }
         },
-        "q1": {
-          "type": "pergunta",
-          "settings": {
-            "pergunta": "Quem confere o pedido?",
-            "resposta": "<p>Um dos donos: cor, tamanho e quantidade, antes de sair.</p>"
-          }
-        },
         "q2": {
           "type": "pergunta",
           "settings": {
@@ -77,7 +70,6 @@
       },
       "block_order": [
         "q0",
-        "q1",
         "q2",
         "q3",
         "q4",
