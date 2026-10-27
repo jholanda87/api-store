@@ -1,5 +1,9 @@
 # Construção da loja — registro
 
+## 27/10/2026 (noite) — endereço do CNPJ na loja
+
+Decisão do Jorge: usar o endereço do CNPJ (o residencial dele) como endereço físico da loja, para cumprir o Decreto 7.962, mesmo sem loja física; ele foi avisado de que fica público. Aplicado só na Shopify: rodapé (novo campo `endereco` do `modestino-rodape`, preenchido em `sections/footer-group.json` do tema) e fim das páginas Trocas e Privacidade. **O endereço não entra no repositório**: aqui o campo fica vazio e o `footer-group.json` local difere do tema de propósito; ao reenviar esse arquivo, preencher o campo pelo editor de tema ou pela conversa. Políticas de privacidade e reembolso da Shopify: Jorge acrescenta o endereço no admin.
+
 ## 27/10/2026 (noite) — entrega local
 
 Jorge configurou no admin a Entrega local de R$ 10 por CEP de Fortaleza (decisão: valor acessível para gerar fluxo, mesmo abaixo do custo nas entregas longas). A Admin API não expõe a entrega local e a simulação de pedido (`draftOrderCalculate`) só lista as tarifas de frete ("Padrão" R$ 22 em 60150-160, 60871-000 e 61600-000): a conferência final é um teste no checkout. **Testado pelo Jorge: a Entrega local de R$ 10 aparece no checkout com CEP de Fortaleza.**

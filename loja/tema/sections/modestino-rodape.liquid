@@ -31,7 +31,7 @@
       </div>
     </div>
     <div class="m-rodape__base">
-      <p><span class="m-rodape__nome">MODESTINO</span> · {{ section.settings.razao_social }} · CNPJ <span class="m-mono">{{ section.settings.cnpj }}</span> · Fortaleza/CE</p>
+      <p><span class="m-rodape__nome">MODESTINO</span> · {{ section.settings.razao_social }} · CNPJ <span class="m-mono">{{ section.settings.cnpj }}</span> · {% if section.settings.endereco != blank %}{{ section.settings.endereco }}{% else %}Fortaleza/CE{% endif %}</p>
     </div>
   </div>
 </footer>
@@ -43,6 +43,7 @@
   "settings": [
     { "type": "text", "id": "razao_social", "label": "Razão social", "default": "69.828.190 JORGE HOLANDA SOUSA" },
     { "type": "text", "id": "cnpj", "label": "CNPJ", "default": "69.828.190/0001-36" },
+    { "type": "text", "id": "endereco", "label": "Endereço do CNPJ (preenchido só na Shopify, nunca no repositório)" },
     { "type": "text", "id": "whatsapp", "label": "Link do WhatsApp", "default": "https://wa.me/5585981559590?text=Oi%21%20Vim%20pela%20loja%20da%20MODESTINO%20e%20tenho%20uma%20d%C3%BAvida." }
   ]
 }
