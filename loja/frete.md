@@ -12,6 +12,8 @@ Decidido pelo Jorge em 27/10/2026. **Os endereços de partida dos sócios não a
 - **Troca de tamanho em mãos:** mesma tabela, ou grátis quando junto com uma nova compra.
 - **Fora de Fortaleza:** Correios ou transportadora, calculado pelo app de cotação no checkout.
 
+**Atualização 28/10:** todas as peças estão com o Jorge, então por enquanto tudo sai do Ponto J. O Ponto L entra quando o Lucas tiver estoque.
+
 ## Tabela por distância do ponto mais perto (proposta, a validar)
 
 | distância | valor ao cliente | custo de referência |

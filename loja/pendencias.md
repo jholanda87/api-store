@@ -5,13 +5,13 @@ Atualizado em 28/10/2026. Responder na conversa (endereços e dados pessoais **s
 ## Destravam o próximo passo
 
 1. ~~Shopify conectado~~ feito em 27/10 (loja `nnwyy4-vp`, 4 rascunhos).
-2. **Coleta de avaliações** — Claude in Chrome no notebook, nas 4 páginas do `coleta-avaliacoes.md`, devolvendo linhas `source,url,date,rating,text`.
-3. **Estoque por ponto** — quantas peças estão com Jorge e quantas com Lucas, por cor e tamanho (a loja despacha do ponto mais perto).
+2. ~~Coleta de avaliações~~ feita em 28/10: 114 reclamações de 4 marcas; frase A aprovada.
+3. ~~Estoque por ponto~~ todas as peças com o Jorge (28/10): tudo sai do Ponto J.
 
 ## Frete
 
 4. ~~Bairro do Ponto L~~ adiado: por enquanto só o Ponto J despacha (27/10).
-5. Três cotações de Uber Flash saindo de cada ponto (um destino perto, um médio, um longe), com o valor e os km do app.
+5. Três cotações de Uber Flash saindo do Ponto J (um destino perto, um médio, um longe), com o valor e os km do app.
 6. Carro ou moto na entrega própria, consumo (km/L) e preço da gasolina hoje.
 7. Peso de 1 camiseta dobrada e da ecobag com 3 peças (frete por Correios).
 

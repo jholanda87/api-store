@@ -36,6 +36,12 @@ Etapa 2 (`loja-empreendedor-modestino`), 28/10/2026. Base: 114 reclamações de 
 | 7 | **Tamanho pela camiseta que você já tem**: calculadora e medidas reais de cada tamanho | P (já no design) | loja-build-modestino | falta, 8 |
 | 8 | **Composição verdadeira** na etiqueta e na página, por peça | P | catalogo-modestino | falta, 10 |
 
+## Decisões do Jorge (28/10/2026)
+
+- **Frase A aprovada.** Vira o título da primeira tela da loja e a base dos anúncios.
+- **Teste de 10 lavagens feito: a camiseta mantém o padrão.** A promessa de durabilidade (opção B) já pode entrar como apoio, sempre junto dos cuidados da etiqueta. Na página: "Testada em 10 lavagens, mantendo o padrão."
+- Correção 6 passa de teste a prova: falta só publicar o antes e depois (foto ou vídeo).
+
 ## 5. Posicionamento — três opções
 
 **A. Confiança (recomendada)**
