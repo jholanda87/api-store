@@ -9,7 +9,7 @@ continuam no Painel da Modestino; estratégia e decisões na Central Modestino.
 | 0. Pré-requisitos | administrativo-modestino | loja/administrativo.md, politicas/ | 🟡 MEI aberto em 27/10 (CNPJ 69.828.190/0001-36) · políticas em rascunho · endereço do rodapé e teto proporcional do MEI a ver com o contador |
 | 1. Mapa das referências | loja-recon-modestino | loja/recon.md, features.csv | 🟡 recon público feito (27/10); falta página de produto completa e checkout pelo navegador do Jorge |
 | 2. O que o cliente odeia | loja-empreendedor-modestino | loja/reviews.csv, feedback.md, correcoes.md | ✅ 114 reclamações de 4 marcas (28/10); correcoes.md com 8 correções; frase A aprovada e 10 lavagens confirmadas (28/10) |
-| 3. Arquitetura | loja-arquitetura-modestino | loja/arquitetura.md | ✅ Shopify + Mercado Pago; cupons de 6% (KEANU6, PAULOVITOR6) só na avulsa; frete R$ 10 em Fortaleza saindo do Ponto J; pesos estimados para Correios (28/10) |
+| 3. Arquitetura | loja-arquitetura-modestino | loja/arquitetura.md | ✅ Shopify + Mercado Pago; cupons de 6% (`KEANU6`, `PAULOVITOR6`, criados na Shopify) só na avulsa; frete R$ 10 em Fortaleza saindo do Ponto J; pesos estimados para Correios (28/10) |
 | 4. Design | loja-design-modestino | loja/design/ | ✅ tokens, componentes, amostra e logo do Drive aplicado (PNG transparente + favicon); SVG opcional |
 | 5. Catálogo e estoque | catalogo-modestino | loja/catalogo.csv, estoque.csv, catalogo/ | 🟡 4 rascunhos na Shopify `nnwyy4-vp` (27/10): camiseta com 12 variantes e 212 peças no Ponto J; SEO gravado; foto provisória (preta vestida); faltam fotos de estúdio e seleção por peça nos kits |
 | 6. Construção | loja-build-modestino | loja/build-log.md | ⚪ |
@@ -59,3 +59,14 @@ Frete visto em 28/10: perfil geral (Ponto J) só com a tarifa fixa "Padrão" R$ 
 ## Atendimento (28/10/2026)
 
 WhatsApp Business da loja: (85) 98155-9590, todos os dias, sem robô. Link testado pelo Jorge em 28/10. Link do botão da loja e do rodapé: https://wa.me/5585981559590?text=Oi%21%20Vim%20pela%20loja%20da%20MODESTINO%20e%20tenho%20uma%20d%C3%BAvida.
+
+## Cupons de embaixador (decisão do Jorge, 28/10/2026)
+
+Criados na Shopify `nnwyy4-vp` e conferidos lendo de volta. Antes de criar: nenhum desconto existia na loja.
+
+| código | embaixador | desconto | vale para | combina | fim / limite | admin |
+| --- | --- | --- | --- | --- | --- | --- |
+| `KEANU6` | Keanu | 6% | só Camiseta Básica Modestino avulsa (produto 10343489273904); não vale para Kit 2, Kit 3 nem Kit Essencial | não combina com nenhum outro desconto (produto, pedido nem frete) | sem fim, sem limite de usos | [1492022722608](https://admin.shopify.com/store/nnwyy4-vp/discounts/1492022722608) |
+| `PAULOVITOR6` | Paulo Vitor | 6% | idem | idem | idem | [1492022755376](https://admin.shopify.com/store/nnwyy4-vp/discounts/1492022755376) |
+
+Ativos desde 27/10 00:00 (Fortaleza), para todos os clientes. Comissão do embaixador: 10% sobre o valor pago. Margem da avulsa com cupom e comissão: 51,5% no Pix e 48,5% no cartão (Shopify 2% + Mercado Pago 0,99% Pix / 3,98% cartão). Regras 14 a 16 de `politicas/antifraude.md` valem (embaixador não usa o próprio cupom; venda lançada no Painel com o embaixador em `seller`).
