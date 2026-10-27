@@ -30,7 +30,7 @@ Gravado como **rascunho** (nada publicado) na loja `nnwyy4-vp` (Minha loja 2; BR
 | Camiseta Básica Modestino | 12 (Cor × Tamanho), SKU `MOD-CAM-<PRETA\|MARROM\|OFF>-<P\|M\|G\|GG>`, estoque controlado | R$ 80,00 | 212 (por variante em `estoque.csv`) | [10343489273904](https://admin.shopify.com/store/nnwyy4-vp/products/10343489273904) |
 | Kit 2 Camisetas Básicas Modestino | 1 (`MOD-KIT2`), com ecobag | R$ 160,00 | não controlado: baixa nas variantes da camiseta | [10343489568816](https://admin.shopify.com/store/nnwyy4-vp/products/10343489568816) |
 | Kit 3 Camisetas Básicas Modestino | 1 (`MOD-KIT3`), com ecobag | R$ 225,00 | idem | [10343489732656](https://admin.shopify.com/store/nnwyy4-vp/products/10343489732656) |
-| Kit Essencial Modestino: uma de cada cor | 1 (`MOD-KIT-ESS`), com ecobag | R$ 225,00 | idem | [10343489896496](https://admin.shopify.com/store/nnwyy4-vp/products/10343489896496) |
+| Kit Essencial Modestino (sugestão: uma de cada cor; cores livres) | 1 (`MOD-KIT-ESS`), com ecobag | R$ 225,00 | idem | [10343489896496](https://admin.shopify.com/store/nnwyy4-vp/products/10343489896496) |
 
 Arquivos: `catalogo/textos.json` (títulos, descrições e SEO, revisados com `vitrine.py`), `catalogo.csv`, `estoque.csv` e `catalogo/shopify-import.csv` (cópia de segurança para importação manual; não importar de novo, duplicaria).
 
@@ -38,6 +38,6 @@ Atualizado em 27/10 (tarde), por decisão do Jorge:
 - **Só um ponto de despacho por enquanto:** o local padrão virou "Ponto J" (endereço só no cadastro da Shopify, nunca aqui) e guarda as 212 peças. O Ponto L fica para depois.
 - **SEO** (título e descrição de `textos.json`) gravado nos 4 produtos.
 - **Foto provisória:** um quadro do vídeo `IMG_3268.mov` do Drive (camiseta preta vestida, recorte 4:5, 1080×1350) nos 4 produtos e nas variantes Preto. Não há foto real de Mapple Brown nem de Off White que preste no Drive (só folhas de quadros de vídeo em baixa resolução; os MP4 do Keanu passam de 10 MB e o conector do Drive não baixa). Trocar tudo quando o estúdio ficar pronto.
-- **Kits:** qualquer cor que o cliente quiser (Kit 2 e Kit 3). A escolha por peça entra na construção, por campos no carrinho ou app de kits.
+- **Kits:** qualquer cor que o cliente quiser, nos três. O Kit Essencial fica como sugestão pronta (uma de cada cor), mas o cliente pode trocar as cores. A escolha por peça entra na construção, por campos no carrinho ou app de kits.
 
 Falta: fotos de estúdio; seleção de cor e tamanho por peça nos kits e baixa no estoque da camiseta (app de kits ou campos do carrinho, na construção); gateway de pagamento. Plano Basic da Shopify assinado (27/10); nome da loja ainda "Minha loja 2".
