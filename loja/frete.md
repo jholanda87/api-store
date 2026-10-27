@@ -26,7 +26,13 @@ Decidido pelo Jorge em 27/10/2026. **Os endereços de partida dos sócios não a
 
 Valores **estimados**: carro a ~10 km/L e gasolina a ~R$ 6,40/L dão ~R$ 1,30 por km rodado (ida e volta); o Uber Flash tem tarifa base mais quilômetro. **Validar antes de publicar:** fazer 3 cotações reais de Uber Flash saindo de cada ponto (perto, médio e longe) e ajustar a tabela para cobrir a média.
 
-## Como fica na Shopify
+## Como está na Shopify (27/10, decisão do Jorge)
+
+- Envio internacional **desligado** (zona removida).
+- Brasil inteiro: **R$ 22** (tarifa "Padrão").
+- Fortaleza: **R$ 10** fixo por Entrega local a partir do Ponto J, por CEP (a API não configura entrega local: Jorge faz no admin). A tabela por distância abaixo fica para depois das cotações.
+
+## Como fica na Shopify (plano original por distância)
 
 1. Configurações → Locais: criar "Ponto J" e "Ponto L" com o endereço de cada um (só o administrador vê).
 2. Configurações → Frete e entrega → Entrega local: ativar nos dois pontos, **por distância**, com as faixas acima.

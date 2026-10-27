@@ -28,6 +28,16 @@ Custo R$ 26,70/peça (kit 2 R$ 55,40, kit 3 R$ 82,10 com ecobag). Taxas **estima
 
 Fora da loja (Pix direto, sem plataforma) o cupom fica em 53%.
 
+**Atualização (27/10, tarde):** Mercado Pago Checkout Pro ligado, recebimento em 30 dias. Shopify cobra 2% por venda (gateway externo, plano Basic). Taxa do Mercado Pago **estimada** (Pix ~0,99%, cartão em 30 dias ~3,99%; confirmar no painel do Mercado Pago):
+
+| venda | Pix (2% + 0,99%) | cartão (2% + 3,99%) |
+| --- | --- | --- |
+| avulsa R$ 80 | 63,6% | 60,6% |
+| kit 2 R$ 160 | 62,4% | 59,4% |
+| kit 3 / Essencial R$ 225 | 60,5% | 57,5% |
+| **avulsa com cupom (R$ 72 − 10% comissão)** | **49,9%** 🟡 | **46,9%** 🔴 |
+| **kit 3 com comissão de embaixador** | 50,5% 🟡 | **47,5%** 🔴 |
+
 **Decisão do Jorge (27/10):** manter o cupom de 10% também na loja online. Exceção aceita ao piso de 50%, registrada na Central (seção 10). Rever quando o gateway e a taxa real do Pix forem escolhidos.
 
 ## 3. Catálogo
