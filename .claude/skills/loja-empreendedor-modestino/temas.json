@@ -67,7 +67,10 @@
     "\\bestrag",
     "\\bdefeito (no tecido|na costura|na gola)\\b",
     "\\bcostura\\b",
-    "\\bgola\\b"
+    "\\bgola\\b",
+    "\\bdescosturando\\b",
+    "\\bperdeu a qualidade\\b",
+    "\\bqualidade inferior\\b"
    ]
   },
   {
@@ -112,7 +115,10 @@
     "\\bdescaso\\b",
     "\\bpéssimo atendimento\\b",
     "\\brobô\\b",
-    "\\bchat\\b"
+    "\\bchat\\b",
+    "\\bnão (resolve|dá retorno)\\b",
+    "\\bninguém resolve\\b",
+    "\\batendente humano\\b"
    ]
   },
   {
@@ -210,7 +216,16 @@
     "\\bvoltou atrás\\b",
     "\\brecebeu uma\\b",
     "\\bem vez de\\b",
-    "\\bprometeu\\b"
+    "\\bprometeu\\b",
+    "\\brecebeu (só|apenas) uma\\b",
+    "\\bchegou só uma\\b",
+    "\\bapenas uma de\\b",
+    "\\bfaltou\\b",
+    "\\bchegou sem\\b",
+    "\\bincompleto\\b",
+    "\\berrad[ao]\\b",
+    "\\boutro produto\\b",
+    "\\bnão foi (entregue|recebida)\\b"
    ]
   }
  ]
