@@ -31,7 +31,7 @@ Etapa 2 (`loja-empreendedor-modestino`), 28/10/2026. Base: 114 reclamações de 
 | 2 | **Entrega em Fortaleza por um dos sócios ou Uber Flash**, com aviso de quem leva e quando; fora, rastreio enviado no mesmo dia | P | loja-backend-modestino | temas 1 e 6 |
 | 3 | **Troca sem burocracia**: em mãos em Fortaleza; estorno por Pix em até 2 dias úteis; nunca vale-troca obrigatório | P | administrativo-modestino | tema 2, 37 |
 | 4 | **Preço fechado e cupom que funciona**: kit com preço final (R$ 160 / R$ 225), cupom testado antes de divulgar, pedido pago nunca cancelado por erro nosso | P | loja-teste-modestino | tema 4, 18 |
-| 5 | **Atendimento com nome**: Jorge ou Lucas no WhatsApp, resposta em até 10 min no horário | P | atendimento-modestino | tema 5, 18 |
+| 5 | **Atendimento com nome**: o Jorge no WhatsApp Business, todos os dias, sem robô (sem prometer minutos) | P | atendimento-modestino | tema 5, 18 |
 | 6 | **Teste público de 10 lavagens** (antes e depois, por cor) antes de qualquer promessa de durabilidade | M | criar-conteudo-modestino | tema 3, 30 |
 | 7 | **Tamanho pela camiseta que você já tem**: calculadora e medidas reais de cada tamanho | P (já no design) | loja-build-modestino | falta, 8 |
 | 8 | **Composição verdadeira** na etiqueta e na página, por peça | P | catalogo-modestino | falta, 10 |

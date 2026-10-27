@@ -17,14 +17,14 @@ Atualizado em 28/10/2026. Responder na conversa (endereços e dados pessoais **s
 
 ## Pagamento e preço
 
-8. ~~Gateway~~ Mercado Pago ativado (27/10). Falta: as taxas reais de Pix e de cartão em 3x que aparecem na conta do Mercado Pago.
-9. Kit 2 continua R$ 160 (R$ 150 sem embalagem)?
-10. Códigos de cupom dos embaixadores (ex.: PAULOVITOR10, KEANU10).
+8. ~~Gateway~~ Mercado Pago ativado; taxas: Pix 0,99%, cartão 3,98% + Shopify 2% (27/10).
+9. ~~Kit 2~~ continua R$ 160 (28/10).
+10. ~~Cupons~~ KEANU6 e PAULOVITOR6, 6% só na avulsa (28/10) — criar na Shopify.
 
 ## Atendimento e políticas
 
-11. Número do WhatsApp da loja e horário de atendimento.
-12. Prazo de estorno no Pix (sugestão: até 2 dias úteis).
+11. ~~WhatsApp~~ WhatsApp Business do Jorge, todos os dias, responde assim que vê (28/10). Falta o link wa.me para o botão da loja.
+12. ~~Estorno~~ por caso, com regras antifraude (politicas/trocas.md e antifraude.md, 28/10).
 
 ## Empresa
 

@@ -44,7 +44,7 @@ Fora da loja (Pix direto, sem plataforma) o cupom fica em 53%.
 
 - Produto **Camiseta Básica Modestino**, variantes cor (Preto, Mapple Brown, Off White) × tamanho (P, M, G, GG), SKU `MOD-CAM-<COR>-<TAM>`, estoque pelo `estoque.py` (212 peças em 27/10).
 - **Kit 2** R$ 160, **Kit 3** R$ 225 (confirmado em 27/10), **Kit Essencial** (uma de cada cor, R$ 225), todos com ecobag, escolha de cor e tamanho por peça, baixando o estoque das variantes (app de kits/bundles da Shopify ou produto com opções + baixa manual no primeiro mês).
-- Cupom de 10% por embaixador (Paulo Vitor, Keanu), só na avulsa; nunca acumula com kit.
+- Cupom de **6%** por embaixador (`KEANU6`, `PAULOVITOR6`, decidido em 28/10), só na avulsa; nunca acumula com kit. Margem da avulsa com cupom e comissão de 10%: 51,5% no Pix e 48,5% no cartão.
 - Empresas: kit 3 a R$ 210 (10–29) e R$ 195 (30+) por pedido manual (rascunho de pedido na Shopify).
 
 ## 4. Integrações
