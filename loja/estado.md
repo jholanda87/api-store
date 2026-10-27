@@ -13,7 +13,7 @@ continuam no Painel da Modestino; estratégia e decisões na Central Modestino.
 | 4. Design | loja-design-modestino | loja/design/ | ✅ tokens, componentes, amostra e logo do Drive aplicado (PNG transparente + favicon); SVG opcional |
 | 5. Catálogo e estoque | catalogo-modestino | loja/catalogo.csv, estoque.csv, catalogo/ | 🟡 4 rascunhos na Shopify `nnwyy4-vp` (27/10): camiseta com 12 variantes e 212 peças no Ponto J; SEO gravado; foto provisória (preta vestida); faltam fotos de estúdio e seleção por peça nos kits |
 | 6. Construção | loja-build-modestino | loja/build-log.md | ⚪ |
-| 7. Pagamento, frete, integrações | loja-backend-modestino | loja/backend.md | 🟡 Mercado Pago ativado na Shopify (27/10, informado pelo Jorge; a API não mostra o gateway); Mercado Pago em modo teste; frete: internacional desligado, Brasil R$ 22, Fortaleza R$ 10 ainda **não** ligado (a tarifa criada valia para o Brasil todo e foi removida em 27/10; refazer como Entrega local por CEP); meios de pagamento: os que o Mercado Pago oferece, boleto incluído (decisão do Jorge, 27/10); margem refeita com Shopify 2% + taxas do Checkout do Mercado Pago (Pix 0,99%, cartão 3,98%) |
+| 7. Pagamento, frete, integrações | loja-backend-modestino | loja/backend.md | 🟡 Mercado Pago ativado na Shopify (27/10, informado pelo Jorge; a API não mostra o gateway); Mercado Pago em modo teste; frete: internacional desligado, Brasil R$ 22, Fortaleza R$ 10 ainda **não** ligado; pesos de envio gravados (28/10), falta tarifa calculada dos Correios fora de Fortaleza (a tarifa criada valia para o Brasil todo e foi removida em 27/10; refazer como Entrega local por CEP); meios de pagamento: os que o Mercado Pago oferece, boleto incluído (decisão do Jorge, 27/10); margem refeita com Shopify 2% + taxas do Checkout do Mercado Pago (Pix 0,99%, cartão 3,98%) |
 | 8. Testes | loja-teste-modestino | loja/test-plan.md, bugs.md | ⚪ |
 | 9. Paridade | loja-paridade-modestino | loja/paridade.md | ⚪ 0 de 23 obrigatórios |
 | 10. Varredura da marca | loja-marca-modestino | loja/marca.json | 🟡 lista de nomes pronta; paleta neutra confirmada (27/10) |
@@ -42,6 +42,19 @@ Atualizado em 27/10 (tarde), por decisão do Jorge:
 
 Falta: fotos de estúdio; seleção de cor e tamanho por peça nos kits e baixa no estoque da camiseta (app de kits ou campos do carrinho, na construção); gateway de pagamento. Plano Basic da Shopify assinado (27/10); nome da loja já é MODESTINO; loja com senha.
 
+
+## Peso de envio (28/10/2026)
+
+Gravado na Shopify `nnwyy4-vp` (busca por SKU `MOD-*`, sem chutar id), com "requer frete" ligado em todas as variantes; conferido lendo de volta. Preço, estoque (212), textos e status não mudaram. Base: seção "Peso para Correios" de `frete.md`.
+
+| produto | SKU | variantes | peso |
+| --- | --- | --- | --- |
+| Camiseta Básica Modestino | `MOD-CAM-*` | 12 | 250 g |
+| Kit 2 Camisetas Básicas Modestino | `MOD-KIT2` | 1 | 500 g |
+| Kit 3 Camisetas Básicas Modestino | `MOD-KIT3` | 1 | 750 g |
+| Kit Essencial Modestino | `MOD-KIT-ESS` | 1 | 750 g |
+
+Frete visto em 28/10: perfil geral (Ponto J) só com a tarifa fixa "Padrão" R$ 22 para o Brasil inteiro; **nenhuma tarifa calculada pelos Correios** e nenhum app de frete (carrier service) ligado. A entrega local de Fortaleza (R$ 10) não aparece pela API e não foi mexida. Falta o Jorge escolher: app Melhor Envio ou Frenet (cotação real dos Correios pelo peso), ou tarifas manuais por faixa de peso. Nada instalado nem criado.
 
 ## Atendimento (28/10/2026)
 
