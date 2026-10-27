@@ -13,7 +13,7 @@ Atualizado em 28/10/2026. Responder na conversa (endereços e dados pessoais **s
 4. ~~Bairro do Ponto L~~ adiado: por enquanto só o Ponto J despacha (27/10).
 5. ~~Cotações de Uber Flash~~ dispensadas: frete fixo de R$ 10 em Fortaleza (28/10).
 6. ~~Carro~~ 10 km/L, gasolina R$ 7 (28/10).
-7. Peso de 1 camiseta dobrada e da ecobag com 3 peças (frete por Correios) — Jorge confirma hoje.
+7. ~~Peso~~ estimado pela GG (28/10): 1 peça 250 g, kit 2 500 g, kit 3 750 g (frete.md). Pesar quando der e ajustar.
 
 ## Pagamento e preço
 

@@ -32,3 +32,15 @@ Conta de referência: carro a 10 km/L e gasolina a R$ 7/L = **R$ 0,70 por km rod
 - **Bairro do Ponto L** (o nome da rua sozinho não basta: há várias ruas com o mesmo nome em Fortaleza). Passar ao Claude só na conversa, nunca em arquivo.
 - As 3 cotações de Uber Flash por ponto.
 - Decidir se o Painel registra o estoque por ponto (recomendado para a loja saber de onde despachar).
+
+## Peso para Correios (estimativa, 28/10/2026)
+
+Não há peso padrão publicado para camiseta GG; as fontes dão só a gramatura do tecido (160–170 g/m² em fichas técnicas) e uma média geral de ~200 g por camiseta de algodão. Conta para a GG da Modestino (largura 60 cm, ~1 m² de malha na peça pronta): **~170 a 200 g**. Usamos o teto, para não faltar frete.
+
+| envio | peso cadastrado | conta |
+| --- | --- | --- |
+| 1 camiseta | **250 g** | 200 g (GG) + saco/etiqueta |
+| Kit 2 | **500 g** | 2 × 200 g + ecobag ~100 g |
+| Kit 3 / Kit Essencial | **750 g** | 3 × 200 g + ecobag ~100 g + folga |
+
+Caixa ou envelope de referência: 30 × 25 × 5 cm. Quando der, pesar uma GG e um kit 3 numa balança de cozinha e ajustar aqui. Fontes: [ficha de licitação de Pelotas, 160 g/m²](https://saiserver.pelotas.com.br/anexos_licitacao/arq_objeto/2016-05-05_11-30-34_objeto_AnexoIVEspecificacoestecnicas.pdf), [fichas do SENAC-PR](https://www.pr.senac.br/licitacoes/Arquivos/Documentos_Editais/PP012018/PP_01_2018_Fichas_Referenciais.pdf), [média de ~200 g](https://www.auditorioibirapuera.com.br/qual-o-peso-de-uma-camiseta-100-algodao/).
