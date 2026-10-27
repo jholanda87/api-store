@@ -2,7 +2,7 @@
 
 ## 27/10/2026 (noite) — entrega local
 
-Jorge configurou no admin a Entrega local de R$ 10 por CEP de Fortaleza (decisão: valor acessível para gerar fluxo, mesmo abaixo do custo nas entregas longas). A Admin API não expõe a entrega local e a simulação de pedido (`draftOrderCalculate`) só lista as tarifas de frete ("Padrão" R$ 22 em 60150-160, 60871-000 e 61600-000): a conferência final é um teste no checkout.
+Jorge configurou no admin a Entrega local de R$ 10 por CEP de Fortaleza (decisão: valor acessível para gerar fluxo, mesmo abaixo do custo nas entregas longas). A Admin API não expõe a entrega local e a simulação de pedido (`draftOrderCalculate`) só lista as tarifas de frete ("Padrão" R$ 22 em 60150-160, 60871-000 e 61600-000): a conferência final é um teste no checkout. **Testado pelo Jorge: a Entrega local de R$ 10 aparece no checkout com CEP de Fortaleza.**
 
 ## 27/10/2026 (noite) — políticas da Shopify
 

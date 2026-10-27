@@ -6,7 +6,7 @@ Tabela de medidas real (largura axila a axila e tórax),produto,must,yes,yes,27/
 Fotos reais de perto (gola ombro costas) e vestido,produto,must,yes,partial,"27/10: frames provisórios dos vídeos do Keanu (frente, gola/ombro, costas off white, lado marrom); falta costas da preta e da marrom; fotos definitivas do Jorge"
 Kit 2 e Kit 3 com ecobag como produto próprio,produto,must,yes,yes,27/10: página de kit com preço por peça e escolha de cor e tamanho por peça
 Carrinho com edição de quantidade cor e tamanho,carrinho,must,yes,partial,carrinho do Horizon (quantidade e remover); cor/tamanho se troca voltando ao produto
-Frete calculado pelo CEP com entrega local em Fortaleza,checkout,must,yes,partial,texto na loja pronto; tarifa local de R$ 10 por CEP ainda não ligada na Shopify (estado.md etapa 7)
+Frete calculado pelo CEP com entrega local em Fortaleza,checkout,must,yes,partial,"Entrega local R$ 10 por CEP de Fortaleza ligada e testada no checkout (27/10); fora de Fortaleza ainda tarifa fixa R$ 22, falta cotação dos Correios (Melhor Envio ou Frenet)"
 Checkout com Pix,checkout,must,yes,partial,Mercado Pago ligado em modo teste
 Checkout com cartão em até 3x,checkout,must,yes,partial,Mercado Pago ligado em modo teste
 Compra sem criar conta,checkout,must,yes,yes,checkout padrão da Shopify
