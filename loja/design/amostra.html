@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Modestino — componentes da loja</title>
+<link rel="stylesheet" href="tokens.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  ::selection { background: var(--color-highlight); color: var(--color-text); }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--color-bg); color: var(--color-text);
+    font-family: var(--font-sans); font-size: var(--text-base-size); line-height: var(--text-base-line);
+    accent-color: var(--color-accent);
+  }
+  :focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 var(--space-4); }
+  .mono, .price { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+  h1, h2, h3 { font-family: var(--font-display); font-weight: 400; margin: 0; }
+  h2 { font-size: var(--text-xl-size); line-height: var(--text-xl-line); margin: var(--space-8) 0 var(--space-4); }
+  em { font-style: italic; }
+
+  /* Faixa de confiança */
+  .trust { background: var(--color-surface-dark); color: var(--color-text-on-dark); font-size: var(--text-sm-size); }
+  .trust ul { list-style: none; margin: 0 auto; padding: var(--space-2) var(--space-4); max-width: 1200px;
+    display: flex; gap: var(--space-6); justify-content: center; flex-wrap: wrap; }
+  .trust li { display: flex; gap: var(--space-2); align-items: center; }
+  .trust svg { width: 16px; height: 16px; stroke: var(--color-text-muted-on-dark); fill: none; stroke-width: 1.5; }
+
+  /* Cabeçalho */
+  header.top { border-bottom: 1px solid var(--color-border); }
+  header.top .wrap { display: flex; align-items: center; justify-content: space-between; min-height: 64px; gap: var(--space-4); }
+  .brand { display: flex; align-items: center; gap: var(--space-3); text-decoration: none; color: inherit; }
+  .brand .mark { width: 32px; height: 40px; border: 1px dashed var(--color-border-input); display: grid; place-items: center;
+    font-size: 9px; color: var(--color-text-muted); text-align: center; line-height: 1.1; }
+  .brand .name { font-weight: 600; font-size: var(--text-brand-name-size); letter-spacing: 0.32em; }
+  nav.main a { color: var(--color-text); text-decoration: none; margin-left: var(--space-5); font-size: var(--text-sm-size); }
+  nav.main a:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+  /* Produto */
+  .product { display: grid; grid-template-columns: 1.1fr 1fr; gap: var(--space-8); padding: var(--space-8) 0; }
+  .gallery { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2); }
+  .shot { aspect-ratio: 4/5; background: var(--color-surface); border-radius: var(--radius-sm); display: grid; place-items: end start;
+    padding: var(--space-3); font-size: var(--text-xs-size); color: var(--color-text-muted); font-family: var(--font-mono);
+    transition: background var(--motion-base) var(--motion-ease); }
+  .shot.main { grid-column: 1 / -1; }
+  .gallery[data-color="preta"] .shot { background: #22201D; color: #CBBFAE; }
+  .gallery[data-color="marrom"] .shot { background: #5B3F30; color: #ECE7DE; }
+  .gallery[data-color="off"] .shot { background: #E4DDD0; color: #5F5850; }
+  .info h1 { font-size: var(--text-display-size); line-height: var(--text-display-line); letter-spacing: -0.01em; margin-top: var(--space-4); }
+  .lead { color: var(--color-text-muted); max-width: 46ch; margin: var(--space-3) 0 var(--space-5); }
+  .price { font-size: var(--text-lg-size); }
+  .price small { color: var(--color-text-muted); font-size: var(--text-xs-size); margin-left: var(--space-2); }
+  fieldset { border: 0; padding: 0; margin: var(--space-6) 0 0; min-width: 0; }
+  .product > * { min-width: 0; }
+  .field .row input { flex: 1; min-width: 0; }
+  legend { font-size: var(--text-sm-size); font-weight: 600; margin-bottom: var(--space-2); }
+  legend span { font-weight: 400; color: var(--color-text-muted); }
+
+  .swatches { display: flex; gap: var(--space-3); }
+  .swatch input, .size input { position: absolute; opacity: 0; pointer-events: none; }
+  .swatch label { display: block; width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--color-border-input); cursor: pointer;
+    box-shadow: inset 0 0 0 3px var(--color-bg); }
+  .swatch input:checked + label { outline: 2px solid var(--color-text); outline-offset: 2px; }
+  .swatch input:focus-visible + label, .size input:focus-visible + label { outline: 2px solid var(--color-accent); outline-offset: 3px; }
+
+  .sizes { display: flex; gap: var(--space-2); flex-wrap: wrap; }
+  .size label { min-width: 56px; min-height: 44px; display: grid; place-items: center; padding: 0 var(--space-3);
+    border: 1px solid var(--color-border-input); border-radius: var(--radius-sm); cursor: pointer; font-size: var(--text-sm-size); }
+  .size label:hover { background: var(--color-surface); }
+  .size input:checked + label { background: var(--color-surface-dark); color: var(--color-text-on-dark); border-color: var(--color-surface-dark); }
+  .size input:disabled + label { color: var(--color-text-muted); text-decoration: line-through; cursor: not-allowed; background: transparent; border-style: dashed; }
+  .size .hint { display: block; font-size: 11px; text-align: center; color: var(--color-text-muted); margin-top: 2px; }
+
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2); min-height: 48px; padding: 0 var(--space-6);
+    border-radius: var(--radius-md); font: 600 var(--text-sm-size)/1 var(--font-sans); letter-spacing: 0.04em; cursor: pointer; text-decoration: none;
+    transition: transform var(--motion-fast) var(--motion-ease), background var(--motion-fast); border: 1px solid transparent; }
+  .btn:active { transform: translateY(1px); }
+  .btn-primary { background: var(--color-surface-dark); color: var(--color-text-on-dark); width: 100%; }
+  .btn-primary:hover { background: var(--color-accent); }
+  .btn-secondary { background: transparent; color: var(--color-text); border-color: var(--color-text); }
+  .btn-secondary:hover { background: var(--color-surface); }
+  .btn-ghost { background: transparent; color: var(--color-text); text-decoration: underline; text-underline-offset: 4px; padding: 0 var(--space-2); }
+  .btn[aria-disabled="true"] { background: var(--color-surface); color: var(--color-text-muted); cursor: not-allowed; }
+
+  .field { display: grid; gap: var(--space-1); margin-top: var(--space-4); }
+  .field label { font-size: var(--text-sm-size); font-weight: 600; }
+  .field .row { display: flex; gap: var(--space-2); }
+  .field input { min-height: 44px; padding: 0 var(--space-3); border: 1px solid var(--color-border-input); border-radius: var(--radius-sm);
+    background: var(--color-bg); font: var(--text-base-size) var(--font-mono); color: var(--color-text); width: 100%; }
+  .field input[aria-invalid="true"] { border-color: var(--color-danger); }
+  .msg { font-size: var(--text-sm-size); min-height: 1.5em; }
+  .msg.err { color: var(--color-danger); }
+  .msg.ok { color: var(--color-success); }
+
+  .reassure { list-style: none; padding: 0; margin: var(--space-5) 0 0; display: grid; gap: var(--space-2); font-size: var(--text-sm-size); color: var(--color-text-muted); }
+  .reassure li { display: flex; gap: var(--space-2); }
+  .reassure svg { flex: none; width: 18px; height: 18px; stroke: var(--color-accent); fill: none; stroke-width: 1.5; }
+
+  /* Kits */
+  .kits { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-4); }
+  .kit { background: var(--color-surface); border-radius: var(--radius-lg); padding: var(--space-5); box-shadow: var(--shadow-card); }
+  .kit h3 { font-size: 1.6rem; }
+  .kit .per { color: var(--color-text-muted); font-size: var(--text-sm-size); }
+  .kit.featured { background: var(--color-surface-dark); color: var(--color-text-on-dark); }
+  .kit.featured .per { color: var(--color-text-muted-on-dark); }
+  .kit .dots { display: flex; gap: 6px; margin: var(--space-3) 0; }
+  .kit .dots i { width: 16px; height: 16px; border-radius: 50%; border: 1px solid var(--color-border-input); }
+
+  /* Estados */
+  .states { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-4); }
+  .state { border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-5); }
+  .state h3 { font-size: 1.3rem; margin-bottom: var(--space-2); }
+  .state p { margin: 0 0 var(--space-3); color: var(--color-text-muted); font-size: var(--text-sm-size); }
+  .tag { display: inline-block; font-family: var(--font-mono); font-size: var(--text-xs-size); background: var(--color-highlight); padding: 2px 8px; border-radius: var(--radius-pill); }
+
+  footer { margin-top: var(--space-9); background: var(--color-surface-deep); color: var(--color-text-on-dark); padding: var(--space-8) 0; font-size: var(--text-sm-size); }
+  footer .wrap { display: flex; justify-content: space-between; gap: var(--space-6); flex-wrap: wrap; }
+  footer a { color: var(--color-text-on-dark); }
+  footer .muted { color: var(--color-text-muted-on-dark); }
+  .note { font-family: var(--font-mono); font-size: var(--text-xs-size); color: var(--color-text-muted); margin-top: var(--space-2); }
+
+  @media (max-width: 860px) {
+    .product { grid-template-columns: 1fr; gap: var(--space-5); padding-top: var(--space-4); }
+    .kits, .states { grid-template-columns: 1fr; }
+    nav.main { display: none; }
+    .info h1 { font-size: 2.6rem; line-height: 2.75rem; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+
+<div class="trust" role="region" aria-label="Vantagens">
+  <ul>
+    <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="17" r="1.6"/><circle cx="17" cy="17" r="1.6"/></svg>Entrega rápida em Fortaleza</li>
+    <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0 1 14-5l2 2M20 12a8 8 0 0 1-14 5l-2-2M20 5v4h-4M4 19v-4h4"/></svg>Troca de tamanho em até 30 dias, em mãos</li>
+    <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18"/></svg>Pix ou cartão em até 3x</li>
+  </ul>
+</div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#"><span class="mark" aria-hidden="true">O Cava&shy;lheiro</span><span class="name">MODESTINO</span></a>
+    <nav class="main" aria-label="Principal"><a href="#">Camiseta</a><a href="#kits">Kits</a><a href="#">Tamanhos</a><a href="#">Trocas</a></nav>
+    <a class="btn btn-ghost" href="#" aria-label="Carrinho, 0 itens">Carrinho (0)</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="product" aria-labelledby="p-title">
+    <div class="gallery" id="gallery" data-color="preta" aria-live="polite">
+      <div class="shot main">foto real · frente vestida</div>
+      <div class="shot">foto real · gola de perto</div>
+      <div class="shot">foto real · costas</div>
+    </div>
+
+    <div class="info">
+      <span class="tag">Básico masculino</span>
+      <h1 id="p-title">A camiseta <em>lisa</em> que você usa sem pensar.</h1>
+      <p class="lead">Sem logo na frente. Só o nome MODESTINO pequeno na nuca, por dentro. A composição de cada peça vem na etiqueta.</p>
+      <p class="price">R$ 80,00 <small>ou 3x no cartão</small></p>
+
+      <fieldset>
+        <legend>Cor: <span id="colorName">Preto</span></legend>
+        <div class="swatches">
+          <div class="swatch"><input type="radio" name="cor" id="c-preta" value="preta" checked data-name="Preto"><label for="c-preta" style="background:#22201D"><span class="mono" hidden>Preto</span></label></div>
+          <div class="swatch"><input type="radio" name="cor" id="c-marrom" value="marrom" data-name="Mapple Brown"><label for="c-marrom" style="background:#5B3F30"></label></div>
+          <div class="swatch"><input type="radio" name="cor" id="c-off" value="off" data-name="Off White"><label for="c-off" style="background:#E4DDD0"></label></div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Tamanho <span>· largura de axila a axila</span></legend>
+        <div class="sizes" id="sizes">
+          <div class="size"><input type="radio" name="tam" id="t-p" value="P"><label for="t-p">P</label><span class="hint mono">51 cm</span></div>
+          <div class="size"><input type="radio" name="tam" id="t-m" value="M"><label for="t-m">M</label><span class="hint mono">54 cm</span></div>
+          <div class="size"><input type="radio" name="tam" id="t-g" value="G"><label for="t-g">G</label><span class="hint mono">57 cm</span></div>
+          <div class="size"><input type="radio" name="tam" id="t-gg" value="GG"><label for="t-gg">GG</label><span class="hint mono">60 cm</span></div>
+        </div>
+      </fieldset>
+
+      <div class="field">
+        <label for="calc">Não sabe o tamanho? Meça uma camiseta sua</label>
+        <div class="row">
+          <input id="calc" inputmode="decimal" placeholder="largura em cm, ex.: 55" aria-describedby="calcMsg">
+          <button class="btn btn-secondary" type="button" id="calcBtn">Ver tamanho</button>
+        </div>
+        <p class="msg" id="calcMsg" aria-live="polite"></p>
+      </div>
+
+      <button class="btn btn-primary" type="button" id="buy" aria-disabled="true">Escolha o tamanho</button>
+
+      <div class="field">
+        <label for="cep">Frete</label>
+        <div class="row">
+          <input id="cep" inputmode="numeric" placeholder="CEP" maxlength="9" aria-describedby="cepMsg">
+          <button class="btn btn-secondary" type="button" id="cepBtn">Calcular</button>
+        </div>
+        <p class="msg" id="cepMsg" aria-live="polite"></p>
+      </div>
+
+      <ul class="reassure">
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0 1 14-5l2 2M20 12a8 8 0 0 1-14 5l-2-2M20 5v4h-4M4 19v-4h4"/></svg>Tamanho não serviu? Troca em até 30 dias. Em Fortaleza, em mãos.</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H8l-4 4z"/></svg>Dúvida? A gente responde no WhatsApp em até 10 minutos.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="kits" aria-labelledby="k-title">
+    <h2 id="k-title">Leve mais, <em>pague menos por peça</em></h2>
+    <div class="kits">
+      <article class="kit"><h3>Kit 2</h3><div class="dots"><i style="background:#22201D"></i><i style="background:#5B3F30"></i></div><p class="price">R$ 160,00</p><p class="per mono">R$ 80 por peça · com ecobag</p><a class="btn btn-secondary" href="#">Montar kit</a></article>
+      <article class="kit featured"><h3>Kit 3</h3><div class="dots"><i style="background:#22201D"></i><i style="background:#5B3F30"></i><i style="background:#E4DDD0"></i></div><p class="price">R$ 225,00</p><p class="per mono">R$ 75 por peça · com ecobag</p><a class="btn btn-secondary" href="#" style="border-color:var(--color-text-on-dark);color:var(--color-text-on-dark)">Montar kit</a></article>
+      <article class="kit"><h3>Kit Essencial</h3><div class="dots"><i style="background:#22201D"></i><i style="background:#5B3F30"></i><i style="background:#E4DDD0"></i></div><p class="price">R$ 225,00</p><p class="per mono">uma de cada cor · com ecobag</p><a class="btn btn-secondary" href="#">Escolher tamanhos</a></article>
+    </div>
+  </section>
+
+  <section aria-labelledby="s-title">
+    <h2 id="s-title">Estados <em>que a loja precisa ter</em></h2>
+    <div class="states">
+      <div class="state">
+        <h3>Tamanho esgotado</h3>
+        <p>Riscado, não clicável, com aviso para quando voltar.</p>
+        <div class="sizes"><div class="size"><input type="radio" disabled id="x-gg"><label for="x-gg">GG</label></div></div>
+        <button class="btn btn-ghost" type="button">Avise-me quando voltar</button>
+        <p class="note">exemplo de estado · hoje nenhuma variante está esgotada</p>
+      </div>
+      <div class="state">
+        <h3>Cupom no kit</h3>
+        <p>Recusa gentil, explicando a regra.</p>
+        <p class="msg err" role="alert">O cupom de embaixador vale na peça avulsa. No kit você já paga menos por peça.</p>
+      </div>
+      <div class="state">
+        <h3>Carrinho vazio</h3>
+        <p>Nada de "ops". Um caminho claro.</p>
+        <p style="margin:0 0 var(--space-3)">Seu carrinho está vazio. Comece pela cor.</p>
+        <a class="btn btn-secondary" href="#">Ver a camiseta</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div><span class="name" style="font-weight:600;letter-spacing:.32em">MODESTINO</span><p class="muted">Básicos masculinos feitos em Fortaleza.</p></div>
+    <div><a href="#">Trocas e devoluções</a><br><a href="#">Privacidade</a><br><a href="#">Perguntas frequentes</a></div>
+    <div class="muted">[PLACEHOLDER razão social] · CNPJ [PLACEHOLDER]<br>Atendimento pelo WhatsApp</div>
+  </div>
+</footer>
+
+<script>
+  const table = [["P", 51], ["M", 54], ["G", 57], ["GG", 60]];
+  const gallery = document.getElementById("gallery");
+  const colorName = document.getElementById("colorName");
+  const buy = document.getElementById("buy");
+  document.querySelectorAll('input[name="cor"]').forEach(r => r.addEventListener("change", () => {
+    gallery.dataset.color = r.value; colorName.textContent = r.dataset.name;
+  }));
+  document.querySelectorAll('input[name="tam"]').forEach(r => r.addEventListener("change", () => {
+    buy.removeAttribute("aria-disabled"); buy.textContent = "Comprar · tamanho " + r.value;
+  }));
+  buy.addEventListener("click", e => { if (buy.getAttribute("aria-disabled")) document.getElementById("t-m").focus(); });
+
+  document.getElementById("calcBtn").addEventListener("click", () => {
+    const input = document.getElementById("calc"), msg = document.getElementById("calcMsg");
+    const v = parseFloat(input.value.replace(",", "."));
+    msg.className = "msg";
+    if (!v || v < 45 || v > 66) {
+      input.setAttribute("aria-invalid", "true"); msg.classList.add("err");
+      msg.textContent = "Meça deitada, de axila a axila. A tabela vai de 51 a 60 cm.";
+      return;
+    }
+    input.removeAttribute("aria-invalid");
+    let best = table[0];
+    for (const t of table) if (Math.abs(t[1] - v) < Math.abs(best[1] - v)) best = t;
+    msg.classList.add("ok");
+    msg.textContent = `Com ${v} cm, o mais perto é o ${best[0]} (${best[1]} cm).`;
+    document.getElementById("t-" + best[0].toLowerCase()).click();
+  });
+
+  document.getElementById("cepBtn").addEventListener("click", () => {
+    const input = document.getElementById("cep"), msg = document.getElementById("cepMsg");
+    const d = input.value.replace(/\D/g, "");
+    msg.className = "msg";
+    if (d.length !== 8) { input.setAttribute("aria-invalid", "true"); msg.classList.add("err"); msg.textContent = "O CEP tem 8 números."; return; }
+    input.removeAttribute("aria-invalid");
+    const fortaleza = +d.slice(0, 5) >= 60000 && +d.slice(0, 5) <= 61599;
+    msg.classList.add("ok");
+    msg.textContent = fortaleza ? "Fortaleza: entrega rápida. Valor [PLACEHOLDER]." : "Fora de Fortaleza: Correios ou transportadora. Valor calculado no checkout.";
+  });
+</script>
+</body>
+</html>
