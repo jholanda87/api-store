@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Modestino — componentes da loja</title>
 <link rel="stylesheet" href="tokens.css">
+<link rel="icon" href="logo/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="logo/favicon-180.png">
 <style>
   *, *::before, *::after { box-sizing: border-box; }
   ::selection { background: var(--color-highlight); color: var(--color-text); }
@@ -32,8 +34,7 @@
   header.top { border-bottom: 1px solid var(--color-border); }
   header.top .wrap { display: flex; align-items: center; justify-content: space-between; min-height: 64px; gap: var(--space-4); }
   .brand { display: flex; align-items: center; gap: var(--space-3); text-decoration: none; color: inherit; }
-  .brand .mark { width: 32px; height: 40px; border: 1px dashed var(--color-border-input); display: grid; place-items: center;
-    font-size: 9px; color: var(--color-text-muted); text-align: center; line-height: 1.1; }
+  .brand .mark { width: auto; height: 40px; display: block; }
   .brand .name { font-weight: 600; font-size: var(--text-brand-name-size); letter-spacing: 0.32em; }
   nav.main a { color: var(--color-text); text-decoration: none; margin-left: var(--space-5); font-size: var(--text-sm-size); }
   nav.main a:hover { text-decoration: underline; text-underline-offset: 4px; }
@@ -142,7 +143,7 @@
 
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#"><span class="mark" aria-hidden="true">O Cava&shy;lheiro</span><span class="name">MODESTINO</span></a>
+    <a class="brand" href="#" aria-label="MODESTINO, página inicial"><img class="mark" src="logo/cavalheiro-busto-carvao.png" alt="" width="34" height="40"><span class="name">MODESTINO</span></a>
     <nav class="main" aria-label="Principal"><a href="#">Camiseta</a><a href="#kits">Kits</a><a href="#">Tamanhos</a><a href="#">Trocas</a></nav>
     <a class="btn btn-ghost" href="#" aria-label="Carrinho, 0 itens">Carrinho (0)</a>
   </div>
@@ -244,7 +245,7 @@
 
 <footer>
   <div class="wrap">
-    <div><span class="name" style="font-weight:600;letter-spacing:.32em">MODESTINO</span><p class="muted">Básicos masculinos feitos em Fortaleza.</p></div>
+    <div><img src="logo/cavalheiro-completo-linho.png" alt="O Cavalheiro, assinatura da MODESTINO" width="70" height="230" style="display:block;height:auto"><p class="muted">Básicos masculinos feitos em Fortaleza.</p></div>
     <div><a href="#">Trocas e devoluções</a><br><a href="#">Privacidade</a><br><a href="#">Perguntas frequentes</a></div>
     <div class="muted">[PLACEHOLDER razão social] · CNPJ [PLACEHOLDER]<br>Atendimento pelo WhatsApp</div>
   </div>

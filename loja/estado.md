@@ -9,8 +9,8 @@ continuam no Painel da Modestino; estratégia e decisões na Central Modestino.
 | 0. Pré-requisitos | administrativo-modestino | loja/administrativo.md, politicas/ | 🔴 CNPJ não aberto · políticas em rascunho (27/10) |
 | 1. Mapa das referências | loja-recon-modestino | loja/recon.md, features.csv | 🟡 recon público feito (27/10); falta página de produto completa e checkout pelo navegador do Jorge |
 | 2. O que o cliente odeia | loja-empreendedor-modestino | loja/reviews.csv, feedback.md, correcoes.md | 🟡 aguardando coleta pelo Jorge (coleta-avaliacoes.md) |
-| 3. Arquitetura | loja-arquitetura-modestino | loja/arquitetura.md | 🟡 proposta Shopify (27/10); decidir cupom online e quem despacha |
-| 4. Design | loja-design-modestino | loja/design/ | ✅ tokens, tokens.css, componentes.md e amostra (27/10); falta o Cavalheiro em SVG |
+| 3. Arquitetura | loja-arquitetura-modestino | loja/arquitetura.md | 🟡 Shopify; cupom 10% mantido; frete por distância do ponto mais perto (frete.md); falta bairro do Ponto L |
+| 4. Design | loja-design-modestino | loja/design/ | ✅ tokens, componentes, amostra e logo do Drive aplicado (PNG transparente + favicon); SVG opcional |
 | 5. Catálogo e estoque | catalogo-modestino | loja/catalogo.csv, estoque.csv | ⚪ |
 | 6. Construção | loja-build-modestino | loja/build-log.md | ⚪ |
 | 7. Pagamento, frete, integrações | loja-backend-modestino | loja/backend.md | ⚪ |

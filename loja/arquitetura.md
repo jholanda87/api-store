@@ -26,17 +26,15 @@ Custo R$ 26,70/peça (kit 2 R$ 55,40, kit 3 R$ 82,10 com ecobag). Taxas **estima
 | **avulsa com cupom (R$ 72 − 10% comissão)** | **45,9%** 🔴 | **49,9%** 🔴 |
 | **kit 3 com comissão de embaixador** | **46,5%** 🔴 | 50,5% 🟡 |
 
-Fora da loja (Pix direto, sem plataforma) o cupom fica em 53%. **Na loja online, o cupom de embaixador passa do piso de 50%.** Três saídas (decisão do Jorge na reunião de segunda):
+Fora da loja (Pix direto, sem plataforma) o cupom fica em 53%.
 
-1. **(recomendada)** Na loja online, o cupom dá **frete grátis em Fortaleza** em vez de 10% (a Central já prevê isso no kit); comissão de 10% mantida.
-2. Cupom de 5% na loja online; 10% continua só no Direct/WhatsApp com Pix.
-3. Manter 10% e aceitar margem de ~46% a 50% nessas vendas (contraria a regra da Central).
+**Decisão do Jorge (27/10):** manter o cupom de 10% também na loja online. Exceção aceita ao piso de 50%, registrada na Central (seção 10). Rever quando o gateway e a taxa real do Pix forem escolhidos.
 
 ## 3. Catálogo
 
 - Produto **Camiseta Básica Modestino**, variantes cor (Preto, Mapple Brown, Off White) × tamanho (P, M, G, GG), SKU `MOD-CAM-<COR>-<TAM>`, estoque pelo `estoque.py` (212 peças em 27/10).
 - **Kit 2** R$ 160, **Kit 3** R$ 225 (confirmado em 27/10), **Kit Essencial** (uma de cada cor, R$ 225), todos com ecobag, escolha de cor e tamanho por peça, baixando o estoque das variantes (app de kits/bundles da Shopify ou produto com opções + baixa manual no primeiro mês).
-- Cupom por embaixador (Paulo Vitor, Keanu) conforme a decisão do item 2; nunca acumula com kit.
+- Cupom de 10% por embaixador (Paulo Vitor, Keanu), só na avulsa; nunca acumula com kit.
 - Empresas: kit 3 a R$ 210 (10–29) e R$ 195 (30+) por pedido manual (rascunho de pedido na Shopify).
 
 ## 4. Integrações
@@ -44,7 +42,7 @@ Fora da loja (Pix direto, sem plataforma) o cupom fica em 53%. **Na loja online,
 | frente | escolha | observação |
 | --- | --- | --- |
 | pagamento | gateway externo com Pix + cartão até 3x | juros repassados (Central seção 8) |
-| frete Fortaleza | taxa fixa local + "trocar em mãos" | entrega própria ou Uber Flash |
+| frete Fortaleza | entrega local por distância, saindo do ponto do Jorge ou do Lucas (o mais perto) | só cobre gasolina/Uber Flash; ver `frete.md` |
 | frete fora | app de cotação (Melhor Envio ou Frenet) | peso da ecobag com 3 peças a medir |
 | estoque | Painel → Shopify (`estoque.py` + conector `set-inventory`) | no mesmo dia de cada venda no Direct |
 | vendas | Shopify → Painel (`list-orders` → `financeiro-modestino`) | origem e cupom em cada pedido |
@@ -54,7 +52,7 @@ Fora da loja (Pix direto, sem plataforma) o cupom fica em 53%. **Na loja online,
 
 ## 5. Riscos
 
-1. Estoque em duas casas: cada pedido online precisa dizer quem despacha. Decidir a regra (por bairro, por cor ou por quem tem a peça).
+1. Estoque em duas casas: despacha quem estiver mais perto do cliente e tiver a peça (decidido em 27/10). A loja precisa do estoque por ponto.
 2. A mesma peça vendida no Direct e na loja no mesmo dia: lançar no Painel no mesmo dia e rodar o `estoque.py`.
 3. Margem com taxas (item 2).
 
