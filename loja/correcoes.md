@@ -39,8 +39,7 @@ Etapa 2 (`loja-empreendedor-modestino`), 28/10/2026. Base: 114 reclamações de 
 ## Decisões do Jorge (28/10/2026)
 
 - **Frase A aprovada.** Vira o título da primeira tela da loja e a base dos anúncios.
-- **Teste de 10 lavagens feito: a camiseta mantém o padrão.** A promessa de durabilidade (opção B) já pode entrar como apoio, sempre junto dos cuidados da etiqueta. Na página: "Testada em 10 lavagens, mantendo o padrão."
-- Correção 6 passa de teste a prova: falta só publicar o antes e depois (foto ou vídeo).
+- **Teste de 10 lavagens feito: a camiseta mantém o padrão.** Fica como conhecimento interno (segurança para os sócios e para o atendimento), **não entra em texto de venda nem em anúncio**, para não criar expectativa. Os cuidados de lavagem ficam na etiqueta. A opção B não será usada.
 
 ## 5. Posicionamento — três opções
 

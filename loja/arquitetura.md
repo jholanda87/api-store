@@ -52,7 +52,7 @@ Fora da loja (Pix direto, sem plataforma) o cupom fica em 53%.
 | frente | escolha | observação |
 | --- | --- | --- |
 | pagamento | Mercado Pago (app na Shopify): Pix + cartão até 3x | juros repassados (Central seção 8) |
-| frete Fortaleza | entrega local por distância, saindo do ponto do Jorge ou do Lucas (o mais perto) | só cobre gasolina/Uber Flash; ver `frete.md` |
+| frete Fortaleza | entrega local, taxa fixa de R$ 10, saindo do Ponto J (Jorge, de carro) | decidido em 28/10; ver `frete.md` |
 | frete fora | app de cotação (Melhor Envio ou Frenet) | peso da ecobag com 3 peças a medir |
 | estoque | Painel → Shopify (`estoque.py` + conector `set-inventory`) | no mesmo dia de cada venda no Direct |
 | vendas | Shopify → Painel (`list-orders` → `financeiro-modestino`) | origem e cupom em cada pedido |

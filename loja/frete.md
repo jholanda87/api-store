@@ -14,28 +14,16 @@ Decidido pelo Jorge em 27/10/2026. **Os endereços de partida dos sócios não a
 
 **Atualização 28/10:** todas as peças estão com o Jorge, então por enquanto tudo sai do Ponto J. O Ponto L entra quando o Lucas tiver estoque.
 
-## Tabela por distância do ponto mais perto (proposta, a validar)
+## Valor decidido (28/10, Jorge)
 
-| distância | valor ao cliente | custo de referência |
-| --- | --- | --- |
-| até 3 km | R$ 7 | gasolina ida e volta ~R$ 4 · Uber Flash curto |
-| 3 a 6 km | R$ 10 | |
-| 6 a 10 km | R$ 14 | |
-| 10 a 15 km | R$ 18 | |
-| mais de 15 km (região metropolitana) | consultar no WhatsApp | |
+**Fortaleza: R$ 10 fixo**, entrega de carro pelo Jorge.
 
-Valores **estimados**: carro a ~10 km/L e gasolina a ~R$ 6,40/L dão ~R$ 1,30 por km rodado (ida e volta); o Uber Flash tem tarifa base mais quilômetro. **Validar antes de publicar:** fazer 3 cotações reais de Uber Flash saindo de cada ponto (perto, médio e longe) e ajustar a tabela para cobrir a média.
-
-## Como está na Shopify (27/10, decisão do Jorge)
-
-- Envio internacional **desligado** (zona removida).
-- Brasil inteiro: **R$ 22** (tarifa "Padrão").
-- Fortaleza: **R$ 10** fixo por Entrega local a partir do Ponto J, por CEP (a API não configura entrega local: Jorge faz no admin). A tabela por distância abaixo fica para depois das cotações.
+Conta de referência: carro a 10 km/L e gasolina a R$ 7/L = **R$ 0,70 por km rodado**. Os R$ 10 cobrem até ~14 km rodados (ida e volta), ou seja, clientes a até **~7 km** do Ponto J. Mais longe que isso, a entrega custa mais do que cobra (ex.: 12 km de distância = 24 km rodados = R$ 16,80). Acompanhar no Painel: se muitos pedidos forem longe, rever (faixa extra ou mínimo para frete).
 
 ## Como fica na Shopify (plano original por distância)
 
 1. Configurações → Locais: criar "Ponto J" e "Ponto L" com o endereço de cada um (só o administrador vê).
-2. Configurações → Frete e entrega → Entrega local: ativar nos dois pontos, **por distância**, com as faixas acima.
+2. Configurações → Frete e entrega → Entrega local: ativar no Ponto J, **taxa fixa de R$ 10** para os CEPs de Fortaleza (60000-000 a 61599-999, a confirmar).
 3. Desligar "Retirada no local" (mostraria o endereço ao cliente).
 4. Estoque por local: cada peça fica no ponto onde está de verdade (o Painel passa a anotar onde está cada peça).
 

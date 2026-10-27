@@ -50,5 +50,5 @@ Pedido conferido por um sócio com foto das peças no WhatsApp antes de sair,pos
 Aviso de quem entrega e quando em Fortaleza; rastreio no mesmo dia fora,pos-venda,must,no,no,correção 2
 Estorno por Pix em até 2 dias úteis e sem vale-troca obrigatório,pos-venda,must,no,no,correção 3 · 37 reclamações de troca e estorno
 Cupom e preço de kit testados antes de divulgar; pedido pago nunca cancelado por erro nosso,checkout,must,no,no,correção 4
-Teste público de 10 lavagens por cor,confianca,should,no,partial,teste feito em 28/10 (mantém o padrão); falta publicar o antes e depois
+Teste de 10 lavagens por cor,confianca,should,no,skip,teste feito em 28/10 (mantém o padrão); decisão do Jorge: não divulgar para não criar expectativa
 Composição de cada peça na página igual à etiqueta,produto,must,no,no,correção 8

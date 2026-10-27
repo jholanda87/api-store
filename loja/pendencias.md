@@ -11,9 +11,9 @@ Atualizado em 28/10/2026. Responder na conversa (endereços e dados pessoais **s
 ## Frete
 
 4. ~~Bairro do Ponto L~~ adiado: por enquanto só o Ponto J despacha (27/10).
-5. Três cotações de Uber Flash saindo do Ponto J (um destino perto, um médio, um longe), com o valor e os km do app.
-6. Carro ou moto na entrega própria, consumo (km/L) e preço da gasolina hoje.
-7. Peso de 1 camiseta dobrada e da ecobag com 3 peças (frete por Correios).
+5. ~~Cotações de Uber Flash~~ dispensadas: frete fixo de R$ 10 em Fortaleza (28/10).
+6. ~~Carro~~ 10 km/L, gasolina R$ 7 (28/10).
+7. Peso de 1 camiseta dobrada e da ecobag com 3 peças (frete por Correios) — Jorge confirma hoje.
 
 ## Pagamento e preço
 
