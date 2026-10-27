@@ -13,7 +13,7 @@ continuam no Painel da Modestino; estratégia e decisões na Central Modestino.
 | 4. Design | loja-design-modestino | loja/design/ | ✅ tokens, componentes, amostra e logo do Drive aplicado (PNG transparente + favicon); SVG opcional |
 | 5. Catálogo e estoque | catalogo-modestino | loja/catalogo.csv, estoque.csv, catalogo/ | 🟡 4 rascunhos na Shopify `nnwyy4-vp` (27/10): camiseta com 12 variantes e 212 peças no Ponto J; SEO gravado; foto provisória (preta vestida); faltam fotos de estúdio e seleção por peça nos kits |
 | 6. Construção | loja-build-modestino | loja/build-log.md | ⚪ |
-| 7. Pagamento, frete, integrações | loja-backend-modestino | loja/backend.md | 🟡 pagamento pelo Mercado Pago (27/10); falta a conta no CNPJ e ligar na Shopify |
+| 7. Pagamento, frete, integrações | loja-backend-modestino | loja/backend.md | 🟡 Mercado Pago ativado na Shopify (27/10, informado pelo Jorge; a API não mostra o gateway); falta compra de teste, taxas reais e frete (hoje o padrão da Shopify: R$ 22 Brasil, R$ 98 internacional) |
 | 8. Testes | loja-teste-modestino | loja/test-plan.md, bugs.md | ⚪ |
 | 9. Paridade | loja-paridade-modestino | loja/paridade.md | ⚪ 0 de 23 obrigatórios |
 | 10. Varredura da marca | loja-marca-modestino | loja/marca.json | 🟡 lista de nomes pronta; paleta neutra confirmada (27/10) |
@@ -40,4 +40,4 @@ Atualizado em 27/10 (tarde), por decisão do Jorge:
 - **Foto provisória:** um quadro do vídeo `IMG_3268.mov` do Drive (camiseta preta vestida, recorte 4:5, 1080×1350) nos 4 produtos e nas variantes Preto. Não há foto real de Mapple Brown nem de Off White que preste no Drive (só folhas de quadros de vídeo em baixa resolução; os MP4 do Keanu passam de 10 MB e o conector do Drive não baixa). Trocar tudo quando o estúdio ficar pronto.
 - **Kits:** qualquer cor que o cliente quiser, nos três. O Kit Essencial fica como sugestão pronta (uma de cada cor), mas o cliente pode trocar as cores. A escolha por peça entra na construção, por campos no carrinho ou app de kits.
 
-Falta: fotos de estúdio; seleção de cor e tamanho por peça nos kits e baixa no estoque da camiseta (app de kits ou campos do carrinho, na construção); gateway de pagamento. Plano Basic da Shopify assinado (27/10); nome da loja ainda "Minha loja 2".
+Falta: fotos de estúdio; seleção de cor e tamanho por peça nos kits e baixa no estoque da camiseta (app de kits ou campos do carrinho, na construção); gateway de pagamento. Plano Basic da Shopify assinado (27/10); nome da loja já é MODESTINO; loja com senha.
