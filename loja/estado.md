@@ -19,6 +19,7 @@ continuam no Painel da Modestino; estratégia e decisões na Central Modestino.
 | 10. Varredura da marca | loja-marca-modestino | loja/marca.json | 🟡 lista de nomes pronta; paleta neutra confirmada (27/10) |
 | 11. Lançamento | loja-lancamento-modestino | loja/lancamento/ | ⚪ |
 | 12. No ar | loja-deploy-modestino | loja/deploy.md | ⚪ depende do CNPJ e do ok do Jorge |
+| 13. Estúdio criativo | estudio-criativo-modestino | loja/estudio/ | 🟡 montado em 28/10: estratégia com diagnóstico do Metricool (feed chega a <1% da base; Reel com gente e Collab alcança 10 a 40×), padrões visuais, briefing de foto e vídeo, calendário, 7 modelos e 4 ferramentas (`arte.js`, `reel.py`, `foto.py`, `utm.py`); aguardando fotos e vídeos oficiais do Jorge |
 | Depois do ar | trafego-pago-modestino, pos-venda-modestino, maquina-vendas-modestino | loja/funil.md | ⚪ |
 
 ## Etapa 5 — catálogo (27/10/2026)

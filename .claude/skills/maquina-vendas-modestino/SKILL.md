@@ -21,7 +21,7 @@ Esta habilidade não constrói nada sozinha. Ela sabe a ordem, lê o estado e ch
 ```
 administrativo → recon → empreendedor → arquitetura → design → catálogo → build
 → backend → teste → paridade → marca → lançamento → deploy
-→ (no ar) tráfego pago + pós-venda + funil semanal
+→ (no ar) estúdio criativo + tráfego pago + pós-venda + funil semanal
 ```
 
 | etapa | habilidade | entra | sai |
@@ -39,6 +39,7 @@ administrativo → recon → empreendedor → arquitetura → design → catálo
 | 10 | loja-marca-modestino | `marca.json` | varredura limpa |
 | 11 | loja-lancamento-modestino | ângulo + marca | textos, anúncios revisados, plano |
 | 12 | loja-deploy-modestino | tudo | loja no ar com o ok do Jorge |
+| 13 | estudio-criativo-modestino | fotos e vídeos reais, Metricool, UTM da loja | estratégia, padrões, lotes de conteúdo, vitrine, leitura semanal |
 
 Pode rodar uma etapa sozinha. `loja-empreendedor-modestino` antes de tudo é a melhor forma de descobrir o que a loja precisa ter para vender mais que as referências.
 

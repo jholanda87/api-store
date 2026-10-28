@@ -1,0 +1,41 @@
+{
+  "nome": "carrossel-produto",
+  "formato": "feed",
+  "_uso": "produto de perto: capa com foto, uma foto por detalhe, oferta, fechamento",
+  "laminas": [
+    {
+      "tipo": "capa-foto",
+      "foto": "loja/estudio/entrada/capa.jpg",
+      "titulo": "Olhe de *perto*."
+    },
+    {
+      "tipo": "foto",
+      "foto": "loja/estudio/entrada/gola.jpg",
+      "titulo": "Gola rente ao pescoço."
+    },
+    {
+      "tipo": "foto",
+      "foto": "loja/estudio/entrada/ombro.jpg",
+      "titulo": "Costura no osso do ombro."
+    },
+    {
+      "tipo": "foto",
+      "foto": "loja/estudio/entrada/nuca.jpg",
+      "titulo": "O nome fica por dentro.",
+      "texto": "Por fora, só a camiseta."
+    },
+    {
+      "tipo": "texto",
+      "fundo": "areia",
+      "titulo": "Três cores, *várias* combinações.",
+      "texto": "P ao GG.",
+      "rodape": "Camiseta R$ 80 · Kit 3 R$ 225 (R$ 75 a peça)"
+    },
+    {
+      "tipo": "fecho",
+      "fundo": "carvao",
+      "titulo": "Qual cor seria a primeira?",
+      "texto": "Comenta a sua. Loja no link da bio."
+    }
+  ]
+}

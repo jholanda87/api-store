@@ -1,0 +1,35 @@
+{
+  "nome": "textos-reel",
+  "formato": "story",
+  "_uso": "textos transparentes para o Reel (reel.py ou CapCut) e tela final",
+  "laminas": [
+    {
+      "tipo": "overlay",
+      "titulo": "Três cores,"
+    },
+    {
+      "tipo": "overlay",
+      "titulo": "*várias* combinações."
+    },
+    {
+      "tipo": "overlay",
+      "titulo": "Preto · Mapple Brown · Off White"
+    },
+    {
+      "tipo": "overlay",
+      "titulo": "P ao GG · R$ 80"
+    },
+    {
+      "tipo": "overlay",
+      "posicao": "topo",
+      "titulo": "\"Qual tamanho eu uso?\""
+    },
+    {
+      "tipo": "fecho",
+      "fundo": "linho",
+      "titulo": "Básico com postura.",
+      "texto": "Loja no link da bio.",
+      "rodape": "@lojamodestino"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "nome": "capa-reel",
+  "formato": "story",
+  "_uso": "capa do Reel: título no centro (o perfil corta em 3:4)",
+  "laminas": [
+    {
+      "tipo": "capa-foto",
+      "foto": "loja/estudio/entrada/capa-reel.jpg",
+      "titulo": "Três cores,\n*várias* combinações.",
+      "numero": false
+    }
+  ]
+}

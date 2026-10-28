@@ -1,0 +1,35 @@
+{
+  "nome": "carrossel-utilidade",
+  "formato": "feed",
+  "_uso": "tamanho e cuidado: uma afirmação por lâmina, fundo liso",
+  "laminas": [
+    {
+      "tipo": "texto",
+      "fundo": "linho",
+      "titulo": "Sua melhor camiseta já sabe o seu *tamanho*.",
+      "numero": false
+    },
+    {
+      "tipo": "texto",
+      "fundo": "linho",
+      "titulo": "Estenda na mesa, sem esticar."
+    },
+    {
+      "tipo": "texto",
+      "fundo": "linho",
+      "titulo": "Meça de axila a axila, em linha reta."
+    },
+    {
+      "tipo": "texto",
+      "fundo": "areia",
+      "titulo": "Compare com a tabela.",
+      "rodape": "P 51 · M 54 · G 57 · GG 60 cm"
+    },
+    {
+      "tipo": "fecho",
+      "fundo": "linho",
+      "titulo": "Salva para a próxima compra.",
+      "texto": "O guia de medidas está na página da camiseta."
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "nome": "destaques",
+  "formato": "story",
+  "_uso": "capas dos destaques fixos do perfil",
+  "laminas": [
+    {
+      "tipo": "fecho",
+      "fundo": "linho",
+      "titulo": "Loja",
+      "numero": false
+    },
+    {
+      "tipo": "fecho",
+      "fundo": "linho",
+      "titulo": "Tamanho",
+      "numero": false
+    },
+    {
+      "tipo": "fecho",
+      "fundo": "linho",
+      "titulo": "Entrega",
+      "numero": false
+    },
+    {
+      "tipo": "fecho",
+      "fundo": "linho",
+      "titulo": "Trocas",
+      "numero": false
+    },
+    {
+      "tipo": "fecho",
+      "fundo": "linho",
+      "titulo": "Clientes",
+      "numero": false
+    }
+  ]
+}
