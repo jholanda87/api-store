@@ -8,7 +8,7 @@ foco (padrão: centro, 40% da altura, para pegar peito e gola, não o rosto):
   <nome>-produto.jpg   2048×2560 (4:5, página de produto da Shopify)
   <nome>-catalogo.jpg  1080×1080 (1:1, catálogo Meta/WhatsApp)
   <nome>-story.jpg     1080×1920 (9:16, story/capa de Reel)
-Recorte de fundo e sombra (Photoroom) é um passo à parte e gasta créditos: só com o ok do Jorge.
+Para tirar o fundo use recorte.py; para manequim invisível e efeitos, ia.py e efeitos.py.
 """
 import argparse
 import pathlib

@@ -37,9 +37,9 @@ Dependem das fotos e vídeos oficiais (briefing em `padroes.md`, seção 5). Enq
 
 ## Registro
 
-| data | peça | pilar | objetivo | link UTM | alcance | envios | salvos | sessões | resultado |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| | | | | | | | | | |
+| data | peça | formato / efeito | objetivo | link UTM | gasto IA | alcance | envios | salvos | sessões | resultado |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| | | | | | | | | | | |
 
 ## Vencedor e perdedor da semana
 

@@ -1,7 +1,7 @@
 {
   "nome": "carrossel-produto",
   "formato": "feed",
-  "_uso": "produto de perto: capa com foto, uma foto por detalhe, oferta, fechamento",
+  "_uso": "produto de perto: capa com foto, uma foto por detalhe, oferta, fechamento; preço vai na legenda, nunca na arte",
   "laminas": [
     {
       "tipo": "capa-foto",
@@ -28,8 +28,7 @@
       "tipo": "texto",
       "fundo": "areia",
       "titulo": "Três cores, *várias* combinações.",
-      "texto": "P ao GG.",
-      "rodape": "Camiseta R$ 80 · Kit 3 R$ 225 (R$ 75 a peça)"
+      "texto": "P ao GG."
     },
     {
       "tipo": "fecho",

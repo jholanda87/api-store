@@ -1,19 +1,19 @@
 {
   "nome": "story-oferta",
   "formato": "story",
-  "_uso": "sequência de 3 stories de conversão; figurinha de link na última",
+  "_uso": "sequência de 3 stories de conversão; preço, kit e frete vão no texto do story ou na figurinha de link, não na arte",
   "laminas": [
     {
       "tipo": "capa-foto",
       "foto": "loja/estudio/entrada/kit.jpg",
-      "titulo": "Kit 3:\nR$ 75 a peça.",
-      "texto": "Cores à escolha, com ecobag.",
+      "titulo": "Kit 3.\nCores à escolha.",
+      "texto": "Com ecobag.",
       "numero": false
     },
     {
       "tipo": "texto",
       "fundo": "carvao",
-      "titulo": "Entrega em\nFortaleza: R$ 10.",
+      "titulo": "Entrega em\nFortaleza.",
       "texto": "Troca em mãos. Pix ou cartão.",
       "numero": false
     },

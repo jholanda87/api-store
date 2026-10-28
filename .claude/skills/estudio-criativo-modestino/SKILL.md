@@ -1,6 +1,6 @@
 ---
 name: estudio-criativo-modestino
-description: "Use quando Jorge pedir artes, comunicação visual, design gráfico, carrossel, post, story, capa, Reels, edição de foto ou vídeo, fotos da vitrine da loja, plano ou calendário de conteúdo, ou quiser levar mais gente do Instagram e do WhatsApp para a loja virtual da Modestino: dirige a criação de ponta a ponta (estratégia, peça, edição, distribuição e medição) com foco em alcance, curiosidade e venda."
+description: "Use quando Jorge pedir artes, comunicação visual, design gráfico, carrossel, post, story, capa, Reels, edição de foto ou vídeo, tirar fundo, manequim invisível, vídeo 360° ou efeito com IA, fotos da vitrine da loja, plano ou calendário de conteúdo, ou quiser levar mais gente do Instagram e do WhatsApp para a loja virtual da Modestino: dirige a criação de ponta a ponta (estratégia, peça, edição, distribuição e medição) com foco em alcance, curiosidade e venda."
 ---
 
 # Estúdio criativo da Modestino (direção de criação)
@@ -27,36 +27,50 @@ Esta habilidade **dirige**; as outras executam partes. Não repita o que elas j�
 4. `loja/design/tokens.json` e `loja/design/logo/` — cores, fontes e o Cavalheiro (fonte única da identidade).
 5. `loja/correcoes.md` e `loja/estado.md` — o que a marca promete e o que não promete.
 
-## Regras fixas
+## Diretrizes (revistas em 28/10/2026)
 
-- **Fotos e vídeos reais da Modestino.** Nunca banco de imagem nem IA vendendo a peça (recorte de fundo, sombra e correção de cor são permitidos). Fotos oficiais vêm do Jorge; as do Keanu (out/2026) **não são oficiais**: não usar em peça nova.
-- **Brutos:** nunca trecho sem camisa ou trocando de peça, imagem tremida, escura ou fora de foco, selfie de banheiro, `2_preta_vestida` nem `4_espelho_preta`. Foco na roupa; rosto só quando não der para evitar.
-- **Texto:** tom profissional e direto (decisão de 27/10: nada de linguagem de iniciante); sem prometer lavagem, durabilidade ou "pedido sem erro" (a promessa é a troca); modal é um dos tecidos, não o único; nunca a mesma peça em sequência no mesmo dia; não falar "dos donos" em peça de venda.
-- **Identidade:** só a paleta e as fontes de `tokens.json`; nada de cor viva, terracota ou Poppins; o Cavalheiro só na capa, na última lâmina/segundo, avatar e embalagem, nunca na roupa.
-- **Originalidade:** o Instagram tira da recomendação contas que repostam conteúdo de outros. Toda peça é nossa (foto, vídeo, texto); referência inspira estrutura, nunca é copiada.
-- **Nada é publicado, agendado, impulsionado ou enviado a cliente sem o ok do Jorge.** Créditos pagos (Photoroom, Higgsfield, Adobe) só com ok.
+- **Desempenho acima de tudo.** O padrão é o das marcas de roupa que mais engajam: imagem hiper-realista, peça sem fundo, efeito visual (flutuar, girar 360°, vestir um corpo invisível, esticar, cair e dobrar). **IA liberada** para imagem e vídeo. Não há lista de proibições de criação; quem decide é o número da peça.
+- **Fidelidade à peça.** A camiseta que aparece é a que o cliente recebe: cor, gola, etiqueta, manga. Diferença vira troca. Conferir sempre (checklist de `padroes.md`).
+- **Sem preço na arte.** Preço, frete e kit vão na legenda, no story com link e na loja.
+- **Créditos e APIs pagas liberados** (decisão de 28/10). Registrar o gasto do lote em `calendario.md`.
+- **Publicar, agendar, impulsionar e mandar a cliente** continuam passando pelo ok do Jorge.
+- As fotos do Keanu (out/2026) não são oficiais.
 
 ## Fluxo de um lote (semanal)
 
 1. **Ler os números** da semana anterior no Metricool (marca `7230036`): por post, alcance, envios (shares), salvos, seguidores ganhos; por Reel, retenção e taxa de visualização acima de 3 s. Ler na Shopify as sessões por UTM e os pedidos com origem. Escrever em `calendario.md` o vencedor e o perdedor da semana e por quê (uma linha cada).
 2. **Planejar o lote** (5 a 7 peças) pela mistura de `estrategia.md`: pelo menos 2 Reels, 1 carrossel, stories diários, 1 peça de conversão. Cada peça tem: pilar, objetivo (alcance, envio, salvar, clique, conversa), gancho, CTA e link UTM.
 3. **Briefing de produção** quando faltar material: lista de fotos e tomadas de `padroes.md` (seção de fotografia), com local, luz, peça e duração. O material bruto chega em `loja/estudio/entrada/` (fora do Git).
-4. **Produzir**:
-   - artes (carrossel 1080×1350, story/capa 1080×1920, textos de vídeo transparentes): escreva o JSON a partir de `loja/estudio/modelos/` em `loja/estudio/lotes/<AAAA-MM-DD>/` e rode `node .claude/skills/estudio-criativo-modestino/arte.js <peca>.json`;
-   - Reels de cortes: JSON de cortes e `python3 .claude/skills/estudio-criativo-modestino/reel.py <reel>.json` (corta 9:16 com foco na roupa, aplica a cor "Modestino", sobrepõe os textos e fecha com o Cavalheiro, sem áudio: a música em alta entra no Instagram). Edição fina e transições: `reels-capcut-modestino`;
-   - vitrine da loja e catálogo: `python3 .claude/skills/estudio-criativo-modestino/foto.py <fotos>` (4:5 2048×2560 para produto, 1:1 para catálogo, 9:16 para story);
-   - links: `python3 .claude/skills/estudio-criativo-modestino/utm.py <campanha> --peca <nome> --destino <caminho>`.
+4. **Produzir** (ferramentas desta pasta; cardápio de formatos em `padroes.md`, seção 3):
+   - **recorte:** `python3 .claude/skills/estudio-criativo-modestino/recorte.py <fotos> [--fundo linho|carvao|areia|mapple]`. Tira o fundo com IA local gratuita (BiRefNet) e gera a peça flutuando para a loja (4:5), o feed, o catálogo e o story, além do PNG transparente;
+   - **efeitos sem custo:** `python3 .claude/skills/estudio-criativo-modestino/efeitos.py flutuar|cores|zoom <recorte.png> ...` (vídeo 9:16 em loop, sem áudio);
+   - **IA paga por uso:** `python3 .claude/skills/estudio-criativo-modestino/ia.py imagem manequim|passar|estudio|cena|esticada|cor <foto>` e `ia.py video giro360|flutuar|esticar|vestir|cair <foto>`. Usa a fal.ai com a chave `FAL_KEY`; `--pro` dá mais fidelidade em detalhe e letra;
+   - **artes com texto** (capa, carrossel, story): JSON a partir de `loja/estudio/modelos/` → `node .claude/skills/estudio-criativo-modestino/arte.js <peca>.json`;
+   - **Reels de gente real:** `reel.py` (cortes, cor, fechamento); edição fina no `reels-capcut-modestino`;
+   - **links:** `utm.py <campanha> --peca <nome> --destino <caminho>`.
 5. **Revisar** com o checklist de `padroes.md` olhando a folha de prévia (`*-previa.png`) e a folha de quadros do Reel (`*-quadros.png`). Rodar `python3 .claude/skills/loja-lancamento-modestino/vitrine.py` nos textos de legenda quando tiverem preço ou produto. Corrigir antes de mostrar; listar o que foi corrigido.
 6. **Apresentar ao Jorge**: prévias, legendas, link UTM de cada peça, dia e horário. Após o ok: `agendar-post-modestino`.
 7. **Registrar** em `calendario.md` (data, peça, pilar, objetivo, link) e, na semana seguinte, o resultado. Peça que venceu volta em 3 a 4 semanas com capa nova; Reel que venceu vira anúncio pelo `trafego-pago-modestino`.
 
-## Conectores
+## Ferramentas e conectores (custo-benefício, 28/10/2026)
 
-- **Metricool** (marca `7230036`): números por post e Reel, melhor horário, agenda (`agendar-post-modestino`).
-- **Shopify:** sessões por UTM, pedidos e origem; fotos da vitrine (sobem como mídia do produto, ligadas à variante da cor).
-- **Google Drive:** pasta "postagens" (link público) para o Metricool; brutos que o Jorge subir.
-- **Photoroom:** recorte de fundo e sombra em foto de produto. Gasta créditos: confirmar antes de rodar em lote.
-- **Canva / Adobe:** quando o Jorge quiser editar a peça à mão ou vetorizar o Cavalheiro.
+O estúdio roda com ferramentas próprias. Conector é complemento, não dependência.
+
+| necessidade | primeira escolha | custo | alternativa |
+| --- | --- | --- | --- |
+| tirar o fundo | `recorte.py` (BiRefNet local, código aberto MIT) | zero | Photoroom |
+| manequim invisível, passar, cenário, flat lay | `ia.py imagem` (Nano Banana na fal.ai) | ~US$ 0,04 por imagem (Pro ~US$ 0,15) | Photoroom Pro ou Max (assinatura) |
+| vídeo 360°, vestir, esticar, cair | `ia.py video` (Kling 2.6 Pro na fal.ai) | ~US$ 0,07/s, ~US$ 0,35 por 5 s | Photoroom (créditos), Higgsfield |
+| flutuar, troca de cor, zoom | `efeitos.py` | zero | CapCut |
+| artes com texto | `arte.js` | zero | Canva |
+| números | Metricool (marca `7230036`) e Shopify | já pagos | — |
+
+Lote semanal típico: 10 imagens de IA e 4 vídeos de 5 s, cerca de US$ 2 a 3. Os preços mudam: conferir em fal.ai/pricing.
+
+- **Chave da fal.ai:** o Jorge cria em fal.ai (Dashboard → API Keys) e guarda como segredo `FAL_KEY` do ambiente, nunca no repositório.
+- **Recorte local:** precisa de `pip install "rembg[cpu]"` e baixa o modelo de ~1 GB no primeiro uso. Em ambiente novo, pôr isso no script de preparação.
+- **Photoroom (conector):** a conta atual não roda o manequim invisível (exige plano pago) e ficou sem créditos para vídeo. Só vale assinar se o Jorge preferir editar no app.
+- **Google Drive, Metricool:** distribuição e agenda (`agendar-post-modestino`).
 
 ## Inovar com método
 
