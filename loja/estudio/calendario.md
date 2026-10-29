@@ -39,7 +39,8 @@ Dependem das fotos e vídeos oficiais (briefing em `padroes.md`, seção 5). Enq
 
 | data | peça | formato / efeito | objetivo | link UTM | gasto IA | alcance | envios | salvos | sessões | resultado |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| | | | | | | | | | | |
+| 28–29/10 | manequim invisível das 3 cores (vitrine da loja) | ia.py imagem, Nano Banana Pro | conversão | — | ~US$ 2,30 (inclui tentativas descartadas) | | | | | na loja em 29/10 |
+| 28–29/10 | 360° (teste Keanu, preta, off white antigos + preta nova) | ia.py video, Kling 2.6 Pro | alcance | — | ~US$ 0,90 | | | | | refazer off white e Mapple sem nome nas costas |
 
 ## Vencedor e perdedor da semana
 

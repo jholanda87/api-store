@@ -1,5 +1,13 @@
 # Construção da loja — registro
 
+## 28–29/10/2026 — fotos oficiais no lugar das do Keanu
+
+- Fotos oficiais das três cores no cabide (enviadas pelo Jorge em 28/10): escolhidas as melhores de cada cor (frente, gola com etiqueta, lado, costura do ombro; Mapple também a etiqueta de lavagem), cortadas em 4:5 sem mexer na cor. Descartadas as escuras, tremidas, de luz amarelada/acinzentada e as com etiqueta cortada. Brutos em `loja/estudio/entrada/<cor>/`, prontas em `loja/estudio/vitrine/loja/` (fora do Git).
+- Manequim invisível por cor (`ia.py`, Nano Banana Pro na fal.ai, resultado devolvido na própria resposta porque `v3b.fal.media` está bloqueado no ambiente): mesmo enquadramento nas três (a preta saiu da composição da marrom, trocando só a cor), fundo linho `#ECE7DE`. Correções feitas à mão: etiqueta reescrita na Poppins ("MODESTINO / essencial. diário. real.", a IA errava a frase), retângulo da etiqueta interna que aparecia pela off white removido, suporte da arara tirado do fundo, cor conferida contra a foto real (off white neutralizada ~2%; marrom = média das fotos de gola, que variam com a luz). Arquivos em `loja/estudio/vitrine/ia/*-manequim-final.png`.
+- Shopify: Camiseta com 16 fotos (por cor: IA "de frente" primeiro, depois as reais "foto real"); o texto alternativo mantém "preta" / "mapple" / "off white" para a galeria trocar com a cor e só a de IA tem "de frente" (vai para a primeira tela). Variantes ligadas à foto de IA da sua cor. Kits 2, 3 e Essencial: as três fotos de IA (preta, mapple, off white). Fotos do Keanu desvinculadas dos 4 produtos, não apagadas (continuam em Arquivos e em `loja/fotos-provisorias/`).
+- Vídeo 360°: os primeiros mostravam o nome nas costas. Refeito o da preta pedindo costas lisas (não conferido: o vídeo fica em `v3b.fal.media`); off white e Mapple pendentes, saldo da fal.ai esgotado. Nenhum vídeo na loja até o Jorge conferir.
+- **Não conferido no navegador:** o ambiente não abre o site nem o CDN da Shopify.
+
 ## 27/10/2026 (23h30) — correção dos cupons na cópia
 
 Jorge duplicou o tema publicado: "Cópia de Modestino (construção)" (`167202390064`, não publicado). Enviados para a cópia, conferidos por checksum: `modestino-carrinho-aviso`, `modestino-kit`, `templates/page.faq.json`, `templates/index.json` (cupom vale em toda a loja). O rodapé da cópia mantém o endereço do CNPJ. Falta o Jorge publicar a cópia. Daqui em diante, mudanças sempre em cópia não publicada.
