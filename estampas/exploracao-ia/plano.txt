@@ -1,0 +1,9 @@
+01-carcara mapple #ECE7DE costas 22
+02-caju offwhite #22201D peito 9
+03-carnauba preta #ECE7DE peito 9
+04-cavalo-marinho preta #ECE7DE peito 8
+05-jangada offwhite #22201D peito 9
+06-calango mapple #ECE7DE peito 9
+07-mandacaru preta #ECE7DE costas 24
+08-sertao offwhite #22201D costas 24
+09-garca mapple #ECE7DE peito 9
