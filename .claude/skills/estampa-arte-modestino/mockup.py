@@ -31,7 +31,7 @@ GOLA = {"frente": 9.0, "costas": 2.2}  # profundidade do decote
 LUGAR = {
     "peito": ("frente", GOLA["frente"] + 10.0, 7.0),  # medido na peça real; esquerdo de quem veste
     "frente": ("frente", GOLA["frente"] + 8.0, 0.0),
-    "costas": ("costas", GOLA["costas"] + 7.0, 0.0),
+    "costas": ("costas", GOLA["costas"] + 11.0, 0.0),  # aprovado pelo Jorge em 30/10
     "nuca": ("costas", GOLA["costas"] + 2.5, 0.0),
 }
 

@@ -41,7 +41,7 @@ Para medir: abra a foto, ache os dois pontos e confira desenhando uma marca na f
 | --- | --- | --- |
 | `peito` | topo 10 cm abaixo da gola, centro 7 cm para o lado esquerdo de quem veste (à direita na foto de frente); medido na primeira peça real | busto e figura do Cavalheiro, assinatura |
 | `frente` | centro, topo 8 cm abaixo da gola | figura e nome, arte média |
-| `costas` | centro, topo 7 cm abaixo da gola de trás | a arte grande, a história |
+| `costas` | centro, topo 11 cm abaixo da gola de trás (padrão aprovado em 30/10) | a arte grande, até 35 cm de altura e 32 cm de largura |
 | `nuca` | centro, 2,5 cm abaixo da gola de trás | cartola, nome pequeno |
 
 Ajustes: `--lado-peito esquerda` se a foto estiver espelhada; `--giro 3` se a blusa estiver inclinada na foto; `--dobras 0.5` (menos) a `1` (mais) para quanto as dobras do tecido passam por cima da tinta; `--caixa X,Y,LARGURA` para posicionar à mão.

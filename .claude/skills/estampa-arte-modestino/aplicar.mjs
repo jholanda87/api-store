@@ -34,7 +34,8 @@ if (!foto || !arte || !saida) {
 const MEIO_PEITO_CM = 54; // tamanho M, axila a axila
 // Topo da arte em cm abaixo da gola, e deslocamento lateral em cm (peito).
 // Peito medido na primeira peça real (figura de 10 cm na off-white, 30/10/2026).
-const LUGAR = { peito: [10, 7], frente: [8, 0], costas: [7, 0], nuca: [2.5, 0] };
+// Costas: 11 cm abaixo da gola de trás, aprovado pelo Jorge em 30/10 (era 7, ficava alto).
+const LUGAR = { peito: [10, 7], frente: [8, 0], costas: [11, 0], nuca: [2.5, 0] };
 
 const svg = readFileSync(arte, "utf8");
 const un = { mm: 1, cm: 10, in: 25.4, pt: 25.4 / 72, px: 25.4 / 96, "": 25.4 / 96 };
