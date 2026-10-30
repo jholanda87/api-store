@@ -38,7 +38,7 @@ Regra prática: **lançamento e teste em DTF** (pouca peça, sem risco de estoqu
    EST-03 · Horizonte
    Técnica: DTF soft          Posição: peito, lado esquerdo de quem veste
    Tamanho: 9,0 × 5,4 cm (igual do P ao GG)
-   Distância: topo da arte 8 cm abaixo da costura da gola; centro 10 cm do meio da peça
+   Distância: topo da arte 10 cm abaixo da costura da gola; centro 7 cm do meio da peça (padrão da peça já feita)
    Tintas: areia #CBBFAE (preta, mapple) | carvão #22201D (off-white)
    Camisetas e quantidades: preta P 2 M 4 G 4 GG 2 ...
    Arquivos: arte.pdf, arte-300dpi.png, fotolitos/ (silk)

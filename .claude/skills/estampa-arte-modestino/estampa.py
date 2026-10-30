@@ -38,9 +38,9 @@ TECNICAS = {
 }
 
 # Maior lado da arte (cm) que funciona em cada posição, camiseta P a GG.
-# Peito 4 a 6 cm é o busto do guia; frente 7 cm é a figura e nome.
+# Peito: busto do guia 4 a 6 cm; a figura feita e aprovada tem 10 cm.
 POSICOES = {
-    "peito": (4, 10), "frente": (7, 28), "costas": (10, 32), "nuca": (1, 8), "manga": (1, 8),
+    "peito": (4, 12), "frente": (7, 28), "costas": (10, 32), "nuca": (1, 8), "manga": (1, 8),
 }
 
 SHAPES = {"path", "rect", "circle", "ellipse", "line", "polyline", "polygon", "text", "use"}

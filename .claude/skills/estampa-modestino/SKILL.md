@@ -14,12 +14,29 @@ Registre a decisão na Central (seção 10), se ainda não estiver lá. As habil
 
 ## As regras da Estampada
 
-1. **Autoral.** Toda arte nasce aqui: do desenho do Cavalheiro, de um desenho ou foto do Jorge, de geometria construída do zero ou de uma palavra nossa em curvas. Nunca decalcar, nunca "inspirado" em uma estampa que já existe, nunca clip-art, banco de imagem nem fonte sem licença comercial. Imagem de IA não vira arte de estampa.
-2. **Minimalista.** Uma ideia, um gesto. No máximo 2 tintas (o tecido conta como a terceira cor). Sem degradê, sombra ou contorno decorativo. Se dá para tirar um elemento e a ideia continua de pé, tire.
+1. **Autoral.** Toda arte nasce aqui: de um desenho do Jorge (ou de um ilustrador contratado) no papel, de uma foto do Jorge, do Cavalheiro, ou de um desenho construído aqui com volume e textura. Nunca decalcar, nunca "inspirado" em uma estampa que já existe, nunca clip-art, banco de imagem nem fonte sem licença comercial. Imagem de IA não vira arte de estampa.
+2. **Minimalista na cor e no assunto, não no desenho.** Um assunto só, 1 tinta (no máximo 2), muito tecido aparecendo. O desenho pode ter textura: ponto, hachura, traço de caneta, goiva. Sem degradê nem efeito de computador.
 3. **Autêntica.** Tem que ser da Modestino: postura, Fortaleza, o cotidiano de quem usa básico. Sem frase motivacional genérica, sem inglês de enfeite, sem tendência copiada.
 4. **Pequeno no peito, grande na caixa** (guia de identidade). A marca aparece pouco. Arte grande só nas costas, e só quando a ideia pede.
 5. **Cores da casa.** Camisetas: preto, mapple, off-white. Tintas da paleta: linho #ECE7DE, areia #CBBFAE, carvão #22201D, mapple #5B3F30, grafite #6E675F.
-6. **Nada de outra marca** (`loja/marca.json`), nem a identidade antiga (terracota, Poppins).
+6. **Nada de outra marca** (`loja/marca.json`), nem a identidade antiga (terracota, Poppins) na arte.
+7. **Etiqueta da gola fica como está** ("MODESTINO essencial. diário. real.", composição embaixo), decisão do Jorge em 30/10. Não é estampa: não mexa nela.
+8. **Não é só o Cavalheiro.** A maior parte da linha são artes autorais sem ele (Fortaleza, o cotidiano, a voz da marca); o Cavalheiro é uma das fontes, não a regra.
+
+## A linguagem da Modestino
+
+A marca nasceu de um desenho à mão (o Cavalheiro, em caneta). As estampas são da mesma mão:
+
+| técnica | como fica | como se faz aqui |
+| --- | --- | --- |
+| **traço à mão** | linha de caneta, tremida, que não fecha perfeita | desenho no papel → `vetorizar.py`; ou contorno tremido gerado (EST-09) |
+| **pontilhismo** | volume feito de pontos, denso na sombra | foto do Jorge ou desenho com luz e sombra → `textura.py` |
+| **hachura / rascunho** | traços cruzados, linhas de construção que ficaram | `textura.py --modo hachura`; rascunho fotografado → `vetorizar.py` |
+| **xilogravura de cordel** | silhueta chapada com goivadas, borda irregular; tradição do Ceará | linogravura de verdade carimbada no papel → `vetorizar.py` (o melhor), ou silhueta com cortes |
+
+Assuntos: bicho e planta do Ceará (caju, carcará, mandacaru, calango, jangada, cavalo-marinho), Fortaleza vista de perto, o cotidiano, o Cavalheiro. Referências do Jorge em `estampas/referencias/` (Pinterest de 30/10: o que tirar e o que não tirar está em `principios.md`).
+
+Fora da linguagem: ícone geométrico chapado (como EST-04 a 08, guardados só como reserva), vetor de banco, estilo de tatuagem, muita cor.
 
 ## O Cavalheiro na roupa
 
@@ -27,7 +44,7 @@ Vetores oficiais em `estampas/marca/` (tirados do desenho original no guia `Mode
 
 | versão | arquivo | onde | tamanho |
 | --- | --- | --- | --- |
-| figura inteira | `cavalheiro-figura-*.svg` | frente (com o nome embaixo), costas | 7 cm ou mais de altura |
+| figura inteira | `cavalheiro-figura-*.svg` | peito (10 cm, como a peça já feita), frente com o nome, costas | 7 cm ou mais de altura |
 | busto | `cavalheiro-busto-*.svg` | peito | 4 a 6 cm de altura |
 | cartola | `cavalheiro-cartola-*.svg` | nuca por fora, gola, manga, bordado | a partir de 1 cm |
 | nome | MODESTINO em Instrument Sans 600, espaçado 0.32 (`curvas.py`) | com a figura ou embaixo da cartola nas costas | — |
@@ -39,7 +56,7 @@ Não se redesenha, não se distorce, não se espelha, não se troca o traço. Po
 | camiseta | estampa | técnica e tamanho |
 | --- | --- | --- |
 | Preto | busto no peito | DTF linho, 5 cm de altura |
-| Off White | figura e nome na frente | DTF carvão, 7 cm de altura |
+| Off White | figura no peito (já feita e aprovada em 30/10: 10 cm, grafite; sem o nome) | DTF grafite, 10 cm de altura |
 | Mapple Brown | cartola + MODESTINO nas costas, junto da gola | cartola 2 cm |
 
 ## Frente e costas

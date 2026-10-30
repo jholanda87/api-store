@@ -29,7 +29,7 @@ COMPRIMENTO = 72.0
 GOLA = {"frente": 9.0, "costas": 2.2}  # profundidade do decote
 # Onde fica o topo e o centro da arte, em cm a partir do ombro junto da gola.
 LUGAR = {
-    "peito": ("frente", 17.0, 10.0),   # lado esquerdo de quem veste = direita na imagem
+    "peito": ("frente", GOLA["frente"] + 10.0, 7.0),  # medido na peça real; esquerdo de quem veste
     "frente": ("frente", GOLA["frente"] + 8.0, 0.0),
     "costas": ("costas", GOLA["costas"] + 7.0, 0.0),
     "nuca": ("costas", GOLA["costas"] + 2.5, 0.0),

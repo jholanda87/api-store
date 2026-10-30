@@ -39,7 +39,7 @@ Para medir: abra a foto, ache os dois pontos e confira desenhando uma marca na f
 
 | posição | onde fica | uso |
 | --- | --- | --- |
-| `peito` | topo 8 cm abaixo da gola, 10 cm para o lado esquerdo de quem veste (à direita na foto de frente) | busto do Cavalheiro, assinatura |
+| `peito` | topo 10 cm abaixo da gola, centro 7 cm para o lado esquerdo de quem veste (à direita na foto de frente); medido na primeira peça real | busto e figura do Cavalheiro, assinatura |
 | `frente` | centro, topo 8 cm abaixo da gola | figura e nome, arte média |
 | `costas` | centro, topo 7 cm abaixo da gola de trás | a arte grande, a história |
 | `nuca` | centro, 2,5 cm abaixo da gola de trás | cartola, nome pequeno |
