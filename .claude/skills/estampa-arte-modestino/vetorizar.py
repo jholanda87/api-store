@@ -78,12 +78,23 @@ def vetorizar(caminho, altura_mm, corte=None, limiar=140, sujeira=12, cor="#2220
         img = img.crop(corte)
     img, fino = preparar(img, altura_mm, limiar, ampliar, engrossar_mm, traco_min_mm, garantir_mm)
     vetorizar.fino = fino
+    d, (x0, y0, x1, y1) = tracar(img, limiar, sujeira)
+    if not d:
+        raise SystemExit("Nada encontrado: ajuste --limiar ou --corte.")
+    w, h = x1 - x0, y1 - y0
+    largura_mm = altura_mm * w / h
+    return ('<svg xmlns="http://www.w3.org/2000/svg" width="%.2fmm" height="%.2fmm" '
+            'viewBox="%.1f %.1f %.1f %.1f">\n  <path fill="%s" fill-rule="evenodd" d="%s"/>\n'
+            '</svg>\n' % (largura_mm, altura_mm, x0, y0, w, h, cor, "".join(d)))
+
+
+def tracar(img, limiar=128, sujeira=12):
+    """Traça a imagem L (escuro = tinta) com o potrace. Devolve ([d, ...], caixa) em pixels."""
+    import potrace
     # o Bitmap do potracer inverte: True é papel, False é traço
     dados = [[px >= limiar for px in linha] for linha in _linhas(img)]
-    bm = potrace.Bitmap(dados)
-    curvas = bm.trace(turdsize=sujeira, alphamax=1.0, opticurve=True, opttolerance=0.2)
-    if not len(curvas):
-        raise SystemExit("Nada encontrado: ajuste --limiar ou --corte.")
+    curvas = potrace.Bitmap(dados).trace(turdsize=sujeira, alphamax=1.0, opticurve=True,
+                                         opttolerance=0.2)
     xs, ys, d = [], [], []
     for c in curvas:
         sx, sy = c.start_point.x, c.start_point.y
@@ -100,12 +111,9 @@ def vetorizar(caminho, altura_mm, corte=None, limiar=140, sujeira=12, cor="#2220
             xs += [p.x for p in pts]
             ys += [p.y for p in pts]
         d.append("".join(partes) + "Z")
-    x0, y0, x1, y1 = min(xs), min(ys), max(xs), max(ys)
-    w, h = x1 - x0, y1 - y0
-    largura_mm = altura_mm * w / h
-    return ('<svg xmlns="http://www.w3.org/2000/svg" width="%.2fmm" height="%.2fmm" '
-            'viewBox="%.1f %.1f %.1f %.1f">\n  <path fill="%s" fill-rule="evenodd" d="%s"/>\n'
-            '</svg>\n' % (largura_mm, altura_mm, x0, y0, w, h, cor, "".join(d)))
+    if not d:
+        return [], (0, 0, 0, 0)
+    return d, (min(xs), min(ys), max(xs), max(ys))
 
 
 def _linhas(img):
