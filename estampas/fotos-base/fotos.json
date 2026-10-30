@@ -1,6 +1,68 @@
 {
-  "preta-frente.jpg":    {"gola": [540, 250], "axilas": 540, "lado": "frente", "cor": "preto", "origem": "fal.ai"},
-  "mapple-frente.jpg":   {"gola": [540, 250], "axilas": 540, "lado": "frente", "cor": "mapple", "origem": "fal.ai"},
-  "offwhite-frente.jpg": {"gola": [540, 255], "axilas": 560, "lado": "frente", "cor": "off-white", "origem": "fal.ai"},
-  "trio-frente.jpg":     {"lado": "frente", "cor": "preto, off-white, mapple", "origem": "fal.ai", "obs": "três blusas na mesma foto; meça cada uma e use --gola/--axilas"}
+ "preta-frente.jpg": {
+  "gola": [
+   540,
+   250
+  ],
+  "axilas": 540,
+  "lado": "frente",
+  "cor": "preto",
+  "origem": "fal.ai"
+ },
+ "mapple-frente.jpg": {
+  "gola": [
+   540,
+   250
+  ],
+  "axilas": 540,
+  "lado": "frente",
+  "cor": "mapple",
+  "origem": "fal.ai"
+ },
+ "offwhite-frente.jpg": {
+  "gola": [
+   540,
+   255
+  ],
+  "axilas": 560,
+  "lado": "frente",
+  "cor": "off-white",
+  "origem": "fal.ai"
+ },
+ "trio-frente.jpg": {
+  "lado": "frente",
+  "cor": "preto, off-white, mapple",
+  "origem": "fal.ai",
+  "obs": "três blusas na mesma foto; meça cada uma e use --gola/--axilas"
+ },
+ "preta-costas.png": {
+  "gola": [
+   448,
+   130
+  ],
+  "axilas": 450,
+  "lado": "costas",
+  "cor": "preto",
+  "origem": "fal.ai nano-banana (gerada da foto de frente)"
+ },
+ "mapple-costas.png": {
+  "gola": [
+   448,
+   134
+  ],
+  "axilas": 442,
+  "lado": "costas",
+  "cor": "mapple",
+  "origem": "fal.ai nano-banana (gerada da foto de frente)"
+ },
+ "offwhite-costas.png": {
+  "gola": [
+   448,
+   136
+  ],
+  "axilas": 410,
+  "lado": "costas",
+  "cor": "off-white",
+  "origem": "fal.ai nano-banana (gerada da foto de frente)"
+ }
 }
