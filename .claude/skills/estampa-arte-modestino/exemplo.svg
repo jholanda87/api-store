@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="90mm" height="54mm" viewBox="0 0 90 54">
+  <!-- Exemplo "Horizonte": sol se pondo no mar de Fortaleza, uma tinta (areia). -->
+  <path fill="#CBBFAE" d="M23 30 A22 22 0 0 1 67 30 Z"/>
+  <g fill="none" stroke="#CBBFAE" stroke-width="2" stroke-linecap="butt">
+    <path d="M0 35 H90"/>
+    <path d="M26 41 H64"/>
+    <path d="M34 47 H56"/>
+    <path d="M41 53 H49"/>
+  </g>
+</svg>

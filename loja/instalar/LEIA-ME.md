@@ -1,6 +1,13 @@
 # Como instalar as habilidades da máquina de vendas
 
-São 16 habilidades da Modestino + as 11 originais da Replica (MIT, de Jake Schincariol).
+São 21 habilidades da Modestino + as 11 originais da Replica (MIT, de Jake Schincariol).
+
+**Novas em 30/10/2026: linha Estampada** (camisetas estampadas, com o Cavalheiro na roupa):
+`estampa-modestino` (as regras e a ordem), `estampa-conceito-modestino`, `estampa-arte-modestino`,
+`estampa-mockup-modestino` (aplica a estampa nas fotos das blusas, frente e costas) e
+`estampa-producao-modestino`. A regra antiga "o Cavalheiro nunca vai na roupa" mudou: reenvie
+as 3 habilidades da pasta `atualizar-no-claude-ai/` (criar-conteudo, roteiro-reels e
+site-impecavel) no Claude.ai, substituindo as antigas.
 
 ## 1. Claude Code (este repositório): já instaladas
 
@@ -20,7 +27,7 @@ As habilidades que você já usa (criar-conteudo, agendar-post, financeiro…) f
 
 1. Baixe os arquivos `.zip` desta pasta (um por habilidade).
 2. No Claude.ai: **Configurações → Recursos (Capabilities) → Habilidades (Skills) → Enviar habilidade (Upload skill)**.
-3. Envie um `.zip` por vez. Comece por `maquina-vendas-modestino.zip` e `loja-empreendedor-modestino.zip`.
+3. Envie um `.zip` por vez. Comece por `maquina-vendas-modestino.zip` e `loja-empreendedor-modestino.zip`; para as estampas, por `estampa-modestino.zip`.
 4. Confira se a chave de cada uma ficou ligada.
 
 As habilidades que usam ferramenta Python já levam a ferramenta dentro do próprio `.zip`.

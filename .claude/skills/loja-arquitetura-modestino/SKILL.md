@@ -22,6 +22,7 @@ Confira o preço do plano na página oficial no dia e escreva a data. Não assin
 ## Passo 2: o catálogo (o "esquema")
 
 - **Produto:** Camiseta Básica Modestino. **Variantes:** cor (Preto, Mapple Brown, Off White) × tamanho (P, M, G, GG). SKU `MOD-CAM-<COR>-<TAM>` (o mesmo que `catalogo-modestino/estoque.py` gera).
+- **Linha Estampada:** um produto por estampa (`MOD-EST-<NN>-<COR>-<TAM>`), só nas cores aprovadas para a arte; coleção "Estampadas" e filtro "Linha" (Básica, Estampada). Kit misto (básica + estampada) só se o Jorge decidir o preço na Central.
 - **Kits:** produto próprio (Kit 2 R$ 160, Kit 3 R$ 225, com ecobag; sem embalagem R$ 150 no kit 2) com escolha das cores e tamanhos de cada peça, baixando o estoque das variantes. Kit Essencial: uma de cada cor.
 - **Cupons:** um por embaixador, 10% **só na avulsa**, sem acumular com kit (senão a margem cai para 49%). Empresa: preço por volume (R$ 210 de 10 a 29 kits, R$ 195 a partir de 30) por pedido manual ou lista de preço.
 - **Pedido:** guarda o cupom e a origem (anúncio, orgânico, embaixador, WhatsApp) para o ranking de vendedor e a comissão do Painel.

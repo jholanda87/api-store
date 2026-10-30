@@ -58,8 +58,8 @@ RULES = [
      "a Modestino não é streetwear; é básico masculino versátil."),
     ("warn", r"\b(prezado|prezada|caro cliente)\b",
      "tom engessado. A voz é humana e direta."),
-    ("warn", r"(?<!sem )\b(logo (na|no) (frente|peito)|estampa(da)? com (o )?cavalheiro)\b",
-     "camiseta é lisa; o Cavalheiro nunca vai na roupa."),
+    ("warn", r"\b(básica|lisa)\b.{0,40}\b(estampa(da)?|cavalheiro (no|na) (peito|frente|costas))\b",
+     "a Básica é lisa; estampa e Cavalheiro na roupa são da linha Estampada. Não misture as duas no mesmo anúncio."),
     ("warn", r"\b(compre (já|agora)|últimas unidades|corre que acaba|só hoje)\b",
      "venda de cara / urgência falsa. Educar antes de vender; escassez só se for real e o estoque confirmar."),
 ]
