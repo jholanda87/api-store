@@ -37,9 +37,10 @@ TECNICAS = {
     "bordado": {"traco_min": 1.0, "detalhe_min": 1.5, "degrade": "erro"},
 }
 
-# Largura da arte (cm) que costuma funcionar em cada posição, camiseta P a GG.
+# Maior lado da arte (cm) que funciona em cada posição, camiseta P a GG.
+# Peito 4 a 6 cm é o busto do guia; frente 7 cm é a figura e nome.
 POSICOES = {
-    "peito": (7, 10), "frente": (20, 28), "costas": (24, 32), "nuca": (4, 8), "manga": (5, 8),
+    "peito": (4, 10), "frente": (7, 28), "costas": (10, 32), "nuca": (1, 8), "manga": (1, 8),
 }
 
 SHAPES = {"path", "rect", "circle", "ellipse", "line", "polyline", "polygon", "text", "use"}
@@ -242,11 +243,12 @@ def avaliar(svg_texto, tecnica="silk", posicao=None, max_tintas=2, largura_cm=No
             add("AVISO", "Detalhe de %.2f mm: abaixo de %.1f mm some ou entope em %s."
                 % (min(pequenos), regra["detalhe_min"], tecnica))
         larg_cm = medida[0] / 10
+        maior = max(medida[0], medida[1]) / 10
         if posicao:
             lo, hi = POSICOES[posicao]
-            if not lo <= larg_cm <= hi:
-                add("AVISO", "%.1f cm de largura no %s; o usual é %d a %d cm."
-                    % (larg_cm, posicao, lo, hi))
+            if not lo <= maior <= hi:
+                add("AVISO", "%.1f cm no maior lado, no %s; o usual é %d a %d cm."
+                    % (maior, posicao, lo, hi))
         if larg_cm > 32 or medida[1] / 10 > 40:
             add("AVISO", "Maior que 32 × 40 cm: passa da área útil de quase toda tela e do GG.")
 

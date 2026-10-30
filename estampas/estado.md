@@ -12,8 +12,10 @@ Regras e ordem em `.claude/skills/estampa-modestino/SKILL.md`.
 
 | código | nome | posição | camisetas | técnica | etapa | próximo passo |
 | --- | --- | --- | --- | --- | --- | --- |
-| EST-01 | Busto | peito, 5 cm de altura | preto (linho) | DTF | 🟡 arte pronta (vetor oficial) | mockup nas fotos do fal.ai |
-| EST-02 | Figura e nome | frente, 7 cm de altura | off-white (carvão) | DTF | 🟡 figura pronta; falta o nome em curvas | arte + mockup |
-| EST-03 | Cartola nas costas | nuca por fora, 2 cm, + MODESTINO | mapple (linho) | DTF ou bordado | 🟡 cartola pronta; falta o nome em curvas | arte + mockup |
+| EST-01 | Busto | peito, 5 cm de altura | preto e mapple (linho) | DTF | 🟡 mockup pronto (30/10) | ok do Jorge |
+| EST-02 | Figura e nome | frente, 7,7 cm de altura | off-white (carvão) | DTF | 🟡 mockup pronto (30/10) | ok do Jorge |
+| EST-03 | Cartola nas costas | nuca por fora, 2 cm, + MODESTINO | mapple (linho) | DTF ou bordado | 🟡 cartola pronta | falta foto de costas da mapple (fal.ai) |
+
+Fotos-base: só frente por enquanto (preta, mapple, off-white e o trio, do fal.ai). Faltam as de costas.
 
 EST-01 a 03 são a Coleção 01 do guia de identidade (página 2). Preço da Estampada: ⚪ Jorge decide na Central.

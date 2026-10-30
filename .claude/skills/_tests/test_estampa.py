@@ -68,7 +68,7 @@ class Checagem(unittest.TestCase):
 
     def test_posicao_fora_da_faixa(self):
         r = estampa.avaliar(EXEMPLO, posicao="costas")
-        self.assertTrue(any("24 a 32" in m for m in niveis(r, "AVISO")))
+        self.assertTrue(any("10 a 32" in m for m in niveis(r, "AVISO")))
 
     def test_vetores_oficiais_passam(self):
         pasta = os.path.join(HERE, "..", "..", "..", "estampas", "marca")

@@ -23,7 +23,7 @@ node    .claude/skills/estampa-arte-modestino/exportar.mjs arte.svg arte.png --d
 
 ## Como desenhar
 
-1. **Comece pelo tamanho físico.** Raiz do SVG com `width`/`height` em mm e `viewBox` em mm (1 unidade = 1 mm). Peito 70 a 100 mm de largura, frente 200 a 280, costas 240 a 320, nuca 40 a 80.
+1. **Comece pelo tamanho físico.** Raiz do SVG com `width`/`height` em mm e `viewBox` em mm (1 unidade = 1 mm). Maior lado: peito 40 a 100 mm (o busto do guia tem 50 de altura), frente 70 a 280, costas 100 a 320, nuca 10 a 80.
 2. **Grade.** Monte sobre uma grade de 1 mm e um módulo (por exemplo 6 mm). Alinhe as formas ao módulo; meça espaços em múltiplos dele. Isso é o que faz o mínimo parecer pensado, e não vazio.
 3. **Formas, não efeitos.** `path`, `rect`, `circle`, `line` com `fill`/`stroke` direto no elemento (#RRGGBB). Nada de `filter`, gradiente, `opacity`, imagem embutida ou classe CSS.
 4. **Traço mínimo:** silk 0,5 mm, DTF 0,3 mm, bordado 1 mm. Detalhes (pontos, vãos) a partir de 0,8 mm no silk. Traço uniforme combina com o desenho do Cavalheiro.

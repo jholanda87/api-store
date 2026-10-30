@@ -1,1 +1,6 @@
-{}
+{
+  "preta-frente.jpg":    {"gola": [540, 250], "axilas": 540, "lado": "frente", "cor": "preto", "origem": "fal.ai"},
+  "mapple-frente.jpg":   {"gola": [540, 250], "axilas": 540, "lado": "frente", "cor": "mapple", "origem": "fal.ai"},
+  "offwhite-frente.jpg": {"gola": [540, 255], "axilas": 560, "lado": "frente", "cor": "off-white", "origem": "fal.ai"},
+  "trio-frente.jpg":     {"lado": "frente", "cor": "preto, off-white, mapple", "origem": "fal.ai", "obs": "três blusas na mesma foto; meça cada uma e use --gola/--axilas"}
+}
