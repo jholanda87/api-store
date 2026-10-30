@@ -14,7 +14,7 @@ Registre a decisão na Central (seção 10), se ainda não estiver lá. As habil
 
 ## As regras da Estampada
 
-1. **Autoral.** Toda arte nasce aqui: de um desenho do Jorge (ou de um ilustrador contratado) no papel, de uma foto do Jorge, do Cavalheiro, ou de um desenho construído aqui com volume e textura. Nunca decalcar, nunca "inspirado" em uma estampa que já existe, nunca clip-art, banco de imagem nem fonte sem licença comercial. Imagem de IA não vira arte de estampa.
+1. **Autoral.** Toda arte nasce aqui: de um desenho do Jorge (ou de um ilustrador contratado) no papel, de uma foto do Jorge, do Cavalheiro, ou de um desenho construído aqui com volume e textura. Nunca decalcar, nunca "inspirado" em uma estampa que já existe, nunca clip-art, banco de imagem nem fonte sem licença comercial. IA (fal.ai) só serve para explorar opções antes de encomendar o desenho; não vira a arte final.
 2. **Minimalista na cor e no assunto, não no desenho.** Um assunto só, 1 tinta (no máximo 2), muito tecido aparecendo. O desenho pode ter textura: ponto, hachura, traço de caneta, goiva. Sem degradê nem efeito de computador.
 3. **Autêntica.** Tem que ser da Modestino: postura, Fortaleza, o cotidiano de quem usa básico. Sem frase motivacional genérica, sem inglês de enfeite, sem tendência copiada.
 4. **Pequeno no peito, grande na caixa** (guia de identidade). A marca aparece pouco. Arte grande só nas costas, e só quando a ideia pede.
@@ -37,6 +37,21 @@ A marca nasceu de um desenho à mão (o Cavalheiro, em caneta). As estampas são
 Assuntos: bicho e planta do Ceará (caju, carcará, mandacaru, calango, jangada, cavalo-marinho), Fortaleza vista de perto, o cotidiano, o Cavalheiro. Referências do Jorge em `estampas/referencias/` (Pinterest de 30/10: o que tirar e o que não tirar está em `principios.md`).
 
 Fora da linguagem: ícone geométrico chapado (como EST-04 a 08, guardados só como reserva), vetor de banco, estilo de tatuagem, muita cor.
+
+## O olhar de curadoria (antes de qualquer arte ir para a blusa)
+
+Uma arte só entra se passar nos 6:
+
+1. **Lê a 2 metros** como uma forma (silhueta), e de perto mostra o traço.
+2. **Funciona em 1 tinta.** Se precisa de cor para fazer sentido, não é para nós.
+3. **Aguenta a redução:** no peito (7 a 10 cm) o detalhe mais fino ainda tem 0,3 mm (DTF). Cena com muito detalhe vai para as costas (20 a 28 cm).
+4. **É da mão do Cavalheiro:** caneta, ponto, goiva, rascunho. Desenho de computador "perfeito" destoa.
+5. **Veste o homem do básico:** combina com calça de alfaiataria e com bermuda; nada de lembrancinha de turista, tatuagem old school, bicho agressivo, religião ou frase solta.
+6. **Tem lugar certo:** traço fino e silhueta pequena no peito; xilogravura e cena nas costas; cartola na nuca.
+
+A curadoria do painel do Jorge e as 10 propostas da Coleção 02 estão em `estampas/curadoria-colecao-02.md`.
+
+**Quem desenha decide a qualidade do traço.** Arte final: xilogravurista ou ilustrador do Ceará (com contrato de cessão de direitos) ou o próprio Jorge. Desenho gerado por código serve para teste e para as formas geométricas, não para ilustração.
 
 ## O Cavalheiro na roupa
 
