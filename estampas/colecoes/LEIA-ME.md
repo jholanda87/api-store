@@ -23,3 +23,8 @@ originais maiores no Canva (ids em `opcoes-canva/canva.txt`).
 ## Rodada 3 (31/10): tracejado
 Jorge recusou todas as opções da rodada 2 e pediu outro tipo de desenho, com traços (tracejado).
 11 opções em hachura de caneta, no Canva: `opcoes-canva/rodada3/` e `<colecao>/_rodada3.png`.
+
+## Rodada 4 (31/10): estilo das aprovadas, desenhos novos
+Jorge recusou o tracejado ("mudou bastante o estilo"). Volta a técnica de cada aprovada (pontilhismo,
+linha única, contorno fino), com os mesmos prompts das aprovadas e cenas novas tiradas da pesquisa
+(trio e reflexo de garças, prancha de naturalista e beija-flor no caju, sol e lua na jangada, folha e lua).
