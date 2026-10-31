@@ -19,3 +19,7 @@ Montado localmente, sem custo; arte final (vetor, fotolito) só depois da escolh
 - Caju: fica o aprovado; 4 novas para escolher (pediu no mínimo 2).
 Rodada 2 gerada no Canva (conta do Jorge, sem custo extra); prévias de 200 px em `opcoes-canva/`,
 originais maiores no Canva (ids em `opcoes-canva/canva.txt`).
+
+## Rodada 3 (31/10): tracejado
+Jorge recusou todas as opções da rodada 2 e pediu outro tipo de desenho, com traços (tracejado).
+11 opções em hachura de caneta, no Canva: `opcoes-canva/rodada3/` e `<colecao>/_rodada3.png`.
