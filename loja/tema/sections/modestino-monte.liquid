@@ -1,5 +1,5 @@
 {%- comment -%}
-  "Monte a sua": cor, tamanho, arte das costas (obrigatória) e do peito (opcional).
+  "Monte a sua": cor, tamanho, arte das costas e do peito (opcional).
   Costas = produtos com a tag "estampada" (R$ 90; exclusiva R$ 99).
   Peito = produtos de arte no peito (tag "basico" + "progressivo", exceto a lisa).
   Vai para o carrinho a variante do produto das costas (ou do peito, se for só peito),
@@ -29,7 +29,23 @@
           {%- if p.tags contains 'estampada' -%}
             <label class="m-arte">
               <input type="radio" name="costas" value="{{ p.handle }}" data-preco="{{ p.price }}" data-exclusiva="{% if p.tags contains 'exclusiva' %}1{% endif %}">
-              {{ p.featured_image | image_url: width: 240 | image_tag: loading: 'lazy', alt: p.title }}
+              {%- liquid
+                assign f_preta = p.featured_image
+                assign f_mapple = p.featured_image
+                assign f_off = p.featured_image
+                for m in p.images
+                  assign alt = m.alt | downcase
+                  if alt contains 'mapple'
+                    assign f_mapple = m
+                  elsif alt contains 'off white'
+                    assign f_off = m
+                  elsif alt contains 'preta'
+                    assign f_preta = m
+                  endif
+                endfor
+              -%}
+              <img src="{{ f_preta | image_url: width: 240 }}" alt="{{ p.title | escape }}" loading="lazy" width="240" height="300"
+                data-preto="{{ f_preta | image_url: width: 240 }}" data-mapple="{{ f_mapple | image_url: width: 240 }}" data-off="{{ f_off | image_url: width: 240 }}">
               <span class="m-arte__nome">{{ p.title }}</span>
               <span class="m-arte__preco">{{ p.price | money }}</span>
             </label>
@@ -43,7 +59,23 @@
           {%- if p.tags contains 'basico' and p.tags contains 'progressivo' and p.handle != 'camiseta-basica-modestino' -%}
             <label class="m-arte">
               <input type="radio" name="peito" value="{{ p.handle }}" data-titulo="{{ p.title | escape }}">
-              {{ p.featured_image | image_url: width: 240 | image_tag: loading: 'lazy', alt: p.title }}
+              {%- liquid
+                assign f_preta = p.featured_image
+                assign f_mapple = p.featured_image
+                assign f_off = p.featured_image
+                for m in p.images
+                  assign alt = m.alt | downcase
+                  if alt contains 'mapple'
+                    assign f_mapple = m
+                  elsif alt contains 'off white'
+                    assign f_off = m
+                  elsif alt contains 'preta'
+                    assign f_preta = m
+                  endif
+                endfor
+              -%}
+              <img src="{{ f_preta | image_url: width: 240 }}" alt="{{ p.title | escape }}" loading="lazy" width="240" height="300"
+                data-preto="{{ f_preta | image_url: width: 240 }}" data-mapple="{{ f_mapple | image_url: width: 240 }}" data-off="{{ f_off | image_url: width: 240 }}">
               <span class="m-arte__nome">{{ p.title }}</span>
             </label>
           {%- endif -%}
@@ -68,7 +100,7 @@
   const desc = n => n >= 3 ? 5 : n === 2 ? 3.75 : 0;
   let noCarrinho = 0;
   fetch('/cart.js').then(r => r.json()).then(c => {
-    noCarrinho = c.items.filter(i => !/exclusiv/i.test(i.product_type + ' ' + (i.properties && i.properties._linha || '')) && i.final_price < 9900 || false).reduce((s, i) => s + i.quantity, 0);
+    noCarrinho = c.items.filter(i => i.final_price < 9900).reduce((s, i) => s + i.quantity, 0);
     calcula();
   }).catch(calcula);
   function escolha() {
@@ -79,14 +111,19 @@
   }
   function calcula() {
     const e = escolha();
-    if (!e.costas && !e.peito) { out.textContent = brl(80); nota.textContent = 'Camiseta lisa. Para a lisa sem arte, use a página da Básica.'; return; }
+    if (!e.costas && !e.peito) { out.textContent = ''; nota.textContent = 'Escolha a arte das costas, do peito ou as duas.'; return; }
     const base = e.costas ? e.preco : 80;
     if (e.exclusiva) { out.textContent = brl(base); nota.textContent = 'Exclusiva: preço fixo, fora do desconto por quantidade.'; return; }
     const n = noCarrinho + 1, d = desc(n);
     out.textContent = brl(base - d);
     nota.textContent = d ? `Com ${n} peças no carrinho, cada uma sai ${brl(d)} mais barata.` : 'Leve 2 ou mais e o desconto entra sozinho no carrinho.';
   }
-  form.addEventListener('change', calcula);
+  const trocaFotos = () => {
+    const cor = (form.querySelector('input[name="cor"]:checked') || {}).value;
+    const k = cor === 'Mapple Brown' ? 'mapple' : cor === 'Off White' ? 'off' : 'preto';
+    form.querySelectorAll('.m-arte img[data-preto]').forEach(i => { if (i.dataset[k]) i.src = i.dataset[k]; });
+  };
+  form.addEventListener('change', ev => { if (ev.target.name === 'cor') trocaFotos(); calcula(); });
   form.addEventListener('submit', async ev => {
     ev.preventDefault(); erro.textContent = '';
     const e = escolha();
@@ -99,7 +136,8 @@
       const props = {};
       if (e.costas && e.peito) props['Peito'] = form.querySelector('input[name="peito"]:checked').dataset.titulo;
       if (!e.costas) props['Costas'] = 'Sem arte';
-      await fetch('/cart/add.js', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({items: [{id: v.id, quantity: 1, properties: props}]})});
+      const r = await fetch('/cart/add.js', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({items: [{id: v.id, quantity: 1, properties: props}]})});
+      if (!r.ok) throw new Error();
       window.location.href = '/cart';
     } catch (_) { erro.textContent = 'Não deu para adicionar. Fala com a gente no WhatsApp.'; }
   });
@@ -113,11 +151,13 @@
 .m-monte__form fieldset{border:0;padding:0;margin:0 0 24px}
 .m-monte__form legend{font-weight:600;margin-bottom:8px}
 .m-monte__form fieldset:not(.m-monte__artes) label{display:inline-flex;gap:6px;align-items:center;min-height:44px;padding:0 14px;border:1px solid var(--color-border-input,#6E675F);border-radius:4px;margin:0 6px 6px 0;cursor:pointer}
-.m-monte__artes{display:grid!important;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.m-monte__artes{display:grid!important;align-items:start;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
 .m-monte__artes legend{grid-column:1/-1}
-.m-arte{display:grid;gap:4px;border:1px solid var(--color-border,#CBBFAE);border-radius:8px;padding:8px;cursor:pointer;background:var(--color-surface,#E4DDD0)}
+.m-arte{position:relative;display:grid;gap:4px;border:1px solid var(--color-border,#CBBFAE);border-radius:8px;padding:8px;cursor:pointer;background:var(--color-surface,#E4DDD0)}
+.m-arte:not(:has(img)){min-height:56px;align-content:center}
 .m-arte img{width:100%;height:auto;border-radius:4px}
 .m-arte input{position:absolute;opacity:0}
+.m-arte:has(input:focus-visible){outline:2px solid var(--color-accent,#5B3F30)}
 .m-arte:has(input:checked){outline:2px solid var(--color-text,#22201D)}
 .m-arte__preco,.m-preco{font-family:var(--font-mono,monospace)}
 .m-monte__total .m-preco{font-size:1.5rem}
