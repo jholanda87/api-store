@@ -96,3 +96,10 @@ Personalizador (aba das artes, frente e costas, preço automático): a construir
 ### Decisões de 31/10 (tarde)
 - Domínio escolhido: **modestino.store** (compra pelo Jorge no admin da Shopify).
 - Personalizador: frente e costas pelo mesmo preço da linha; arte da frente é opcional. Prazo: 5 dias de personalização + 2 dias para despacho (7 dias). Artes finais vêm da sessão de coleções, pelo Drive e pelo site.
+
+### Estampas na loja (31/10/2026)
+14 produtos ativos, feitos sob encomenda (estoque não controlado, 7 dias), 3 cores × P–GG, imagens = mockups da branch `claude/sweet-cray-1ilyxs`:
+- Básicas (R$ 80, `basico`+`progressivo`): Cavalheiro (rosto), MODESTINO (nome).
+- Estampadas (R$ 90, tag da coleção + `progressivo`): Carcará galho · voo · estaca · chão rachado; Garça lagoa · voando; Carnaúba a folha · três folhas; Jangada com o sol; Caju; Caju colorido.
+- Exclusiva (R$ 99, `exclusiva`): O Cavalheiro colorido (prancha).
+Faltam (sem mockup ainda): Garça três garças; Carnaúba broto e folha e lua; Jangada lua e estrelas e rumo ao sol; Happy Hour. Personalizador "Monte a sua" e coleções no menu: próximo passo (cópia do tema).
