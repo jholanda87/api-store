@@ -57,10 +57,26 @@ def caminhos(esq):
             if not prox: break
             resto.discard(prox[0]); c.append(prox[0])
         saida.append(c + [c[0]])
-    return [c for c in saida if len(c) > 25]          # tira rebarbas curtas
+    return [c for c in saida if len(c) > 90]          # tira rebarbas curtas
 
 
 def suavizar(c, sigma=9):
+    """Curva longa e lisa: spline com suavização forte (sem ondulação), pontas no lugar."""
+    from scipy.interpolate import splprep, splev
+    a = np.array(c, float)[:, ::-1]
+    if len(a) < 30:
+        return a
+    a = a[::3]
+    try:
+        tck, _ = splprep([a[:, 0], a[:, 1]], s=len(a) * 9.0, k=3)
+        x, y = splev(np.linspace(0, 1, max(12, len(a) // 2)), tck)
+        out = np.c_[x, y]; out[0], out[-1] = a[0], a[-1]
+        return out
+    except Exception:
+        return a
+
+
+def suavizar_antigo(c, sigma=9):
     a = np.array(c, float)[:, ::-1]                    # (x, y)
     orig = a.copy()
     if len(a) > 3 * sigma:
