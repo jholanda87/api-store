@@ -1,0 +1,30 @@
+{%- comment -%} Vitrine do início: peças avulsas das coleções (sem kits), em ordem aleatória a cada visita. {%- endcomment -%}
+<section class="m-vitrine" aria-labelledby="artes-{{ section.id }}">
+  <div class="m-wrap">
+    <div class="m-vitrine__cab"><h2 id="artes-{{ section.id }}">{{ section.settings.titulo }}</h2></div>
+    <ul class="m-vitrine__grade" id="artes-grade">
+      {%- for p in collections.all.products -%}
+        {%- if p.handle contains 'kit-' -%}{%- continue -%}{%- endif -%}
+        <li class="m-card">
+          <a href="{{ p.url }}" class="m-card__link">
+            <div class="m-card__foto">
+              {{ p.featured_image | image_url: width: 720 | image_tag: loading: 'lazy', sizes: '(max-width: 859px) 50vw, 25vw', widths: '360, 540, 720', alt: p.featured_image.alt }}
+            </div>
+            <h3>{{ p.title }}</h3>
+            <p class="m-card__preco">{{ p.price | money_without_trailing_zeros }}</p>
+          </a>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>
+<script>
+(() => { const g = document.getElementById('artes-grade'); if (!g) return;
+  const itens = [...g.children];
+  for (let i = itens.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [itens[i], itens[j]] = [itens[j], itens[i]]; }
+  itens.forEach(li => g.appendChild(li)); })();
+</script>
+
+{% schema %}
+{ "name": "Vitrine das coleções", "settings": [ { "type": "text", "id": "titulo", "label": "Título", "default": "Escolha a sua" } ], "presets": [{ "name": "Vitrine das coleções" }] }
+{% endschema %}

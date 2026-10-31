@@ -8,70 +8,6 @@
       "type": "modestino-inicio",
       "settings": {}
     },
-    "vitrine": {
-      "type": "modestino-vitrine",
-      "settings": {},
-      "blocks": {
-        "cam": {
-          "type": "produto",
-          "settings": {
-            "produto": "camiseta-basica-modestino",
-            "nome": "Camiseta Básica",
-            "pecas": 1,
-            "foto_hover": 2,
-            "cores": true,
-            "nota": "",
-            "selo": "",
-            "foto": 0
-          }
-        },
-        "k3": {
-          "type": "produto",
-          "settings": {
-            "produto": "kit-3-camisetas-basicas-modestino",
-            "nome": "Kit 3",
-            "pecas": 3,
-            "foto_hover": 2,
-            "cores": false,
-            "nota": "3 peças · com ecobag",
-            "selo": "",
-            "foto": 1
-          }
-        },
-        "ke": {
-          "type": "produto",
-          "settings": {
-            "produto": "kit-essencial-modestino",
-            "nome": "Kit Essencial",
-            "pecas": 3,
-            "foto_hover": 0,
-            "cores": false,
-            "nota": "Uma de cada cor · com ecobag",
-            "selo": "",
-            "foto": 2
-          }
-        },
-        "k2": {
-          "type": "produto",
-          "settings": {
-            "produto": "kit-2-camisetas-basicas-modestino",
-            "nome": "Kit 2",
-            "pecas": 2,
-            "foto_hover": 1,
-            "cores": false,
-            "nota": "2 peças · com ecobag",
-            "selo": "",
-            "foto": 0
-          }
-        }
-      },
-      "block_order": [
-        "cam",
-        "k3",
-        "ke",
-        "k2"
-      ]
-    },
     "prova": {
       "type": "modestino-prova",
       "settings": {},
@@ -154,6 +90,10 @@
     },
     "fecho": {
       "type": "modestino-fechamento",
+      "settings": {}
+    },
+    "vitrine": {
+      "type": "modestino-artes",
       "settings": {}
     }
   },
