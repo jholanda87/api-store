@@ -107,3 +107,7 @@ Faltam (sem mockup ainda): Garça três garças; Carnaúba broto e folha e lua; 
 ### Monte a sua + menu (31/10/2026)
 Na cópia do tema "Cópia de Modestino (construção)" (`167202390064`, não publicada): seção `modestino-monte` + template `page.monte`; página "Monte a sua" (/pages/monte-a-sua). Cabeçalho da cópia usa o menu novo "modestino-colecoes": Básicas, Carcará, Garça, Carnaúba, Jangada, Caju, Exclusivas, Monte a sua. Vale ao publicar a cópia.
 Regras do Monte a sua: costas = produtos `estampada` (preço do produto); peito opcional = artes básicas (Cavalheiro, nome), sem custo extra quando há costas; só peito = R$ 80; preço mostrado já com o desconto conforme as peças no carrinho; vai para o carrinho a variante do produto com a arte do peito como propriedade "Peito".
+
+## Tema publicado (31/10)
+
+Jorge publicou "Modestino FINAL - publicar este" (id 167202390064). Conferido ao vivo: menu por arte, coleções abrem, Monte a sua com 16 artes. Novas edições de tema: duplicar o MAIN e editar a cópia.
