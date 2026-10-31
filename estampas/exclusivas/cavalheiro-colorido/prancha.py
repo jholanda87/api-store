@@ -22,9 +22,9 @@ COR = {
     'pele': (231, 190, 152), 'luva': (233, 216, 162), 'calca': (237, 227, 200), 'cartola': (140, 139, 134),
     'sapato': (28, 26, 25),
 }
-REGIOES = {  # números do mapa de áreas (traço dilatado 4 px); 69 e 118 são vãos: ficam vazados
+REGIOES = {  # números do mapa de áreas (traço dilatado 4 px); 69 (braço/tronco) fica vazado
     'fraque': [27, 36, 50, 56, 63, 72, 82, 95], 'colete': [60, 64, 66, 78, 79, 83], 'camisa': [33, 47],
-    'gravata': [44], 'pele': [4, 24], 'luva': [90], 'calca': [85, 113], 'sapato': [129, 134, 137],
+    'gravata': [44], 'pele': [4, 24], 'luva': [90], 'calca': [85, 113, 118], 'sapato': [129, 134, 137],
 }
 TRACO = {'preta': (242, 238, 230), 'mapple': (242, 238, 230), 'offwhite': (34, 32, 29)}
 FRAQUE_NA_PRETA = (44, 85, 70)  # o verde da prancha sumiria no preto: um tom acima, mesma família
@@ -74,6 +74,8 @@ def main(fonte):
         grupos = dict(REGIOES)
         for nome in list(grupos) + ['cartola']:
             m1 = cartola if nome == 'cartola' else np.isin(lab, grupos[nome])
+            if nome == 'calca':  # parte de baixo da perna reta só fecha com dilatação maior
+                m1 = m1 | (lab9 == lab9[1720, 430])
             m = ndi.binary_dilation(up(m1), iterations=10)     # encosta no traço, por baixo dele
             base = np.array(FRAQUE_NA_PRETA if (nome == 'fraque' and tecido == 'preta') else COR[nome], float)
             t = sombra(m, mm_px)[..., None]
