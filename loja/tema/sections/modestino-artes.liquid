@@ -5,7 +5,8 @@
     <ul class="m-vitrine__grade" id="artes-grade">
       {%- for p in collections.all.products -%}
         {%- if p.handle contains 'kit-' -%}{%- continue -%}{%- endif -%}
-        <li class="m-card">
+        {%- capture fotos -%}{%- for m in p.images -%}{%- unless m.alt contains 'cabide' or m.alt contains 'perto' or m.alt contains 'lado' or m.alt contains 'ombro' or m.alt contains 'Etiqueta' -%}{{ m | image_url: width: 720 }}|{%- endunless -%}{%- endfor -%}{%- endcapture -%}
+        <li class="m-card" data-fotos="{{ fotos | escape }}">
           <a href="{{ p.url }}" class="m-card__link">
             <div class="m-card__foto">
               {{ p.featured_image | image_url: width: 720 | image_tag: loading: 'lazy', sizes: '(max-width: 859px) 50vw, 25vw', widths: '360, 540, 720', alt: p.featured_image.alt }}
@@ -21,6 +22,7 @@
 <script>
 (() => { const g = document.getElementById('artes-grade'); if (!g) return;
   const itens = [...g.children];
+  itens.forEach(li => { const f = (li.dataset.fotos || '').split('|').filter(Boolean); if (f.length) { const im = li.querySelector('img'); im.removeAttribute('srcset'); im.src = f[Math.floor(Math.random() * f.length)]; } });
   for (let i = itens.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [itens[i], itens[j]] = [itens[j], itens[i]]; }
   itens.forEach(li => g.appendChild(li)); })();
 </script>
