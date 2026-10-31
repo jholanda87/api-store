@@ -11,3 +11,7 @@ O desenho oficial do Cavalheiro (figura inteira, do guia de identidade), sem red
 
 3 tintas por camiseta (serigrafia, uma tela por tinta: `<g id="tinta-...">` no SVG) ou DTF.
 Traço com mínimo de 0,8 mm. Gerado por `colorir.py` a partir da página 1 do guia (pdfimages).
+
+Versão com volume (`--volume`, pedida em 31/10): luz de cima à esquerda em pontilhismo de 0,8 mm.
+Na preta e na mapple a sombra é o tecido aparecendo e a luz são pontos de linho; na off-white a sombra
+são pontos de carvão e a luz é o tecido. Continua com 3 tintas: `cavalheiro-colorido-volume-*.svg`.
