@@ -1,13 +1,12 @@
 # Coleção 02: artes finais (30/10/2026)
 
-Seleção final do Jorge: carcará, caju e cavalo-marinho (as aprovadas), jangada e garça
-(variação A de cada) nas costas, e o Cavalheiro no peito. Vetor, 1 tinta, prontas para serigrafia.
+Seleção final do Jorge: carcará e caju (as aprovadas), jangada e garça (variação A de cada)
+nas costas, e o Cavalheiro no peito. O cavalo-marinho saiu em 31/10 (está em `_reserva/`). Vetor, 1 tinta, prontas para serigrafia.
 
 | arte | tamanho | posição | tinta na preta e na mapple | tinta na off-white |
 | --- | --- | --- | --- | --- |
 | carcará | 25,3 × 35 cm | costas, topo 11 cm abaixo da gola de trás, centralizada | linho #ECE7DE | carvão #22201D |
 | caju | 29,3 × 35 cm | costas, idem | linho | carvão |
-| cavalo-marinho | 18,1 × 35 cm | costas, idem | linho | carvão |
 | jangada (variação A, com o sol) | 32 × 20,3 cm (*) | costas, idem | linho | carvão |
 | garça (variação A, voando) | 31,9 × 24,5 cm (*) | costas, idem | linho | carvão |
 | Cavalheiro | 3,4 × 10 cm | peito, topo 10 cm abaixo da gola, centro 7 cm do meio | linho | grafite #6E675F |
@@ -16,7 +15,7 @@ Seleção final do Jorge: carcará, caju e cavalo-marinho (as aprovadas), jangad
 mais que a área de impressão das costas (cerca de 32 cm). Ficaram com 32 cm de largura, o desenho inteiro.
 
 Posição das costas: 11 cm abaixo da gola de trás (pedido do Jorge; antes era 7 cm e ficava alto).
-Fora da seleção, guardadas em `_reserva/`: folha de carnaúba e a primeira versão da jangada e da garça.
+Fora da seleção, guardadas em `_reserva/`: cavalo-marinho, folha de carnaúba e a primeira versão da jangada e da garça.
 
 ## Arquivos de cada arte
 - `<arte>-fotolito-preto.svg` e `.pdf`: para a gráfica gravar a tela (preto = imprime), tamanho real.

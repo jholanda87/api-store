@@ -1,11 +1,11 @@
 # Como instalar as habilidades da máquina de vendas
 
-São 21 habilidades da Modestino + as 11 originais da Replica (MIT, de Jake Schincariol).
+São 22 habilidades da Modestino + as 11 originais da Replica (MIT, de Jake Schincariol).
 
 **Novas em 30/10/2026: linha Estampada** (camisetas estampadas, com o Cavalheiro na roupa):
 `estampa-modestino` (as regras e a ordem), `estampa-conceito-modestino`, `estampa-arte-modestino`,
 `estampa-mockup-modestino` (aplica a estampa nas fotos das blusas, frente e costas) e
-`estampa-producao-modestino`. A regra antiga "o Cavalheiro nunca vai na roupa" mudou: reenvie
+`estampa-producao-modestino`, e (31/10) `estilista-colecao-modestino`, que monta as coleções e cuida dos desenhos à mão do Jorge. A regra antiga "o Cavalheiro nunca vai na roupa" mudou: reenvie
 as 3 habilidades da pasta `atualizar-no-claude-ai/` (criar-conteudo, roteiro-reels e
 site-impecavel) no Claude.ai, substituindo as antigas.
 
