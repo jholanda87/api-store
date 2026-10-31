@@ -6,38 +6,26 @@
   assign camiseta = all_products[section.settings.produto]
   assign fotos = ''
 -%}
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const e = document.getElementById('esteira-{{ section.id }}'); if (!e) return;
-  const trilho = e.querySelector('.m-esteira__trilho');
-  const ops = [...e.querySelectorAll('.m-esteira__op')].map(o => { const f = o.children; return f.length ? f[Math.floor(Math.random() * f.length)] : null; }).filter(Boolean);
-  for (let i = ops.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [ops[i], ops[j]] = [ops[j], ops[i]]; }
-  ops.forEach(f => trilho.appendChild(f));
-  e.querySelector('.m-esteira__opcoes').remove();
-  [...trilho.children].forEach(f => { const c = f.cloneNode(true); c.setAttribute('aria-hidden', 'true'); c.querySelectorAll('img').forEach(i => { i.alt = ''; i.loading = 'lazy'; i.removeAttribute('fetchpriority'); }); trilho.appendChild(c); });
-  trilho.style.setProperty('--n', trilho.children.length / 2);
-  e.classList.add('m-esteira--viva');
-});
-</script>
 <section class="m-hero" aria-labelledby="hero-{{ section.id }}">
   <div class="m-hero__fotos m-esteira" id="esteira-{{ section.id }}">
     <div class="m-esteira__trilho">
       {%- for m in camiseta.media -%}
         {%- if m.alt contains 'de frente' -%}
-          <div class="m-hero__foto">
-            {{ m.preview_image | image_url: width: 900 | image_tag: loading: 'eager', fetchpriority: 'high', sizes: '(max-width: 859px) 100vw, 34vw', widths: '540, 720, 900', alt: m.alt }}
+          {%- assign alt = m.alt | downcase -%}
+          <div class="m-hero__foto" data-cor="{% if alt contains 'mapple' %}m{% elsif alt contains 'off' %}o{% else %}p{% endif %}">
+            {{ m.preview_image | image_url: width: 900 | image_tag: loading: 'eager', sizes: '(max-width: 859px) 80vw, 34vw', widths: '540, 720, 900', alt: m.alt }}
           </div>
         {%- endif -%}
       {%- endfor -%}
-    </div>
-    <div class="m-esteira__opcoes" hidden>
       {%- for p in collections.all.products -%}
-        {%- if p.handle contains 'kit-' or p.handle == camiseta.handle -%}{%- continue -%}{%- endif -%}
-        <div class="m-esteira__op">
+        {%- if p.tags contains 'basico' and p.tags contains 'progressivo' and p.handle != camiseta.handle -%}
           {%- for m in p.images -%}
-            <div class="m-hero__foto"><img src="{{ m | image_url: width: 900 }}" alt="{{ m.alt | default: p.title | escape }}" loading="lazy" width="900" height="1125"></div>
+            {%- assign alt = m.alt | downcase -%}
+            <div class="m-hero__foto" data-cor="{% if alt contains 'mapple' %}m{% elsif alt contains 'off' %}o{% else %}p{% endif %}">
+              {{ m | image_url: width: 900 | image_tag: loading: 'eager', sizes: '(max-width: 859px) 80vw, 34vw', widths: '540, 720, 900', alt: m.alt }}
+            </div>
           {%- endfor -%}
-        </div>
+        {%- endif -%}
       {%- endfor -%}
     </div>
   </div>
@@ -49,9 +37,25 @@ document.addEventListener('DOMContentLoaded', () => {
     </div>
   </div>
 </section>
+<script>
+(() => {
+  const e = document.getElementById('esteira-{{ section.id }}'); if (!e) return;
+  const t = e.querySelector('.m-esteira__trilho');
+  let f = [...t.children];
+  // embaralha sem repetir cor nem arte em sequência
+  for (let k = 0; k < 200; k++) {
+    for (let i = f.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [f[i], f[j]] = [f[j], f[i]]; }
+    if (f.every((x, i) => i === 0 || x.dataset.cor !== f[i - 1].dataset.cor) && f[0].dataset.cor !== f[f.length - 1].dataset.cor) break;
+  }
+  f.forEach(x => t.appendChild(x));
+  f.forEach(x => { const c = x.cloneNode(true); c.setAttribute('aria-hidden', 'true'); c.querySelector('img').alt = ''; t.appendChild(c); });
+  t.style.setProperty('--n', f.length);
+  e.classList.add('m-esteira--viva');
+})();
+</script>
 
 {% stylesheet %}
-.m-esteira { display: block !important; overflow: hidden; }
+.m-esteira { display: block !important; overflow: hidden; background: #ECE7DE; }
 .m-esteira__trilho { display: flex; height: 100%; width: max-content; }
 .m-esteira .m-hero__foto { display: block !important; flex: 0 0 34vw; height: 100%; }
 .m-esteira--viva .m-esteira__trilho { animation: m-esteira calc(var(--n) * 4s) linear infinite; }
