@@ -10,7 +10,7 @@
 
     <nav class="m-nav" aria-label="Principal">
       {%- for link in links -%}
-        <a href="{{ link.url }}" {% if link.current %}aria-current="page"{% endif %}>{{ link.title }}</a>
+        <a href="{{ link.url }}" {% if link.url contains "monte-a-sua" %}class="m-nav__monte" {% endif %}{% if link.current %}aria-current="page"{% endif %}>{{ link.title }}</a>
       {%- else -%}
         <a href="/products/camiseta-basica-modestino">Camiseta</a>
         <a href="/#kits">Kits</a>
@@ -28,7 +28,7 @@
         <summary aria-label="Abrir menu">{% render 'modestino-icone', nome: 'menu' %}</summary>
         <nav class="m-gaveta__painel" aria-label="Menu">
           {%- for link in links -%}
-            <a href="{{ link.url }}">{{ link.title }}</a>
+            <a href="{{ link.url }}"{% if link.url contains "monte-a-sua" %} class="m-nav__monte"{% endif %}>{{ link.title }}</a>
           {%- else -%}
             <a href="/products/camiseta-basica-modestino">Camiseta</a>
             <a href="/#kits">Kits</a>
@@ -40,6 +40,11 @@
     </div>
   </div>
 </header>
+
+{% stylesheet %}
+.m-nav a.m-nav__monte, .m-gaveta__painel a.m-nav__monte { background: #5B3F30; color: #ECE7DE; padding: 0 16px; border-radius: 999px; }
+.m-nav a.m-nav__monte:hover, .m-nav a.m-nav__monte[aria-current='page'] { text-decoration: none; background: #22201D; }
+{% endstylesheet %}
 
 {% schema %}
 {

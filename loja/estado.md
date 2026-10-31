@@ -111,3 +111,7 @@ Regras do Monte a sua: costas = produtos `estampada` (preço do produto); peito 
 ## Tema publicado (31/10)
 
 Jorge publicou "Modestino FINAL - publicar este" (id 167202390064). Conferido ao vivo: menu por arte, coleções abrem, Monte a sua com 16 artes. Novas edições de tema: duplicar o MAIN e editar a cópia.
+
+## Ajustes de 31/10 (noite)
+
+Tema "Modestino v2 - publicar este" (id 167330742320, cópia do publicado): rodapé sem endereço (só CNPJ e Fortaleza/CE) e coluna Loja = Início + Monte a sua; faixa de coleções com foto no topo do início + cartão de destaque do Monte a sua; botão marrom do Monte a sua no menu. Aguarda o Jorge publicar.

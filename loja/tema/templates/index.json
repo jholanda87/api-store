@@ -1,5 +1,9 @@
 {
   "sections": {
+    "colecoes": {
+      "type": "modestino-colecoes",
+      "settings": {}
+    },
     "inicio": {
       "type": "modestino-inicio",
       "settings": {}
@@ -154,6 +158,7 @@
     }
   },
   "order": [
+    "colecoes",
     "inicio",
     "vitrine",
     "prova",

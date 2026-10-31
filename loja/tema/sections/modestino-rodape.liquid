@@ -7,10 +7,8 @@
       <div>
         <h2>Loja</h2>
         <ul>
-          <li><a href="/products/camiseta-basica-modestino">Camiseta</a></li>
-          <li><a href="/products/kit-3-camisetas-basicas-modestino">Kit 3</a></li>
-          <li><a href="/products/kit-2-camisetas-basicas-modestino">Kit 2</a></li>
-          <li><a href="/products/kit-essencial-modestino">Kit Essencial</a></li>
+          <li><a href="{{ routes.root_url }}">Início</a></li>
+          <li><a href="/pages/monte-a-sua">Monte a sua</a></li>
         </ul>
       </div>
       <div>
@@ -31,7 +29,7 @@
       </div>
     </div>
     <div class="m-rodape__base">
-      <p><span class="m-rodape__nome">MODESTINO</span> · {{ section.settings.razao_social }} · CNPJ <span class="m-mono">{{ section.settings.cnpj }}</span> · {% if section.settings.endereco != blank %}{{ section.settings.endereco }}{% else %}Fortaleza/CE{% endif %}</p>
+      <p><span class="m-rodape__nome">MODESTINO</span> · {{ section.settings.razao_social }} · CNPJ <span class="m-mono">{{ section.settings.cnpj }}</span> · Fortaleza/CE</p>
     </div>
   </div>
 </footer>
@@ -43,7 +41,6 @@
   "settings": [
     { "type": "text", "id": "razao_social", "label": "Razão social", "default": "69.828.190 JORGE HOLANDA SOUSA" },
     { "type": "text", "id": "cnpj", "label": "CNPJ", "default": "69.828.190/0001-36" },
-    { "type": "text", "id": "endereco", "label": "Endereço do CNPJ (preenchido só na Shopify, nunca no repositório)" },
     { "type": "text", "id": "whatsapp", "label": "Link do WhatsApp", "default": "https://wa.me/5585981559590?text=Oi%21%20Vim%20pela%20loja%20da%20MODESTINO%20e%20tenho%20uma%20d%C3%BAvida." }
   ]
 }
