@@ -92,3 +92,7 @@ Na Shopify: coleção interna "Preço progressivo" (tag `progressivo`) + 2 desco
 
 Vídeo 360°: parado (Jorge, 31/10). Domínio: modestino.com.br está registrado (venceu em 26/10/2026, pode estar em liberação); modestino.com indisponível; modestino.store/.shop disponíveis na Shopify.
 Personalizador (aba das artes, frente e costas, preço automático): a construir quando as artes estiverem prontas.
+
+### Decisões de 31/10 (tarde)
+- Domínio escolhido: **modestino.store** (compra pelo Jorge no admin da Shopify).
+- Personalizador: frente e costas pelo mesmo preço da linha; arte da frente é opcional. Prazo: 5 dias de personalização + 2 dias para despacho (7 dias). Artes finais vêm da sessão de coleções, pelo Drive e pelo site.
