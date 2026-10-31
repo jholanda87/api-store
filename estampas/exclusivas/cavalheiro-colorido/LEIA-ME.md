@@ -23,3 +23,14 @@ Pedido do Jorge: "traços melhorados, como um desenho mas não feito à mão" e 
 - Paleta viva (`--vivo`): preta linho/ouro #E3A833/verde #5FA05A; mapple linho/amarelo-sol #F2C24E/
   azul-céu #7EC0D6; off-white carvão/castanho #8A4518/verde-mata #3F7A3A (contraste 4,2:1 ou mais).
 - Volume em pontilhismo mantido. Arquivos: `cavalheiro-colorido-v2-volume-*.svg`, 3 tintas.
+
+## Versão prancha (31/10): cores e realismo da referência do Jorge
+Referência: figura da esquerda da prancha "Le Follet Courrier des Salons" (c. 1840, domínio público), de onde
+o Jorge adaptou o Cavalheiro (sozinho, a outra mão no bolso). `prancha.py`:
+- paleta da prancha: fraque verde-garrafa (um tom acima na camiseta preta), colete camurça, camisa branca,
+  gravata preta, calça creme, cartola cinza, luvas amarelo-claro, sapatos pretos;
+- sombra de aquarela (luz de cima à esquerda, escurece junto do traço), textura leve;
+- traço limpo da versão 2 (linho na preta e na mapple, carvão na off-white); bengala refeita como vara reta
+  no mesmo eixo (o original era traço duplo de caneta);
+- vãos entre braço e tronco e entre as pernas vazados.
+Policromática: DTF. Arquivos `cavalheiro-prancha-*.png` (transparente, ~278 dpi a 35 cm) e `.svg` para mockup.
