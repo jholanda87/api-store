@@ -10,3 +10,12 @@ Policromáticas:
 Em cada pasta, `_colecao.png` mostra as opções nas três cores. As artes de cada assunto são do mesmo
 traço (aprovada + variações). Carcará e Carnaúba têm uma opção a mais para o Jorge escolher as 3.
 Montado localmente, sem custo; arte final (vetor, fotolito) só depois da escolha.
+
+## Decisões do Jorge (31/10) e rodada 2
+- Básicas: aprovadas como estão. Carcará: ficam as 4 (galho, voo, estaca, chão rachado).
+- Garça: ficam lagoa e voando; Nº 3 nova (opções em `garca/_rodada2.png`).
+- Carnaúba: ficam a folha e as três folhas; 2 novas para escolher.
+- Jangada: fica a aprovada (com o sol); 3 novas para escolher.
+- Caju: fica o aprovado; 4 novas para escolher (pediu no mínimo 2).
+Rodada 2 gerada no Canva (conta do Jorge, sem custo extra); prévias de 200 px em `opcoes-canva/`,
+originais maiores no Canva (ids em `opcoes-canva/canva.txt`).
