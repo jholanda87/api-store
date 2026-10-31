@@ -15,3 +15,11 @@ Traço com mínimo de 0,8 mm. Gerado por `colorir.py` a partir da página 1 do g
 Versão com volume (`--volume`, pedida em 31/10): luz de cima à esquerda em pontilhismo de 0,8 mm.
 Na preta e na mapple a sombra é o tecido aparecendo e a luz são pontos de linho; na off-white a sombra
 são pontos de carvão e a luz é o tecido. Continua com 3 tintas: `cavalheiro-colorido-volume-*.svg`.
+
+## Versão 2 (31/10): traço limpo e cores vivas
+Pedido do Jorge: "traços melhorados, como um desenho mas não feito à mão" e "cores mais vivas".
+- Traço refeito pela linha central do desenho original (`--limpo`): espessura constante de 1,2 mm,
+  rebarbas da caneta removidas, curvas suavizadas. Pose, proporções e detalhes no mesmo lugar.
+- Paleta viva (`--vivo`): preta linho/ouro #E3A833/verde #5FA05A; mapple linho/amarelo-sol #F2C24E/
+  azul-céu #7EC0D6; off-white carvão/castanho #8A4518/verde-mata #3F7A3A (contraste 4,2:1 ou mais).
+- Volume em pontilhismo mantido. Arquivos: `cavalheiro-colorido-v2-volume-*.svg`, 3 tintas.

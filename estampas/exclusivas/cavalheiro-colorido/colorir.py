@@ -25,6 +25,49 @@ QUENTE = [60, 47, 64, 79, 4, 24, 90]        # colete, rosto, pescoço, mão
 
 
 VOLUME = '--volume' in sys.argv
+LIMPO = '--limpo' in sys.argv   # traço refeito pela linha central: espessura uniforme, curvas suaves
+VIVO = '--vivo' in sys.argv     # paleta mais saturada (pedido do Jorge, 31/10)
+PALETAS_VIVAS = {  # tecido: (traço, quente, fria); contraste com o tecido 4,2:1 ou mais
+    'preta': ('#F2EEE6', '#E3A833', '#5FA05A'),
+    'mapple': ('#F2EEE6', '#F2C24E', '#7EC0D6'),
+    'offwhite': ('#22201D', '#8A4518', '#3F7A3A'),
+}
+
+
+def traco_limpo(linha, mm_px, espessura_mm=1.2):
+    """Redesenha o traço como ilustração vetorial: esqueleto do traço original, sem as rebarbas
+    curtas da caneta, com espessura constante. Pose e detalhes ficam no mesmo lugar."""
+    from skimage.morphology import skeletonize, disk, remove_small_objects
+    base = ndi.binary_closing(ndi.binary_opening(linha, iterations=1), iterations=2)
+    esq = skeletonize(base)
+    try:
+        esq = remove_small_objects(esq, max_size=12, connectivity=2)
+    except TypeError:
+        esq = remove_small_objects(esq, min_size=12, connectivity=2)
+    r = max(2, int(round(espessura_mm / mm_px / 2)))
+    novo = ndi.binary_dilation(esq, structure=disk(r))
+    # suaviza a borda antes de traçar: menos serrilhado, curva mais limpa
+    suave = ndi.gaussian_filter(novo.astype(float), 1.6) > 0.5
+    return suave
+
+
+def tracar_suave(mascara, sujeira=6):
+    """Potrace com mais suavização que o padrão (curvas de ilustração, não de caneta)."""
+    import potrace
+    img = np.where(mascara, 0, 255).astype('uint8')
+    dados = img >= 128
+    curvas = potrace.Bitmap(dados).trace(turdsize=sujeira, alphamax=1.3, opticurve=True, opttolerance=0.5)
+    d = []
+    for c in curvas:
+        partes = ['M%.1f %.1f' % (c.start_point.x, c.start_point.y)]
+        for sg in c.segments:
+            if sg.is_corner:
+                partes.append('L%.1f %.1fL%.1f %.1f' % (sg.c.x, sg.c.y, sg.end_point.x, sg.end_point.y))
+            else:
+                partes.append('C%.1f %.1f %.1f %.1f %.1f %.1f' % (sg.c1.x, sg.c1.y, sg.c2.x, sg.c2.y,
+                                                                 sg.end_point.x, sg.end_point.y))
+        d.append(''.join(partes) + 'Z')
+    return ''.join(d)
 
 
 def volume(lab, ids, mm_px, ponto_mm=0.8):
@@ -72,11 +115,11 @@ def main(fonte):
         return ndi.binary_dilation(m, iterations=5) & ~linha | m  # encosta no traço, por baixo dele
     camadas = {'fria': mascara(FRAQUE), 'quente': mascara(QUENTE)}
     L = Image.fromarray(np.where(linha, 0, 255).astype('uint8'))
-    camadas['traco'] = np.array(vetorizar.garantir(L, mm_px, 0.8)) == 0
+    camadas['traco'] = traco_limpo(linha, mm_px) if LIMPO else np.array(vetorizar.garantir(L, mm_px, 0.8)) == 0
     sombra, luz = volume(lab, FRAQUE + QUENTE, mm_px) if VOLUME else (None, None)
     h, w = a.shape
-    sufixo = '-volume' if VOLUME else ''
-    for tecido, (traco, quente, fria) in PALETAS.items():
+    sufixo = ('-v2' if LIMPO or VIVO else '') + ('-volume' if VOLUME else '')
+    for tecido, (traco, quente, fria) in (PALETAS_VIVAS if VIVO else PALETAS).items():
         cam = {k: v.copy() for k, v in camadas.items()}
         if VOLUME:
             if tecido == 'offwhite':  # sombra em pontos de carvão; luz vaza o tecido claro
@@ -85,8 +128,11 @@ def main(fonte):
                 cam['fria'] &= ~(sombra | luz); cam['quente'] &= ~(sombra | luz); cam['traco'] |= luz
         caminhos = {}
         for nome, m in cam.items():
-            d, _ = vetorizar.tracar(Image.fromarray(np.where(m, 0, 255).astype('uint8')), 128, 2)
-            caminhos[nome] = ''.join(d)
+            if LIMPO:
+                caminhos[nome] = tracar_suave(m, 2 if nome == 'traco' and VOLUME else 4)
+            else:
+                d, _ = vetorizar.tracar(Image.fromarray(np.where(m, 0, 255).astype('uint8')), 128, 2)
+                caminhos[nome] = ''.join(d)
         svg = ('<svg xmlns="http://www.w3.org/2000/svg" width="%.1fmm" height="%.1fmm" viewBox="0 0 %d %d">\n'
                '  <title>Exclusivas · O Cavalheiro colorido%s · costas 35 cm · camiseta %s · 3 tintas</title>\n'
                '  <g id="tinta-fria"><path fill="%s" fill-rule="evenodd" d="%s"/></g>\n'
