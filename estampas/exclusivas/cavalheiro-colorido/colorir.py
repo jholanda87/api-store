@@ -20,7 +20,7 @@ PALETAS = {  # tecido: (traço, quente, fria)
     'mapple': ('#ECE7DE', '#D8B878', '#9FB4B3'),
     'offwhite': ('#22201D', '#5B3F30', '#6B7350'),
 }
-FRAQUE = [27, 56, 69, 82, 95, 66, 36]       # regiões do mapa (dilatação 4 px)
+FRAQUE = [27, 56, 82, 95, 66, 36]           # regiões do mapa (dilatação 4 px); 69 = vão entre braço e tronco, fica vazado
 QUENTE = [60, 47, 64, 79, 4, 24, 90]        # colete, rosto, pescoço, mão
 
 
