@@ -1,0 +1,29 @@
+{
+ "carcara": [
+  "Nº 1 · pousado no galho (aprovado)",
+  "Nº 2 · em voo",
+  "Nº 3 · na estaca do sertão",
+  "opção · no chão rachado"
+ ],
+ "garca": [
+  "Nº 1 · na lagoa",
+  "Nº 2 · voando (aprovada)",
+  "Nº 3 · duas garças"
+ ],
+ "carnauba": [
+  "Nº 1 · a folha",
+  "Nº 2 · três folhas",
+  "Nº 3 · folha com passarinho",
+  "opção · duas folhas em X"
+ ],
+ "jangada": [
+  "Nº 1 · a jangada",
+  "Nº 2 · com o sol (aprovada)",
+  "Nº 3 · com o jangadeiro"
+ ],
+ "caju": [
+  "Nº 1 · o caju (aprovado)",
+  "Nº 2 · cortado ao meio",
+  "Nº 3 · o galho"
+ ]
+}
