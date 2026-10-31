@@ -79,3 +79,16 @@ Ativos desde 27/10 00:00 (Fortaleza), para todos os clientes. Comissão do embai
 ## Loja aberta (27/10/2026, 23h)
 
 Tema "Modestino (construção)" publicado e senha desligada pelo admin. Conferir com o Jorge se foi intencional e se o Mercado Pago saiu do modo teste. Cupons de embaixador valem em toda a loja (avulsa e kit), sem limite de usos, sem acumular.
+
+## Preços e coleções (31/10/2026, decisão do Jorge)
+
+| linha | 1 peça | 2 peças | 3+ peças (cada) |
+| --- | --- | --- | --- |
+| Básicas | R$ 80 | R$ 152,50 | R$ 75 |
+| Estampadas (Carcará, Garça, Carnaúba, Jangada, Caju) | R$ 90 | R$ 172,50 | R$ 85 |
+| Exclusivas | R$ 99 | sem desconto | sem desconto |
+
+Na Shopify: coleção interna "Preço progressivo" (tag `progressivo`) + 2 descontos automáticos: −R$ 3,75 por peça com 2 peças e −R$ 5 por peça com 3 ou mais. Básicas e estampadas contam juntas; exclusivas não entram (sem a tag). Kit 2 passou a R$ 152,50 (kits fora do desconto). Coleções criadas (por tag): Básicas (`basico`), Carcará (`carcara`), Garça (`garca`), Carnaúba (`carnauba`), Jangada (`jangada`), Caju (`caju`), Exclusivas (`exclusiva`). Produto estampado novo = tag da coleção + `progressivo`; exclusiva = tag `exclusiva` sem `progressivo`.
+
+Vídeo 360°: parado (Jorge, 31/10). Domínio: modestino.com.br está registrado (venceu em 26/10/2026, pode estar em liberação); modestino.com indisponível; modestino.store/.shop disponíveis na Shopify.
+Personalizador (aba das artes, frente e costas, preço automático): a construir quando as artes estiverem prontas.
