@@ -105,8 +105,10 @@ def bezier(p):
 
 def main():
     esq = esqueleto()
-    h, w = esq.shape
-    linhas = [suavizar(c) for c in caminhos(esq)]
+    salvar([suavizar(c) for c in caminhos(esq)])
+
+
+def salvar(linhas):
     allp = np.vstack(linhas)
     x0, y0 = allp.min(0) - 20; x1, y1 = allp.max(0) + 20
     escala = LARGURA_MM / (x1 - x0)                   # mm por unidade
