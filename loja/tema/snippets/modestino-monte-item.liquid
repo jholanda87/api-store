@@ -1,0 +1,16 @@
+{%- liquid
+  assign f_preto = p.featured_image
+  assign f_mapple = p.featured_image
+  assign f_off = p.featured_image
+  for m in p.images
+    assign alt = m.alt | downcase
+    if alt contains 'mapple'
+      assign f_mapple = m
+    elsif alt contains 'off white'
+      assign f_off = m
+    elsif alt contains 'preta'
+      assign f_preto = m
+    endif
+  endfor
+-%}
+{"handle":{{ p.handle | json }},"titulo":{{ p.title | json }},"preco":{{ p.price }},"exclusiva":{% if p.tags contains 'exclusiva' %}true{% else %}false{% endif %},"img":{"Preto":{{ f_preto | image_url: width: 900 | json }},"Mapple Brown":{{ f_mapple | image_url: width: 900 | json }},"Off White":{{ f_off | image_url: width: 900 | json }}}}

@@ -1,168 +1,224 @@
 {%- comment -%}
-  "Monte a sua": cor, tamanho, arte das costas e do peito (opcional).
-  Costas = produtos com a tag "estampada" (R$ 90; exclusiva R$ 99).
-  Peito = produtos de arte no peito (tag "basico" + "progressivo", exceto a lisa).
-  Vai para o carrinho a variante do produto das costas (ou do peito, se for só peito),
-  com a outra arte como propriedade da linha. O desconto progressivo é da Shopify.
+  "Monte a sua" em etapas: 1 cor → 2 frente → 3 costas → 4 resumo (frente e costas lado a lado).
+  A camiseta ao lado troca conforme a cor e a arte. As miniaturas mostram só a arte (zoom na foto).
+  Costas = produtos com a tag "estampada"; frente = "basico" + "progressivo" (menos a lisa).
+  Vai para o carrinho a variante do produto das costas (ou da frente, se for só frente), com a outra arte como propriedade.
 {%- endcomment -%}
+{%- liquid
+  assign basica = all_products['camiseta-basica-modestino']
+  assign lisa_preto = ''
+  assign lisa_mapple = ''
+  assign lisa_off = ''
+  for m in basica.media
+    assign alt = m.alt | downcase
+    if alt contains 'de frente'
+      if alt contains 'mapple'
+        assign lisa_mapple = m.preview_image | image_url: width: 900
+      elsif alt contains 'off white'
+        assign lisa_off = m.preview_image | image_url: width: 900
+      elsif alt contains 'preta'
+        assign lisa_preto = m.preview_image | image_url: width: 900
+      endif
+    endif
+  endfor
+-%}
+<script type="application/json" id="monte-dados">
+{
+  "lisa": {
+    "frente": { "Preto": {{ lisa_preto | json }}, "Mapple Brown": {{ lisa_mapple | json }}, "Off White": {{ lisa_off | json }} },
+    "costas": { "Preto": {{ 'costas-lisa-preta.jpg' | file_url | json }}, "Mapple Brown": {{ 'costas-lisa-mapple.jpg' | file_url | json }}, "Off White": {{ 'costas-lisa-offwhite.jpg' | file_url | json }} }
+  },
+  "frente": [
+    {%- assign primeiro = true -%}
+    {%- for p in collections.all.products -%}
+      {%- if p.tags contains 'basico' and p.tags contains 'progressivo' and p.handle != 'camiseta-basica-modestino' -%}
+        {%- unless primeiro -%},{%- endunless -%}{%- assign primeiro = false -%}
+        {%- render 'modestino-monte-item', p: p -%}
+      {%- endif -%}
+    {%- endfor -%}
+  ],
+  "costas": [
+    {%- assign primeiro = true -%}
+    {%- for p in collections.all.products -%}
+      {%- if p.tags contains 'estampada' -%}
+        {%- unless primeiro -%},{%- endunless -%}{%- assign primeiro = false -%}
+        {%- render 'modestino-monte-item', p: p -%}
+      {%- endif -%}
+    {%- endfor -%}
+  ]
+}
+</script>
+
 <section class="m-monte" id="monte">
   <div class="m-monte__wrap">
     <h1 class="m-monte__titulo">Monte a <em>sua</em></h1>
-    <p class="m-monte__sub">Escolha a cor, o tamanho e as artes. Feita sob encomenda: 5 dias para personalizar + 2 para despacho.</p>
+    <p class="m-monte__sub">Feita sob encomenda: 5 dias para personalizar + 2 para despacho.</p>
 
-    <form class="m-monte__form" id="monte-form" novalidate>
-      <fieldset><legend>Cor</legend>
-        <label><input type="radio" name="cor" value="Preto" checked> Preto</label>
-        <label><input type="radio" name="cor" value="Mapple Brown"> Mapple Brown</label>
-        <label><input type="radio" name="cor" value="Off White"> Off White</label>
-      </fieldset>
-      <fieldset><legend>Tamanho</legend>
-        <label><input type="radio" name="tam" value="P"> P</label>
-        <label><input type="radio" name="tam" value="M" checked> M</label>
-        <label><input type="radio" name="tam" value="G"> G</label>
-        <label><input type="radio" name="tam" value="GG"> GG</label>
-      </fieldset>
+    <ol class="m-passos" aria-label="Etapas">
+      <li data-p="1">Cor</li><li data-p="2">Frente</li><li data-p="3">Costas</li><li data-p="4">Pronto</li>
+    </ol>
 
-      <fieldset class="m-monte__artes"><legend>Costas</legend>
-        <label class="m-arte"><input type="radio" name="costas" value="" checked><span class="m-arte__nome">Sem arte nas costas</span></label>
-        {%- for p in collections.all.products -%}
-          {%- if p.tags contains 'estampada' -%}
-            <label class="m-arte">
-              <input type="radio" name="costas" value="{{ p.handle }}" data-preco="{{ p.price }}" data-exclusiva="{% if p.tags contains 'exclusiva' %}1{% endif %}">
-              {%- liquid
-                assign f_preta = p.featured_image
-                assign f_mapple = p.featured_image
-                assign f_off = p.featured_image
-                for m in p.images
-                  assign alt = m.alt | downcase
-                  if alt contains 'mapple'
-                    assign f_mapple = m
-                  elsif alt contains 'off white'
-                    assign f_off = m
-                  elsif alt contains 'preta'
-                    assign f_preta = m
-                  endif
-                endfor
-              -%}
-              <img src="{{ f_preta | image_url: width: 240 }}" alt="{{ p.title | escape }}" loading="lazy" width="240" height="300"
-                data-preto="{{ f_preta | image_url: width: 240 }}" data-mapple="{{ f_mapple | image_url: width: 240 }}" data-off="{{ f_off | image_url: width: 240 }}">
-              <span class="m-arte__nome">{{ p.title }}</span>
-              <span class="m-arte__preco">{{ p.price | money }}</span>
-            </label>
-          {%- endif -%}
-        {%- endfor -%}
-      </fieldset>
-
-      <fieldset class="m-monte__artes"><legend>Peito (opcional)</legend>
-        <label class="m-arte"><input type="radio" name="peito" value="" checked><span class="m-arte__nome">Liso, sem logo</span></label>
-        {%- for p in collections.all.products -%}
-          {%- if p.tags contains 'basico' and p.tags contains 'progressivo' and p.handle != 'camiseta-basica-modestino' -%}
-            <label class="m-arte">
-              <input type="radio" name="peito" value="{{ p.handle }}" data-titulo="{{ p.title | escape }}">
-              {%- liquid
-                assign f_preta = p.featured_image
-                assign f_mapple = p.featured_image
-                assign f_off = p.featured_image
-                for m in p.images
-                  assign alt = m.alt | downcase
-                  if alt contains 'mapple'
-                    assign f_mapple = m
-                  elsif alt contains 'off white'
-                    assign f_off = m
-                  elsif alt contains 'preta'
-                    assign f_preta = m
-                  endif
-                endfor
-              -%}
-              <img src="{{ f_preta | image_url: width: 240 }}" alt="{{ p.title | escape }}" loading="lazy" width="240" height="300"
-                data-preto="{{ f_preta | image_url: width: 240 }}" data-mapple="{{ f_mapple | image_url: width: 240 }}" data-off="{{ f_off | image_url: width: 240 }}">
-              <span class="m-arte__nome">{{ p.title }}</span>
-            </label>
-          {%- endif -%}
-        {%- endfor -%}
-      </fieldset>
-
-      <div class="m-monte__total" aria-live="polite">
-        <p id="monte-preco" class="m-preco"></p>
-        <p id="monte-nota" class="m-monte__nota"></p>
+    <div class="m-monte__grid">
+      <div class="m-monte__vista" aria-live="polite">
+        <figure class="m-vista" id="vista-frente"><img alt="" width="900" height="1125"><figcaption>Frente</figcaption></figure>
+        <figure class="m-vista" id="vista-costas" hidden><img alt="" width="900" height="1125"><figcaption>Costas</figcaption></figure>
       </div>
-      <button type="submit" class="m-btn m-btn--primario" id="monte-add">Adicionar ao carrinho</button>
-      <p id="monte-erro" class="m-monte__erro" role="alert"></p>
-    </form>
+
+      <div class="m-monte__painel">
+        <div class="m-etapa" data-etapa="1">
+          <h2>1. Escolha a cor</h2>
+          <div class="m-cores" role="radiogroup" aria-label="Cor">
+            <button type="button" data-cor="Preto" style="--c:#1d1c1a" aria-pressed="true">Preto</button>
+            <button type="button" data-cor="Mapple Brown" style="--c:#5B3F30" aria-pressed="false">Mapple Brown</button>
+            <button type="button" data-cor="Off White" style="--c:#ECE7DE" aria-pressed="false">Off White</button>
+          </div>
+          <button type="button" class="m-btn m-btn--primario m-seguir" data-ir="2">Escolher a frente →</button>
+        </div>
+
+        <div class="m-etapa" data-etapa="2" hidden>
+          <h2>2. Arte da frente <small>(opcional)</small></h2>
+          <div class="m-artes" id="artes-frente"></div>
+          <div class="m-navs"><button type="button" class="m-voltar" data-ir="1">← Cor</button><button type="button" class="m-btn m-btn--primario m-seguir" data-ir="3">Escolher as costas →</button></div>
+        </div>
+
+        <div class="m-etapa" data-etapa="3" hidden>
+          <h2>3. Arte das costas</h2>
+          <div class="m-artes" id="artes-costas"></div>
+          <div class="m-navs"><button type="button" class="m-voltar" data-ir="2">← Frente</button><button type="button" class="m-btn m-btn--primario m-seguir" data-ir="4">Ver a minha →</button></div>
+        </div>
+
+        <div class="m-etapa" data-etapa="4" hidden>
+          <h2>Sua camiseta</h2>
+          <p id="monte-resumo" class="m-monte__resumo"></p>
+          <fieldset class="m-tams"><legend>Tamanho</legend>
+            <label><input type="radio" name="tam" value="P"> P</label>
+            <label><input type="radio" name="tam" value="M" checked> M</label>
+            <label><input type="radio" name="tam" value="G"> G</label>
+            <label><input type="radio" name="tam" value="GG"> GG</label>
+          </fieldset>
+          <p id="monte-preco" class="m-preco"></p>
+          <p id="monte-nota" class="m-monte__nota"></p>
+          <button type="button" class="m-btn m-btn--primario" id="monte-add">Adicionar ao carrinho</button>
+          <p id="monte-erro" class="m-monte__erro" role="alert"></p>
+          <button type="button" class="m-voltar" data-ir="3">← Costas</button>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 <script>
 (() => {
-  const form = document.getElementById('monte-form');
-  const out = document.getElementById('monte-preco'), nota = document.getElementById('monte-nota'), erro = document.getElementById('monte-erro');
+  const D = JSON.parse(document.getElementById('monte-dados').textContent);
+  const $ = s => document.querySelector(s);
   const brl = v => v.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
   const desc = n => n >= 3 ? 5 : n === 2 ? 3.75 : 0;
+  const st = {cor: 'Preto', frente: null, costas: null, etapa: 1};
+  const vf = $('#vista-frente'), vc = $('#vista-costas');
   let noCarrinho = 0;
-  fetch('/cart.js').then(r => r.json()).then(c => {
-    noCarrinho = c.items.filter(i => i.final_price < 9900).reduce((s, i) => s + i.quantity, 0);
-    calcula();
-  }).catch(calcula);
-  function escolha() {
-    const v = n => (form.querySelector(`input[name="${n}"]:checked`) || {}).value || '';
-    const c = form.querySelector('input[name="costas"]:checked');
-    return {cor: v('cor'), tam: v('tam'), costas: v('costas'), peito: v('peito'),
-      exclusiva: c && c.dataset.exclusiva === '1', preco: c && c.dataset.preco ? c.dataset.preco / 100 : 80};
+  fetch('/cart.js').then(r => r.json()).then(c => { noCarrinho = c.items.filter(i => i.final_price < 9900).reduce((s, i) => s + i.quantity, 0); preco(); }).catch(() => {});
+
+  const imgF = () => st.frente ? st.frente.img[st.cor] : D.lisa.frente[st.cor];
+  const imgC = () => st.costas ? st.costas.img[st.cor] : D.lisa.costas[st.cor];
+
+  function vista() {
+    vf.querySelector('img').src = imgF(); vf.querySelector('img').alt = 'Frente: ' + (st.frente ? st.frente.titulo : 'lisa') + ', ' + st.cor;
+    vc.querySelector('img').src = imgC(); vc.querySelector('img').alt = 'Costas: ' + (st.costas ? st.costas.titulo : 'lisa') + ', ' + st.cor;
+    vf.hidden = st.etapa === 3; vc.hidden = st.etapa < 3;
+    document.querySelector('.m-monte__vista').classList.toggle('m-monte__vista--dupla', st.etapa === 4);
   }
-  function calcula() {
-    const e = escolha();
-    if (!e.costas && !e.peito) { out.textContent = ''; nota.textContent = 'Escolha a arte das costas, do peito ou as duas.'; return; }
-    const base = e.costas ? e.preco : 80;
-    if (e.exclusiva) { out.textContent = brl(base); nota.textContent = 'Exclusiva: preço fixo, fora do desconto por quantidade.'; return; }
+
+  function lista(alvo, itens, lado) {
+    const box = $(alvo); box.innerHTML = '';
+    const nada = {handle: '', titulo: lado === 'frente' ? 'Lisa' : 'Sem arte', img: D.lisa[lado]};
+    [nada, ...itens].forEach(it => {
+      const b = document.createElement('button'); b.type = 'button'; b.className = 'm-arte m-arte--' + lado;
+      b.setAttribute('aria-pressed', ((st[lado] && st[lado].handle) || '') === it.handle);
+      b.innerHTML = `<span class="m-arte__zoom"><img src="${it.img[st.cor]}" alt="" loading="lazy"></span><span class="m-arte__nome">${it.titulo}</span>${it.preco && lado === 'costas' ? `<span class="m-arte__preco">${brl(it.preco / 100)}</span>` : ''}`;
+      b.onclick = () => { st[lado] = it.handle ? it : null; box.querySelectorAll('.m-arte').forEach(x => x.setAttribute('aria-pressed', x === b)); vista(); };
+      box.appendChild(b);
+    });
+  }
+
+  function ir(n) {
+    st.etapa = n;
+    document.querySelectorAll('.m-etapa').forEach(e => e.hidden = +e.dataset.etapa !== n);
+    document.querySelectorAll('.m-passos li').forEach(l => l.classList.toggle('feito', +l.dataset.p <= n));
+    if (n === 2) lista('#artes-frente', D.frente, 'frente');
+    if (n === 3) lista('#artes-costas', D.costas, 'costas');
+    if (n === 4) { $('#monte-resumo').textContent = `${st.cor} · frente: ${st.frente ? st.frente.titulo : 'lisa'} · costas: ${st.costas ? st.costas.titulo : 'sem arte'}`; preco(); }
+    vista();
+    if (window.innerWidth < 860) document.querySelector('.m-monte__grid').scrollIntoView({behavior: 'smooth'});
+  }
+
+  function preco() {
+    const out = $('#monte-preco'), nota = $('#monte-nota');
+    if (!st.frente && !st.costas) { out.textContent = brl(80); nota.textContent = 'Lisa, sem arte: é a nossa Camiseta Básica.'; return; }
+    const base = st.costas ? st.costas.preco / 100 : 80;
+    if (st.costas && st.costas.exclusiva) { out.textContent = brl(base); nota.textContent = 'Exclusiva: preço fixo, fora do desconto por quantidade.'; return; }
     const n = noCarrinho + 1, d = desc(n);
     out.textContent = brl(base - d);
     nota.textContent = d ? `Com ${n} peças no carrinho, cada uma sai ${brl(d)} mais barata.` : 'Leve 2 ou mais e o desconto entra sozinho no carrinho.';
   }
-  const trocaFotos = () => {
-    const cor = (form.querySelector('input[name="cor"]:checked') || {}).value;
-    const k = cor === 'Mapple Brown' ? 'mapple' : cor === 'Off White' ? 'off' : 'preto';
-    form.querySelectorAll('.m-arte img[data-preto]').forEach(i => { if (i.dataset[k]) i.src = i.dataset[k]; });
-  };
-  form.addEventListener('change', ev => { if (ev.target.name === 'cor') trocaFotos(); calcula(); });
-  form.addEventListener('submit', async ev => {
-    ev.preventDefault(); erro.textContent = '';
-    const e = escolha();
-    const handle = e.costas || e.peito;
-    if (!handle) { erro.textContent = 'Escolha pelo menos uma arte.'; return; }
+
+  document.querySelectorAll('.m-cores button').forEach(b => b.onclick = () => {
+    st.cor = b.dataset.cor; document.querySelectorAll('.m-cores button').forEach(x => x.setAttribute('aria-pressed', x === b)); vista();
+  });
+  document.querySelectorAll('[data-ir]').forEach(b => b.addEventListener('click', () => ir(+b.dataset.ir)));
+
+  $('#monte-add').onclick = async () => {
+    const erro = $('#monte-erro'); erro.textContent = '';
+    const tam = (document.querySelector('input[name="tam"]:checked') || {}).value;
+    const handle = st.costas ? st.costas.handle : st.frente ? st.frente.handle : 'camiseta-basica-modestino';
     try {
       const p = await (await fetch(`/products/${handle}.js`)).json();
-      const v = p.variants.find(x => x.options[0] === e.cor && x.options[1] === e.tam);
+      const v = p.variants.find(x => x.options[0] === st.cor && x.options[1] === tam);
       if (!v) throw new Error();
       const props = {};
-      if (e.costas && e.peito) props['Peito'] = form.querySelector('input[name="peito"]:checked').dataset.titulo;
-      if (!e.costas) props['Costas'] = 'Sem arte';
+      if (st.costas && st.frente) props['Frente'] = st.frente.titulo;
+      if (!st.costas && st.frente) props['Costas'] = 'Sem arte';
       const r = await fetch('/cart/add.js', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({items: [{id: v.id, quantity: 1, properties: props}]})});
       if (!r.ok) throw new Error();
       window.location.href = '/cart';
     } catch (_) { erro.textContent = 'Não deu para adicionar. Fala com a gente no WhatsApp.'; }
-  });
-  calcula();
+  };
+  ir(1);
 })();
 </script>
 
 {% stylesheet %}
-/* Monte a sua */
-.m-monte__wrap{max-width:1100px;margin:0 auto;padding:var(--space-8,48px) 16px}
-.m-monte__form fieldset{border:0;padding:0;margin:0 0 24px}
-.m-monte__form legend{font-weight:600;margin-bottom:8px}
-.m-monte__form fieldset:not(.m-monte__artes) label{display:inline-flex;gap:6px;align-items:center;min-height:44px;padding:0 14px;border:1px solid var(--color-border-input,#6E675F);border-radius:4px;margin:0 6px 6px 0;cursor:pointer}
-.m-monte__artes{display:grid!important;align-items:start;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
-.m-monte__artes legend{grid-column:1/-1}
-.m-arte{position:relative;display:grid;gap:4px;border:1px solid var(--color-border,#CBBFAE);border-radius:8px;padding:8px;cursor:pointer;background:var(--color-surface,#E4DDD0)}
-.m-arte:not(:has(img)){min-height:56px;align-content:center}
-.m-arte img{width:100%;height:auto;border-radius:4px}
-.m-arte input{position:absolute;opacity:0}
-.m-arte:has(input:focus-visible){outline:2px solid var(--color-accent,#5B3F30)}
-.m-arte:has(input:checked){outline:2px solid var(--color-text,#22201D)}
-.m-arte__preco,.m-preco{font-family:var(--font-mono,monospace)}
-.m-monte__total .m-preco{font-size:1.5rem}
-.m-monte__erro{color:var(--color-danger,#9B2C22)}
-
+.m-monte__wrap{max-width:1100px;margin:0 auto;padding:32px 16px 48px}
+.m-monte__titulo{margin:0}
+.m-passos{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;list-style:none;padding:0;margin:16px 0}
+.m-passos li{text-align:center;font-size:.8rem;padding:6px 0;border-bottom:3px solid #CBBFAE;color:#6E675F}
+.m-passos li.feito{border-color:#5B3F30;color:#22201D;font-weight:600}
+.m-monte__grid{display:grid;gap:20px}
+@media(min-width:860px){.m-monte__grid{grid-template-columns:1fr 1fr;align-items:start}.m-monte__vista{position:sticky;top:90px}}
+.m-monte__vista{display:grid;gap:8px}
+.m-monte__vista--dupla{grid-template-columns:1fr 1fr}
+.m-vista{margin:0;position:relative;background:#E4DDD0;border-radius:8px;overflow:hidden}
+.m-vista img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover}
+.m-vista figcaption{position:absolute;left:8px;top:8px;font-size:.75rem;background:#ECE7DE;padding:2px 8px;border-radius:999px}
+.m-etapa h2{font-size:1.2rem;margin:0 0 12px}
+.m-cores{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.m-cores button{display:flex;align-items:center;gap:8px;min-height:44px;padding:0 14px;border:1px solid #CBBFAE;border-radius:999px;background:transparent;cursor:pointer;font:inherit}
+.m-cores button::before{content:"";width:20px;height:20px;border-radius:50%;background:var(--c);border:1px solid #6E675F}
+.m-cores button[aria-pressed=true]{outline:2px solid #22201D}
+.m-artes{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:8px;margin-bottom:16px}
+.m-arte{display:grid;gap:4px;padding:6px;border:1px solid #CBBFAE;border-radius:8px;background:#E4DDD0;cursor:pointer;font:inherit;text-align:center}
+.m-arte[aria-pressed=true]{outline:2px solid #22201D;background:#ECE7DE}
+.m-arte__zoom{display:block;aspect-ratio:1;overflow:hidden;border-radius:6px}
+.m-arte__zoom img{width:100%;height:100%;object-fit:cover}
+.m-arte--costas .m-arte__zoom img{transform:scale(2.3);transform-origin:50% 31%}
+.m-arte--frente .m-arte__zoom img{transform:scale(4);transform-origin:57% 19%}
+.m-arte__nome{font-size:.75rem;line-height:1.2}
+.m-arte__preco,.m-preco{font-family:var(--font-mono,monospace);font-size:.75rem}
+.m-monte__painel .m-preco{font-size:1.5rem;margin:12px 0 4px}
+.m-navs{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.m-voltar{background:none;border:0;padding:12px 0;cursor:pointer;font:inherit;text-decoration:underline}
+.m-tams{border:0;padding:0;margin:12px 0}
+.m-tams label{display:inline-flex;gap:6px;align-items:center;min-height:44px;padding:0 14px;border:1px solid #6E675F;border-radius:4px;margin:0 6px 6px 0;cursor:pointer}
+.m-monte__erro{color:#9B2C22}
 {% endstylesheet %}
 
 {% schema %}
