@@ -3,7 +3,10 @@
 Desenho do Jorge a lápis (`rascunho-jorge.jpg`): a palavra MODESTINO em laçadas contínuas e inclinadas.
 `assinatura.py` limpa o papel, junta os traços duplos do grafite, refaz o traço pela linha central
 (3,2 mm constantes, pontas redondas, borda lisa) e divide em 3 faixas na diagonal dos traços.
-Costas, 30 × 34,8 cm, topo 11 cm abaixo da gola. 3 tintas (serigrafia: uma tela por faixa).
+Costas, 25 × 28,9 cm (31/10), topo 11 cm abaixo da gola. 3 tintas (serigrafia: uma tela por faixa).
+
+Versão suave (`assinatura_suave.py`, atual): linha central em curvas Bézier alisadas, contorno vetorial
+de 4,5 mm com pontas e cantos redondos, faixas por recorte diagonal. Substitui a versão anterior.
 
 | camiseta | esquerda | meio | direita |
 | --- | --- | --- | --- |
