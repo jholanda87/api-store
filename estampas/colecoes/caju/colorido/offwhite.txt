@@ -1,0 +1,4 @@
+estampas/colecoes/caju/colorido/caju-offwhite.svg  29.4 × 35.0 cm
+  carvao         #22201D    4.8% da arte  ok
+  mapple         #5B3F30   19.5% da arte  ok
+  oliva          #6B7350   73.9% da arte  ok

@@ -1,0 +1,4 @@
+estampas/colecoes/caju/colorido/caju-mapple.svg  29.4 × 35.0 cm
+  linho          #ECE7DE    9.9% da arte  ok
+  areia-dourada  #D8B878   49.2% da arte  ok
+  azul-mar       #9FB4B3   31.6% da arte  ok

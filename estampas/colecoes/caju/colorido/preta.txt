@@ -1,0 +1,4 @@
+estampas/colecoes/caju/colorido/caju-preta.svg  29.3 × 35.0 cm
+  linho          #ECE7DE    0.0% da arte  descartada (menos de 0,5% da arte)
+  ocre           #C9A25E   54.0% da arte  ok
+  salvia         #8E9B7A   38.9% da arte  ok

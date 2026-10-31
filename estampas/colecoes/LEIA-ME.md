@@ -28,3 +28,12 @@ Jorge recusou todas as opções da rodada 2 e pediu outro tipo de desenho, com t
 Jorge recusou o tracejado ("mudou bastante o estilo"). Volta a técnica de cada aprovada (pontilhismo,
 linha única, contorno fino), com os mesmos prompts das aprovadas e cenas novas tiradas da pesquisa
 (trio e reflexo de garças, prancha de naturalista e beija-flor no caju, sol e lua na jangada, folha e lua).
+
+## Seleção final (31/10)
+- Básicas: lisa · rosto do Cavalheiro · nome MODESTINO.
+- Carcará: galho · voo · estaca · chão rachado.
+- Garça: na lagoa · voando · as três garças (rodada 4).
+- Carnaúba: a folha · três folhas · o broto · a folha e a lua (rodada 4).
+- Jangada: com o sol (aprovada) · com a lua e as estrelas · rumo ao sol (rodada 4).
+- Caju: só o aprovado, em versão colorida (até 3 tintas por tecido) em `caju/colorido/`.
+- Exclusivas: Happy Hour (em criação) + desenhos à mão do Jorge.
