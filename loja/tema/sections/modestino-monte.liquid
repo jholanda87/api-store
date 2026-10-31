@@ -1,0 +1,130 @@
+{%- comment -%}
+  "Monte a sua": cor, tamanho, arte das costas (obrigatória) e do peito (opcional).
+  Costas = produtos com a tag "estampada" (R$ 90; exclusiva R$ 99).
+  Peito = produtos de arte no peito (tag "basico" + "progressivo", exceto a lisa).
+  Vai para o carrinho a variante do produto das costas (ou do peito, se for só peito),
+  com a outra arte como propriedade da linha. O desconto progressivo é da Shopify.
+{%- endcomment -%}
+<section class="m-monte" id="monte">
+  <div class="m-monte__wrap">
+    <h1 class="m-monte__titulo">Monte a <em>sua</em></h1>
+    <p class="m-monte__sub">Escolha a cor, o tamanho e as artes. Feita sob encomenda: 5 dias para personalizar + 2 para despacho.</p>
+
+    <form class="m-monte__form" id="monte-form" novalidate>
+      <fieldset><legend>Cor</legend>
+        <label><input type="radio" name="cor" value="Preto" checked> Preto</label>
+        <label><input type="radio" name="cor" value="Mapple Brown"> Mapple Brown</label>
+        <label><input type="radio" name="cor" value="Off White"> Off White</label>
+      </fieldset>
+      <fieldset><legend>Tamanho</legend>
+        <label><input type="radio" name="tam" value="P"> P</label>
+        <label><input type="radio" name="tam" value="M" checked> M</label>
+        <label><input type="radio" name="tam" value="G"> G</label>
+        <label><input type="radio" name="tam" value="GG"> GG</label>
+      </fieldset>
+
+      <fieldset class="m-monte__artes"><legend>Costas</legend>
+        <label class="m-arte"><input type="radio" name="costas" value="" checked><span class="m-arte__nome">Sem arte nas costas</span></label>
+        {%- for p in collections.all.products -%}
+          {%- if p.tags contains 'estampada' -%}
+            <label class="m-arte">
+              <input type="radio" name="costas" value="{{ p.handle }}" data-preco="{{ p.price }}" data-exclusiva="{% if p.tags contains 'exclusiva' %}1{% endif %}">
+              {{ p.featured_image | image_url: width: 240 | image_tag: loading: 'lazy', alt: p.title }}
+              <span class="m-arte__nome">{{ p.title }}</span>
+              <span class="m-arte__preco">{{ p.price | money }}</span>
+            </label>
+          {%- endif -%}
+        {%- endfor -%}
+      </fieldset>
+
+      <fieldset class="m-monte__artes"><legend>Peito (opcional)</legend>
+        <label class="m-arte"><input type="radio" name="peito" value="" checked><span class="m-arte__nome">Liso, sem logo</span></label>
+        {%- for p in collections.all.products -%}
+          {%- if p.tags contains 'basico' and p.tags contains 'progressivo' and p.handle != 'camiseta-basica-modestino' -%}
+            <label class="m-arte">
+              <input type="radio" name="peito" value="{{ p.handle }}" data-titulo="{{ p.title | escape }}">
+              {{ p.featured_image | image_url: width: 240 | image_tag: loading: 'lazy', alt: p.title }}
+              <span class="m-arte__nome">{{ p.title }}</span>
+            </label>
+          {%- endif -%}
+        {%- endfor -%}
+      </fieldset>
+
+      <div class="m-monte__total" aria-live="polite">
+        <p id="monte-preco" class="m-preco"></p>
+        <p id="monte-nota" class="m-monte__nota"></p>
+      </div>
+      <button type="submit" class="m-btn m-btn--primario" id="monte-add">Adicionar ao carrinho</button>
+      <p id="monte-erro" class="m-monte__erro" role="alert"></p>
+    </form>
+  </div>
+</section>
+
+<script>
+(() => {
+  const form = document.getElementById('monte-form');
+  const out = document.getElementById('monte-preco'), nota = document.getElementById('monte-nota'), erro = document.getElementById('monte-erro');
+  const brl = v => v.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
+  const desc = n => n >= 3 ? 5 : n === 2 ? 3.75 : 0;
+  let noCarrinho = 0;
+  fetch('/cart.js').then(r => r.json()).then(c => {
+    noCarrinho = c.items.filter(i => !/exclusiv/i.test(i.product_type + ' ' + (i.properties && i.properties._linha || '')) && i.final_price < 9900 || false).reduce((s, i) => s + i.quantity, 0);
+    calcula();
+  }).catch(calcula);
+  function escolha() {
+    const v = n => (form.querySelector(`input[name="${n}"]:checked`) || {}).value || '';
+    const c = form.querySelector('input[name="costas"]:checked');
+    return {cor: v('cor'), tam: v('tam'), costas: v('costas'), peito: v('peito'),
+      exclusiva: c && c.dataset.exclusiva === '1', preco: c && c.dataset.preco ? c.dataset.preco / 100 : 80};
+  }
+  function calcula() {
+    const e = escolha();
+    if (!e.costas && !e.peito) { out.textContent = brl(80); nota.textContent = 'Camiseta lisa. Para a lisa sem arte, use a página da Básica.'; return; }
+    const base = e.costas ? e.preco : 80;
+    if (e.exclusiva) { out.textContent = brl(base); nota.textContent = 'Exclusiva: preço fixo, fora do desconto por quantidade.'; return; }
+    const n = noCarrinho + 1, d = desc(n);
+    out.textContent = brl(base - d);
+    nota.textContent = d ? `Com ${n} peças no carrinho, cada uma sai ${brl(d)} mais barata.` : 'Leve 2 ou mais e o desconto entra sozinho no carrinho.';
+  }
+  form.addEventListener('change', calcula);
+  form.addEventListener('submit', async ev => {
+    ev.preventDefault(); erro.textContent = '';
+    const e = escolha();
+    const handle = e.costas || e.peito;
+    if (!handle) { erro.textContent = 'Escolha pelo menos uma arte.'; return; }
+    try {
+      const p = await (await fetch(`/products/${handle}.js`)).json();
+      const v = p.variants.find(x => x.options[0] === e.cor && x.options[1] === e.tam);
+      if (!v) throw new Error();
+      const props = {};
+      if (e.costas && e.peito) props['Peito'] = form.querySelector('input[name="peito"]:checked').dataset.titulo;
+      if (!e.costas) props['Costas'] = 'Sem arte';
+      await fetch('/cart/add.js', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({items: [{id: v.id, quantity: 1, properties: props}]})});
+      window.location.href = '/cart';
+    } catch (_) { erro.textContent = 'Não deu para adicionar. Fala com a gente no WhatsApp.'; }
+  });
+  calcula();
+})();
+</script>
+
+{% stylesheet %}
+/* Monte a sua */
+.m-monte__wrap{max-width:1100px;margin:0 auto;padding:var(--space-8,48px) 16px}
+.m-monte__form fieldset{border:0;padding:0;margin:0 0 24px}
+.m-monte__form legend{font-weight:600;margin-bottom:8px}
+.m-monte__form fieldset:not(.m-monte__artes) label{display:inline-flex;gap:6px;align-items:center;min-height:44px;padding:0 14px;border:1px solid var(--color-border-input,#6E675F);border-radius:4px;margin:0 6px 6px 0;cursor:pointer}
+.m-monte__artes{display:grid!important;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.m-monte__artes legend{grid-column:1/-1}
+.m-arte{display:grid;gap:4px;border:1px solid var(--color-border,#CBBFAE);border-radius:8px;padding:8px;cursor:pointer;background:var(--color-surface,#E4DDD0)}
+.m-arte img{width:100%;height:auto;border-radius:4px}
+.m-arte input{position:absolute;opacity:0}
+.m-arte:has(input:checked){outline:2px solid var(--color-text,#22201D)}
+.m-arte__preco,.m-preco{font-family:var(--font-mono,monospace)}
+.m-monte__total .m-preco{font-size:1.5rem}
+.m-monte__erro{color:var(--color-danger,#9B2C22)}
+
+{% endstylesheet %}
+
+{% schema %}
+{ "name": "Monte a sua", "settings": [] }
+{% endschema %}

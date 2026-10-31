@@ -316,3 +316,4 @@ body.modestino .m-rodape h2 { font-family: var(--font-sans); font-size: var(--te
 @media (prefers-reduced-motion: reduce) {
   .m-galeria, .m-kit-card, .m-btn, .m-faq summary .m-icon { transition: none; }
 }
+

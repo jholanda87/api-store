@@ -103,3 +103,7 @@ Personalizador (aba das artes, frente e costas, preço automático): a construir
 - Estampadas (R$ 90, tag da coleção + `progressivo`): Carcará galho · voo · estaca · chão rachado; Garça lagoa · voando; Carnaúba a folha · três folhas; Jangada com o sol; Caju; Caju colorido.
 - Exclusiva (R$ 99, `exclusiva`): O Cavalheiro colorido (prancha).
 Faltam (sem mockup ainda): Garça três garças; Carnaúba broto e folha e lua; Jangada lua e estrelas e rumo ao sol; Happy Hour. Personalizador "Monte a sua" e coleções no menu: próximo passo (cópia do tema).
+
+### Monte a sua + menu (31/10/2026)
+Na cópia do tema "Cópia de Modestino (construção)" (`167202390064`, não publicada): seção `modestino-monte` + template `page.monte`; página "Monte a sua" (/pages/monte-a-sua). Cabeçalho da cópia usa o menu novo "modestino-colecoes": Básicas, Carcará, Garça, Carnaúba, Jangada, Caju, Exclusivas, Monte a sua. Vale ao publicar a cópia.
+Regras do Monte a sua: costas = produtos `estampada` (preço do produto); peito opcional = artes básicas (Cavalheiro, nome), sem custo extra quando há costas; só peito = R$ 80; preço mostrado já com o desconto conforme as peças no carrinho; vai para o carrinho a variante do produto com a arte do peito como propriedade "Peito".
