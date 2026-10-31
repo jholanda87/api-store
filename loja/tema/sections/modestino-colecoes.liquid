@@ -1,35 +1,19 @@
-{%- comment -%} Faixa de coleções logo abaixo do cabeçalho, com "Monte a sua" em destaque. {%- endcomment -%}
+{%- comment -%} Nomes das coleções logo abaixo do cabeçalho; "Monte a sua" por último, em destaque. {%- endcomment -%}
 {%- assign links = linklists[section.settings.menu].links -%}
 <nav class="m-cols" aria-label="Coleções">
   <div class="m-wrap m-cols__lista">
     {%- for link in links -%}
-      {%- if link.url contains 'monte-a-sua' -%}{%- continue -%}{%- endif -%}
-      {%- assign h = link.url | split: '/' | last -%}{%- assign c = collections[h] -%}
-      <a class="m-cols__item" href="{{ link.url }}">
-        {%- if c.products.first.featured_image -%}{{ c.products.first.featured_image | image_url: width: 240 | image_tag: loading: 'eager', alt: '' }}{%- endif -%}
-        <span>{{ link.title }}</span>
-      </a>
+      <a class="m-cols__item{% if link.url contains 'monte-a-sua' %} m-cols__monte{% endif %}" href="{{ link.url }}">{{ link.title }}</a>
     {%- endfor -%}
-  </div>
-  <div class="m-wrap">
-    <a class="m-cols__monte" href="/pages/monte-a-sua">
-      <span class="m-cols__monte-t">Monte a <em>sua</em></span>
-      <span class="m-cols__monte-s">Escolha a cor, o tamanho e as artes da frente e das costas. O preço sai na hora.</span>
-      <span class="m-cols__monte-b">Personalizar →</span>
-    </a>
   </div>
 </nav>
 
 {% stylesheet %}
-.m-cols{padding:16px 0 8px}
-.m-cols__lista{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px}
-.m-cols__item{flex:0 0 112px;scroll-snap-align:start;display:grid;gap:6px;text-align:center;text-decoration:none;color:var(--color-text,#22201D);font-size:.9rem}
-.m-cols__item img{width:112px;height:112px;object-fit:cover;border-radius:50%;background:var(--color-surface,#E4DDD0)}
-.m-cols__monte{display:grid;gap:4px;margin-top:12px;padding:20px 24px;border-radius:12px;background:var(--color-accent,#5B3F30);color:#ECE7DE;text-decoration:none}
-.m-cols__monte-t{font-family:var(--font-display,'Instrument Serif',serif);font-size:2rem;line-height:1}
-.m-cols__monte-s{opacity:.9}
-.m-cols__monte-b{font-weight:600;margin-top:6px}
-@media(min-width:860px){.m-cols__lista{justify-content:center}.m-cols__monte{grid-template-columns:auto 1fr auto;align-items:center;gap:24px}}
+.m-cols{padding:12px 0;border-bottom:1px solid var(--color-border,#CBBFAE)}
+.m-cols__lista{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+.m-cols__item{display:inline-flex;align-items:center;min-height:40px;padding:0 14px;border:1px solid var(--color-border,#CBBFAE);border-radius:999px;text-decoration:none;color:var(--color-text,#22201D);font-size:.95rem}
+.m-cols__item.m-cols__monte{background:#5B3F30;border-color:#5B3F30;color:#ECE7DE;font-weight:600}
+@media(min-width:860px){.m-cols{display:none}}
 {% endstylesheet %}
 
 {% schema %}
