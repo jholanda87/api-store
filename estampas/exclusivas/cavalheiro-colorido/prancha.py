@@ -22,9 +22,9 @@ COR = {
     'pele': (231, 190, 152), 'luva': (233, 216, 162), 'calca': (237, 227, 200), 'cartola': (140, 139, 134),
     'sapato': (28, 26, 25),
 }
-REGIOES = {  # números do mapa de áreas (traço dilatado 4 px); 69 (braço/tronco) fica vazado
+REGIOES = {  # números do mapa de áreas (traço dilatado 4 px); 69 (braço/tronco), 113 e 118 (entre as pernas) ficam vazados
     'fraque': [27, 36, 50, 56, 63, 72, 82, 95], 'colete': [60, 64, 66, 78, 79, 83], 'camisa': [33, 47],
-    'gravata': [44], 'pele': [4, 24], 'luva': [90], 'calca': [85, 113, 118], 'sapato': [129, 134, 137],
+    'gravata': [44], 'pele': [4, 24], 'luva': [90], 'calca': [85], 'sapato': [129, 134, 137],
 }
 TRACO = {'preta': (242, 238, 230), 'mapple': (242, 238, 230), 'offwhite': (34, 32, 29)}
 FRAQUE_NA_PRETA = (44, 85, 70)  # o verde da prancha sumiria no preto: um tom acima, mesma família
