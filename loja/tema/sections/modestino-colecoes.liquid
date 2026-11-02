@@ -3,7 +3,7 @@
   <div class="m-wrap">
     <div class="m-cols__lista">
       <a class="m-cols__item" href="/collections/basicas">Básicas</a>
-      <button type="button" class="m-cols__item" aria-expanded="false" aria-controls="m-cols-artes" onclick="const a=this.getAttribute('aria-expanded')==='true';this.setAttribute('aria-expanded',!a);document.getElementById('m-cols-artes').hidden=a;">Estampadas <span aria-hidden="true">▾</span></button>
+      <button type="button" class="m-cols__item" aria-expanded="false" aria-controls="m-cols-artes" onclick="const a=this.getAttribute('aria-expanded')==='true';this.setAttribute('aria-expanded',!a);document.getElementById('m-cols-artes').hidden=a;">Estampadas <svg aria-hidden="true" width="12" height="12" viewBox="0 0 12 12"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       <a class="m-cols__item m-cols__monte" href="/pages/monte-a-sua">Monte a sua</a>
     </div>
     <div class="m-cols__artes" id="m-cols-artes" hidden>
@@ -14,15 +14,17 @@
 </nav>
 
 {% stylesheet %}
-.m-cols{padding:8px 0;border-bottom:1px solid #CBBFAE}
+.m-cols{padding:8px 0;border-bottom:1px solid var(--color-border)}
 .m-cols__lista{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
-.m-cols__item{display:flex;align-items:center;justify-content:center;gap:4px;min-height:40px;padding:0 6px;border:1px solid #CBBFAE;border-radius:999px;background:transparent;text-decoration:none;color:#22201D;font:inherit;font-size:.9rem;cursor:pointer;white-space:nowrap}
-.m-cols__item[aria-expanded=true]{background:#22201D;color:#ECE7DE;border-color:#22201D}
-.m-cols__item[aria-expanded=true] span{display:inline-block;transform:rotate(180deg)}
-.m-cols__item.m-cols__monte{background:#5B3F30;border-color:#5B3F30;color:#ECE7DE;font-weight:600}
+.m-cols__item{display:flex;align-items:center;justify-content:center;gap:4px;min-height:40px;padding:0 6px;border:1px solid var(--color-border);border-radius:999px;background:transparent;text-decoration:none;color:var(--color-text);font:inherit;font-size:.9rem;cursor:pointer;white-space:nowrap}
+.m-cols__item[aria-expanded=true]{background:var(--color-text);color:var(--color-bg);border-color:var(--color-text)}
+.m-cols__item svg{transition:transform .2s cubic-bezier(.16,1,.3,1)}
+.m-cols__item[aria-expanded=true] svg{transform:rotate(180deg)}
+.m-cols__item:focus-visible,.m-cols__artes a:focus-visible{outline:2px solid var(--color-text);outline-offset:2px}
+.m-cols__item.m-cols__monte{background:var(--color-accent);border-color:var(--color-accent);color:var(--color-bg);font-weight:600}
 .m-cols__artes{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:8px}
 .m-cols__artes[hidden]{display:none}
-.m-cols__artes a{display:flex;align-items:center;justify-content:center;min-height:36px;border-radius:6px;background:#E4DDD0;color:#22201D;text-decoration:none;font-size:.85rem}
+.m-cols__artes a{display:flex;align-items:center;justify-content:center;min-height:36px;border-radius:6px;background:var(--color-surface);color:var(--color-text);text-decoration:none;font-size:.85rem}
 @media(min-width:860px){.m-cols{display:none}}
 {% endstylesheet %}
 

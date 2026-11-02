@@ -4,6 +4,11 @@
 {%- endcomment -%}
 {%- assign camiseta = all_products[section.settings.produto] -%}
 <section class="m-capa" aria-labelledby="hero-{{ section.id }}">
+  <div class="m-esteira__caixa">
+  <button type="button" class="m-esteira__pausa" aria-controls="esteira-{{ section.id }}" aria-pressed="false" aria-label="Pausar o movimento das camisetas" hidden>
+    <svg class="i-pausa" aria-hidden="true" width="14" height="14" viewBox="0 0 14 14"><rect x="3" y="2" width="2.5" height="10" rx="1" fill="currentColor"/><rect x="8.5" y="2" width="2.5" height="10" rx="1" fill="currentColor"/></svg>
+    <svg class="i-tocar" aria-hidden="true" width="14" height="14" viewBox="0 0 14 14"><path d="M4 2.5v9l7.5-4.5z" fill="currentColor"/></svg>
+  </button>
   <div class="m-esteira" id="esteira-{{ section.id }}" aria-label="Camisetas">
     <div class="m-esteira__trilho">
       {%- for m in camiseta.media -%}
@@ -26,6 +31,7 @@
       {%- endfor -%}
     </div>
   </div>
+  </div>
   <div class="m-wrap m-capa__texto">
     <h1 id="hero-{{ section.id }}">{{ section.settings.titulo }}</h1>
     <p class="m-capa__sub">{{ section.settings.subtitulo }}</p>
@@ -44,32 +50,53 @@
   f.forEach(x => t.appendChild(x));
   f.forEach(x => { const c = x.cloneNode(true); c.setAttribute('aria-hidden', 'true'); c.tabIndex = -1; c.querySelector('img').alt = ''; t.appendChild(c); });
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  let pausa = 0, pos = 0, ult = performance.now();
+  const bt = e.parentElement.querySelector('.m-esteira__pausa'); bt.hidden = false;
+  let pausa = 0, pos = 0, ult = 0, parado = false, sobre = false, visivel = true, rodando = false;
   const parar = () => { pausa = performance.now() + 3000; };
   ['pointerdown', 'touchstart', 'wheel'].forEach(ev => e.addEventListener(ev, parar, {passive: true}));
-  e.addEventListener('scroll', () => { if (performance.now() < pausa) pos = e.scrollLeft; }, {passive: true});
-  const passo = now => {
-    const dt = now - ult; ult = now;
+  e.addEventListener('scroll', () => { if (performance.now() < pausa || parado) pos = e.scrollLeft; }, {passive: true});
+  e.addEventListener('mouseenter', () => { sobre = true; });
+  e.addEventListener('mouseleave', () => { sobre = false; ligar(); });
+  e.addEventListener('focusin', () => { sobre = true; });
+  e.addEventListener('focusout', () => { sobre = false; ligar(); });
+  bt.addEventListener('click', () => {
+    parado = !parado; bt.setAttribute('aria-pressed', parado);
+    bt.setAttribute('aria-label', parado ? 'Continuar o movimento das camisetas' : 'Pausar o movimento das camisetas');
+    pos = e.scrollLeft; ligar();
+  });
+  new IntersectionObserver(([x]) => { visivel = x.isIntersecting; ligar(); }).observe(e);
+  document.addEventListener('visibilitychange', ligar);
+  function ativo() { return !parado && !sobre && visivel && !document.hidden; }
+  function ligar() { if (ativo() && !rodando) { rodando = true; ult = performance.now(); requestAnimationFrame(passo); } }
+  function passo(now) {
+    if (!ativo()) { rodando = false; return; }
+    const dt = Math.min(now - ult, 64); ult = now;
     const meio = t.scrollWidth / 2;
     if (now >= pausa) { pos += dt * 0.04; if (pos >= meio) pos -= meio; e.scrollLeft = pos; }
     else if (e.scrollLeft >= meio) { e.scrollLeft -= meio; pos = e.scrollLeft; }
     requestAnimationFrame(passo);
-  };
-  requestAnimationFrame(passo);
+  }
+  ligar();
 })();
 </script>
 
 {% stylesheet %}
-.m-capa{background:#ECE7DE;padding-top:12px}
+.m-capa{background:var(--color-bg);padding-top:12px}
+.m-esteira__caixa{position:relative}
+.m-esteira__pausa{position:absolute;z-index:1;right:24px;bottom:8px;width:44px;height:44px;display:grid;place-items:center;border:0;border-radius:50%;background:var(--color-bg);color:var(--color-text);box-shadow:0 2px 8px rgb(34 32 29 / .18);cursor:pointer}
+.m-esteira__pausa:focus-visible{outline:2px solid var(--color-text);outline-offset:2px}
+.m-esteira__pausa .i-tocar,.m-esteira__pausa[aria-pressed=true] .i-pausa{display:none}
+.m-esteira__pausa[aria-pressed=true] .i-tocar{display:block}
+.m-esteira__item:focus-visible{outline:2px solid var(--color-text);outline-offset:-2px}
 .m-esteira{overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
 .m-esteira::-webkit-scrollbar{display:none}
 .m-esteira__trilho{display:flex;gap:10px;width:max-content;padding:0 16px}
-.m-esteira__item{flex:0 0 46vw;max-width:300px;aspect-ratio:4/5;border-radius:10px;overflow:hidden;background:#ECE7DE;display:block}
+.m-esteira__item{flex:0 0 46vw;max-width:300px;aspect-ratio:4/5;border-radius:10px;overflow:hidden;background:var(--color-bg);display:block}
 .m-esteira__item img{display:block;width:100%;height:100%;object-fit:cover;mix-blend-mode:multiply}
 @media(min-width:860px){.m-esteira__item{flex-basis:20vw}}
 .m-capa__texto{padding:16px 16px 24px}
 .m-capa h1{font-size:clamp(1.6rem,6vw,3rem);line-height:1.05;margin:0 0 6px}
-.m-capa__sub{margin:0 0 14px;color:#6E675F}
+.m-capa__sub{margin:0 0 14px;color:var(--color-text-muted);text-wrap:pretty}
 {% endstylesheet %}
 
 {% schema %}
