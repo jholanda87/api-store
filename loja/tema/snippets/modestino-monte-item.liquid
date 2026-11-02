@@ -4,6 +4,9 @@
   assign f_off = p.featured_image
   for m in p.images
     assign alt = m.alt | downcase
+    if alt contains 'vestida'
+      continue
+    endif
     if alt contains 'mapple'
       assign f_mapple = m
     elsif alt contains 'off white'
