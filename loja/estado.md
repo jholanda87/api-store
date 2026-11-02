@@ -119,3 +119,5 @@ Tema "Modestino v2 - publicar este" (id 167330742320, cópia do publicado): roda
 ## 02/11
 
 Jorge publicou o v2. Novo tema "Modestino v3 - publicar este" (id 167386087472): abas Básicas/Estampadas/Monte a sua, esteira menor que dá para arrastar e tocar, "Básico com postura.", sem costura do ombro e troca em mãos, Instagram nas dúvidas. Kits em rascunho.
+
+6 artes novas no ar (02/11): garca-tres-garcas, carnauba-o-broto, carnauba-folha-e-lua, jangada-lua-e-estrelas, jangada-rumo-ao-sol (R$ 90), happy-hour (R$ 99 exclusiva). Tema "Modestino v4 - publicar este" (id 167386710064): sem a faixa gola/nome, contatos alinhados. Apagar temas: só pelo admin (bloqueado para o Claude).

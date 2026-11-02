@@ -8,32 +8,6 @@
       "type": "modestino-inicio",
       "settings": {}
     },
-    "prova": {
-      "type": "modestino-prova",
-      "settings": {
-        "titulo": "Básico com postura."
-      },
-      "blocks": {
-        "a": {
-          "type": "item",
-          "settings": {
-            "titulo": "Gola rente ao pescoço",
-            "texto": ""
-          }
-        },
-        "b": {
-          "type": "item",
-          "settings": {
-            "titulo": "O nome fica por dentro",
-            "texto": "Assinatura MODESTINO na nuca, pelo lado de dentro."
-          }
-        }
-      },
-      "block_order": [
-        "a",
-        "b"
-      ]
-    },
     "duvidas": {
       "type": "modestino-duvidas",
       "settings": {},
@@ -62,8 +36,8 @@
         "q4": {
           "type": "pergunta",
           "settings": {
-            "pergunta": "Cupons de embaixador valem para os kits?",
-            "resposta": "<p>Sim. Os cupons de embaixador valem para qualquer compra, avulsa ou kit, enquanto houver estoque. Não são cumulativos com outros descontos.</p>"
+            "pergunta": "Cupons de embaixador valem para todas as peças?",
+            "resposta": "<p>Sim. Os cupons de embaixador valem para qualquer compra. Não são cumulativos com outros descontos.</p>"
           }
         }
       },
@@ -87,7 +61,6 @@
     "colecoes",
     "inicio",
     "vitrine",
-    "prova",
     "duvidas",
     "fecho"
   ]
