@@ -123,3 +123,5 @@ Jorge publicou o v2. Novo tema "Modestino v3 - publicar este" (id 167386087472):
 6 artes novas no ar (02/11): garca-tres-garcas, carnauba-o-broto, carnauba-folha-e-lua, jangada-lua-e-estrelas, jangada-rumo-ao-sol (R$ 90), happy-hour (R$ 99 exclusiva). Tema "Modestino v4 - publicar este" (id 167386710064): sem a faixa gola/nome, contatos alinhados. Apagar temas: só pelo admin (bloqueado para o Claude).
 
 Tema "Modestino v5 - publicar este" (id 167388151856, copia do publicado "Copia atualizada de v4"): pausa no rolo, rolo para fora da tela/aba, "Todas as duvidas" 44px, cores por variavel, seta SVG. Auditoria impeccable 14/20 -> todos os achados reais resolvidos.
+
+02/11: Monte a sua ficou em branco no v5 (editor trocou templates/page.monte.json pelo modelo padrao main-page). Corrigido no "Modestino v6 - publicar este" (id 167388545072). Cuidado: nao abrir a pagina Monte a sua no editor de temas, ele regrava o modelo.
