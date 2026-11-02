@@ -10,7 +10,9 @@
     },
     "prova": {
       "type": "modestino-prova",
-      "settings": {},
+      "settings": {
+        "titulo": "Básico com postura."
+      },
       "blocks": {
         "a": {
           "type": "item",
@@ -25,27 +27,11 @@
             "titulo": "O nome fica por dentro",
             "texto": "Assinatura MODESTINO na nuca, pelo lado de dentro."
           }
-        },
-        "c": {
-          "type": "item",
-          "settings": {
-            "titulo": "Costura no osso do ombro",
-            "texto": ""
-          }
-        },
-        "d": {
-          "type": "item",
-          "settings": {
-            "titulo": "Troca em mãos",
-            "texto": "Presencial, em Fortaleza."
-          }
         }
       },
       "block_order": [
         "a",
-        "b",
-        "c",
-        "d"
+        "b"
       ]
     },
     "duvidas": {

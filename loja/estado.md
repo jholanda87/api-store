@@ -115,3 +115,7 @@ Jorge publicou "Modestino FINAL - publicar este" (id 167202390064). Conferido ao
 ## Ajustes de 31/10 (noite)
 
 Tema "Modestino v2 - publicar este" (id 167330742320, cópia do publicado): rodapé sem endereço (só CNPJ e Fortaleza/CE) e coluna Loja = Início + Monte a sua; faixa de coleções com foto no topo do início + cartão de destaque do Monte a sua; botão marrom do Monte a sua no menu. Aguarda o Jorge publicar.
+
+## 02/11
+
+Jorge publicou o v2. Novo tema "Modestino v3 - publicar este" (id 167386087472): abas Básicas/Estampadas/Monte a sua, esteira menor que dá para arrastar e tocar, "Básico com postura.", sem costura do ombro e troca em mãos, Instagram nas dúvidas. Kits em rascunho.

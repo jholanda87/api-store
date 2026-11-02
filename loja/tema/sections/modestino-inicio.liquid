@@ -1,40 +1,35 @@
 {%- comment -%}
-  S01, primeira tela. Foto em tela cheia (as três cores lado a lado no computador, uma no celular),
-  título definido pelo Jorge (27/10), uma linha e um botão. Fotos: frentes da Camiseta Básica (provisórias).
+  S01, primeira tela: esteira de frentes (lisa, Cavalheiro, MODESTINO) nas 3 cores, ordem sorteada,
+  passando sozinha em loop; dá para arrastar e tocar para abrir a peça. Título e botão logo abaixo.
 {%- endcomment -%}
-{%- liquid
-  assign camiseta = all_products[section.settings.produto]
-  assign fotos = ''
--%}
-<section class="m-hero" aria-labelledby="hero-{{ section.id }}">
-  <div class="m-hero__fotos m-esteira" id="esteira-{{ section.id }}">
+{%- assign camiseta = all_products[section.settings.produto] -%}
+<section class="m-capa" aria-labelledby="hero-{{ section.id }}">
+  <div class="m-esteira" id="esteira-{{ section.id }}" aria-label="Camisetas">
     <div class="m-esteira__trilho">
       {%- for m in camiseta.media -%}
         {%- if m.alt contains 'de frente' -%}
           {%- assign alt = m.alt | downcase -%}
-          <div class="m-hero__foto" data-cor="{% if alt contains 'mapple' %}m{% elsif alt contains 'off' %}o{% else %}p{% endif %}">
-            {{ m.preview_image | image_url: width: 900 | image_tag: loading: 'eager', sizes: '(max-width: 859px) 80vw, 34vw', widths: '540, 720, 900', alt: m.alt }}
-          </div>
+          <a class="m-esteira__item" href="{{ camiseta.url }}" data-cor="{% if alt contains 'mapple' %}m{% elsif alt contains 'off' %}o{% else %}p{% endif %}">
+            {{ m.preview_image | image_url: width: 600 | image_tag: loading: 'eager', sizes: '(max-width: 859px) 46vw, 20vw', widths: '360, 600', alt: m.alt }}
+          </a>
         {%- endif -%}
       {%- endfor -%}
       {%- for p in collections.all.products -%}
         {%- if p.tags contains 'basico' and p.tags contains 'progressivo' and p.handle != camiseta.handle -%}
           {%- for m in p.images -%}
             {%- assign alt = m.alt | downcase -%}
-            <div class="m-hero__foto" data-cor="{% if alt contains 'mapple' %}m{% elsif alt contains 'off' %}o{% else %}p{% endif %}">
-              {{ m | image_url: width: 900 | image_tag: loading: 'eager', sizes: '(max-width: 859px) 80vw, 34vw', widths: '540, 720, 900', alt: m.alt }}
-            </div>
+            <a class="m-esteira__item" href="{{ p.url }}" data-cor="{% if alt contains 'mapple' %}m{% elsif alt contains 'off' %}o{% else %}p{% endif %}">
+              {{ m | image_url: width: 600 | image_tag: loading: 'eager', sizes: '(max-width: 859px) 46vw, 20vw', widths: '360, 600', alt: m.alt }}
+            </a>
           {%- endfor -%}
         {%- endif -%}
       {%- endfor -%}
     </div>
   </div>
-  <div class="m-hero__texto">
-    <div class="m-wrap">
-      <h1 id="hero-{{ section.id }}">{{ section.settings.titulo }}</h1>
-      <p class="m-hero__sub">{{ section.settings.subtitulo }}</p>
-      <a class="m-btn m-btn--claro" href="{{ camiseta.url | default: '/products/camiseta-basica-modestino' }}">{{ section.settings.botao }}</a>
-    </div>
+  <div class="m-wrap m-capa__texto">
+    <h1 id="hero-{{ section.id }}">{{ section.settings.titulo }}</h1>
+    <p class="m-capa__sub">{{ section.settings.subtitulo }}</p>
+    <a class="m-btn m-btn--primario" href="{{ camiseta.url | default: '/products/camiseta-basica-modestino' }}">{{ section.settings.botao }}</a>
   </div>
 </section>
 <script>
@@ -42,26 +37,39 @@
   const e = document.getElementById('esteira-{{ section.id }}'); if (!e) return;
   const t = e.querySelector('.m-esteira__trilho');
   let f = [...t.children];
-  // embaralha sem repetir cor nem arte em sequência
   for (let k = 0; k < 200; k++) {
     for (let i = f.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [f[i], f[j]] = [f[j], f[i]]; }
     if (f.every((x, i) => i === 0 || x.dataset.cor !== f[i - 1].dataset.cor) && f[0].dataset.cor !== f[f.length - 1].dataset.cor) break;
   }
   f.forEach(x => t.appendChild(x));
-  f.forEach(x => { const c = x.cloneNode(true); c.setAttribute('aria-hidden', 'true'); c.querySelector('img').alt = ''; t.appendChild(c); });
-  t.style.setProperty('--n', f.length);
-  e.classList.add('m-esteira--viva');
+  f.forEach(x => { const c = x.cloneNode(true); c.setAttribute('aria-hidden', 'true'); c.tabIndex = -1; c.querySelector('img').alt = ''; t.appendChild(c); });
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  let pausa = 0, pos = 0, ult = performance.now();
+  const parar = () => { pausa = performance.now() + 3000; };
+  ['pointerdown', 'touchstart', 'wheel'].forEach(ev => e.addEventListener(ev, parar, {passive: true}));
+  e.addEventListener('scroll', () => { if (performance.now() < pausa) pos = e.scrollLeft; }, {passive: true});
+  const passo = now => {
+    const dt = now - ult; ult = now;
+    const meio = t.scrollWidth / 2;
+    if (now >= pausa) { pos += dt * 0.04; if (pos >= meio) pos -= meio; e.scrollLeft = pos; }
+    else if (e.scrollLeft >= meio) { e.scrollLeft -= meio; pos = e.scrollLeft; }
+    requestAnimationFrame(passo);
+  };
+  requestAnimationFrame(passo);
 })();
 </script>
 
 {% stylesheet %}
-.m-esteira { display: block !important; overflow: hidden; background: #ECE7DE; }
-.m-esteira__trilho { display: flex; height: 100%; width: max-content; }
-.m-esteira .m-hero__foto { display: block !important; flex: 0 0 34vw; height: 100%; }
-.m-esteira--viva .m-esteira__trilho { animation: m-esteira calc(var(--n) * 4s) linear infinite; }
-@keyframes m-esteira { to { transform: translateX(-50%); } }
-@media (max-width: 859px) { .m-esteira .m-hero__foto { flex-basis: 80vw; } }
-@media (prefers-reduced-motion: reduce) { .m-esteira--viva .m-esteira__trilho { animation: none; } .m-esteira { overflow-x: auto; } }
+.m-capa{background:#ECE7DE;padding-top:12px}
+.m-esteira{overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.m-esteira::-webkit-scrollbar{display:none}
+.m-esteira__trilho{display:flex;gap:10px;width:max-content;padding:0 16px}
+.m-esteira__item{flex:0 0 46vw;max-width:300px;aspect-ratio:4/5;border-radius:10px;overflow:hidden;background:#ECE7DE;display:block}
+.m-esteira__item img{display:block;width:100%;height:100%;object-fit:cover;mix-blend-mode:multiply}
+@media(min-width:860px){.m-esteira__item{flex-basis:20vw}}
+.m-capa__texto{padding:16px 16px 24px}
+.m-capa h1{font-size:clamp(1.6rem,6vw,3rem);line-height:1.05;margin:0 0 6px}
+.m-capa__sub{margin:0 0 14px;color:#6E675F}
 {% endstylesheet %}
 
 {% schema %}

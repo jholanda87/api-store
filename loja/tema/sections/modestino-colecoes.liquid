@@ -1,21 +1,31 @@
-{%- comment -%} Nomes das coleções logo abaixo do cabeçalho; "Monte a sua" por último, em destaque. {%- endcomment -%}
-{%- assign links = linklists[section.settings.menu].links -%}
+{%- comment -%} Abas logo abaixo do cabeçalho: Básicas, Estampadas (abre a lista das artes) e Monte a sua em destaque. {%- endcomment -%}
 <nav class="m-cols" aria-label="Coleções">
-  <div class="m-wrap m-cols__lista">
-    {%- for link in links -%}
-      <a class="m-cols__item{% if link.url contains 'monte-a-sua' %} m-cols__monte{% endif %}" href="{{ link.url }}">{{ link.title }}</a>
-    {%- endfor -%}
+  <div class="m-wrap">
+    <div class="m-cols__lista">
+      <a class="m-cols__item" href="/collections/basicas">Básicas</a>
+      <button type="button" class="m-cols__item" aria-expanded="false" aria-controls="m-cols-artes" onclick="const a=this.getAttribute('aria-expanded')==='true';this.setAttribute('aria-expanded',!a);document.getElementById('m-cols-artes').hidden=a;">Estampadas <span aria-hidden="true">▾</span></button>
+      <a class="m-cols__item m-cols__monte" href="/pages/monte-a-sua">Monte a sua</a>
+    </div>
+    <div class="m-cols__artes" id="m-cols-artes" hidden>
+      <a href="/collections/carcara">Carcará</a><a href="/collections/garca">Garça</a><a href="/collections/carnauba">Carnaúba</a>
+      <a href="/collections/jangada">Jangada</a><a href="/collections/caju">Caju</a><a href="/collections/exclusivas">Exclusivas</a>
+    </div>
   </div>
 </nav>
 
 {% stylesheet %}
-.m-cols{padding:8px 0;border-bottom:1px solid var(--color-border,#CBBFAE)}
-.m-cols__lista{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
-.m-cols__item{display:flex;align-items:center;justify-content:center;min-height:34px;padding:0 4px;white-space:nowrap;border:1px solid var(--color-border,#CBBFAE);border-radius:999px;text-decoration:none;color:var(--color-text,#22201D);font-size:.8rem}
+.m-cols{padding:8px 0;border-bottom:1px solid #CBBFAE}
+.m-cols__lista{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.m-cols__item{display:flex;align-items:center;justify-content:center;gap:4px;min-height:40px;padding:0 6px;border:1px solid #CBBFAE;border-radius:999px;background:transparent;text-decoration:none;color:#22201D;font:inherit;font-size:.9rem;cursor:pointer;white-space:nowrap}
+.m-cols__item[aria-expanded=true]{background:#22201D;color:#ECE7DE;border-color:#22201D}
+.m-cols__item[aria-expanded=true] span{display:inline-block;transform:rotate(180deg)}
 .m-cols__item.m-cols__monte{background:#5B3F30;border-color:#5B3F30;color:#ECE7DE;font-weight:600}
+.m-cols__artes{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:8px}
+.m-cols__artes[hidden]{display:none}
+.m-cols__artes a{display:flex;align-items:center;justify-content:center;min-height:36px;border-radius:6px;background:#E4DDD0;color:#22201D;text-decoration:none;font-size:.85rem}
 @media(min-width:860px){.m-cols{display:none}}
 {% endstylesheet %}
 
 {% schema %}
-{ "name": "Faixa de coleções", "settings": [ { "type": "text", "id": "menu", "label": "Handle do menu", "default": "modestino-colecoes" } ], "presets": [{ "name": "Faixa de coleções" }] }
+{ "name": "Abas do topo", "settings": [], "presets": [{ "name": "Abas do topo" }] }
 {% endschema %}

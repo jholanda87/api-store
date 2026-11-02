@@ -5,6 +5,7 @@
       <h2 id="duvidas-{{ section.id }}">{{ section.settings.titulo }}</h2>
       <p class="m-muted">{{ section.settings.texto }}</p>
       <a class="m-btn m-btn--secundario" href="{{ section.settings.whatsapp }}" target="_blank" rel="noopener">{% render 'modestino-icone', nome: 'whatsapp' %}WhatsApp</a>
+      <a class="m-btn m-btn--secundario" style="margin-top:8px" href="https://www.instagram.com/lojamodestino/" target="_blank" rel="noopener">Instagram @lojamodestino</a>
     </div>
     <div class="m-faq">
       {%- for block in section.blocks -%}
@@ -23,7 +24,7 @@
   "name": "Dúvidas (início)",
   "settings": [
     { "type": "text", "id": "titulo", "label": "Título", "default": "Dúvidas" },
-    { "type": "text", "id": "texto", "label": "Texto", "default": "Atendimento via WhatsApp, todos os dias." },
+    { "type": "text", "id": "texto", "label": "Texto", "default": "Atendimento pelo WhatsApp e pelo Instagram, todos os dias." },
     { "type": "text", "id": "whatsapp", "label": "Link do WhatsApp", "default": "https://wa.me/5585981559590?text=Oi%21%20Vim%20pela%20loja%20da%20MODESTINO%20e%20tenho%20uma%20d%C3%BAvida." }
   ],
   "blocks": [
