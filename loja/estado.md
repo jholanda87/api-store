@@ -127,3 +127,5 @@ Tema "Modestino v5 - publicar este" (id 167388151856, copia do publicado "Copia 
 02/11: Monte a sua ficou em branco no v5 (editor trocou templates/page.monte.json pelo modelo padrao main-page). Corrigido no "Modestino v6 - publicar este" (id 167388545072). Cuidado: nao abrir a pagina Monte a sua no editor de temas, ele regrava o modelo.
 
 02/11 (fotos reais): 15 fotos em loja/fotos/reais e nos Arquivos da Shopify (alt "... vestida, foto real N"). Ja ligadas so na Basica; fotos reais antigas da Basica apagadas. Tema "Modestino v7 - publicar este" (id 167393820720) criado; ajustes locais (pular "vestida" no Monte, rolo e grade) ainda NAO enviados. Aguardando Jorge mandar fotos editadas.
+
+02/11: v7 publicado. 16 fotos reais (alt "Camiseta básica Modestino <cor>, ...") ligadas na Basica e nas 20 pecas com arte; tema filtra: so mockups na capa, Monte e grade.
