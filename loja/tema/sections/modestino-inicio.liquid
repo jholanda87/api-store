@@ -12,7 +12,7 @@
   <div class="m-esteira" id="esteira-{{ section.id }}" aria-label="Camisetas">
     <div class="m-esteira__trilho">
       {%- for m in camiseta.media -%}
-        {%- if m.alt contains 'de frente' -%}
+        {%- if m.alt contains 'lisa, de frente' -%}
           {%- assign alt = m.alt | downcase -%}
           <a class="m-esteira__item" href="{{ camiseta.url }}" data-cor="{% if alt contains 'mapple' %}m{% elsif alt contains 'off' %}o{% else %}p{% endif %}">
             {{ m.preview_image | image_url: width: 600 | image_tag: loading: 'eager', sizes: '(max-width: 859px) 46vw, 20vw', widths: '360, 600', alt: m.alt }}

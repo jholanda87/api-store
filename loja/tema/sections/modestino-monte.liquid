@@ -11,7 +11,7 @@
   assign lisa_off = ''
   for m in basica.media
     assign alt = m.alt | downcase
-    if alt contains 'de frente'
+    if alt contains 'lisa, de frente'
       if alt contains 'mapple'
         assign lisa_mapple = m.preview_image | image_url: width: 900
       elsif alt contains 'off white'

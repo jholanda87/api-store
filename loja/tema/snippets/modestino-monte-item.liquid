@@ -5,7 +5,9 @@
   for m in p.images
     assign alt = m.alt | downcase
     if alt contains 'básica'
-      continue
+      unless alt contains 'lisa'
+        continue
+      endunless
     endif
     if alt contains 'mapple'
       assign f_mapple = m
