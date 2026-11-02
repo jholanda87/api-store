@@ -4,7 +4,7 @@
   assign f_off = p.featured_image
   for m in p.images
     assign alt = m.alt | downcase
-    if alt contains 'vestida'
+    if alt contains 'básica'
       continue
     endif
     if alt contains 'mapple'
