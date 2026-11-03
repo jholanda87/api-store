@@ -4,6 +4,9 @@
   assign f_off = p.featured_image
   for m in p.images
     assign alt = m.alt | downcase
+    if alt contains 'em detalhe'
+      continue
+    endif
     if alt contains 'básica'
       unless alt contains 'lisa'
         continue

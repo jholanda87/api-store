@@ -2,7 +2,9 @@
   "sections": {
     "main": {
       "type": "modestino-produto",
-      "settings": {}
+      "settings": {
+        "lead": ""
+      }
     }
   },
   "order": [

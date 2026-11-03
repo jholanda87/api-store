@@ -129,3 +129,5 @@ Tema "Modestino v5 - publicar este" (id 167388151856, copia do publicado "Copia 
 02/11 (fotos reais): 15 fotos em loja/fotos/reais e nos Arquivos da Shopify (alt "... vestida, foto real N"). Ja ligadas so na Basica; fotos reais antigas da Basica apagadas. Tema "Modestino v7 - publicar este" (id 167393820720) criado; ajustes locais (pular "vestida" no Monte, rolo e grade) ainda NAO enviados. Aguardando Jorge mandar fotos editadas.
 
 02/11: v7 publicado. 16 fotos reais (alt "Camiseta básica Modestino <cor>, ...") ligadas na Basica e nas 20 pecas com arte; tema filtra: so mockups na capa, Monte e grade.
+
+03/11: tema "Modestino v8 - publicar este" (id 167428948016): product.json restaurado (galeria por cor), filtro "em detalhe". 60 imagens "Arte ... em detalhe" criadas nos Arquivos (ainda NAO ligadas). Descricoes das 21 pecas com bloco do tecido 95% modal + 5% elastano.

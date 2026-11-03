@@ -5,7 +5,7 @@
     <ul class="m-vitrine__grade" id="artes-grade">
       {%- for p in collections.all.products -%}
         {%- if p.handle contains 'kit-' -%}{%- continue -%}{%- endif -%}
-        {%- capture fotos -%}{%- for m in p.images -%}{%- unless m.alt contains 'cabide' or m.alt contains 'perto' or m.alt contains 'lado' or m.alt contains 'ombro' or m.alt contains 'Etiqueta' -%}{%- if m.alt contains 'básica' -%}{%- unless m.alt contains 'lisa' -%}{%- continue -%}{%- endunless -%}{%- endif -%}{{ m | image_url: width: 720 }}|{%- endunless -%}{%- endfor -%}{%- endcapture -%}
+        {%- capture fotos -%}{%- for m in p.images -%}{%- unless m.alt contains 'cabide' or m.alt contains 'perto' or m.alt contains 'lado' or m.alt contains 'ombro' or m.alt contains 'Etiqueta' or m.alt contains 'em detalhe' -%}{%- if m.alt contains 'básica' -%}{%- unless m.alt contains 'lisa' -%}{%- continue -%}{%- endunless -%}{%- endif -%}{{ m | image_url: width: 720 }}|{%- endunless -%}{%- endfor -%}{%- endcapture -%}
         <li class="m-card" data-fotos="{{ fotos | escape }}">
           <a href="{{ p.url }}" class="m-card__link">
             <div class="m-card__foto">

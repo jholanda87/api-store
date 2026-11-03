@@ -23,7 +23,7 @@
         {%- if p.tags contains 'basico' and p.tags contains 'progressivo' and p.handle != camiseta.handle -%}
           {%- for m in p.images -%}
             {%- assign alt = m.alt | downcase -%}
-            {%- if alt contains 'básica' -%}{%- continue -%}{%- endif -%}
+            {%- if alt contains 'básica' or alt contains 'em detalhe' -%}{%- continue -%}{%- endif -%}
             <a class="m-esteira__item" href="{{ p.url }}" data-cor="{% if alt contains 'mapple' %}m{% elsif alt contains 'off' %}o{% else %}p{% endif %}">
               {{ m | image_url: width: 600 | image_tag: loading: 'eager', sizes: '(max-width: 859px) 46vw, 20vw', widths: '360, 600', alt: m.alt }}
             </a>
