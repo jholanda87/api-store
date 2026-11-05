@@ -11,9 +11,32 @@
   assign torax = section.settings.torax | split: ','
   assign wa = section.settings.whatsapp
 -%}
+<style>
+  .m-galeria__lista li { position: relative; }
+  .m-galeria__lista li:first-child { grid-column: auto; }
+  .m-galeria__lista li.m-dest { grid-column: 1 / -1; }
+  .m-galeria__tag { position: absolute; left: 8px; bottom: 8px; background: rgba(34,32,29,.78); color: #ECE7DE; font-size: 12px; padding: 4px 10px; border-radius: 999px; }
+  @media (max-width: 859px) {
+    .m-galeria__lista { grid-auto-columns: 88%; }
+    .m-galeria__lista li.m-dest { grid-column: auto; }
+  }
+</style>
 <div class="m-wrap m-prod" data-produto id="produto-{{ section.id }}">
   <div class="m-galeria" data-galeria data-cor="{{ cor_inicial }}">
-    <ul class="m-galeria__lista">
+    <ul class="m-galeria__lista" data-lista>
+      {%- liquid
+        assign basica = false
+        if product.handle contains 'basica'
+          assign basica = true
+        endif
+        assign reais_max = 2
+        if basica
+          assign reais_max = 4
+        endif
+        assign n_preto = 0
+        assign n_mapple = 0
+        assign n_off = 0
+      -%}
       {%- for media in product.media -%}
         {%- liquid
           assign alt = media.alt | downcase
@@ -25,9 +48,34 @@
           elsif alt contains 'off white'
             assign cor_foto = 'Off White'
           endif
+          assign real = false
+          if alt contains 'camiseta básica modestino' or alt contains 'camiseta basica modestino'
+            unless alt contains 'lisa'
+              assign real = true
+            endunless
+          endif
+          if cor_foto == ''
+            continue
+          endif
+          if real
+            if cor_foto == 'Preto'
+              assign n_preto = n_preto | plus: 1
+              assign n = n_preto
+            elsif cor_foto == 'Mapple Brown'
+              assign n_mapple = n_mapple | plus: 1
+              assign n = n_mapple
+            else
+              assign n_off = n_off | plus: 1
+              assign n = n_off
+            endif
+            if n > reais_max
+              continue
+            endif
+          endif
         -%}
-        <li data-cor-foto="{{ cor_foto }}" {% if cor_foto != '' and cor_foto != cor_inicial %}hidden{% endif %}>
-          {{ media.preview_image | image_url: width: 1080 | image_tag: loading: 'eager', sizes: '(max-width: 859px) 82vw, 55vw', widths: '540, 720, 1080', alt: media.alt }}
+        <li data-cor-foto="{{ cor_foto }}"{% if real %} data-real{% endif %} {% if cor_foto != cor_inicial %}hidden{% endif %}>
+          {{ media.preview_image | image_url: width: 1080 | image_tag: loading: 'lazy', sizes: '(max-width: 859px) 88vw, 55vw', widths: '540, 720, 1080', alt: media.alt }}
+          {%- if real -%}<span class="m-galeria__tag">Foto real · tecido e caimento</span>{%- endif -%}
         </li>
       {%- endfor -%}
     </ul>
@@ -159,14 +207,22 @@
       return wa.split('?')[0] + '?text=' + texto;
     }
 
+    let ultimaCor = null;
     function atualizar() {
       const c = cor();
       const t = tam();
       corNome.textContent = c;
       galeria.dataset.cor = c;
       galeria.querySelectorAll('[data-cor-foto]').forEach((li) => {
-        li.hidden = li.dataset.corFoto !== '' && li.dataset.corFoto !== c;
+        li.hidden = li.dataset.corFoto !== c;
       });
+      const lista = galeria.querySelector('[data-lista]');
+      if (lista && c !== ultimaCor) {
+        lista.scrollLeft = 0; ultimaCor = c;
+        lista.querySelectorAll('li').forEach((li) => li.classList.remove('m-dest'));
+        const prim = lista.querySelector('li:not([hidden])');
+        if (prim) { prim.classList.add('m-dest'); const im = prim.querySelector('img'); if (im) im.loading = 'eager'; }
+      }
       const esgotados = [];
       form.querySelectorAll('input[name="m-tam"]').forEach((r) => {
         const v = achar(c, r.value);
