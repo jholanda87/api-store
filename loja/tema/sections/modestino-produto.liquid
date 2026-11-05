@@ -72,9 +72,13 @@
               continue
             endif
           endif
+          assign carregar = 'lazy'
+          if cor_foto == cor_inicial
+            assign carregar = 'eager'
+          endif
         -%}
         <li data-cor-foto="{{ cor_foto }}"{% if real %} data-real{% endif %} {% if cor_foto != cor_inicial %}hidden{% endif %}>
-          {{ media.preview_image | image_url: width: 1080 | image_tag: loading: 'lazy', sizes: '(max-width: 859px) 88vw, 55vw', widths: '540, 720, 1080', alt: media.alt }}
+          {{ media.preview_image | image_url: width: 1080 | image_tag: loading: carregar, sizes: '(max-width: 859px) 88vw, 55vw', widths: '540, 720, 1080', alt: media.alt }}
           {%- if real -%}<span class="m-galeria__tag">Foto real · tecido e caimento</span>{%- endif -%}
         </li>
       {%- endfor -%}
