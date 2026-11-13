@@ -152,6 +152,7 @@
     });
   }
 
+  var iniciou;
   function ir(n) {
     st.etapa = n;
     document.querySelectorAll('.m-etapa').forEach(e => e.hidden = +e.dataset.etapa !== n);
@@ -160,7 +161,7 @@
     if (n === 3) lista('#artes-costas', D.costas, 'costas');
     if (n === 4) { $('#monte-resumo').textContent = `${st.cor} · frente: ${st.frente ? st.frente.titulo : 'lisa'} · costas: ${st.costas ? st.costas.titulo : 'sem arte'}`; preco(); }
     vista();
-    if (window.innerWidth < 860) document.querySelector('.m-monte__grid').scrollIntoView({behavior: 'smooth'});
+    if (iniciou && window.innerWidth < 860) document.querySelector('.m-monte__grid').scrollIntoView({behavior: 'smooth'});
   }
 
   function preco() {
@@ -194,7 +195,7 @@
       window.location.href = '/cart';
     } catch (_) { erro.textContent = 'Não deu para adicionar. Fala com a gente no WhatsApp.'; }
   };
-  ir(1);
+  iniciou = false; ir(1); iniciou = true;
 })();
 </script>
 
