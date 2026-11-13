@@ -202,12 +202,16 @@
 {% stylesheet %}
 .m-mhero__sub,.m-mhero__nota{text-wrap:balance}
 .m-cores{display:grid!important;grid-template-columns:repeat(3,1fr);gap:8px}
-.m-cores button{justify-content:center;padding:0 8px!important;white-space:nowrap}
+.m-monte__painel,.m-monte__grid>*{min-width:0}
+.m-cores button,.m-monte .m-seguir,#monte-add{box-sizing:border-box;max-width:100%}
+.m-cores button{justify-content:center;padding:0 6px!important;white-space:nowrap;min-width:0;font-size:.85rem!important;gap:6px!important}
+.m-cores button::before{flex:none}
 .m-monte .m-seguir,#monte-add{width:100%;justify-content:center;text-align:center}
 .m-navs .m-seguir{width:auto;flex:1}
 .m-etapa h2{text-align:center}
 .m-duvidas__contatos{display:grid;gap:10px}
-.m-duvidas__contatos .m-btn{width:100%;justify-content:center}
+.m-duvidas__contatos{max-width:none!important;width:100%}
+.m-duvidas__contatos .m-btn{width:100%;max-width:none!important;box-sizing:border-box;justify-content:center}
 @media(max-width:859px){.m-duvidas h2,.m-duvidas .m-muted{text-align:center;text-wrap:balance}}
 
 .m-mhero{background:none;color:#22201D;padding:0;text-align:center;margin:0 auto 20px;max-width:720px}
