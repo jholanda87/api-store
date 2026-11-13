@@ -55,13 +55,14 @@
     "vitrine": {
       "type": "modestino-artes",
       "settings": {}
+    },
+    "monte": {
+      "type": "modestino-monte",
+      "settings": {}
     }
   },
   "order": [
-    "colecoes",
-    "inicio",
-    "vitrine",
-    "duvidas",
-    "fecho"
+    "monte",
+    "duvidas"
   ]
 }
