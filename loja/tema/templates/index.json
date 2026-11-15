@@ -30,7 +30,7 @@
           "type": "pergunta",
           "settings": {
             "pergunta": "Como solicitar uma troca?",
-            "resposta": "<p>Prazo de 30 dias para troca de tamanho ou defeito e de 7 dias para desistência. Em Fortaleza, a troca é presencial. Solicite pelo WhatsApp, informando o número do pedido.</p>"
+            "resposta": "<p>Prazo de 30 dias para troca de tamanho ou defeito e de 7 dias para desistência. Solicite pelo WhatsApp, informando o número do pedido.</p>"
           }
         },
         "q4": {
