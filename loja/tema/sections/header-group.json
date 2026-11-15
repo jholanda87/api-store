@@ -13,13 +13,6 @@
             "icone": "entrega"
           }
         },
-        "b": {
-          "type": "item",
-          "settings": {
-            "texto": "Troca em mãos",
-            "icone": "troca"
-          }
-        },
         "c": {
           "type": "item",
           "settings": {
@@ -30,7 +23,6 @@
       },
       "block_order": [
         "a",
-        "b",
         "c"
       ]
     },
