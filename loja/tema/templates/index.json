@@ -23,7 +23,7 @@
           "type": "pergunta",
           "settings": {
             "pergunta": "Qual é o valor do frete?",
-            "resposta": "<p>Fortaleza: R$ 10. Demais cidades: calculado no checkout pelo CEP.</p>"
+            "resposta": "<p>Grátis acima de R$ 299. Abaixo disso: Ceará R$ 15 · Nordeste R$ 25 · Sudeste e Centro-Oeste R$ 35 · Sul e Norte R$ 45. O carrinho mostra o valor certinho.</p>"
           }
         },
         "q2": {

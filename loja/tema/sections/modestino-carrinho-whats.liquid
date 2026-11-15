@@ -1,0 +1,118 @@
+{%- comment -%}
+  Fechar pelo WhatsApp: a pessoa escolhe o estado, vê frete e total, e manda o resumo do carrinho
+  (cor, tamanho, frente/costas, quantidade, preços, frete e total) para o WhatsApp da loja.
+  A tabela de frete daqui TEM de ser igual à do admin (Configurações > Frete e entrega).
+{%- endcomment -%}
+{%- if cart.item_count > 0 -%}
+<section class="m-wrap m-whats" id="m-whats">
+  <h2 class="m-whats__titulo">Feche pelo WhatsApp</h2>
+  <p class="m-whats__sub">Calcule o frete e mande o resumo do pedido. A gente confirma e envia o Pix ou o link do cartão.</p>
+
+  <label class="m-whats__campo">Seu estado
+    <select id="m-whats-uf">
+      <option value="">Escolha o estado</option>
+      {%- assign ufs = 'AC,AL,AM,AP,BA,CE,DF,ES,GO,MA,MG,MS,MT,PA,PB,PE,PI,PR,RJ,RN,RO,RR,RS,SC,SE,SP,TO' | split: ',' -%}
+      {%- for uf in ufs -%}<option value="{{ uf }}">{{ uf }}</option>{%- endfor -%}
+    </select>
+  </label>
+  <label class="m-whats__campo">Seu nome
+    <input id="m-whats-nome" type="text" autocomplete="name" placeholder="Opcional">
+  </label>
+
+  <dl class="m-whats__conta">
+    <div><dt>Peças</dt><dd id="m-whats-sub">—</dd></div>
+    <div><dt>Frete</dt><dd id="m-whats-frete">escolha o estado</dd></div>
+    <div class="m-whats__total"><dt>Total</dt><dd id="m-whats-total">—</dd></div>
+  </dl>
+  <p class="m-whats__gratis" id="m-whats-falta"></p>
+
+  <button type="button" class="m-btn m-btn--primario m-whats__btn" id="m-whats-btn">{% render 'modestino-icone', nome: 'whatsapp' %}Finalizar pelo WhatsApp</button>
+  <p class="m-whats__erro" id="m-whats-erro" role="alert"></p>
+  <p class="m-whats__ou">Prefere pagar direto no site? <a href="/checkout">Ir para o pagamento</a></p>
+</section>
+
+<script>
+(() => {
+  const FONE = '5585981559590';
+  const GRATIS = 299;
+  const FRETE = { CE: 15, AL: 25, BA: 25, MA: 25, PB: 25, PE: 25, PI: 25, RN: 25, SE: 25,
+    DF: 35, ES: 35, GO: 35, MG: 35, MS: 35, MT: 35, RJ: 35, SP: 35,
+    AC: 45, AM: 45, AP: 45, PA: 45, PR: 45, RO: 45, RR: 45, RS: 45, SC: 45, TO: 45 };
+  const $ = (s) => document.getElementById(s);
+  const brl = (v) => v.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+  const uf = $('m-whats-uf');
+  let cart = null;
+
+  async function carregar() {
+    try { cart = await (await fetch('/cart.js', { cache: 'no-store' })).json(); } catch (e) { cart = null; }
+    contar();
+  }
+
+  function frete(sub) {
+    if (!uf.value) return null;
+    return sub >= GRATIS ? 0 : FRETE[uf.value];
+  }
+
+  function contar() {
+    if (!cart) return;
+    const sub = cart.total_price / 100;
+    const f = frete(sub);
+    $('m-whats-sub').textContent = brl(sub);
+    $('m-whats-frete').textContent = f === null ? 'escolha o estado' : f === 0 ? 'Grátis' : brl(f);
+    $('m-whats-total').textContent = f === null ? brl(sub) + ' + frete' : brl(sub + f);
+    $('m-whats-falta').textContent = sub >= GRATIS ? 'Frete grátis no seu pedido.' : 'Faltam ' + brl(GRATIS - sub) + ' para o frete grátis.';
+  }
+
+  uf.addEventListener('change', contar);
+  document.addEventListener('cart:update', carregar);
+  window.addEventListener('focus', carregar);
+
+  $('m-whats-btn').addEventListener('click', async () => {
+    const erro = $('m-whats-erro');
+    erro.textContent = '';
+    await carregar();
+    if (!cart || !cart.items.length) { erro.textContent = 'Seu carrinho está vazio.'; return; }
+    if (!uf.value) { erro.textContent = 'Escolha o seu estado para calcular o frete.'; uf.focus(); return; }
+    const sub = cart.total_price / 100;
+    const f = frete(sub);
+    const linhas = ['Olá! Quero fechar este pedido da MODESTINO:', ''];
+    cart.items.forEach((it, i) => {
+      const extra = Object.entries(it.properties || {}).filter(([k, v]) => v && !k.startsWith('_')).map(([k, v]) => k + ': ' + v).join(' · ');
+      linhas.push((i + 1) + '. ' + it.product_title + ' — ' + (it.variant_title || ''));
+      if (extra) linhas.push('   ' + extra);
+      linhas.push('   ' + it.quantity + ' x ' + brl(it.final_price / 100) + ' = ' + brl(it.final_line_price / 100));
+    });
+    linhas.push('');
+    if (cart.total_discount > 0) linhas.push('Descontos: -' + brl(cart.total_discount / 100));
+    linhas.push('Peças: ' + brl(sub));
+    linhas.push('Frete (' + uf.value + '): ' + (f === 0 ? 'Grátis' : brl(f)));
+    linhas.push('*Total: ' + brl(sub + f) + '*');
+    const nome = $('m-whats-nome').value.trim();
+    if (nome) linhas.push('', 'Nome: ' + nome);
+    window.open('https://wa.me/' + FONE + '?text=' + encodeURIComponent(linhas.join('\n')), '_blank', 'noopener');
+  });
+
+  carregar();
+})();
+</script>
+
+{% stylesheet %}
+.m-whats{max-width:560px;margin:8px auto 48px;padding:20px 16px;border-radius:12px;background:#E4DDD0;box-sizing:border-box}
+.m-whats__titulo{margin:0;font-size:1.5rem;text-align:center}
+.m-whats__sub{margin:6px 0 16px;text-align:center;font-size:.9rem;color:#6E675F;text-wrap:balance}
+.m-whats__campo{display:grid;gap:4px;font-size:.85rem;margin-bottom:12px}
+.m-whats__campo select,.m-whats__campo input{min-height:46px;padding:0 12px;border:1px solid #6E675F;border-radius:6px;background:#ECE7DE;font:inherit;font-size:1rem;width:100%;box-sizing:border-box}
+.m-whats__conta{margin:8px 0;display:grid;gap:6px}
+.m-whats__conta div{display:flex;justify-content:space-between}
+.m-whats__conta dt,.m-whats__conta dd{margin:0}
+.m-whats__total{border-top:1px solid #CBBFAE;padding-top:8px;font-size:1.3rem;font-weight:700}
+.m-whats__gratis{margin:0 0 14px;font-size:.85rem;color:#5B3F30;text-align:center}
+.m-whats__btn{width:100%;justify-content:center;box-sizing:border-box;font-size:1.05rem;min-height:52px}
+.m-whats__erro{color:#9B2C22;text-align:center;margin:8px 0 0}
+.m-whats__ou{text-align:center;font-size:.8rem;color:#6E675F;margin:12px 0 0}
+{% endstylesheet %}
+{%- endif -%}
+
+{% schema %}
+{ "name": "Fechar pelo WhatsApp", "settings": [] }
+{% endschema %}
