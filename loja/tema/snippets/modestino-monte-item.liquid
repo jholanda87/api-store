@@ -2,12 +2,18 @@
   assign f_preto = p.featured_image
   assign f_mapple = p.featured_image
   assign f_off = p.featured_image
-  assign arte = ''
+  assign a_preto = ''
+  assign a_mapple = ''
+  assign a_off = ''
   for m in p.images
     assign alt = m.alt | downcase
     if alt contains 'em detalhe'
-      if arte == ''
-        assign arte = m | image_url: width: 1200
+      if alt contains 'mapple'
+        assign a_mapple = m | image_url: width: 1200
+      elsif alt contains 'off white'
+        assign a_off = m | image_url: width: 1200
+      elsif alt contains 'preta'
+        assign a_preto = m | image_url: width: 1200
       endif
       continue
     endif
@@ -25,4 +31,4 @@
     endif
   endfor
 -%}
-{"handle":{{ p.handle | json }},"titulo":{{ p.title | json }},"preco":{{ p.price }},"exclusiva":{% if p.tags contains 'exclusiva' %}true{% else %}false{% endif %},"arte":{{ arte | json }},"img":{"Preto":{{ f_preto | image_url: width: 900 | json }},"Mapple Brown":{{ f_mapple | image_url: width: 900 | json }},"Off White":{{ f_off | image_url: width: 900 | json }}}}
+{"handle":{{ p.handle | json }},"titulo":{{ p.title | json }},"preco":{{ p.price }},"exclusiva":{% if p.tags contains 'exclusiva' %}true{% else %}false{% endif %},"arte":{% if a_preto != '' %}{"Preto":{{ a_preto | json }},"Mapple Brown":{{ a_mapple | default: a_preto | json }},"Off White":{{ a_off | default: a_preto | json }}}{% else %}null{% endif %},"img":{"Preto":{{ f_preto | image_url: width: 900 | json }},"Mapple Brown":{{ f_mapple | image_url: width: 900 | json }},"Off White":{{ f_off | image_url: width: 900 | json }}}}

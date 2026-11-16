@@ -137,7 +137,7 @@
     vf.querySelector('img').src = imgF(); vf.querySelector('img').alt = 'Frente: ' + (st.frente ? st.frente.titulo : 'lisa') + ', ' + st.cor;
     vc.querySelector('img').src = imgC(); vc.querySelector('img').alt = 'Costas: ' + (st.costas ? st.costas.titulo : 'lisa') + ', ' + st.cor;
     [[vf, st.frente, 'frente'], [vc, st.costas, 'costas']].forEach(([fig, it]) => {
-      const a = it && it.arte;
+      const a = it && it.arte && it.arte[st.cor];
       fig.classList.toggle('m-vista--arte', !!a);
       fig.querySelector('.m-zoom img').src = a || '';
       fig.querySelector('.m-zoom__btn').hidden = !a;
@@ -152,7 +152,7 @@
     [nada, ...itens].forEach(it => {
       const b = document.createElement('button'); b.type = 'button'; b.className = 'm-arte m-arte--' + lado + (it.titulo.startsWith('Selo') ? ' m-arte--selo' : '');
       b.setAttribute('aria-pressed', ((st[lado] && st[lado].handle) || '') === it.handle);
-      b.innerHTML = `<span class="m-arte__zoom"><img src="${it.img[st.cor]}" alt="" loading="lazy"></span><span class="m-arte__nome">${it.titulo}</span>${it.preco && lado === 'costas' ? `<span class="m-arte__preco">${brl(it.preco / 100)}</span>` : ''}`;
+      b.innerHTML = `<span class="m-arte__zoom${it.arte ? ' m-arte__zoom--inteira' : ''}"><img src="${it.arte ? it.arte[st.cor] : it.img[st.cor]}" alt="" loading="lazy"></span><span class="m-arte__nome">${it.titulo}</span>${it.preco && lado === 'costas' ? `<span class="m-arte__preco">${brl(it.preco / 100)}</span>` : ''}`;
       b.onclick = () => { st[lado] = it.handle ? it : null; box.querySelectorAll('.m-arte').forEach(x => x.setAttribute('aria-pressed', x === b)); vista(); };
       box.appendChild(b);
     });
@@ -191,7 +191,7 @@
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') fechar(); });
   document.querySelectorAll('.m-zoom__btn').forEach((b) => b.addEventListener('click', () => {
     const it = st[b.dataset.zoom]; if (!it || !it.arte) return;
-    caixa.querySelector('img').src = it.arte; caixa.querySelector('img').alt = 'Arte ' + it.titulo;
+    caixa.querySelector('img').src = it.arte[st.cor]; caixa.querySelector('img').alt = 'Arte ' + it.titulo;
     caixa.querySelector('p').textContent = it.titulo + ' · toque para fechar';
     caixa.hidden = false; document.body.style.overflow = 'hidden';
   }));
@@ -281,6 +281,7 @@
 .m-arte--frente .m-arte__zoom img{transform:scale(4);transform-origin:57% 19%}
 .m-arte--costas.m-arte--selo .m-arte__zoom img{transform:scale(4);transform-origin:33% 6%}
 .m-arte--frente.m-arte--selo .m-arte__zoom img{transform:scale(5);transform-origin:66% 15%}
+.m-arte__zoom--inteira img{transform:none!important;object-fit:contain!important}
 .m-arte__nome{font-size:.75rem;line-height:1.2}
 .m-arte__preco,.m-preco{font-family:var(--font-mono,monospace);font-size:.75rem}
 .m-monte__painel .m-preco{font-size:1.5rem;margin:12px 0 4px}
