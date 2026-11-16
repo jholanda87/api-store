@@ -144,7 +144,7 @@
     const box = $(alvo); box.innerHTML = '';
     const nada = {handle: '', titulo: lado === 'frente' ? 'Lisa' : 'Sem arte', img: D.lisa[lado]};
     [nada, ...itens].forEach(it => {
-      const b = document.createElement('button'); b.type = 'button'; b.className = 'm-arte m-arte--' + lado;
+      const b = document.createElement('button'); b.type = 'button'; b.className = 'm-arte m-arte--' + lado + (it.titulo.startsWith('Selo') ? ' m-arte--selo' : '');
       b.setAttribute('aria-pressed', ((st[lado] && st[lado].handle) || '') === it.handle);
       b.innerHTML = `<span class="m-arte__zoom"><img src="${it.img[st.cor]}" alt="" loading="lazy"></span><span class="m-arte__nome">${it.titulo}</span>${it.preco && lado === 'costas' ? `<span class="m-arte__preco">${brl(it.preco / 100)}</span>` : ''}`;
       b.onclick = () => { st[lado] = it.handle ? it : null; box.querySelectorAll('.m-arte').forEach(x => x.setAttribute('aria-pressed', x === b)); vista(); };
@@ -251,6 +251,8 @@
 .m-arte__zoom img{width:100%;height:100%;object-fit:cover}
 .m-arte--costas .m-arte__zoom img{transform:scale(2.3);transform-origin:50% 31%}
 .m-arte--frente .m-arte__zoom img{transform:scale(4);transform-origin:57% 19%}
+.m-arte--costas.m-arte--selo .m-arte__zoom img{transform:scale(4);transform-origin:50% 19%}
+.m-arte--frente.m-arte--selo .m-arte__zoom img{transform:scale(5);transform-origin:59% 24%}
 .m-arte__nome{font-size:.75rem;line-height:1.2}
 .m-arte__preco,.m-preco{font-family:var(--font-mono,monospace);font-size:.75rem}
 .m-monte__painel .m-preco{font-size:1.5rem;margin:12px 0 4px}
