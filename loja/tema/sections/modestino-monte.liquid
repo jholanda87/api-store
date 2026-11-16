@@ -72,8 +72,8 @@
 
     <div class="m-monte__grid">
       <div class="m-monte__vista" aria-live="polite">
-        <figure class="m-vista" id="vista-frente"><img alt="" width="900" height="1125"><figcaption>Frente</figcaption></figure>
-        <figure class="m-vista" id="vista-costas" hidden><img alt="" width="900" height="1125"><figcaption>Costas</figcaption></figure>
+        <figure class="m-vista" id="vista-frente"><img alt="" width="900" height="1125"><figcaption>Frente</figcaption><div class="m-zoom" aria-hidden="true"><img alt=""></div><button type="button" class="m-zoom__btn" data-zoom="frente" hidden>🔍 Ver arte ampliada</button></figure>
+        <figure class="m-vista" id="vista-costas" hidden><img alt="" width="900" height="1125"><figcaption>Costas</figcaption><div class="m-zoom" aria-hidden="true"><img alt=""></div><button type="button" class="m-zoom__btn" data-zoom="costas" hidden>🔍 Ver arte ampliada</button></figure>
       </div>
 
       <div class="m-monte__painel">
@@ -136,6 +136,12 @@
   function vista() {
     vf.querySelector('img').src = imgF(); vf.querySelector('img').alt = 'Frente: ' + (st.frente ? st.frente.titulo : 'lisa') + ', ' + st.cor;
     vc.querySelector('img').src = imgC(); vc.querySelector('img').alt = 'Costas: ' + (st.costas ? st.costas.titulo : 'lisa') + ', ' + st.cor;
+    [[vf, st.frente, 'frente'], [vc, st.costas, 'costas']].forEach(([fig, it]) => {
+      const a = it && it.arte;
+      fig.classList.toggle('m-vista--arte', !!a);
+      fig.querySelector('.m-zoom img').src = a || '';
+      fig.querySelector('.m-zoom__btn').hidden = !a;
+    });
     vf.hidden = st.etapa === 3; vc.hidden = st.etapa < 3;
     document.querySelector('.m-monte__vista').classList.toggle('m-monte__vista--dupla', st.etapa === 4);
   }
@@ -177,6 +183,18 @@
   document.querySelectorAll('.m-cores button').forEach(b => b.onclick = () => {
     st.cor = b.dataset.cor; document.querySelectorAll('.m-cores button').forEach(x => x.setAttribute('aria-pressed', x === b)); vista();
   });
+  const caixa = document.createElement('div'); caixa.className = 'm-caixa'; caixa.hidden = true;
+  caixa.innerHTML = '<button type="button" class="m-caixa__x" aria-label="Fechar">×</button><img alt=""><p></p>';
+  document.body.appendChild(caixa);
+  const fechar = () => { caixa.hidden = true; document.body.style.overflow = ''; };
+  caixa.addEventListener('click', fechar);
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') fechar(); });
+  document.querySelectorAll('.m-zoom__btn').forEach((b) => b.addEventListener('click', () => {
+    const it = st[b.dataset.zoom]; if (!it || !it.arte) return;
+    caixa.querySelector('img').src = it.arte; caixa.querySelector('img').alt = 'Arte ' + it.titulo;
+    caixa.querySelector('p').textContent = it.titulo + ' · toque para fechar';
+    caixa.hidden = false; document.body.style.overflow = 'hidden';
+  }));
   document.querySelectorAll('[data-ir]').forEach(b => b.addEventListener('click', () => ir(+b.dataset.ir)));
 
   $('#monte-add').onclick = async () => {
@@ -238,6 +256,16 @@
 .m-monte__vista--dupla{grid-template-columns:1fr 1fr}
 .m-vista{margin:0;position:relative;background:#E4DDD0;border-radius:8px;overflow:hidden}
 .m-vista img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover}
+.m-zoom{position:absolute;inset:0;background:#ECE7DE;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .2s}
+.m-zoom img{max-width:92%;max-height:92%;width:auto;aspect-ratio:auto!important;object-fit:contain}
+@media(hover:hover){.m-vista--arte:hover .m-zoom{opacity:1}.m-vista--arte{cursor:zoom-in}}
+.m-zoom__btn{position:absolute;right:8px;bottom:8px;min-height:40px;padding:0 14px;border:0;border-radius:999px;background:#22201D;color:#ECE7DE;font:inherit;font-size:.85rem;cursor:pointer}
+@media(hover:hover){.m-zoom__btn{display:none}}
+.m-caixa{position:fixed;inset:0;z-index:1000;background:rgba(34,32,29,.92);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px;cursor:zoom-out}
+.m-caixa[hidden]{display:none}
+.m-caixa img{max-width:100%;max-height:80vh;object-fit:contain;border-radius:6px}
+.m-caixa p{color:#ECE7DE;margin:12px 0 0;font-size:.9rem}
+.m-caixa__x{position:absolute;top:12px;right:12px;width:44px;height:44px;border:0;border-radius:50%;background:#ECE7DE;font-size:1.6rem;cursor:pointer}
 .m-vista figcaption{position:absolute;left:8px;top:8px;font-size:.75rem;background:#ECE7DE;padding:2px 8px;border-radius:999px}
 .m-etapa h2{font-size:1.2rem;margin:0 0 12px}
 .m-cores{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
