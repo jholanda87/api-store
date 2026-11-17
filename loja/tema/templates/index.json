@@ -16,7 +16,7 @@
           "type": "pergunta",
           "settings": {
             "pergunta": "Como escolher o tamanho?",
-            "resposta": "<p>Meça de axila a axila uma camiseta sua estendida sobre uma superfície plana e compare: P 51 · M 54 · G 57 · GG 60 cm. A página do produto tem um guia de medidas.</p>"
+            "resposta": "<p>Tabela de medidas da camiseta Modestino (cm, peça estendida e lisa):</p><table><thead><tr><th>Tam.</th><th>Tórax (volta)</th><th>Compr.</th><th>Ombro</th><th>Manga</th></tr></thead><tbody><tr><td>P</td><td>102</td><td>70</td><td>13</td><td>18</td></tr><tr><td>M</td><td>108</td><td>72</td><td>14</td><td>20</td></tr><tr><td>G</td><td>114</td><td>75</td><td>15</td><td>23</td></tr><tr><td>GG</td><td>120</td><td>77</td><td>16</td><td>26</td></tr></tbody></table><p><strong>Tórax:</strong> de lado a lado, na altura do peito, e multiplique por 2. <strong>Comprimento:</strong> da gola até a barra, nas costas. <strong>Ombro e manga:</strong> do ponto do ombro à costura, e da cava à barra da manga. O modelo das fotos mede 1,74 m, pesa 75 kg e veste P.</p>"
           }
         },
         "q1": {

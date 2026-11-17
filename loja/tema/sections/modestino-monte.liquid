@@ -108,6 +108,7 @@
             <label><input type="radio" name="tam" value="G"> G</label>
             <label><input type="radio" name="tam" value="GG"> GG</label>
           </fieldset>
+          <details class="m-monte__medidas"><summary>Tabela de medidas</summary>{% render 'modestino-medidas' %}</details>
           <p id="monte-preco" class="m-preco"></p>
           <p id="monte-nota" class="m-monte__nota"></p>
           <button type="button" class="m-btn m-btn--primario" id="monte-add">Adicionar ao carrinho</button>
@@ -289,6 +290,8 @@
 .m-voltar{background:none;border:0;padding:12px 0;cursor:pointer;font:inherit;text-decoration:underline}
 .m-tams{border:0;padding:0;margin:12px 0}
 .m-tams label{display:inline-flex;gap:6px;align-items:center;min-height:44px;padding:0 14px;border:1px solid #6E675F;border-radius:4px;margin:0 6px 6px 0;cursor:pointer}
+.m-monte__medidas{margin:0 0 12px}.m-monte__medidas summary{cursor:pointer;text-decoration:underline;padding:8px 0}
+.m-faq__resp table{width:100%;border-collapse:collapse;margin:8px 0}.m-faq__resp th,.m-faq__resp td{padding:8px 4px;text-align:center;border-bottom:1px solid #CBBFAE}.m-faq__resp thead th{font-size:.75rem;color:#6E675F;border-bottom:2px solid #22201D}
 .m-monte__erro{color:#9B2C22}
 {% endstylesheet %}
 

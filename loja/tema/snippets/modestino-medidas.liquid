@@ -1,0 +1,38 @@
+{%- comment -%} Tabela de medidas oficial (camiseta Modestino). Medidas em cm, peça estendida e lisa. {%- endcomment -%}
+<div class="m-medidas">
+  <div class="m-medidas__caixa">
+    <table class="m-medidas__tabela">
+      <caption class="m-sr">Tabela de medidas da camiseta Modestino, em centímetros</caption>
+      <thead><tr><th scope="col">Tam.</th><th scope="col">Tórax<br><small>(volta)</small></th><th scope="col">Compr.</th><th scope="col">Ombro</th><th scope="col">Manga</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">P</th><td>102</td><td>70</td><td>13</td><td>18</td></tr>
+        <tr><th scope="row">M</th><td>108</td><td>72</td><td>14</td><td>20</td></tr>
+        <tr><th scope="row">G</th><td>114</td><td>75</td><td>15</td><td>23</td></tr>
+        <tr><th scope="row">GG</th><td>120</td><td>77</td><td>16</td><td>26</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="m-medidas__nota">Medidas em cm · peça estendida e lisa</p>
+  <dl class="m-medidas__como">
+    <div><dt>Tórax</dt><dd>De lado a lado, na altura do peito. Multiplique por 2.</dd></div>
+    <div><dt>Comprimento</dt><dd>Da gola até a barra, na parte de trás.</dd></div>
+    <div><dt>Ombro e manga</dt><dd>Do ponto do ombro à costura, e da cava à barra da manga.</dd></div>
+  </dl>
+  <p class="m-medidas__modelo">Modelo das fotos: 1,74 m, 75 kg, veste P.</p>
+</div>
+<style>
+.m-medidas{margin:8px 0}
+.m-medidas__caixa{overflow-x:auto}
+.m-medidas__tabela{width:100%;border-collapse:collapse;font-size:.95rem}
+.m-medidas__tabela th,.m-medidas__tabela td{padding:10px 6px;text-align:center;border-bottom:1px solid #CBBFAE}
+.m-medidas__tabela thead th{font-size:.72rem;font-weight:500;letter-spacing:.06em;color:#6E675F;border-bottom:2px solid #22201D}
+.m-medidas__tabela tbody th{text-align:left;color:#5B3F30;font-weight:700}
+.m-medidas__tabela td{font-size:1.15rem}
+.m-medidas__nota{font-size:.72rem;letter-spacing:.06em;text-align:center;color:#6E675F;margin:8px 0 12px}
+.m-medidas__como{display:grid;gap:10px;margin:0}
+@media(min-width:600px){.m-medidas__como{grid-template-columns:repeat(3,1fr)}}
+.m-medidas__como div{border-top:2px solid #5B3F30;padding-top:6px}
+.m-medidas__como dt{font-style:italic;font-weight:600}
+.m-medidas__como dd{margin:2px 0 0;font-size:.85rem;color:#6E675F}
+.m-medidas__modelo{font-size:.85rem;margin:12px 0 0}
+</style>

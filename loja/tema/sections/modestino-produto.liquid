@@ -131,7 +131,7 @@
       </fieldset>
 
       <details class="m-calc">
-        <summary>Guia de medidas</summary>
+        <summary>Tabela de medidas</summary>
         <div class="m-calc__corpo">
           <p>Meça, de axila a axila, uma camiseta sua estendida sobre uma superfície plana.</p>
           <div class="m-calc__linha">
@@ -141,16 +141,7 @@
             <button type="button" class="m-btn m-btn--secundario" data-calc-ok>Calcular</button>
           </div>
           <p class="m-calc__res" id="calc-res-{{ section.id }}" data-calc-res aria-live="polite"></p>
-          <div class="m-tabela-caixa">
-            <table class="m-tabela">
-              <caption class="m-sr">Medidas da Camiseta Básica Modestino</caption>
-              <thead><tr><th scope="col">Tamanho</th>{% for tam in product.options_with_values[1].values %}<th scope="col">{{ tam }}</th>{% endfor %}</tr></thead>
-              <tbody>
-                <tr><th scope="row">Largura</th>{% for l in larguras %}<td>{{ l }} cm</td>{% endfor %}</tr>
-                <tr><th scope="row">Tórax</th>{% for t in torax %}<td>{{ t }} cm</td>{% endfor %}</tr>
-              </tbody>
-            </table>
-          </div>
+          {% render 'modestino-medidas' %}
         </div>
       </details>
 
