@@ -30,7 +30,7 @@
         endfor
       -%}
       <li>
-        <a class="m-basica" href="{{ b.url }}{% if var %}?variant={{ var.id }}{% endif %}">
+        <a class="m-basica" href="{{ b.url }}?cor={{ cor | url_encode }}">
           {{ foto | image_url: width: 700 | image_tag: loading: 'lazy', widths: '350, 700', sizes: '(max-width: 699px) 92vw, 33vw', alt: b.title | append: ' ' | append: cor }}
           <span class="m-basica__nome">Básica {{ cor }}</span>
           <span class="m-basica__preco">{{ b.price | money_without_trailing_zeros }}</span>

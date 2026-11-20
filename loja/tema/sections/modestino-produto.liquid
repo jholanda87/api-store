@@ -284,6 +284,8 @@
     raiz.querySelector('[data-calc-ok]').addEventListener('click', calcular);
     calc.addEventListener('keydown', (ev) => { if (ev.key === 'Enter') { ev.preventDefault(); calcular(); } });
 
+    const qCor = new URLSearchParams(location.search).get('cor');
+    if (qCor) { const r = form.querySelector('input[name="m-cor"][value="' + qCor + '"]'); if (r) r.checked = true; }
     atualizar();
   })();
 </script>
