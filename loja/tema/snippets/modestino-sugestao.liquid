@@ -1,0 +1,57 @@
+{%- comment -%}
+  "Sugira uma arte": botão flutuante (canto inferior esquerdo) que abre um painel.
+  Texto vai pelo formulário de contato nativo da Shopify (grátis, chega no e-mail da loja).
+  Imagem/PDF vai pelo WhatsApp (a Shopify não aceita anexo no formulário nativo).
+{%- endcomment -%}
+<button type="button" class="m-sug__abrir" data-sug-abrir aria-haspopup="dialog">💡 Sugira uma arte</button>
+<div class="m-sug" data-sug hidden role="dialog" aria-modal="true" aria-labelledby="m-sug-titulo">
+  <div class="m-sug__painel">
+    <button type="button" class="m-sug__x" data-sug-fechar aria-label="Fechar">×</button>
+    {%- form 'contact', id: 'm-sug-form' -%}
+      {%- if form.posted_successfully? and form.body contains 'SUGESTAO DE ARTE' -%}
+        <h2 id="m-sug-titulo" class="m-sug__titulo">Obrigado pela ideia!</h2>
+        <p class="m-sug__texto">Recebemos a sua sugestão. Toda ideia é lida com carinho pela nossa equipe.</p>
+        <script>document.addEventListener('DOMContentLoaded',()=>{document.querySelector('[data-sug]').hidden=false;});</script>
+      {%- else -%}
+        <h2 id="m-sug-titulo" class="m-sug__titulo">Sugira uma arte</h2>
+        <p class="m-sug__texto">Tem uma ideia de estampa? Conta pra gente! Cada sugestão passa por uma análise de estilo e de produção. Nem toda ideia vira camiseta, mas é daqui que nascem muitas das próximas.</p>
+        {{ form.errors | default_errors }}
+        <input type="hidden" name="contact[assunto]" value="Sugestão de arte">
+        <label class="m-sug__campo">Seu nome<input type="text" name="contact[name]" autocomplete="name" required></label>
+        <label class="m-sug__campo">Seu e-mail<input type="email" name="contact[email]" autocomplete="email" required></label>
+        <label class="m-sug__campo">Sua sugestão<textarea name="contact[body]" rows="4" required placeholder="Descreva a arte: tema, onde ficaria (frente ou costas), cores..." data-sug-texto></textarea></label>
+        <button type="submit" class="m-btn m-btn--primario m-sug__enviar">Enviar sugestão</button>
+        <p class="m-sug__anexo">Tem imagem, foto ou PDF?<br><a href="https://wa.me/5585981559590?text={{ 'Oi! Quero sugerir uma arte para a MODESTINO. Vou mandar a imagem aqui:' | url_encode }}" target="_blank" rel="noopener">Envie o arquivo pelo WhatsApp</a></p>
+      {%- endif -%}
+    {%- endform -%}
+  </div>
+</div>
+<script>
+(() => {
+  const caixa = document.querySelector('[data-sug]'); if (!caixa) return;
+  const abrir = () => { caixa.hidden = false; document.body.style.overflow = 'hidden'; };
+  const fechar = () => { caixa.hidden = true; document.body.style.overflow = ''; };
+  document.querySelector('[data-sug-abrir]').addEventListener('click', abrir);
+  caixa.querySelector('[data-sug-fechar]').addEventListener('click', fechar);
+  caixa.addEventListener('click', (e) => { if (e.target === caixa) fechar(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !caixa.hidden) fechar(); });
+  const f = document.getElementById('m-sug-form'), t = caixa.querySelector('[data-sug-texto]');
+  if (f && t) f.addEventListener('submit', () => { if (!t.value.startsWith('SUGESTAO DE ARTE')) t.value = 'SUGESTAO DE ARTE\n\n' + t.value; });
+})();
+</script>
+<style>
+.m-sug__abrir{position:fixed;left:16px;bottom:16px;z-index:900;min-height:44px;padding:0 16px;border:0;border-radius:999px;background:#5B3F30;color:#ECE7DE;font:inherit;font-size:.9rem;box-shadow:0 4px 14px rgba(34,32,29,.25);cursor:pointer}
+.m-sug{position:fixed;inset:0;z-index:1001;background:rgba(34,32,29,.6);display:flex;align-items:flex-end;justify-content:center}
+.m-sug[hidden]{display:none}
+@media(min-width:700px){.m-sug{align-items:center}}
+.m-sug__painel{position:relative;background:#ECE7DE;width:100%;max-width:460px;max-height:92vh;overflow:auto;border-radius:16px 16px 0 0;padding:24px 20px;box-sizing:border-box}
+@media(min-width:700px){.m-sug__painel{border-radius:16px}}
+.m-sug__x{position:absolute;top:8px;right:8px;width:44px;height:44px;border:0;background:none;font-size:1.8rem;cursor:pointer}
+.m-sug__titulo{margin:0 0 8px;font-size:1.6rem}
+.m-sug__texto{margin:0 0 16px;font-size:.92rem;color:#6E675F}
+.m-sug__campo{display:grid;gap:4px;font-size:.85rem;margin-bottom:12px}
+.m-sug__campo input,.m-sug__campo textarea{font:inherit;font-size:1rem;padding:10px 12px;border:1px solid #6E675F;border-radius:6px;background:#fff;width:100%;box-sizing:border-box}
+.m-sug__enviar{width:100%;justify-content:center;box-sizing:border-box}
+.m-sug__anexo{text-align:center;font-size:.85rem;margin:14px 0 0}
+.m-sug__anexo a{font-weight:600}
+</style>
