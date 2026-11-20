@@ -3,25 +3,25 @@
   Texto vai pelo formulário de contato nativo da Shopify (grátis, chega no e-mail da loja).
   Imagem/PDF vai pelo WhatsApp (a Shopify não aceita anexo no formulário nativo).
 {%- endcomment -%}
-<button type="button" class="m-sug__abrir" data-sug-abrir aria-haspopup="dialog"><span aria-hidden="true">💡</span><span class="m-sug__rotulo"> Sugira uma arte</span></button>
+<button type="button" class="m-sug__abrir" data-sug-abrir aria-haspopup="dialog"><span aria-hidden="true">💡</span><span class="m-sug__rotulo"> Sugira um lugar</span></button>
 <div class="m-sug" data-sug hidden role="dialog" aria-modal="true" aria-labelledby="m-sug-titulo">
   <div class="m-sug__painel">
     <button type="button" class="m-sug__x" data-sug-fechar aria-label="Fechar">×</button>
     {%- form 'contact', id: 'm-sug-form' -%}
       {%- if form.posted_successfully? and form.body contains 'SUGESTAO DE ARTE' -%}
-        <h2 id="m-sug-titulo" class="m-sug__titulo">Obrigado pela ideia!</h2>
-        <p class="m-sug__texto">Recebemos a sua sugestão. Toda ideia é lida com carinho pela nossa equipe.</p>
+        <h2 id="m-sug-titulo" class="m-sug__titulo">Obrigado!</h2>
+        <p class="m-sug__texto">Recebemos o seu lugar. Vamos analisar com carinho.</p>
         <script>document.addEventListener('DOMContentLoaded',()=>{document.querySelector('[data-sug]').hidden=false;});</script>
       {%- else -%}
-        <h2 id="m-sug-titulo" class="m-sug__titulo">Sugira uma arte</h2>
-        <p class="m-sug__texto">Tem uma ideia de estampa? Conta pra gente! Cada sugestão passa por uma análise de estilo e de produção. Nem toda ideia vira camiseta, mas é daqui que nascem muitas das próximas.</p>
+        <h2 id="m-sug-titulo" class="m-sug__titulo">Sugira um lugar</h2>
+        <p class="m-sug__texto">Viajou e tirou aquela foto que merece virar estampa? Mande o lugar. Vamos analisar e, se combinar com a coleção, ele pode virar o próximo selo.</p>
         {{ form.errors | default_errors }}
-        <input type="hidden" name="contact[assunto]" value="Sugestão de arte">
+        <input type="hidden" name="contact[assunto]" value="Sugestão de lugar">
         <label class="m-sug__campo">Seu nome<input type="text" name="contact[name]" autocomplete="name" required></label>
         <label class="m-sug__campo">Seu e-mail<input type="email" name="contact[email]" autocomplete="email" required></label>
-        <label class="m-sug__campo">Sua sugestão<textarea name="contact[body]" rows="4" required placeholder="Descreva a arte: tema, onde ficaria (frente ou costas), cores..." data-sug-texto></textarea></label>
+        <label class="m-sug__campo">Lugar sugerido<textarea name="contact[body]" rows="4" required placeholder="Qual lugar? Ex.: uma praia, uma cidade, um mirante..." data-sug-texto></textarea></label>
         <button type="submit" class="m-btn m-btn--primario m-sug__enviar">Enviar sugestão</button>
-        <p class="m-sug__anexo">Tem imagem, foto ou PDF?<br><a href="https://wa.me/5585981559590?text={{ 'Oi! Quero sugerir uma arte para a MODESTINO. Vou mandar a imagem aqui:' | url_encode }}" target="_blank" rel="noopener">Envie o arquivo pelo WhatsApp</a></p>
+        <p class="m-sug__anexo">Tem a foto?<br><a href="https://wa.me/5585981559590?text={{ 'Oi! Quero sugerir um lugar para virar estampa da MODESTINO. Segue a foto:' | url_encode }}" target="_blank" rel="noopener">Envie pelo WhatsApp</a></p>
       {%- endif -%}
     {%- endform -%}
   </div>
