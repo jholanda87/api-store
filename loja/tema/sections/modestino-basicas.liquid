@@ -1,0 +1,59 @@
+{%- comment -%} Página "Básicas": as 3 cores da Camiseta Básica, cada uma leva ao produto já na cor escolhida. {%- endcomment -%}
+{%- assign b = all_products['camiseta-basica-modestino'] -%}
+<section class="m-wrap m-basicas">
+  <h1 class="m-basicas__titulo">Básicas</h1>
+  <p class="m-basicas__sub">Lisa, sem logo aparente. Modal com elastano. {{ b.price | money_without_trailing_zeros }}</p>
+  <ul class="m-basicas__lista">
+    {%- for cor in b.options_with_values[0].values -%}
+      {%- liquid
+        case cor
+          when 'Preto'
+            assign chave = 'preta'
+          when 'Mapple Brown'
+            assign chave = 'mapple'
+          else
+            assign chave = 'off white'
+        endcase
+        assign foto = b.featured_image
+        for m in b.media
+          assign alt = m.alt | downcase
+          if alt contains 'lisa' and alt contains chave
+            assign foto = m.preview_image
+          endif
+        endfor
+        assign var = nil
+        for v in b.variants
+          if v.option1 == cor and v.available
+            assign var = v
+            break
+          endif
+        endfor
+      -%}
+      <li>
+        <a class="m-basica" href="{{ b.url }}{% if var %}?variant={{ var.id }}{% endif %}">
+          {{ foto | image_url: width: 700 | image_tag: loading: 'lazy', widths: '350, 700', sizes: '(max-width: 699px) 92vw, 33vw', alt: b.title | append: ' ' | append: cor }}
+          <span class="m-basica__nome">Básica {{ cor }}</span>
+          <span class="m-basica__preco">{{ b.price | money_without_trailing_zeros }}</span>
+        </a>
+      </li>
+    {%- endfor -%}
+  </ul>
+  <p class="m-basicas__monte">Quer com arte? <a href="{{ routes.root_url }}">Monte a sua</a></p>
+</section>
+
+{% stylesheet %}
+.m-basicas{padding-top:24px;padding-bottom:48px}
+.m-basicas__titulo{margin:0;text-align:center}
+.m-basicas__sub{text-align:center;color:#6E675F;font-size:.9rem;margin:6px 0 20px}
+.m-basicas__lista{list-style:none;margin:0;padding:0;display:grid;gap:16px}
+@media(min-width:700px){.m-basicas__lista{grid-template-columns:repeat(3,1fr)}}
+.m-basica{display:grid;gap:4px;text-decoration:none;color:inherit}
+.m-basica img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:12px;background:#E4DDD0}
+.m-basica__nome{font-size:1.1rem;font-weight:600}
+.m-basica__preco{font-family:var(--font-mono,monospace);font-size:.9rem}
+.m-basicas__monte{text-align:center;margin-top:24px}
+{% endstylesheet %}
+
+{% schema %}
+{ "name": "Básicas", "settings": [] }
+{% endschema %}

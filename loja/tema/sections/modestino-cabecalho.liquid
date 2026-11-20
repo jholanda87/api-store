@@ -12,7 +12,6 @@
       {%- for link in links -%}
         <a href="{{ link.url }}" {% if link.url contains "monte-a-sua" %}class="m-nav__monte" {% endif %}{% if link.current %}aria-current="page"{% endif %}>{{ link.title }}</a>
       {%- else -%}
-        <a href="/products/camiseta-basica-modestino">Camiseta</a>
         <a href="/pages/trocas">Trocas</a>
         <a href="/pages/perguntas-frequentes">Dúvidas</a>
       {%- endfor -%}
@@ -29,19 +28,28 @@
           {%- for link in links -%}
             <a href="{{ link.url }}"{% if link.url contains "monte-a-sua" %} class="m-nav__monte"{% endif %}>{{ link.title }}</a>
           {%- else -%}
-            <a href="/products/camiseta-basica-modestino">Camiseta</a>
-            <a href="/pages/trocas">Trocas</a>
+                <a href="/pages/trocas">Trocas</a>
             <a href="/pages/perguntas-frequentes">Dúvidas</a>
           {%- endfor -%}
         </nav>
       </details>
     </div>
   </div>
+  <nav class="m-linhas" aria-label="Escolha a linha">
+    <a class="m-linha" href="/pages/basicas"{% if page.handle == 'basicas' %} aria-current="page"{% endif %}><strong>Básicas</strong><small>Lisas · 3 cores</small></a>
+    <a class="m-linha m-linha--monte" href="{{ routes.root_url }}"{% if template.name == 'index' %} aria-current="page"{% endif %}><strong>Monte a sua</strong><small>Cor + arte do seu jeito</small></a>
+  </nav>
 </header>
 
 {% stylesheet %}
 .m-nav a.m-nav__monte, .m-gaveta__painel a.m-nav__monte { background: var(--color-accent); color: var(--color-bg); padding: 0 16px; border-radius: 999px; }
 .m-nav a.m-nav__monte:hover, .m-nav a.m-nav__monte[aria-current='page'] { text-decoration: none; background: var(--color-text); }
+.m-linhas { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; max-width: 560px; margin: 0 auto; padding: 10px 16px 12px; box-sizing: border-box; }
+.m-linha { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; min-height: 56px; border: 1.5px solid var(--color-text); border-radius: 12px; color: var(--color-text); text-decoration: none; text-align: center; }
+.m-linha strong { font-size: 1.05rem; }
+.m-linha small { font-size: .72rem; opacity: .8; }
+.m-linha--monte { background: var(--color-accent); border-color: var(--color-accent); color: var(--color-bg); }
+.m-linha[aria-current='page'] { outline: 2px solid var(--color-text); outline-offset: 2px; }
 {% endstylesheet %}
 
 {% schema %}
