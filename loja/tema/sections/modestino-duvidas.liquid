@@ -13,7 +13,7 @@
       {%- for block in section.blocks -%}
         <details {{ block.shopify_attributes }}>
           <summary>{{ block.settings.pergunta }}{% render 'modestino-icone', nome: 'mais' %}</summary>
-          <div class="m-faq__resp">{{ block.settings.resposta }}</div>
+          <div class="m-faq__resp">{{ block.settings.resposta }}{% if block.settings.pergunta contains 'tamanho' %}{% render 'modestino-medidas' %}{% endif %}</div>
         </details>
       {%- endfor -%}
       <p class="m-duvidas__todas"><a class="m-link" href="/pages/perguntas-frequentes">Todas as dúvidas</a></p>
