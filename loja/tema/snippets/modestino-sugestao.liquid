@@ -3,7 +3,7 @@
   Texto vai pelo formulário de contato nativo da Shopify (grátis, chega no e-mail da loja).
   Imagem/PDF vai pelo WhatsApp (a Shopify não aceita anexo no formulário nativo).
 {%- endcomment -%}
-<button type="button" class="m-sug__abrir" data-sug-abrir aria-haspopup="dialog">💡 Sugira uma arte</button>
+<button type="button" class="m-sug__abrir" data-sug-abrir aria-haspopup="dialog"><span aria-hidden="true">💡</span><span class="m-sug__rotulo"> Sugira uma arte</span></button>
 <div class="m-sug" data-sug hidden role="dialog" aria-modal="true" aria-labelledby="m-sug-titulo">
   <div class="m-sug__painel">
     <button type="button" class="m-sug__x" data-sug-fechar aria-label="Fechar">×</button>
@@ -41,6 +41,7 @@
 </script>
 <style>
 .m-sug__abrir{position:fixed;left:16px;bottom:16px;z-index:900;min-height:44px;padding:0 16px;border:0;border-radius:999px;background:#5B3F30;color:#ECE7DE;font:inherit;font-size:.9rem;box-shadow:0 4px 14px rgba(34,32,29,.25);cursor:pointer}
+@media(max-width:699px){.m-sug__abrir{width:48px;height:48px;padding:0;font-size:1.3rem;left:12px;bottom:84px;opacity:.95}.m-sug__rotulo{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}}
 .m-sug{position:fixed;inset:0;z-index:1001;background:rgba(34,32,29,.6);display:flex;align-items:flex-end;justify-content:center}
 .m-sug[hidden]{display:none}
 @media(min-width:700px){.m-sug{align-items:center}}
