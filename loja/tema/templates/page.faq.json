@@ -8,21 +8,21 @@
           "type": "pergunta",
           "settings": {
             "pergunta": "Como escolher o tamanho?",
-            "resposta": "<p>Meça de axila a axila uma camiseta sua estendida sobre uma superfície plana e compare: P 51 · M 54 · G 57 · GG 60 cm. A página do produto tem um guia de medidas.</p>"
+            "resposta": "<p>Confira a tabela abaixo. O modelo das fotos mede 1,74 m, pesa 75 kg e veste P. Se ficar na dúvida, mande suas medidas pelo WhatsApp.</p>"
           }
         },
         "q1": {
           "type": "pergunta",
           "settings": {
             "pergunta": "Qual é o valor do frete?",
-            "resposta": "<p>Fortaleza: R$ 10. Demais cidades: calculado no checkout pelo CEP.</p>"
+            "resposta": "<p>Grátis acima de R$ 299. Abaixo disso: Ceará R$ 15 · Nordeste R$ 25 · Sudeste e Centro-Oeste R$ 35 · Sul e Norte R$ 45. O carrinho mostra o valor certinho.</p>"
           }
         },
         "q2": {
           "type": "pergunta",
           "settings": {
             "pergunta": "Como solicitar uma troca?",
-            "resposta": "<p>Prazo de 30 dias para troca de tamanho ou defeito e de 7 dias para desistência. Em Fortaleza, a troca é presencial. Solicite pelo WhatsApp, informando o número do pedido.</p>"
+            "resposta": "<p>Prazo de 30 dias para troca de tamanho ou defeito e de 7 dias para desistência. Solicite pelo WhatsApp, informando o número do pedido.</p>"
           }
         },
         "q3": {
@@ -35,29 +35,29 @@
         "q4": {
           "type": "pergunta",
           "settings": {
-            "pergunta": "Cupons de embaixador valem para os kits?",
-            "resposta": "<p>Sim. Os cupons de embaixador valem para qualquer compra, avulsa ou kit, enquanto houver estoque. Não são cumulativos com outros descontos.</p>"
+            "pergunta": "Cupons de embaixador valem para todas as peças?",
+            "resposta": "<p>Sim. Os cupons de embaixador valem para qualquer compra. Não são cumulativos com outros descontos.</p>"
           }
         },
         "q5": {
           "type": "pergunta",
           "settings": {
-            "pergunta": "É possível escolher as cores do kit?",
-            "resposta": "<p>Sim. Cor e tamanho são definidos peça a peça.</p>"
+            "pergunta": "Qual é o prazo de entrega?",
+            "resposta": "<p>Cada camiseta é feita sob encomenda: 5 dias para personalizar e 2 dias para despacho, mais o prazo do transporte até o seu endereço.</p>"
           }
         },
         "q6": {
           "type": "pergunta",
           "settings": {
-            "pergunta": "A camiseta tem logo?",
-            "resposta": "<p>Não. Apenas a assinatura MODESTINO na nuca, pelo lado de dentro.</p>"
+            "pergunta": "Onde ficam as artes na camiseta?",
+            "resposta": "<p>Você escolhe no Monte a sua: arte na frente, nas costas, nas duas ou camiseta lisa. A assinatura MODESTINO fica na nuca, pelo lado de dentro.</p>"
           }
         },
         "q7": {
           "type": "pergunta",
           "settings": {
             "pergunta": "Qual é a composição?",
-            "resposta": "<p>Informada na etiqueta de cada peça. Para consultar antes da compra, fale com o atendimento pelo WhatsApp.</p>"
+            "resposta": "<p>95% modal (viscose) e 5% elastano: macia, fresca e com elasticidade na medida.</p>"
           }
         },
         "q8": {
